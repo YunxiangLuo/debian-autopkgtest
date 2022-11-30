@@ -1,0 +1,61 @@
+ * try-restarting systemd-logind
+ * daemon is started
+ * loginctl succeeds
+ * XDG_SESSION_ID=c5
+0::/user.slice/user-0.slice/session-c5.scope
+ * process is in session cgroup
+Oct 17 04:03:54 host systemd-logind[281]: Watching system buttons on /dev/input/event0 (AT Translated Set 2 keyboard)
+Oct 17 04:03:54 host systemd[1]: Started User Login Management.
+Oct 17 04:06:38 host systemd[1]: Stopping User Login Management...
+Oct 17 04:06:38 host systemd[1]: systemd-logind.service: Deactivated successfully.
+Oct 17 04:06:38 host systemd[1]: Stopped User Login Management.
+Oct 17 04:06:38 host systemd[1]: Starting User Login Management...
+Oct 17 04:06:38 host systemd-logind[21832]: New seat seat0.
+Oct 17 04:06:38 host systemd-logind[21832]: Watching system buttons on /dev/input/event3 (Power Button)
+Oct 17 04:06:38 host systemd-logind[21832]: Watching system buttons on /dev/input/event0 (AT Translated Set 2 keyboard)
+Oct 17 04:06:38 host systemd[1]: Started User Login Management.
+Fake Lid Switch: /dev/input/event5
+Oct 17 04:06:38 host systemd-logind[21832]: Watching system buttons on /dev/input/event5 (Fake Lid Switch)
+P: /devices/virtual/input/input6/event5
+M: event5
+R: 5
+U: input
+D: c 13:69
+N: input/event5
+L: 0
+E: DEVPATH=/devices/virtual/input/input6/event5
+E: DEVNAME=/dev/input/event5
+E: MAJOR=13
+E: MINOR=69
+E: SUBSYSTEM=input
+E: USEC_INITIALIZED=131976504
+E: ID_INPUT=1
+E: ID_INPUT_SWITCH=1
+E: TAGS=:power-switch:
+E: CURRENT_TAGS=:power-switch:
+
+Oct 17 04:06:38 host systemd-logind[21832]: Lid closed.
+Oct 17 04:06:38 host systemd-logind[21832]: Suspending...
+Oct 17 04:06:38 host systemd[1]: Starting System Suspend...
+Oct 17 04:06:38 host systemd[1]: systemd-suspend.service: Deactivated successfully.
+Oct 17 04:06:38 host systemd[1]: Finished System Suspend.
+Oct 17 04:06:38 host systemd-logind[21832]: Operation 'sleep' finished.
+   waiting for suspend, 30s remaining...
+ * closing lid caused suspend
+ * waiting for 30s inhibition time between suspends
+Oct 17 04:06:39 host systemd-logind[21832]: Lid opened.
+Oct 17 04:07:09 host systemd-logind[21832]: Lid closed.
+Oct 17 04:07:09 host systemd-logind[21832]: Suspending...
+Oct 17 04:07:09 host systemd[1]: Starting System Suspend...
+Oct 17 04:07:09 host systemd[1]: systemd-suspend.service: Deactivated successfully.
+Oct 17 04:07:09 host systemd[1]: Finished System Suspend.
+Oct 17 04:07:09 host systemd-logind[21832]: Operation 'sleep' finished.
+ * closing lid caused suspend
+ * scheduled shutdown with wall message
+Shutdown scheduled for Mon 2022-10-17 04:08:10 UTC, use 'shutdown -c' to cancel.
+Oct 17 04:07:10 host systemd-logind[21832]: Lid opened.
+Oct 17 04:07:10 host systemd-logind[21832]: Creating /run/nologin, blocking further logins...
+ * scheduled shutdown without wall message
+Shutdown scheduled for Mon 2022-10-17 04:08:15 UTC, use 'shutdown -c' to cancel.
+Oct 17 04:07:15 host systemd-logind[21832]: Creating /run/nologin, blocking further logins...
+ * Skipping ACL tests, as there is no seat

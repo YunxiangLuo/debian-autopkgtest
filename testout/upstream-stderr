@@ -1,0 +1,523 @@
++ make -C TEST-01-BASIC setup run
+sed: can't read /var/tmp/systemd-test.PJUHfP/root//lib/systemd/system/cryptdisks-early.service: No such file or directory
+sed: can't read /var/tmp/systemd-test.PJUHfP/root//lib/systemd/system/cryptdisks.service: No such file or directory
+sed: can't read /var/tmp/systemd-test.PJUHfP/root//lib/systemd/system/hwclock.service: No such file or directory
+sed: can't read /var/tmp/systemd-test.PJUHfP/root//lib/systemd/system/rc.service: No such file or directory
+sed: can't read /var/tmp/systemd-test.PJUHfP/root//lib/systemd/system/rcS.service: No such file or directory
+sed: can't read /var/tmp/systemd-test.PJUHfP/root//lib/systemd/system/x11-common.service: No such file or directory
+depmod: WARNING: could not open modules.builtin.modinfo at /var/tmp/systemd-test.PJUHfP/root/lib/modules/5.19.0-2-amd64: No such file or directory
++ env --unset=UNIFIED_CGROUP_HIERARCHY --unset=SYSTEMD_NSPAWN_UNIFIED_HIERARCHY /bin/systemd-nspawn --register=no --kill-signal=SIGKILL --directory=/var/tmp/systemd-test.PJUHfP/root --setenv=SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-01.units:/usr/lib/systemd/tests/testdata/units: /lib/systemd/systemd systemd.unit=testsuite.target systemd.wants=testsuite-01.service systemd.wants=end.service
+Spawning container root on /var/tmp/systemd-test.PJUHfP/root.
+Press ^] three times within 1s to kill container.
+Container root has been shut down.
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.PJUHfP/root/var/log/journal/4da833139c2e44898b8148f0a840d0e2...
+Finishing after writing 3189 entries
++ env --unset=UNIFIED_CGROUP_HIERARCHY --unset=SYSTEMD_NSPAWN_UNIFIED_HIERARCHY /bin/systemd-nspawn --register=no --kill-signal=SIGKILL --directory=/var/tmp/systemd-test.PJUHfP/unprivileged-nspawn-root --setenv=SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-01.units:/usr/lib/systemd/tests/testdata/units: -U --private-network /lib/systemd/systemd systemd.unit=testsuite.target systemd.wants=testsuite-01.service systemd.wants=end.service
+Spawning container unprivileged-nspawn-root on /var/tmp/systemd-test.PJUHfP/unprivileged-nspawn-root.
+Press ^] three times within 1s to kill container.
+Selected user namespace base 970129408 and range 65536.
+Container unprivileged-nspawn-root has been shut down.
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.PJUHfP/unprivileged-nspawn-root/var/log/journal/450dc9907be84cc286c5e4d76552217a...
+Finishing after writing 3544 entries
++ make -C TEST-02-UNITTESTS setup run
++ env --unset=UNIFIED_CGROUP_HIERARCHY --unset=SYSTEMD_NSPAWN_UNIFIED_HIERARCHY /bin/systemd-nspawn --register=no --kill-signal=SIGKILL --directory=/var/tmp/systemd-test.F9wfBb/root --setenv=SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-02.units:/usr/lib/systemd/tests/testdata/units: /lib/systemd/systemd systemd.unit=testsuite.target systemd.wants=testsuite-02.service systemd.wants=end.service
+Spawning container root on /var/tmp/systemd-test.F9wfBb/root.
+Press ^] three times within 1s to kill container.
+Container root has been shut down.
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.F9wfBb/root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 45784 entries
++ env --unset=UNIFIED_CGROUP_HIERARCHY --unset=SYSTEMD_NSPAWN_UNIFIED_HIERARCHY /bin/systemd-nspawn --register=no --kill-signal=SIGKILL --directory=/var/tmp/systemd-test.F9wfBb/unprivileged-nspawn-root --setenv=SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-02.units:/usr/lib/systemd/tests/testdata/units: -U --private-network /lib/systemd/systemd systemd.unit=testsuite.target systemd.wants=testsuite-02.service systemd.wants=end.service
+Spawning container unprivileged-nspawn-root on /var/tmp/systemd-test.F9wfBb/unprivileged-nspawn-root.
+Press ^] three times within 1s to kill container.
+Selected user namespace base 970129408 and range 65536.
+Container unprivileged-nspawn-root has been shut down.
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.F9wfBb/unprivileged-nspawn-root/var/log/journal/bdf9853f071246288686fc09886a9529...
+Finishing after writing 64036 entries
++ make -C TEST-03-JOBS setup run
++ env --unset=UNIFIED_CGROUP_HIERARCHY --unset=SYSTEMD_NSPAWN_UNIFIED_HIERARCHY /bin/systemd-nspawn --register=no --kill-signal=SIGKILL --directory=/var/tmp/systemd-test.rFzBc5/root --setenv=SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-03.units:/usr/lib/systemd/tests/testdata/units: /lib/systemd/systemd systemd.unit=testsuite.target systemd.wants=testsuite-03.service systemd.wants=end.service
+Spawning container root on /var/tmp/systemd-test.rFzBc5/root.
+Press ^] three times within 1s to kill container.
+Container root has been shut down.
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.rFzBc5/root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 3456 entries
++ make -C TEST-04-JOURNAL setup run
++ env --unset=UNIFIED_CGROUP_HIERARCHY --unset=SYSTEMD_NSPAWN_UNIFIED_HIERARCHY /bin/systemd-nspawn --register=no --kill-signal=SIGKILL --directory=/var/tmp/systemd-test.1zAp1c/root --setenv=SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-04.units:/usr/lib/systemd/tests/testdata/units: /lib/systemd/systemd systemd.unit=testsuite.target systemd.wants=testsuite-04.service systemd.wants=end.service
+Spawning container root on /var/tmp/systemd-test.1zAp1c/root.
+Press ^] three times within 1s to kill container.
+Container root has been shut down.
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.1zAp1c/root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 14543 entries
++ make -C TEST-05-RLIMITS setup run
++ env --unset=UNIFIED_CGROUP_HIERARCHY --unset=SYSTEMD_NSPAWN_UNIFIED_HIERARCHY /bin/systemd-nspawn --register=no --kill-signal=SIGKILL --directory=/var/tmp/systemd-test.hfznVU/root --setenv=SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-05.units:/usr/lib/systemd/tests/testdata/units: /lib/systemd/systemd systemd.unit=testsuite.target systemd.wants=testsuite-05.service systemd.wants=end.service
+Spawning container root on /var/tmp/systemd-test.hfznVU/root.
+Press ^] three times within 1s to kill container.
+Container root has been shut down.
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.hfznVU/root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 2483 entries
++ make -C TEST-06-SELINUX setup run
++ make -C TEST-07-ISSUE-1981 setup run
++ env --unset=UNIFIED_CGROUP_HIERARCHY --unset=SYSTEMD_NSPAWN_UNIFIED_HIERARCHY timeout --foreground 30 /bin/systemd-nspawn --register=no --kill-signal=SIGKILL --directory=/var/tmp/systemd-test.z5JNde/root --setenv=SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-07.units:/usr/lib/systemd/tests/testdata/units: /lib/systemd/systemd systemd.unit=testsuite.target systemd.wants=testsuite-07.service systemd.wants=end.service
+Spawning container root on /var/tmp/systemd-test.z5JNde/root.
+Press ^] three times within 1s to kill container.
+Container root has been shut down.
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.z5JNde/root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 5103 entries
++ make -C TEST-08-ISSUE-2730 setup run
+sed: can't read /var/tmp/systemd-test.7Iv9X5/root//lib/systemd/system/cryptdisks-early.service: No such file or directory
+sed: can't read /var/tmp/systemd-test.7Iv9X5/root//lib/systemd/system/cryptdisks.service: No such file or directory
+sed: can't read /var/tmp/systemd-test.7Iv9X5/root//lib/systemd/system/hwclock.service: No such file or directory
+sed: can't read /var/tmp/systemd-test.7Iv9X5/root//lib/systemd/system/rc.service: No such file or directory
+sed: can't read /var/tmp/systemd-test.7Iv9X5/root//lib/systemd/system/rcS.service: No such file or directory
+sed: can't read /var/tmp/systemd-test.7Iv9X5/root//lib/systemd/system/x11-common.service: No such file or directory
+depmod: WARNING: could not open modules.builtin.modinfo at /var/tmp/systemd-test.7Iv9X5/root/lib/modules/5.19.0-2-amd64: No such file or directory
++ timeout --foreground 300 /bin/qemu-system-x86_64 -smp 1 -net none -m 512M -nographic -kernel /boot/vmlinuz-5.19.0-2-amd64 -drive format=raw,cache=unsafe,file=/var/tmp/systemd-test.7Iv9X5/test08.img -initrd /boot/initrd.img-5.19.0-2-amd64 -append 'root=LABEL=systemd_boot rw raid=noautodetect rd.luks=0 loglevel=2 init=/lib/systemd/systemd console=ttyS0 SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-08.units:/usr/lib/systemd/tests/testdata/units: systemd.unit=testsuite.target systemd.wants=testsuite-08.service systemd.wants=end.service'
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.7Iv9X5/root/var/log/journal/48f39898f3dc4732a8f2c64347cc120f...
+Finishing after writing 2162 entries
++ make -C TEST-09-ISSUE-2691 setup run
++ timeout --foreground 300 /bin/qemu-system-x86_64 -smp 1 -net none -m 512M -nographic -kernel /boot/vmlinuz-5.19.0-2-amd64 -drive format=raw,cache=unsafe,file=/var/tmp/systemd-test.z71f4B/default.img -initrd /boot/initrd.img-5.19.0-2-amd64 -append 'root=LABEL=systemd_boot rw raid=noautodetect rd.luks=0 loglevel=2 init=/lib/systemd/systemd console=ttyS0 SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-09.units:/usr/lib/systemd/tests/testdata/units: systemd.unit=testsuite.target systemd.wants=testsuite-09.service systemd.wants=end.service'
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.z71f4B/root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 2005 entries
++ make -C TEST-10-ISSUE-2467 setup run
++ env --unset=UNIFIED_CGROUP_HIERARCHY --unset=SYSTEMD_NSPAWN_UNIFIED_HIERARCHY /bin/systemd-nspawn --register=no --kill-signal=SIGKILL --directory=/var/tmp/systemd-test.nk2oHs/root --setenv=SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-10.units:/usr/lib/systemd/tests/testdata/units: /lib/systemd/systemd systemd.unit=testsuite.target systemd.wants=testsuite-10.service systemd.wants=end.service
+Spawning container root on /var/tmp/systemd-test.nk2oHs/root.
+Press ^] three times within 1s to kill container.
+Container root has been shut down.
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.nk2oHs/root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 1757 entries
++ make -C TEST-11-ISSUE-3166 setup run
++ timeout --foreground 300 /bin/qemu-system-x86_64 -smp 1 -net none -m 512M -nographic -kernel /boot/vmlinuz-5.19.0-2-amd64 -drive format=raw,cache=unsafe,file=/var/tmp/systemd-test.u3JGMI/default.img -initrd /boot/initrd.img-5.19.0-2-amd64 -append 'root=LABEL=systemd_boot rw raid=noautodetect rd.luks=0 loglevel=2 init=/lib/systemd/systemd console=ttyS0 SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-11.units:/usr/lib/systemd/tests/testdata/units: systemd.unit=testsuite.target systemd.wants=testsuite-11.service systemd.wants=end.service'
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.u3JGMI/root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 2346 entries
++ make -C TEST-12-ISSUE-3171 setup run
++ env --unset=UNIFIED_CGROUP_HIERARCHY --unset=SYSTEMD_NSPAWN_UNIFIED_HIERARCHY /bin/systemd-nspawn --register=no --kill-signal=SIGKILL --directory=/var/tmp/systemd-test.2IvgzO/root --setenv=SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-12.units:/usr/lib/systemd/tests/testdata/units: /lib/systemd/systemd systemd.unit=testsuite.target systemd.wants=testsuite-12.service systemd.wants=end.service
+Spawning container root on /var/tmp/systemd-test.2IvgzO/root.
+Press ^] three times within 1s to kill container.
+Container root has been shut down.
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.2IvgzO/root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 4581 entries
++ make -C TEST-13-NSPAWN-SMOKE setup run
+./test.sh: line 20: selinuxenabled: command not found
++ /bin/qemu-system-x86_64 -smp 1 -net none -m 512M -nographic -kernel /boot/vmlinuz-5.19.0-2-amd64 -drive format=raw,cache=unsafe,file=/var/tmp/systemd-test.KAdSMt/nspawn.img -initrd /boot/initrd.img-5.19.0-2-amd64 -append 'root=LABEL=systemd_boot rw raid=noautodetect rd.luks=0 loglevel=2 init=/lib/systemd/systemd console=ttyS0 SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-13.units:/usr/lib/systemd/tests/testdata/units: systemd.unit=testsuite.target systemd.wants=testsuite-13.service systemd.wants=end.service'
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.KAdSMt/root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 52533 entries
++ make -C TEST-14-MACHINE-ID setup run
++ /bin/qemu-system-x86_64 -smp 1 -net none -m 512M -nographic -kernel /boot/vmlinuz-5.19.0-2-amd64 -drive format=raw,cache=unsafe,file=/var/tmp/systemd-test.MytET1/badid.img -initrd /boot/initrd.img-5.19.0-2-amd64 -append 'root=LABEL=systemd_boot rw raid=noautodetect rd.luks=0 loglevel=2 init=/lib/systemd/systemd console=ttyS0 SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-14.units:/usr/lib/systemd/tests/testdata/units: systemd.unit=testsuite.target systemd.wants=testsuite-14.service systemd.wants=end.service'
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.MytET1/root/var/log/journal/196a6910a9344adf9a926a7f274c22d0...
+Finishing after writing 2200 entries
++ make -C TEST-15-DROPIN setup run
++ env --unset=UNIFIED_CGROUP_HIERARCHY --unset=SYSTEMD_NSPAWN_UNIFIED_HIERARCHY /bin/systemd-nspawn --register=no --kill-signal=SIGKILL --directory=/var/tmp/systemd-test.zbegSg/root --setenv=SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-15.units:/usr/lib/systemd/tests/testdata/units: /lib/systemd/systemd systemd.unit=testsuite.target systemd.wants=testsuite-15.service systemd.wants=end.service
+Spawning container root on /var/tmp/systemd-test.zbegSg/root.
+Press ^] three times within 1s to kill container.
+Container root has been shut down.
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.zbegSg/root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 22564 entries
++ make -C TEST-16-EXTEND-TIMEOUT setup run
++ env --unset=UNIFIED_CGROUP_HIERARCHY --unset=SYSTEMD_NSPAWN_UNIFIED_HIERARCHY /bin/systemd-nspawn --register=no --kill-signal=SIGKILL --directory=/var/tmp/systemd-test.9by9JF/root --setenv=SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-16.units:/usr/lib/systemd/tests/testdata/units: /lib/systemd/systemd systemd.unit=testsuite.target systemd.wants=testsuite-16.service systemd.wants=end.service
+Spawning container root on /var/tmp/systemd-test.9by9JF/root.
+Press ^] three times within 1s to kill container.
+Container root has been shut down.
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.9by9JF/root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 2291 entries
++ make -C TEST-17-UDEV setup run
++ timeout --foreground 800 /bin/qemu-system-x86_64 -smp 1 -net none -m 512M -nographic -kernel /boot/vmlinuz-5.19.0-2-amd64 -drive format=raw,cache=unsafe,file=/var/tmp/systemd-test.yilFba/default.img -initrd /boot/initrd.img-5.19.0-2-amd64 -append 'root=LABEL=systemd_boot rw raid=noautodetect rd.luks=0 loglevel=2 init=/lib/systemd/systemd console=ttyS0 SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-17.units:/usr/lib/systemd/tests/testdata/units: systemd.unit=testsuite.target systemd.wants=testsuite-17.service systemd.wants=end.service'
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.yilFba/root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 9714 entries
++ make -C TEST-18-FAILUREACTION setup run
++ env --unset=UNIFIED_CGROUP_HIERARCHY --unset=SYSTEMD_NSPAWN_UNIFIED_HIERARCHY /bin/systemd-nspawn --register=no --kill-signal=SIGKILL --directory=/var/tmp/systemd-test.wW62kt/root --setenv=SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-18.units:/usr/lib/systemd/tests/testdata/units: /lib/systemd/systemd systemd.unit=testsuite.target systemd.wants=testsuite-18.service systemd.wants=end.service
+Spawning container root on /var/tmp/systemd-test.wW62kt/root.
+Press ^] three times within 1s to kill container.
+Container root is being rebooted.
+Container root has been shut down.
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.wW62kt/root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 2935 entries
++ make -C TEST-19-DELEGATE setup run
++ timeout --foreground 600 /bin/qemu-system-x86_64 -smp 1 -net none -m 512M -nographic -kernel /boot/vmlinuz-5.19.0-2-amd64 -drive format=raw,cache=unsafe,file=/var/tmp/systemd-test.NRY2tp/default.img -initrd /boot/initrd.img-5.19.0-2-amd64 -append 'systemd.unified_cgroup_hierarchy=yes root=LABEL=systemd_boot rw raid=noautodetect rd.luks=0 loglevel=2 init=/lib/systemd/systemd console=ttyS0 SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-19.units:/usr/lib/systemd/tests/testdata/units: systemd.unit=testsuite.target systemd.wants=testsuite-19.service systemd.wants=end.service'
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.NRY2tp/root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 2710 entries
++ make -C TEST-20-MAINPIDGAMES setup run
++ env --unset=UNIFIED_CGROUP_HIERARCHY --unset=SYSTEMD_NSPAWN_UNIFIED_HIERARCHY /bin/systemd-nspawn --register=no --kill-signal=SIGKILL --directory=/var/tmp/systemd-test.k4qNe7/root --setenv=SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-20.units:/usr/lib/systemd/tests/testdata/units: /lib/systemd/systemd systemd.unit=testsuite.target systemd.wants=testsuite-20.service systemd.wants=end.service
+Spawning container root on /var/tmp/systemd-test.k4qNe7/root.
+Press ^] three times within 1s to kill container.
+Container root has been shut down.
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.k4qNe7/root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 733 entries
++ make -C TEST-22-TMPFILES setup run
++ env --unset=UNIFIED_CGROUP_HIERARCHY --unset=SYSTEMD_NSPAWN_UNIFIED_HIERARCHY /bin/systemd-nspawn --register=no --kill-signal=SIGKILL --directory=/var/tmp/systemd-test.dGDAV5/root --setenv=SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-22.units:/usr/lib/systemd/tests/testdata/units: /lib/systemd/systemd systemd.unit=testsuite.target systemd.wants=testsuite-22.service systemd.wants=end.service
+Spawning container root on /var/tmp/systemd-test.dGDAV5/root.
+Press ^] three times within 1s to kill container.
+Container root has been shut down.
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.dGDAV5/root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 1455 entries
++ make -C TEST-23-TYPE-EXEC setup run
++ env --unset=UNIFIED_CGROUP_HIERARCHY --unset=SYSTEMD_NSPAWN_UNIFIED_HIERARCHY /bin/systemd-nspawn --register=no --kill-signal=SIGKILL --directory=/var/tmp/systemd-test.vNKNlp/root --setenv=SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-23.units:/usr/lib/systemd/tests/testdata/units: /lib/systemd/systemd systemd.unit=testsuite.target systemd.wants=testsuite-23.service systemd.wants=end.service
+Spawning container root on /var/tmp/systemd-test.vNKNlp/root.
+Press ^] three times within 1s to kill container.
+Container root has been shut down.
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.vNKNlp/root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 667 entries
++ make -C TEST-24-CRYPTSETUP setup run
+mke2fs 1.46.6-rc1 (12-Sep-2022)
+sed: can't read /var/tmp/systemd-test.KYcwpA/root//lib/systemd/system/cryptdisks-early.service: No such file or directory
+sed: can't read /var/tmp/systemd-test.KYcwpA/root//lib/systemd/system/cryptdisks.service: No such file or directory
+sed: can't read /var/tmp/systemd-test.KYcwpA/root//lib/systemd/system/hwclock.service: No such file or directory
+sed: can't read /var/tmp/systemd-test.KYcwpA/root//lib/systemd/system/rc.service: No such file or directory
+sed: can't read /var/tmp/systemd-test.KYcwpA/root//lib/systemd/system/rcS.service: No such file or directory
+sed: can't read /var/tmp/systemd-test.KYcwpA/root//lib/systemd/system/x11-common.service: No such file or directory
+depmod: WARNING: could not open modules.builtin.modinfo at /var/tmp/systemd-test.KYcwpA/root/lib/modules/5.19.0-2-amd64: No such file or directory
+depmod: WARNING: could not open modules.builtin.modinfo at /var/tmp/systemd-test.KYcwpA/root/lib/modules/5.19.0-2-amd64: No such file or directory
+16+0 records in
+16+0 records out
+16777216 bytes (17 MB, 16 MiB) copied, 0.00998146 s, 1.7 GB/s
+mke2fs 1.46.6-rc1 (12-Sep-2022)
++ /bin/qemu-system-x86_64 -smp 1 -net none -m 512M -nographic -kernel /boot/vmlinuz-5.19.0-2-amd64 -drive format=raw,cache=unsafe,file=/var/tmp/systemd-test.KYcwpA/cryptsetup.img -drive format=raw,cache=unsafe,file=/tmp/autopkgtest.YuN2Rg/build.irH/src/test/TEST-24-CRYPTSETUP/keydev.img -initrd /var/tmp/systemd-test.KYcwpA/initrd.img -append 'root=LABEL=systemd_boot rw raid=noautodetect rd.luks=0 loglevel=2 init=/lib/systemd/systemd console=ttyS0 SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-24.units:/usr/lib/systemd/tests/testdata/units: systemd.unit=testsuite.target systemd.wants=testsuite-24.service systemd.wants=end.service rd.luks=1 luks.name=deadbeef-dead-dead-beef-000000000000=test24_varcrypt luks.key=deadbeef-dead-dead-beef-000000000000=/keyfile:LABEL=varcrypt_keydev'
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.KYcwpA/root/var/log/journal/f7d133b2d1524e51a6bc2a38841d4494...
+Finishing after writing 2313 entries
++ make -C TEST-26-SETENV setup run
++ env --unset=UNIFIED_CGROUP_HIERARCHY --unset=SYSTEMD_NSPAWN_UNIFIED_HIERARCHY /bin/systemd-nspawn --register=no --kill-signal=SIGKILL --directory=/var/tmp/systemd-test.SoeonM/root --setenv=SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-26.units:/usr/lib/systemd/tests/testdata/units: /lib/systemd/systemd systemd.unit=testsuite.target systemd.wants=testsuite-26.service systemd.wants=end.service
+Spawning container root on /var/tmp/systemd-test.SoeonM/root.
+Press ^] three times within 1s to kill container.
+Container root has been shut down.
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.SoeonM/root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 2552 entries
++ make -C TEST-27-STDOUTFILE setup run
++ env --unset=UNIFIED_CGROUP_HIERARCHY --unset=SYSTEMD_NSPAWN_UNIFIED_HIERARCHY /bin/systemd-nspawn --register=no --kill-signal=SIGKILL --directory=/var/tmp/systemd-test.INoTck/root --setenv=SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-27.units:/usr/lib/systemd/tests/testdata/units: /lib/systemd/systemd systemd.unit=testsuite.target systemd.wants=testsuite-27.service systemd.wants=end.service
+Spawning container root on /var/tmp/systemd-test.INoTck/root.
+Press ^] three times within 1s to kill container.
+Container root has been shut down.
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.INoTck/root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 670 entries
++ make -C TEST-28-PERCENTJ-WANTEDBY setup run
++ env --unset=UNIFIED_CGROUP_HIERARCHY --unset=SYSTEMD_NSPAWN_UNIFIED_HIERARCHY /bin/systemd-nspawn --register=no --kill-signal=SIGKILL --directory=/var/tmp/systemd-test.E2yQDc/root --setenv=SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-28.units:/usr/lib/systemd/tests/testdata/units: /lib/systemd/systemd systemd.unit=testsuite.target systemd.wants=testsuite-28.service systemd.wants=end.service
+Spawning container root on /var/tmp/systemd-test.E2yQDc/root.
+Press ^] three times within 1s to kill container.
+Container root has been shut down.
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.E2yQDc/root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 1409 entries
++ env --unset=UNIFIED_CGROUP_HIERARCHY --unset=SYSTEMD_NSPAWN_UNIFIED_HIERARCHY /bin/systemd-nspawn --register=no --kill-signal=SIGKILL --directory=/var/tmp/systemd-test.E2yQDc/unprivileged-nspawn-root --setenv=SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-28.units:/usr/lib/systemd/tests/testdata/units: -U --private-network /lib/systemd/systemd systemd.unit=testsuite.target systemd.wants=testsuite-28.service systemd.wants=end.service
+Spawning container unprivileged-nspawn-root on /var/tmp/systemd-test.E2yQDc/unprivileged-nspawn-root.
+Press ^] three times within 1s to kill container.
+Selected user namespace base 970129408 and range 65536.
+Container unprivileged-nspawn-root has been shut down.
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.E2yQDc/unprivileged-nspawn-root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 1490 entries
++ make -C TEST-29-PORTABLE setup run
+depmod: WARNING: could not open modules.builtin.modinfo at /var/tmp/systemd-test.NCL2Aw/root/lib/modules/5.19.0-2-amd64: No such file or directory
++ /bin/qemu-system-x86_64 -smp 1 -net none -m 512M -nographic -kernel /boot/vmlinuz-5.19.0-2-amd64 -drive format=raw,cache=unsafe,file=/var/tmp/systemd-test.NCL2Aw/portabled.img -initrd /boot/initrd.img-5.19.0-2-amd64 -append 'root=LABEL=systemd_boot rw raid=noautodetect rd.luks=0 loglevel=2 init=/lib/systemd/systemd console=ttyS0 SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-29.units:/usr/lib/systemd/tests/testdata/units: systemd.unit=testsuite.target systemd.wants=testsuite-29.service systemd.wants=end.service'
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.NCL2Aw/root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 35779 entries
++ make -C TEST-30-ONCLOCKCHANGE setup run
++ /bin/qemu-system-x86_64 -smp 1 -net none -m 512M -nographic -kernel /boot/vmlinuz-5.19.0-2-amd64 -drive format=raw,cache=unsafe,file=/var/tmp/systemd-test.vofLTW/default.img -initrd /boot/initrd.img-5.19.0-2-amd64 -append 'root=LABEL=systemd_boot rw raid=noautodetect rd.luks=0 loglevel=2 init=/lib/systemd/systemd console=ttyS0 SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-30.units:/usr/lib/systemd/tests/testdata/units: systemd.unit=testsuite.target systemd.wants=testsuite-30.service systemd.wants=end.service'
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.vofLTW/root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 1359 entries
++ make -C TEST-31-DEVICE-ENUMERATION setup run
++ timeout --foreground 300 /bin/qemu-system-x86_64 -smp 1 -net none -m 512M -nographic -kernel /boot/vmlinuz-5.19.0-2-amd64 -drive format=raw,cache=unsafe,file=/var/tmp/systemd-test.7zaFqw/default.img -initrd /boot/initrd.img-5.19.0-2-amd64 -append 'root=LABEL=systemd_boot rw raid=noautodetect rd.luks=0 loglevel=2 init=/lib/systemd/systemd console=ttyS0 SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-31.units:/usr/lib/systemd/tests/testdata/units: systemd.unit=testsuite.target systemd.wants=testsuite-31.service systemd.wants=end.service'
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.7zaFqw/root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 1985 entries
++ make -C TEST-32-OOMPOLICY setup run
++ /bin/qemu-system-x86_64 -smp 1 -net none -m 512M -nographic -kernel /boot/vmlinuz-5.19.0-2-amd64 -drive format=raw,cache=unsafe,file=/var/tmp/systemd-test.5V0vRj/default.img -initrd /boot/initrd.img-5.19.0-2-amd64 -append 'systemd.unified_cgroup_hierarchy=yes root=LABEL=systemd_boot rw raid=noautodetect rd.luks=0 loglevel=2 init=/lib/systemd/systemd console=ttyS0 SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-32.units:/usr/lib/systemd/tests/testdata/units: systemd.unit=testsuite.target systemd.wants=testsuite-32.service systemd.wants=end.service'
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.5V0vRj/root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 1402 entries
++ make -C TEST-33-CLEAN-UNIT setup run
++ env --unset=UNIFIED_CGROUP_HIERARCHY --unset=SYSTEMD_NSPAWN_UNIFIED_HIERARCHY /bin/systemd-nspawn --register=no --kill-signal=SIGKILL --directory=/var/tmp/systemd-test.ivP3EK/root --setenv=SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-33.units:/usr/lib/systemd/tests/testdata/units: /lib/systemd/systemd systemd.unit=testsuite.target systemd.wants=testsuite-33.service systemd.wants=end.service
+Spawning container root on /var/tmp/systemd-test.ivP3EK/root.
+Press ^] three times within 1s to kill container.
+Container root has been shut down.
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.ivP3EK/root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 9197 entries
++ make -C TEST-34-DYNAMICUSERMIGRATE setup run
++ env --unset=UNIFIED_CGROUP_HIERARCHY --unset=SYSTEMD_NSPAWN_UNIFIED_HIERARCHY /bin/systemd-nspawn --register=no --kill-signal=SIGKILL --directory=/var/tmp/systemd-test.UGczni/root --setenv=SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-34.units:/usr/lib/systemd/tests/testdata/units: /lib/systemd/systemd systemd.unit=testsuite.target systemd.wants=testsuite-34.service systemd.wants=end.service
+Spawning container root on /var/tmp/systemd-test.UGczni/root.
+Press ^] three times within 1s to kill container.
+Container root has been shut down.
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.UGczni/root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 1220 entries
++ make -C TEST-36-NUMAPOLICY setup run
++ /bin/qemu-system-x86_64 -smp 1 -net none -m 512M -nographic -kernel /boot/vmlinuz-5.19.0-2-amd64 -drive format=raw,cache=unsafe,file=/var/tmp/systemd-test.CEBD3g/default.img -object memory-backend-ram,id=mem0,size=512M -numa node,memdev=mem0,nodeid=0 -initrd /boot/initrd.img-5.19.0-2-amd64 -append 'root=LABEL=systemd_boot rw raid=noautodetect rd.luks=0 loglevel=2 init=/lib/systemd/systemd console=ttyS0 SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-36.units:/usr/lib/systemd/tests/testdata/units: systemd.unit=testsuite.target systemd.wants=testsuite-36.service systemd.wants=end.service'
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.CEBD3g/root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 34676 entries
++ make -C TEST-37-RUNTIMEDIRECTORYPRESERVE setup run
++ env --unset=UNIFIED_CGROUP_HIERARCHY --unset=SYSTEMD_NSPAWN_UNIFIED_HIERARCHY /bin/systemd-nspawn --register=no --kill-signal=SIGKILL --directory=/var/tmp/systemd-test.Bh4Ll6/root --setenv=SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-37.units:/usr/lib/systemd/tests/testdata/units: /lib/systemd/systemd systemd.unit=testsuite.target systemd.wants=testsuite-37.service systemd.wants=end.service
+Spawning container root on /var/tmp/systemd-test.Bh4Ll6/root.
+Press ^] three times within 1s to kill container.
+Container root has been shut down.
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.Bh4Ll6/root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 1595 entries
++ make -C TEST-38-FREEZER setup run
++ /bin/qemu-system-x86_64 -smp 1 -net none -m 512M -nographic -kernel /boot/vmlinuz-5.19.0-2-amd64 -drive format=raw,cache=unsafe,file=/var/tmp/systemd-test.U03ZEx/default.img -initrd /boot/initrd.img-5.19.0-2-amd64 -append 'root=LABEL=systemd_boot rw raid=noautodetect rd.luks=0 loglevel=2 init=/lib/systemd/systemd console=ttyS0 SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-38.units:/usr/lib/systemd/tests/testdata/units: systemd.unit=testsuite.target systemd.wants=testsuite-38.service systemd.wants=end.service'
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.U03ZEx/root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 1747 entries
++ make -C TEST-39-EXECRELOAD setup run
++ env --unset=UNIFIED_CGROUP_HIERARCHY --unset=SYSTEMD_NSPAWN_UNIFIED_HIERARCHY /bin/systemd-nspawn --register=no --kill-signal=SIGKILL --directory=/var/tmp/systemd-test.lHOllS/root --setenv=SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-39.units:/usr/lib/systemd/tests/testdata/units: /lib/systemd/systemd systemd.unit=testsuite.target systemd.wants=testsuite-39.service systemd.wants=end.service
+Spawning container root on /var/tmp/systemd-test.lHOllS/root.
+Press ^] three times within 1s to kill container.
+Container root has been shut down.
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.lHOllS/root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 726 entries
++ make -C TEST-40-EXEC-COMMAND-EX setup run
++ env --unset=UNIFIED_CGROUP_HIERARCHY --unset=SYSTEMD_NSPAWN_UNIFIED_HIERARCHY /bin/systemd-nspawn --register=no --kill-signal=SIGKILL --directory=/var/tmp/systemd-test.TAzJQ6/root --setenv=SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-40.units:/usr/lib/systemd/tests/testdata/units: /lib/systemd/systemd systemd.unit=testsuite.target systemd.wants=testsuite-40.service systemd.wants=end.service
+Spawning container root on /var/tmp/systemd-test.TAzJQ6/root.
+Press ^] three times within 1s to kill container.
+Container root has been shut down.
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.TAzJQ6/root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 786 entries
++ make -C TEST-41-ONESHOT-RESTART setup run
++ env --unset=UNIFIED_CGROUP_HIERARCHY --unset=SYSTEMD_NSPAWN_UNIFIED_HIERARCHY /bin/systemd-nspawn --register=no --kill-signal=SIGKILL --directory=/var/tmp/systemd-test.5ZwoW5/root --setenv=SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-41.units:/usr/lib/systemd/tests/testdata/units: /lib/systemd/systemd systemd.unit=testsuite.target systemd.wants=testsuite-41.service systemd.wants=end.service
+Spawning container root on /var/tmp/systemd-test.5ZwoW5/root.
+Press ^] three times within 1s to kill container.
+Container root has been shut down.
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.5ZwoW5/root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 674 entries
++ make -C TEST-42-EXECSTOPPOST setup run
++ env --unset=UNIFIED_CGROUP_HIERARCHY --unset=SYSTEMD_NSPAWN_UNIFIED_HIERARCHY /bin/systemd-nspawn --register=no --kill-signal=SIGKILL --directory=/var/tmp/systemd-test.VXjknE/root --setenv=SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-42.units:/usr/lib/systemd/tests/testdata/units: /lib/systemd/systemd systemd.unit=testsuite.target systemd.wants=testsuite-42.service systemd.wants=end.service
+Spawning container root on /var/tmp/systemd-test.VXjknE/root.
+Press ^] three times within 1s to kill container.
+Container root has been shut down.
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.VXjknE/root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 2007 entries
++ make -C TEST-43-PRIVATEUSER-UNPRIV setup run
+depmod: WARNING: could not open modules.builtin.modinfo at /var/tmp/systemd-test.im9fQZ/root/lib/modules/5.19.0-2-amd64: No such file or directory
++ env --unset=UNIFIED_CGROUP_HIERARCHY --unset=SYSTEMD_NSPAWN_UNIFIED_HIERARCHY /bin/systemd-nspawn --register=no --kill-signal=SIGKILL --directory=/var/tmp/systemd-test.im9fQZ/root --setenv=SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-43.units:/usr/lib/systemd/tests/testdata/units: /lib/systemd/systemd systemd.unit=testsuite.target systemd.wants=testsuite-43.service systemd.wants=end.service
+Spawning container root on /var/tmp/systemd-test.im9fQZ/root.
+Press ^] three times within 1s to kill container.
+Container root has been shut down.
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.im9fQZ/root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 7545 entries
++ make -C TEST-44-LOG-NAMESPACE setup run
++ env --unset=UNIFIED_CGROUP_HIERARCHY --unset=SYSTEMD_NSPAWN_UNIFIED_HIERARCHY /bin/systemd-nspawn --register=no --kill-signal=SIGKILL --directory=/var/tmp/systemd-test.YMKBuA/root --setenv=SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-44.units:/usr/lib/systemd/tests/testdata/units: /lib/systemd/systemd systemd.unit=testsuite.target systemd.wants=testsuite-44.service systemd.wants=end.service
+Spawning container root on /var/tmp/systemd-test.YMKBuA/root.
+Press ^] three times within 1s to kill container.
+Container root has been shut down.
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.YMKBuA/root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 968 entries
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.YMKBuA/root/var/log/journal/bf9843c82a544a80ba731195e7125d98.foobar...
+Finishing after writing 5 entries
++ make -C TEST-46-HOMED setup run
++ env --unset=UNIFIED_CGROUP_HIERARCHY --unset=SYSTEMD_NSPAWN_UNIFIED_HIERARCHY /bin/systemd-nspawn --register=no --kill-signal=SIGKILL --directory=/var/tmp/systemd-test.k89iw1/root --setenv=SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-46.units:/usr/lib/systemd/tests/testdata/units: /lib/systemd/systemd systemd.unit=testsuite.target systemd.wants=testsuite-46.service systemd.wants=end.service
+Spawning container root on /var/tmp/systemd-test.k89iw1/root.
+Press ^] three times within 1s to kill container.
+Container root has been shut down.
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.k89iw1/root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 4489 entries
++ make -C TEST-47-ISSUE-14566 setup run
++ env --unset=UNIFIED_CGROUP_HIERARCHY --unset=SYSTEMD_NSPAWN_UNIFIED_HIERARCHY /bin/systemd-nspawn --register=no --kill-signal=SIGKILL --directory=/var/tmp/systemd-test.Yh39hP/root --setenv=SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-47.units:/usr/lib/systemd/tests/testdata/units: /lib/systemd/systemd systemd.unit=testsuite.target systemd.wants=testsuite-47.service systemd.wants=end.service
+Spawning container root on /var/tmp/systemd-test.Yh39hP/root.
+Press ^] three times within 1s to kill container.
+Container root has been shut down.
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.Yh39hP/root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 660 entries
++ make -C TEST-48-START-STOP-NO-RELOAD setup run
++ env --unset=UNIFIED_CGROUP_HIERARCHY --unset=SYSTEMD_NSPAWN_UNIFIED_HIERARCHY /bin/systemd-nspawn --register=no --kill-signal=SIGKILL --directory=/var/tmp/systemd-test.vNIMae/root --setenv=SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-48.units:/usr/lib/systemd/tests/testdata/units: /lib/systemd/systemd systemd.unit=testsuite.target systemd.wants=testsuite-48.service systemd.wants=end.service
+Spawning container root on /var/tmp/systemd-test.vNIMae/root.
+Press ^] three times within 1s to kill container.
+Container root has been shut down.
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.vNIMae/root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 7611 entries
++ make -C TEST-49-RUNTIME-BIND-PATHS setup run
++ env --unset=UNIFIED_CGROUP_HIERARCHY --unset=SYSTEMD_NSPAWN_UNIFIED_HIERARCHY /bin/systemd-nspawn --register=no --kill-signal=SIGKILL --directory=/var/tmp/systemd-test.2nYYTF/root --setenv=SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-49.units:/usr/lib/systemd/tests/testdata/units: /lib/systemd/systemd systemd.unit=testsuite.target systemd.wants=testsuite-49.service systemd.wants=end.service
+Spawning container root on /var/tmp/systemd-test.2nYYTF/root.
+Press ^] three times within 1s to kill container.
+Container root has been shut down.
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.2nYYTF/root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 4602 entries
++ make -C TEST-50-DISSECT setup run
+depmod: WARNING: could not open modules.builtin.modinfo at /var/tmp/systemd-test.VaiTAs/root/lib/modules/5.19.0-2-amd64: No such file or directory
++ timeout --foreground 1200 /bin/qemu-system-x86_64 -smp 1 -net none -m 512M -nographic -kernel /boot/vmlinuz-5.19.0-2-amd64 -drive format=raw,cache=unsafe,file=/var/tmp/systemd-test.VaiTAs/dissect.img -initrd /boot/initrd.img-5.19.0-2-amd64 -append 'root=LABEL=systemd_boot rw raid=noautodetect rd.luks=0 loglevel=2 init=/lib/systemd/systemd console=ttyS0 SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-50.units:/usr/lib/systemd/tests/testdata/units: systemd.unit=testsuite.target systemd.wants=testsuite-50.service systemd.wants=end.service'
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.VaiTAs/root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 35412 entries
++ make -C TEST-51-ISSUE-16115 setup run
++ env --unset=UNIFIED_CGROUP_HIERARCHY --unset=SYSTEMD_NSPAWN_UNIFIED_HIERARCHY /bin/systemd-nspawn --register=no --kill-signal=SIGKILL --directory=/var/tmp/systemd-test.q7m15H/root --setenv=SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-51.units:/usr/lib/systemd/tests/testdata/units: /lib/systemd/systemd systemd.unit=testsuite.target systemd.wants=testsuite-51.service systemd.wants=end.service
+Spawning container root on /var/tmp/systemd-test.q7m15H/root.
+Press ^] three times within 1s to kill container.
+Container root has been shut down.
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.q7m15H/root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 1658 entries
++ make -C TEST-52-HONORFIRSTSHUTDOWN setup run
++ env --unset=UNIFIED_CGROUP_HIERARCHY --unset=SYSTEMD_NSPAWN_UNIFIED_HIERARCHY timeout --foreground 60 /bin/systemd-nspawn --register=no --kill-signal=SIGKILL --directory=/var/tmp/systemd-test.DKB5ui/root --setenv=SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-52.units:/usr/lib/systemd/tests/testdata/units: /lib/systemd/systemd systemd.unit=testsuite.target systemd.wants=testsuite-52.service systemd.wants=end.service
+Spawning container root on /var/tmp/systemd-test.DKB5ui/root.
+Press ^] three times within 1s to kill container.
+Container root has been shut down.
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.DKB5ui/root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 626 entries
++ make -C TEST-53-ISSUE-16347 setup run
++ /bin/qemu-system-x86_64 -smp 1 -net none -m 512M -nographic -kernel /boot/vmlinuz-5.19.0-2-amd64 -drive format=raw,cache=unsafe,file=/var/tmp/systemd-test.Vcl7U6/default.img -rtc base=2022-10-20T04:45:26 -initrd /boot/initrd.img-5.19.0-2-amd64 -append 'root=LABEL=systemd_boot rw raid=noautodetect rd.luks=0 loglevel=2 init=/lib/systemd/systemd console=ttyS0 SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-53.units:/usr/lib/systemd/tests/testdata/units: systemd.unit=testsuite.target systemd.wants=testsuite-53.service systemd.wants=end.service'
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.Vcl7U6/root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 2105 entries
++ make -C TEST-54-CREDS setup run
+depmod: WARNING: could not open modules.builtin.modinfo at /var/tmp/systemd-test.KWgOkf/root/lib/modules/5.19.0-2-amd64: No such file or directory
++ env --unset=UNIFIED_CGROUP_HIERARCHY --unset=SYSTEMD_NSPAWN_UNIFIED_HIERARCHY /bin/systemd-nspawn --register=no --kill-signal=SIGKILL --directory=/var/tmp/systemd-test.KWgOkf/root --setenv=SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-54.units:/usr/lib/systemd/tests/testdata/units: --set-credential=mynspawncredential:strangevalue /lib/systemd/systemd systemd.unit=testsuite.target systemd.wants=testsuite-54.service systemd.wants=end.service systemd.set_credential=kernelcmdlinecred:uff rd.systemd.import_credentials=no
+Spawning container root on /var/tmp/systemd-test.KWgOkf/root.
+Press ^] three times within 1s to kill container.
+Container root has been shut down.
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.KWgOkf/root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 2128 entries
++ make -C TEST-55-OOMD setup run
++ env --unset=UNIFIED_CGROUP_HIERARCHY --unset=SYSTEMD_NSPAWN_UNIFIED_HIERARCHY /bin/systemd-nspawn --register=no --kill-signal=SIGKILL --directory=/var/tmp/systemd-test.qDcGkJ/root --setenv=SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-55.units:/usr/lib/systemd/tests/testdata/units: /lib/systemd/systemd systemd.unit=testsuite.target systemd.wants=testsuite-55.service systemd.wants=end.service
+Spawning container root on /var/tmp/systemd-test.qDcGkJ/root.
+Press ^] three times within 1s to kill container.
+Container root has been shut down.
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.qDcGkJ/root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 2336 entries
++ make -C TEST-56-EXIT-TYPE setup run
++ env --unset=UNIFIED_CGROUP_HIERARCHY --unset=SYSTEMD_NSPAWN_UNIFIED_HIERARCHY /bin/systemd-nspawn --register=no --kill-signal=SIGKILL --directory=/var/tmp/systemd-test.bsyf53/root --setenv=SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-56.units:/usr/lib/systemd/tests/testdata/units: /lib/systemd/systemd systemd.unit=testsuite.target systemd.wants=testsuite-56.service systemd.wants=end.service
+Spawning container root on /var/tmp/systemd-test.bsyf53/root.
+Press ^] three times within 1s to kill container.
+Container root has been shut down.
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.bsyf53/root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 1640 entries
++ make -C TEST-57-ONSUCCESS-UPHOLD setup run
++ env --unset=UNIFIED_CGROUP_HIERARCHY --unset=SYSTEMD_NSPAWN_UNIFIED_HIERARCHY /bin/systemd-nspawn --register=no --kill-signal=SIGKILL --directory=/var/tmp/systemd-test.gvpqhs/root --setenv=SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-57.units:/usr/lib/systemd/tests/testdata/units: /lib/systemd/systemd systemd.unit=testsuite.target systemd.wants=testsuite-57.service systemd.wants=end.service
+Spawning container root on /var/tmp/systemd-test.gvpqhs/root.
+Press ^] three times within 1s to kill container.
+Container root has been shut down.
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.gvpqhs/root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 1754 entries
++ make -C TEST-58-REPART setup run
++ /bin/qemu-system-x86_64 -smp 1 -net none -m 512M -nographic -kernel /boot/vmlinuz-5.19.0-2-amd64 -drive format=raw,cache=unsafe,file=/var/tmp/systemd-test.kGlNkA/default.img -initrd /boot/initrd.img-5.19.0-2-amd64 -append 'root=LABEL=systemd_boot rw raid=noautodetect rd.luks=0 loglevel=2 init=/lib/systemd/systemd console=ttyS0 SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-58.units:/usr/lib/systemd/tests/testdata/units: systemd.unit=testsuite.target systemd.wants=testsuite-58.service systemd.wants=end.service'
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.kGlNkA/root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 3562 entries
++ make -C TEST-59-RELOADING-RESTART setup run
++ env --unset=UNIFIED_CGROUP_HIERARCHY --unset=SYSTEMD_NSPAWN_UNIFIED_HIERARCHY /bin/systemd-nspawn --register=no --kill-signal=SIGKILL --directory=/var/tmp/systemd-test.jk9adV/root --setenv=SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-59.units:/usr/lib/systemd/tests/testdata/units: /lib/systemd/systemd systemd.unit=testsuite.target systemd.wants=testsuite-59.service systemd.wants=end.service
+Spawning container root on /var/tmp/systemd-test.jk9adV/root.
+Press ^] three times within 1s to kill container.
+Container root has been shut down.
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.jk9adV/root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 711 entries
++ make -C TEST-60-MOUNT-RATELIMIT setup run
++ env --unset=UNIFIED_CGROUP_HIERARCHY --unset=SYSTEMD_NSPAWN_UNIFIED_HIERARCHY /bin/systemd-nspawn --register=no --kill-signal=SIGKILL --directory=/var/tmp/systemd-test.ChEqV8/root --setenv=SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-60.units:/usr/lib/systemd/tests/testdata/units: /lib/systemd/systemd systemd.unit=testsuite.target systemd.wants=testsuite-60.service systemd.wants=end.service
+Spawning container root on /var/tmp/systemd-test.ChEqV8/root.
+Press ^] three times within 1s to kill container.
+Container root has been shut down.
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.ChEqV8/root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 5182 entries
++ make -C TEST-61-UNITTESTS-QEMU setup run
++ /bin/qemu-system-x86_64 -smp 1 -net none -m 512M -nographic -kernel /boot/vmlinuz-5.19.0-2-amd64 -drive format=raw,cache=unsafe,file=/var/tmp/systemd-test.z43o0D/default.img -initrd /boot/initrd.img-5.19.0-2-amd64 -append 'root=LABEL=systemd_boot rw raid=noautodetect rd.luks=0 loglevel=2 init=/lib/systemd/systemd console=ttyS0 SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-61.units:/usr/lib/systemd/tests/testdata/units: systemd.unit=testsuite.target systemd.wants=testsuite-61.service systemd.wants=end.service'
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.z43o0D/root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 3194 entries
++ make -C TEST-62-RESTRICT-IFACES setup run
++ /bin/qemu-system-x86_64 -smp 1 -net none -m 512M -nographic -kernel /boot/vmlinuz-5.19.0-2-amd64 -drive format=raw,cache=unsafe,file=/var/tmp/systemd-test.QPUOWv/default.img -initrd /boot/initrd.img-5.19.0-2-amd64 -append 'root=LABEL=systemd_boot rw raid=noautodetect rd.luks=0 loglevel=2 init=/lib/systemd/systemd console=ttyS0 SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-62.units:/usr/lib/systemd/tests/testdata/units: systemd.unit=testsuite.target systemd.wants=testsuite-62.service systemd.wants=end.service'
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.QPUOWv/root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 1995 entries
++ make -C TEST-63-ISSUE-17433 setup run
++ env --unset=UNIFIED_CGROUP_HIERARCHY --unset=SYSTEMD_NSPAWN_UNIFIED_HIERARCHY /bin/systemd-nspawn --register=no --kill-signal=SIGKILL --directory=/var/tmp/systemd-test.MpzaKX/root --setenv=SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-63.units:/usr/lib/systemd/tests/testdata/units: /lib/systemd/systemd systemd.unit=testsuite.target systemd.wants=testsuite-63.service systemd.wants=end.service
+Spawning container root on /var/tmp/systemd-test.MpzaKX/root.
+Press ^] three times within 1s to kill container.
+Container root has been shut down.
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.MpzaKX/root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 3846 entries
++ make -C TEST-64-UDEV-STORAGE setup run
++ make -C TEST-65-ANALYZE setup run
++ env --unset=UNIFIED_CGROUP_HIERARCHY --unset=SYSTEMD_NSPAWN_UNIFIED_HIERARCHY /bin/systemd-nspawn --register=no --kill-signal=SIGKILL --directory=/var/tmp/systemd-test.ryYhTM/root --setenv=SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-65.units:/usr/lib/systemd/tests/testdata/units: /lib/systemd/systemd systemd.unit=testsuite.target systemd.wants=testsuite-65.service systemd.wants=end.service
+Spawning container root on /var/tmp/systemd-test.ryYhTM/root.
+Press ^] three times within 1s to kill container.
+Container root has been shut down.
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.ryYhTM/root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 5753 entries
++ make -C TEST-66-DEVICE-ISOLATION setup run
++ /bin/qemu-system-x86_64 -smp 1 -net none -m 512M -nographic -kernel /boot/vmlinuz-5.19.0-2-amd64 -drive format=raw,cache=unsafe,file=/var/tmp/systemd-test.QZYodK/default.img -initrd /boot/initrd.img-5.19.0-2-amd64 -append 'root=LABEL=systemd_boot rw raid=noautodetect rd.luks=0 loglevel=2 init=/lib/systemd/systemd console=ttyS0 SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-66.units:/usr/lib/systemd/tests/testdata/units: systemd.unit=testsuite.target systemd.wants=testsuite-66.service systemd.wants=end.service'
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.QZYodK/root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 1563 entries
++ make -C TEST-67-INTEGRITY setup run
+depmod: WARNING: could not open modules.builtin.modinfo at /var/tmp/systemd-test.2FEPXh/root/lib/modules/5.19.0-2-amd64: No such file or directory
++ timeout --foreground 600 /bin/qemu-system-x86_64 -smp 1 -net none -m 512M -nographic -kernel /boot/vmlinuz-5.19.0-2-amd64 -drive format=raw,cache=unsafe,file=/var/tmp/systemd-test.2FEPXh/default.img -initrd /boot/initrd.img-5.19.0-2-amd64 -append 'root=LABEL=systemd_boot rw raid=noautodetect rd.luks=0 loglevel=2 init=/lib/systemd/systemd console=ttyS0 SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-67.units:/usr/lib/systemd/tests/testdata/units: systemd.unit=testsuite.target systemd.wants=testsuite-67.service systemd.wants=end.service'
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.2FEPXh/root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 10995 entries
++ make -C TEST-68-PROPAGATE-EXIT-STATUS setup run
++ env --unset=UNIFIED_CGROUP_HIERARCHY --unset=SYSTEMD_NSPAWN_UNIFIED_HIERARCHY /bin/systemd-nspawn --register=no --kill-signal=SIGKILL --directory=/var/tmp/systemd-test.ihBH1K/root --setenv=SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-68.units:/usr/lib/systemd/tests/testdata/units: /lib/systemd/systemd systemd.unit=testsuite.target systemd.wants=testsuite-68.service systemd.wants=end.service
+Spawning container root on /var/tmp/systemd-test.ihBH1K/root.
+Press ^] three times within 1s to kill container.
+Container root has been shut down.
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.ihBH1K/root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 3546 entries
++ make -C TEST-69-SHUTDOWN setup run
++ env --unset=UNIFIED_CGROUP_HIERARCHY --unset=SYSTEMD_NSPAWN_UNIFIED_HIERARCHY /tmp/autopkgtest.YuN2Rg/build.irH/src/test/TEST-69-SHUTDOWN/run-nspawn --register=no --kill-signal=SIGKILL --directory=/var/tmp/systemd-test.gfIM2L/root --setenv=SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-69.units:/usr/lib/systemd/tests/testdata/units: /lib/systemd/systemd systemd.unit=testsuite.target systemd.wants=testsuite-69.service systemd.wants=end.service
+INFO:test-shutdown:spawning test
+DEBUG:test-shutdown:child pid 135620
+INFO:test-shutdown:waiting for login prompt
+INFO:test-shutdown:log in and start screen
+INFO:test-shutdown:window 1 at line pts/2
+INFO:test-shutdown:schedule reboot
+INFO:test-shutdown:reboot scheduled for Mon 2022-10-17 04:54:55 UTC
+INFO:test-shutdown:verify broadcast message
+INFO:test-shutdown:check show output
+INFO:test-shutdown:cancel shutdown
+INFO:test-shutdown:call for reboot
+INFO:test-shutdown:waiting for reboot
+INFO:test-shutdown:power off
+INFO:test-shutdown:expect termination now
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.gfIM2L/root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 4327 entries
++ make -C TEST-70-TPM2 setup run
++ make -C TEST-72-SYSUPDATE setup run
++ env --unset=UNIFIED_CGROUP_HIERARCHY --unset=SYSTEMD_NSPAWN_UNIFIED_HIERARCHY /bin/systemd-nspawn --register=no --kill-signal=SIGKILL --directory=/var/tmp/systemd-test.zXltqu/root --setenv=SYSTEMD_UNIT_PATH=/usr/lib/systemd/tests/testdata/testsuite-72.units:/usr/lib/systemd/tests/testdata/units: /lib/systemd/systemd systemd.unit=testsuite.target systemd.wants=testsuite-72.service systemd.wants=end.service
+Spawning container root on /var/tmp/systemd-test.zXltqu/root.
+Press ^] three times within 1s to kill container.
+Container root has been shut down.
+Spawning getter /bin/journalctl -o export -D /var/tmp/systemd-test.zXltqu/root/var/log/journal/bf9843c82a544a80ba731195e7125d98...
+Finishing after writing 1340 entries
++ make -C TEST-37-RUNTIMEDIRECTORYPRESERVE clean-again
++ make -C TEST-30-ONCLOCKCHANGE clean-again
++ make -C TEST-64-UDEV-STORAGE clean-again
++ make -C TEST-52-HONORFIRSTSHUTDOWN clean-again
++ make -C TEST-31-DEVICE-ENUMERATION clean-again
++ make -C TEST-56-EXIT-TYPE clean-again
++ make -C TEST-26-SETENV clean-again
++ make -C TEST-39-EXECRELOAD clean-again
++ make -C TEST-01-BASIC clean-again
++ make -C TEST-72-SYSUPDATE clean-again
++ make -C TEST-16-EXTEND-TIMEOUT clean-again
++ make -C TEST-13-NSPAWN-SMOKE clean-again
++ make -C TEST-27-STDOUTFILE clean-again
++ make -C TEST-33-CLEAN-UNIT clean-again
++ make -C TEST-38-FREEZER clean-again
++ make -C TEST-42-EXECSTOPPOST clean-again
++ make -C TEST-20-MAINPIDGAMES clean-again
++ make -C TEST-22-TMPFILES clean-again
++ make -C TEST-62-RESTRICT-IFACES clean-again
++ make -C TEST-66-DEVICE-ISOLATION clean-again
++ make -C TEST-04-JOURNAL clean-again
++ make -C TEST-34-DYNAMICUSERMIGRATE clean-again
++ make -C TEST-46-HOMED clean-again
++ make -C TEST-63-ISSUE-17433 clean-again
++ make -C TEST-43-PRIVATEUSER-UNPRIV clean-again
++ make -C TEST-06-SELINUX clean-again
++ make -C TEST-10-ISSUE-2467 clean-again
++ make -C TEST-02-UNITTESTS clean-again
++ make -C TEST-50-DISSECT clean-again
++ make -C TEST-51-ISSUE-16115 clean-again
++ make -C TEST-65-ANALYZE clean-again
++ make -C TEST-49-RUNTIME-BIND-PATHS clean-again
++ make -C TEST-59-RELOADING-RESTART clean-again
++ make -C TEST-40-EXEC-COMMAND-EX clean-again
++ make -C TEST-68-PROPAGATE-EXIT-STATUS clean-again
++ make -C TEST-54-CREDS clean-again
++ make -C TEST-55-OOMD clean-again
++ make -C TEST-61-UNITTESTS-QEMU clean-again
++ make -C TEST-12-ISSUE-3171 clean-again
++ make -C TEST-08-ISSUE-2730 clean-again
++ make -C TEST-48-START-STOP-NO-RELOAD clean-again
++ make -C TEST-29-PORTABLE clean-again
++ make -C TEST-03-JOBS clean-again
++ make -C TEST-19-DELEGATE clean-again
++ make -C TEST-67-INTEGRITY clean-again
++ make -C TEST-14-MACHINE-ID clean-again
++ make -C TEST-58-REPART clean-again
++ make -C TEST-70-TPM2 clean-again
++ make -C TEST-28-PERCENTJ-WANTEDBY clean-again
++ make -C TEST-53-ISSUE-16347 clean-again
++ make -C TEST-18-FAILUREACTION clean-again
++ make -C TEST-32-OOMPOLICY clean-again
++ make -C TEST-24-CRYPTSETUP clean-again
++ make -C TEST-15-DROPIN clean-again
++ make -C TEST-44-LOG-NAMESPACE clean-again
++ make -C TEST-47-ISSUE-14566 clean-again
++ make -C TEST-11-ISSUE-3166 clean-again
++ make -C TEST-09-ISSUE-2691 clean-again
++ make -C TEST-17-UDEV clean-again
++ make -C TEST-36-NUMAPOLICY clean-again
++ make -C TEST-69-SHUTDOWN clean-again
++ make -C TEST-60-MOUNT-RATELIMIT clean-again
++ make -C TEST-57-ONSUCCESS-UPHOLD clean-again
++ make -C TEST-07-ISSUE-1981 clean-again
++ make -C TEST-05-RLIMITS clean-again
++ make -C TEST-41-ONESHOT-RESTART clean-again
++ make -C TEST-23-TYPE-EXEC clean-again

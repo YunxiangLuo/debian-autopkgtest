@@ -1,0 +1,43 @@
+none
+Created symlink /etc/systemd/system/default.target → /lib/systemd/system/graphical.target.
+none
+test_profile (__main__.AppArmorTest)
+AppArmor confined unit ... Replacement succeeded for "violator-test".
+ok
+test_help (__main__.CLITest)
+--help works and succeeds ... ok
+test_invalid_option (__main__.CLITest)
+Calling with invalid option fails ... ok
+test_version (__main__.CLITest)
+--version works and succeeds ... ok
+test_cpushares (__main__.CgroupsTest)
+service with CPUShares ... skipped 'test needs to be reworked on unified cgroup hierarchy'
+test_simple (__main__.CgroupsTest)
+simple service ... skipped 'test needs to be reworked on unified cgroup hierarchy'
+test_bash_crash (__main__.CoredumpTest) ... ok
+test_log_for_service (__main__.JournalTest) ... ok
+test_no_options (__main__.JournalTest) ... ok
+test_boot (__main__.NspawnTest) ... ok
+test_service (__main__.NspawnTest) ... ok
+test_failing (__main__.SeccompTest) ... ok
+test_0_init (__main__.ServicesTest)
+Verify that init is systemd ... ok
+test_cron (__main__.ServicesTest) ... ok
+test_dbus (__main__.ServicesTest) ... ok
+test_gdm3 (__main__.ServicesTest) ... 379 /usr/sbin/gdm3
+384 gdm-session-worker [pam/gdm-launch-environment]
+416 /usr/libexec/gdm-wayland-session dbus-run-session -- gnome-session --autostart /usr/share/gdm/greeter/autostart
+ok
+test_logind (__main__.ServicesTest) ... ok
+test_network_manager (__main__.ServicesTest) ... ok
+test_no_failed (__main__.ServicesTest)
+No failed units ... ok
+test_rsyslog (__main__.ServicesTest) ... ok
+test_tmp_cleanup (__main__.ServicesTest) ... ok
+test_tmp_mount (__main__.ServicesTest) ... ok
+test_udev (__main__.ServicesTest) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 8.139s
+
+OK (skipped=2)

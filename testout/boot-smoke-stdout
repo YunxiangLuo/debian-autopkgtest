@@ -1,0 +1,35 @@
+reboot #0
+waiting to boot...
+checking for running system
+checking for failed unmounts for user systemd
+checking for connection timeouts
+checking that NetworkManager runs
+341
+reboot #1
+waiting to boot...
+checking for running system
+checking for failed unmounts for user systemd
+checking for connection timeouts
+checking that NetworkManager runs
+342
+reboot #2
+waiting to boot...
+checking for running system
+checking for failed unmounts for user systemd
+checking for connection timeouts
+checking that NetworkManager runs
+342
+reboot #3
+waiting to boot...
+checking for running system
+checking for failed unmounts for user systemd
+checking for connection timeouts
+checking that NetworkManager runs
+342
+reboot #4
+waiting to boot...
+checking for running system
+checking for failed unmounts for user systemd
+checking for connection timeouts
+checking that NetworkManager runs
+343

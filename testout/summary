@@ -1,0 +1,15 @@
+timedated            PASS
+hostnamed            PASS
+localed-locale       PASS
+localed-x11-keymap   PASS
+logind               PASS
+unit-config          PASS
+storage              PASS
+networkd-test.py     PASS
+build-login          PASS
+boot-and-services    PASS
+udev                 PASS
+unit-tests           PASS
+upstream             PASS
+boot-smoke           PASS
+systemd-fsckd        PASS
