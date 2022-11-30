@@ -1,0 +1,35 @@
+boot-and-services    SKIP Test breaks testbed but testbed does not provide revert-full-system
+unit-tests           SKIP Test breaks testbed but testbed does not provide revert-full-system
+boot-smoke           SKIP Test breaks testbed but testbed does not provide revert-full-system
+systemd-fsckd        SKIP Test breaks testbed but testbed does not provide revert-full-system
+timedated            FAIL badpkg
+blame: systemd_250.4-1.dsc
+badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+hostnamed            FAIL badpkg
+blame: systemd_250.4-1.dsc
+badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+localed-locale       FAIL badpkg
+blame: systemd_250.4-1.dsc
+badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+localed-x11-keymap   FAIL badpkg
+blame: systemd_250.4-1.dsc
+badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+logind               FAIL badpkg
+blame: systemd_250.4-1.dsc
+badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+unit-config          FAIL badpkg
+blame: systemd_250.4-1.dsc
+badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+storage              FAIL badpkg
+blame: systemd_250.4-1.dsc
+badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+networkd-test.py     FAIL badpkg
+blame: systemd_250.4-1.dsc
+badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+build-login          FAIL badpkg
+blame: systemd_250.4-1.dsc
+badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+udev                 PASS
+upstream             FAIL badpkg
+blame: systemd_250.4-1.dsc
+badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
