@@ -10,40 +10,41 @@
 
 ## testbed的制作及使用
 
-    为了对本机系统进行保护，autopkgtest在运行时需要一个与本机系统相隔离的测试环境，称为`testbed`。
-    而testbed由于实现方式不同，都有相应的构建方式，以下列出并分析常用的testbed实现方法：
+为了对本机系统进行保护，autopkgtest在运行时需要一个与本机系统相隔离的测试环境，称为`testbed`。
+
+而testbed由于实现方式不同，都有相应的构建方式，以下列出并分析常用的testbed实现方法：
 ### null
     autopkgtest实际上支持直接在本地文件系统内无隔离的进行测试，虽然官方并不推荐，因为测试时可能损坏本地文件，但这种方式无需testbed的创建，只需直接运行即可，如：
 ```
 sudo autopkgtest --apt-upgrade tkcalendar_1.6.1-1.dsc -- null
 ```
-    缺点：
+缺点：
  - 首先，由于只是在本地编译运行，可能对本地文件系统造成损伤; 
  - 其次，他也不能实现跨架构的进行测试;
  - 再有，有些测试例需要多设备或者恢复重启功能， 单单在本地运行是无法满足测试例需求的，所以会被SKIP
 
 ### chroot 
-    chroot基本上是计算机上的一个特殊目录，它阻止应用程序（如果从该目录内部运行）访问目录外的文件，chroot就像在现有操作系统中安装另一个操作系统。从技术上讲，chroot会暂时将根目录（通常为/）更改为chroot目录（例如/var/chroot）。由于根目录是文件系统层次结构的顶层，因此应用程序无法访问根目录以外目录，使得应用程序与系统的其余部分隔离，这可以防止chroot中的应用程序干扰计算机上其他位置的文件。
+chroot基本上是计算机上的一个特殊目录，它阻止应用程序（如果从该目录内部运行）访问目录外的文件，chroot就像在现有操作系统中安装另一个操作系统。从技术上讲，chroot会暂时将根目录（通常为/）更改为chroot目录（例如/var/chroot）。由于根目录是文件系统层次结构的顶层，因此应用程序无法访问根目录以外目录，使得应用程序与系统的其余部分隔离，这可以防止chroot中的应用程序干扰计算机上其他位置的文件。
 
-    对于debian原生系统以及ubuntu,可使用debootstrap或mmdebstrap构建一个轻量化的debian文件系统作为testbed，详见debian官网，此处给出例子：
+对于debian原生系统以及ubuntu,可使用debootstrap或mmdebstrap构建一个轻量化的debian文件系统作为testbed，详见debian官网，此处给出例子：
 ```
 debootstrap stable /stable-chroot http://deb.debian.org/debian/
 ```
 
 ### schroot -- mk-sbuild
 
-    schroot使得用户可以在不同的chroot下执行交互命令，chroot只能被root用户使用，schroot可以被普通用户使用，schroot 在chroot的基础上还提供了permissions checking, environmental setup（如filesystem mount等，在autopkgtest-virt-schroot中，debian官方推荐使用mk-sbuild进行testbed的制作，而这也恰好可以制作出适合普通用户交叉编译的系统
+schroot使得用户可以在不同的chroot下执行交互命令，chroot只能被root用户使用，schroot可以被普通用户使用，schroot 在chroot的基础上还提供了permissions checking, environmental setup（如filesystem mount等，在autopkgtest-virt-schroot中，debian官方推荐使用mk-sbuild进行testbed的制作，而这也恰好可以制作出适合普通用户交叉编译的系统
 
 ### lxc -- autopkgtest-build-lxc
 
-    autopkgtest同样支持容器，其中使用最多的就是lxc,针对这种形式autopkgtest自行配置了一个软件包来对testbed进行构建或进行软件升级,称为autopkgtest-build-lxc，其具体使用本人并没有深入研究，只是贴出debian本地的例子
+autopkgtest同样支持容器，其中使用最多的就是lxc,针对这种形式autopkgtest自行配置了一个软件包来对testbed进行构建或进行软件升级,称为autopkgtest-build-lxc，其具体使用本人并没有深入研究，只是贴出debian本地的例子
 ```
 autopkgtest-build-lxc debian sid
 ```
 
 ### qemu -- autopkgtest-build-qemu
 
-    autopkgtest也支持使用qemu作为testbed,其中他使用autopkgtest-build-qemu软件包来进行构建，其又使用了vmdb2来构建qemu的img硬盘，由于目前riscv64的测试多使用qemu,下面详细剖析下其img的构建，以便以后的测试参考：
+autopkgtest也支持使用qemu作为testbed,其中他使用autopkgtest-build-qemu软件包来进行构建，其又使用了vmdb2来构建qemu的img硬盘，由于目前riscv64的测试多使用qemu,下面详细剖析下其img的构建，以便以后的测试参考：
  - 创建硬盘镜像img,格式为raw,并挂载在tmp的某个新建目录（目录名随机生成）
  - 使用debootstrap在挂载的镜像中创建debian文件系统（其中会根据架构确定dpkg的架构，根据镜像的下载仓库以及版本确定下载的版本）
  - 使用chroot在镜像中进行软件的下载（软件源默认根据镜像源配置，并且只有 main 软件仓库，必装软件有ifupdown,linux-image-virt，grub-pc）
