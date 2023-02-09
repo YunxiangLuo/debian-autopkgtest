@@ -1,0 +1,42 @@
+test_enable.service is not a native service, redirecting to systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install disable test_enable
+test_enable.service is not a native service, redirecting to systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install disable test_enable
+test_enable.service is not a native service, redirecting to systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install is-enabled test_enable
+test_enable.service is not a native service, redirecting to systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install enable test_enable
+test_enable.service is not a native service, redirecting to systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install enable test_enable
+test_enable.service is not a native service, redirecting to systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install is-enabled test_enable
+Removed "/etc/systemd/system/test_enablea.service".
+Created symlink /etc/systemd/system/test_enablea.service → /lib/systemd/system/test_enable.service.
+Created symlink /etc/systemd/system/multi-user.target.wants/test_enable.service → /lib/systemd/system/test_enable.service.
+Removed "/etc/systemd/system/multi-user.target.wants/test_enable.service".
+Created symlink /etc/systemd/system/multi-user.target.wants/test_enable.service → /lib/systemd/system/test_enable.service.
+Created symlink /etc/systemd/system/tmpmnzt6y0w.service → /tmp/tmpmnzt6y0w.service.
+Created symlink /etc/systemd/system/multi-user.target.wants/tmpmnzt6y0w.service → /tmp/tmpmnzt6y0w.service.
+Removed "/etc/systemd/system/multi-user.target.wants/tmpmnzt6y0w.service".
+Removed "/etc/systemd/system/tmpmnzt6y0w.service".
+Created symlink /etc/systemd/system/tmpgn0vk3b8.service → /tmp/tmpgn0vk3b8.service.
+Removed "/etc/systemd/system/tmpgn0vk3b8.service".
+Synchronizing state of test_enable.service with SysV service script with /lib/systemd/systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install disable test_enable
+Removed "/etc/systemd/system/test_enablea.service".
+Removed "/etc/systemd/system/multi-user.target.wants/test_enable.service".
+Synchronizing state of test_enable.service with SysV service script with /lib/systemd/systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install enable test_enable
+Created symlink /etc/systemd/system/test_enablea.service → /lib/systemd/system/test_enable.service.
+Created symlink /etc/systemd/system/multi-user.target.wants/test_enable.service → /lib/systemd/system/test_enable.service.
+Synchronizing state of test_enable.service with SysV service script with /lib/systemd/systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install disable test_enable
+Removed "/etc/systemd/system/multi-user.target.wants/test_enable.service".
+Synchronizing state of test_enable.service with SysV service script with /lib/systemd/systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install enable test_enable
+Created symlink /etc/systemd/system/multi-user.target.wants/test_enable.service → /lib/systemd/system/test_enable.service.
+Synchronizing state of test_enable.service with SysV service script with /lib/systemd/systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install enable test_enable
+Created symlink /etc/systemd/system/multi-user.target.wants/test_enable.service → /lib/systemd/system/test_enable.service.
+Synchronizing state of test_enable.service with SysV service script with /lib/systemd/systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install enable test_enable

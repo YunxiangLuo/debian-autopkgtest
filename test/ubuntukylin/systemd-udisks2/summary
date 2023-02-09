@@ -1,0 +1,2 @@
+"dpkg --unpack /tmp/autopkgtest.kkxcSH/1-autopkgtest-satdep.deb" failed with stderr "dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+"

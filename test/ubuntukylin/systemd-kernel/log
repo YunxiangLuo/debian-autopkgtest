@@ -1,0 +1,447 @@
+autopkgtest: DBG: testbed init
+autopkgtest [02:48:29]: starting date and time: 2023-02-10 02:48:29+0800
+autopkgtest [02:48:29]: version 5.28
+autopkgtest [02:48:29]: host debian; command line: /usr/bin/autopkgtest systemd_245.4-4ubuntu3.19.dsc -o test -d -B -- qemu -o ../img -u root -p ubuntukylin --qemu-architecture=riscv64 -c 4 --ram-size=4096 -d '--qemu-options=-machine virt -kernel /home/minami/Documents/ukylin/u-boot.bin' ../test.qcow2
+autopkgtest: DBG: got reply from testbed: ok
+autopkgtest: DBG: testbed open, scratch=None
+autopkgtest: DBG: sending command to testbed: open
+autopkgtest-virt-qemu: DBG: executing open
+autopkgtest-virt-qemu: DBG: find_free_port: trying 10022
+autopkgtest-virt-qemu: DBG: find_free_port: 10022 is free
+autopkgtest-virt-qemu: DBG: autopkgtest does not know how to boot this machine, hopefully nothing special needs to be done?
+autopkgtest-virt-qemu: DBG: qemu architecture: riscv64
+autopkgtest-virt-qemu: DBG: qemu command: qemu-system-riscv64
+autopkgtest-virt-qemu: DBG: execute-timeout: qemu-img info --output=json ../test.qcow2
+autopkgtest-virt-qemu: DBG: Creating temporary overlay image in ../img/test.qcow2.overlay-1675968509.8277986
+autopkgtest-virt-qemu: DBG: execute-timeout: qemu-img create -f qcow2 -F qcow2 -b /home/minami/Documents/ukylin/test.qcow2 ../img/test.qcow2.overlay-1675968509.8277986
+autopkgtest-virt-qemu: DBG: Forwarding local port 10022 to VM ssh port 22
+autopkgtest-virt-qemu: DBG: Assuming nothing special needs to be done to set up firmware to boot this machine (boot method: none)
+autopkgtest-virt-qemu: DBG: full qemu command-line: ['qemu-system-riscv64', '-m', '4096', '-smp', '4', '-nographic', '-device', 'virtio-net-device,netdev=usernet', '-netdev', 'user,id=usernet,hostfwd=tcp:127.0.0.1:10022-:22', '-object', 'rng-random,filename=/dev/urandom,id=rng0', '-device', 'virtio-rng-pci,rng=rng0,id=rng-device0', '-monitor', 'unix:/tmp/autopkgtest-qemu.od3rmk2f/monitor,server=on,wait=off', '-virtfs', 'local,id=autopkgtest,path=/tmp/autopkgtest-qemu.od3rmk2f/shared,security_model=none,mount_tag=autopkgtest', '-device', 'virtio-serial', '-chardev', 'socket,path=/tmp/autopkgtest-qemu.od3rmk2f/hvc0,server=on,wait=off,id=hvc0', '-device', 'virtconsole,chardev=hvc0', '-chardev', 'socket,path=/tmp/autopkgtest-qemu.od3rmk2f/hvc1,server=on,wait=off,id=hvc1', '-device', 'virtconsole,chardev=hvc1', '-serial', 'unix:/tmp/autopkgtest-qemu.od3rmk2f/ttyS0,server=on,wait=off', '-drive', 'index=0,file=../img/test.qcow2.overlay-1675968509.8277986,format=qcow2,cache=unsafe,if=virtio,discard=unmap', '-machine', 'virt', '-kernel', '/home/minami/Documents/ukylin/u-boot.bin']
+autopkgtest-virt-qemu: DBG: expect: b' login: '
+autopkgtest-virt-qemu: DBG: expect: found "'login prompt on serial console'"
+autopkgtest-virt-qemu: DBG: expect: b'ok'
+autopkgtest-virt-qemu: DBG: expect: found "b'ok'"
+autopkgtest-virt-qemu: DBG: setup_shell(): there already is a shell on hvc1
+qemu-system-riscv64: warning: 9p: degraded performance: a reasonable high msize should be chosen on client/guest side (chosen msize is <= 8192). See https://wiki.qemu.org/Documentation/9psetup#msize for details.
+autopkgtest-virt-qemu: DBG: expect: b'0c7a0fa7-0787-47c6-a34c-fc5df4f5ac54[1]'
+autopkgtest-virt-qemu: DBG: expect: found "b'0c7a0fa7-0787-47c6-a34c-fc5df4f5ac54[1]'"
+autopkgtest-virt-qemu: DBG: expect: b'0c7a0fa7-0787-47c6-a34c-fc5df4f5ac54[2]'
+autopkgtest-virt-qemu: DBG: expect: found "b'0c7a0fa7-0787-47c6-a34c-fc5df4f5ac54[2]'"
+autopkgtest-virt-qemu: DBG: expect: b'0c7a0fa7-0787-47c6-a34c-fc5df4f5ac54[3]'
+autopkgtest-virt-qemu: DBG: expect: found "b'0c7a0fa7-0787-47c6-a34c-fc5df4f5ac54[3]'"
+autopkgtest-virt-qemu: DBG: Copying host timezone Asia/Shanghai to VM
+autopkgtest-virt-qemu: DBG: expect: b'0c7a0fa7-0787-47c6-a34c-fc5df4f5ac54[4]'
+autopkgtest-virt-qemu: DBG: expect: found "b'0c7a0fa7-0787-47c6-a34c-fc5df4f5ac54[4]'"
+autopkgtest-virt-qemu: DBG: expect: b'/python'
+autopkgtest-virt-qemu: DBG: expect: found "b'/python'"
+autopkgtest-virt-qemu: DBG: expect: b'# '
+autopkgtest-virt-qemu: DBG: expect: found "b'# '"
+autopkgtest-virt-qemu: DBG: expect: b'0c7a0fa7-0787-47c6-a34c-fc5df4f5ac54[5]'
+autopkgtest-virt-qemu: DBG: expect: found "b'0c7a0fa7-0787-47c6-a34c-fc5df4f5ac54[5]'"
+autopkgtest-virt-qemu: DBG: execute-timeout: /tmp/autopkgtest-qemu.od3rmk2f/runcmd true
+autopkgtest-virt-qemu: DBG: can connect to autopkgtest sh in VM
+autopkgtest-virt-qemu: DBG: expect: b'0c7a0fa7-0787-47c6-a34c-fc5df4f5ac54[6]'
+autopkgtest-virt-qemu: DBG: expect: found "b'0c7a0fa7-0787-47c6-a34c-fc5df4f5ac54[6]'"
+autopkgtest-virt-qemu: DBG: determine_normal_user: got user "ubuntukylin"
+autopkgtest-virt-qemu: DBG: auxverb = ['/tmp/autopkgtest-qemu.od3rmk2f/runcmd'], downtmp = None
+autopkgtest-virt-qemu: DBG: execute-timeout: /tmp/autopkgtest-qemu.od3rmk2f/runcmd mktemp --directory --tmpdir autopkgtest.XXXXXX
+autopkgtest-virt-qemu: DBG: execute-timeout: /tmp/autopkgtest-qemu.od3rmk2f/runcmd chmod 1777 /tmp/autopkgtest.IS7bjm
+autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.IS7bjm
+autopkgtest: DBG: sending command to testbed: print-execute-command
+autopkgtest-virt-qemu: DBG: executing print-execute-command
+autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest-qemu.od3rmk2f/runcmd
+autopkgtest: DBG: sending command to testbed: capabilities
+autopkgtest-virt-qemu: DBG: executing capabilities
+autopkgtest: DBG: got reply from testbed: ok isolation-machine reboot revert revert-full-system root-on-testbed suggested-normal-user=ubuntukylin
+autopkgtest: DBG: testbed capabilities: ['isolation-machine', 'reboot', 'revert', 'revert-full-system', 'root-on-testbed', 'suggested-normal-user=ubuntukylin', 'has_internet']
+autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.IS7bjm'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.IS7bjm/wrapper.sh
+autopkgtest-virt-qemu: DBG: executing copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.IS7bjm/wrapper.sh
+autopkgtest-virt-qemu: DBG: ['cmdls', "(['cat'], ['/tmp/autopkgtest-qemu.od3rmk2f/runcmd', 'sh', '-ec', 'cat >/tmp/autopkgtest.IS7bjm/wrapper.sh; chmod +x -- /tmp/autopkgtest.IS7bjm/wrapper.sh'])"]
+autopkgtest-virt-qemu: DBG: ['srcstdin', "<_io.BufferedReader name='/usr/share/autopkgtest/lib/in-testbed/wrapper.sh'>", 'deststdout', "<_io.BufferedReader name='/dev/null'>", 'devnull_read', <_io.BufferedReader name='/dev/null'>]
+autopkgtest-virt-qemu: DBG:  +< cat
+autopkgtest-virt-qemu: DBG:  +> /tmp/autopkgtest-qemu.od3rmk2f/runcmd sh -ec cat >/tmp/autopkgtest.IS7bjm/wrapper.sh; chmod +x -- /tmp/autopkgtest.IS7bjm/wrapper.sh
+autopkgtest-virt-qemu: DBG:  +>?
+autopkgtest-virt-qemu: DBG:  +<?
+autopkgtest: DBG: got reply from testbed: ok
+autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.IS7bjm/wrapper.sh'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest [02:49:13]: testbed dpkg architecture: riscv64
+autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 127
+autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.IS7bjm/testbed-packages"], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.IS7bjm/testbed-packages test/testbed-packages
+autopkgtest-virt-qemu: DBG: executing copyup /tmp/autopkgtest.IS7bjm/testbed-packages test/testbed-packages
+autopkgtest-virt-qemu: DBG: ['cmdls', "(['/tmp/autopkgtest-qemu.od3rmk2f/runcmd', 'sh', '-ec', 'cat </tmp/autopkgtest.IS7bjm/testbed-packages'], ['cat'])"]
+autopkgtest-virt-qemu: DBG: ['srcstdin', "<_io.BufferedReader name='/dev/null'>", 'deststdout', "<_io.BufferedWriter name='test/testbed-packages'>", 'devnull_read', <_io.BufferedReader name='/dev/null'>]
+autopkgtest-virt-qemu: DBG:  +< /tmp/autopkgtest-qemu.od3rmk2f/runcmd sh -ec cat </tmp/autopkgtest.IS7bjm/testbed-packages
+autopkgtest-virt-qemu: DBG:  +> cat
+autopkgtest-virt-qemu: DBG:  +>?
+autopkgtest-virt-qemu: DBG:  +<?
+autopkgtest: DBG: got reply from testbed: ok
+autopkgtest: DBG: testbed supports reboot, creating /tmp/autopkgtest-reboot
+autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.IS7bjm'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/reboot.sh /tmp/autopkgtest.IS7bjm/autopkgtest-reboot
+autopkgtest-virt-qemu: DBG: executing copydown /usr/share/autopkgtest/lib/in-testbed/reboot.sh /tmp/autopkgtest.IS7bjm/autopkgtest-reboot
+autopkgtest-virt-qemu: DBG: ['cmdls', "(['cat'], ['/tmp/autopkgtest-qemu.od3rmk2f/runcmd', 'sh', '-ec', 'cat >/tmp/autopkgtest.IS7bjm/autopkgtest-reboot; chmod +x -- /tmp/autopkgtest.IS7bjm/autopkgtest-reboot'])"]
+autopkgtest-virt-qemu: DBG: ['srcstdin', "<_io.BufferedReader name='/usr/share/autopkgtest/lib/in-testbed/reboot.sh'>", 'deststdout', "<_io.BufferedReader name='/dev/null'>", 'devnull_read', <_io.BufferedReader name='/dev/null'>]
+autopkgtest-virt-qemu: DBG:  +< cat
+autopkgtest-virt-qemu: DBG:  +> /tmp/autopkgtest-qemu.od3rmk2f/runcmd sh -ec cat >/tmp/autopkgtest.IS7bjm/autopkgtest-reboot; chmod +x -- /tmp/autopkgtest.IS7bjm/autopkgtest-reboot
+autopkgtest-virt-qemu: DBG:  +>?
+autopkgtest-virt-qemu: DBG:  +<?
+autopkgtest: DBG: got reply from testbed: ok
+autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.IS7bjm/autopkgtest-reboot'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['ln', '-fns', '/tmp/autopkgtest.IS7bjm/autopkgtest-reboot', '/tmp/autopkgtest-reboot'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['ln', '-fns', '/tmp/autopkgtest.IS7bjm/autopkgtest-reboot', '/sbin/autopkgtest-reboot'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.IS7bjm'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/reboot-prepare.sh /tmp/autopkgtest.IS7bjm/autopkgtest-reboot-prepare
+autopkgtest-virt-qemu: DBG: executing copydown /usr/share/autopkgtest/lib/in-testbed/reboot-prepare.sh /tmp/autopkgtest.IS7bjm/autopkgtest-reboot-prepare
+autopkgtest-virt-qemu: DBG: ['cmdls', "(['cat'], ['/tmp/autopkgtest-qemu.od3rmk2f/runcmd', 'sh', '-ec', 'cat >/tmp/autopkgtest.IS7bjm/autopkgtest-reboot-prepare; chmod +x -- /tmp/autopkgtest.IS7bjm/autopkgtest-reboot-prepare'])"]
+autopkgtest-virt-qemu: DBG: ['srcstdin', "<_io.BufferedReader name='/usr/share/autopkgtest/lib/in-testbed/reboot-prepare.sh'>", 'deststdout', "<_io.BufferedReader name='/dev/null'>", 'devnull_read', <_io.BufferedReader name='/dev/null'>]
+autopkgtest-virt-qemu: DBG:  +< cat
+autopkgtest-virt-qemu: DBG:  +> /tmp/autopkgtest-qemu.od3rmk2f/runcmd sh -ec cat >/tmp/autopkgtest.IS7bjm/autopkgtest-reboot-prepare; chmod +x -- /tmp/autopkgtest.IS7bjm/autopkgtest-reboot-prepare
+autopkgtest-virt-qemu: DBG:  +>?
+autopkgtest-virt-qemu: DBG:  +<?
+autopkgtest: DBG: got reply from testbed: ok
+autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.IS7bjm/autopkgtest-reboot-prepare'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['ln', '-fns', '/tmp/autopkgtest.IS7bjm/autopkgtest-reboot-prepare', '/tmp/autopkgtest-reboot-prepare'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest [02:49:20]: testbed running kernel: Linux 5.11.0-1030-generic #34 SMP Fri Mar 11 15:27:17 CST 2022
+autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: Binaries: initialising
+autopkgtest [02:49:20]: @@@@@@@@@@@@@@@@@@@@ source systemd_245.4-4ubuntu3.19.dsc
+autopkgtest: DBG: blame += systemd_245.4-4ubuntu3.19.dsc
+autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.IS7bjm'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: sending command to testbed: copydown systemd_245.4-4ubuntu3.19.dsc /tmp/autopkgtest.IS7bjm/systemd_245.4-4ubuntu3.19.dsc
+autopkgtest-virt-qemu: DBG: executing copydown systemd_245.4-4ubuntu3.19.dsc /tmp/autopkgtest.IS7bjm/systemd_245.4-4ubuntu3.19.dsc
+autopkgtest-virt-qemu: DBG: ['cmdls', "(['cat'], ['/tmp/autopkgtest-qemu.od3rmk2f/runcmd', 'sh', '-ec', 'cat >/tmp/autopkgtest.IS7bjm/systemd_245.4-4ubuntu3.19.dsc'])"]
+autopkgtest-virt-qemu: DBG: ['srcstdin', "<_io.BufferedReader name='systemd_245.4-4ubuntu3.19.dsc'>", 'deststdout', "<_io.BufferedReader name='/dev/null'>", 'devnull_read', <_io.BufferedReader name='/dev/null'>]
+autopkgtest-virt-qemu: DBG:  +< cat
+autopkgtest-virt-qemu: DBG:  +> /tmp/autopkgtest-qemu.od3rmk2f/runcmd sh -ec cat >/tmp/autopkgtest.IS7bjm/systemd_245.4-4ubuntu3.19.dsc
+autopkgtest-virt-qemu: DBG:  +>?
+autopkgtest-virt-qemu: DBG:  +<?
+autopkgtest: DBG: got reply from testbed: ok
+autopkgtest: DBG: testbed command ['chown', '-R', 'ubuntukylin', '--', '/tmp/autopkgtest.IS7bjm/systemd_245.4-4ubuntu3.19.dsc'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.IS7bjm'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: sending command to testbed: copydown systemd_245.4.orig.tar.gz /tmp/autopkgtest.IS7bjm/systemd_245.4.orig.tar.gz
+autopkgtest-virt-qemu: DBG: executing copydown systemd_245.4.orig.tar.gz /tmp/autopkgtest.IS7bjm/systemd_245.4.orig.tar.gz
+autopkgtest-virt-qemu: DBG: ['cmdls', "(['cat'], ['/tmp/autopkgtest-qemu.od3rmk2f/runcmd', 'sh', '-ec', 'cat >/tmp/autopkgtest.IS7bjm/systemd_245.4.orig.tar.gz'])"]
+autopkgtest-virt-qemu: DBG: ['srcstdin', "<_io.BufferedReader name='systemd_245.4.orig.tar.gz'>", 'deststdout', "<_io.BufferedReader name='/dev/null'>", 'devnull_read', <_io.BufferedReader name='/dev/null'>]
+autopkgtest-virt-qemu: DBG:  +< cat
+autopkgtest-virt-qemu: DBG:  +> /tmp/autopkgtest-qemu.od3rmk2f/runcmd sh -ec cat >/tmp/autopkgtest.IS7bjm/systemd_245.4.orig.tar.gz
+autopkgtest-virt-qemu: DBG:  +>?
+autopkgtest-virt-qemu: DBG:  +<?
+autopkgtest: DBG: got reply from testbed: ok
+autopkgtest: DBG: testbed command ['chown', '-R', 'ubuntukylin', '--', '/tmp/autopkgtest.IS7bjm/systemd_245.4.orig.tar.gz'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.IS7bjm'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: sending command to testbed: copydown systemd_245.4-4ubuntu3.19.debian.tar.xz /tmp/autopkgtest.IS7bjm/systemd_245.4-4ubuntu3.19.debian.tar.xz
+autopkgtest-virt-qemu: DBG: executing copydown systemd_245.4-4ubuntu3.19.debian.tar.xz /tmp/autopkgtest.IS7bjm/systemd_245.4-4ubuntu3.19.debian.tar.xz
+autopkgtest-virt-qemu: DBG: ['cmdls', "(['cat'], ['/tmp/autopkgtest-qemu.od3rmk2f/runcmd', 'sh', '-ec', 'cat >/tmp/autopkgtest.IS7bjm/systemd_245.4-4ubuntu3.19.debian.tar.xz'])"]
+autopkgtest-virt-qemu: DBG: ['srcstdin', "<_io.BufferedReader name='systemd_245.4-4ubuntu3.19.debian.tar.xz'>", 'deststdout', "<_io.BufferedReader name='/dev/null'>", 'devnull_read', <_io.BufferedReader name='/dev/null'>]
+autopkgtest-virt-qemu: DBG:  +< cat
+autopkgtest-virt-qemu: DBG:  +> /tmp/autopkgtest-qemu.od3rmk2f/runcmd sh -ec cat >/tmp/autopkgtest.IS7bjm/systemd_245.4-4ubuntu3.19.debian.tar.xz
+autopkgtest-virt-qemu: DBG:  +>?
+autopkgtest-virt-qemu: DBG:  +<?
+autopkgtest: DBG: got reply from testbed: ok
+autopkgtest: DBG: testbed command ['chown', '-R', 'ubuntukylin', '--', '/tmp/autopkgtest.IS7bjm/systemd_245.4-4ubuntu3.19.debian.tar.xz'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: install_deps: deps_new=[]
+autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 127
+autopkgtest: DBG: dpkg-source not available in testbed, installing dpkg-dev
+autopkgtest: DBG: install dpkg-dev: satisfying dpkg-dev
+autopkgtest: DBG: install dpkg-dev: architecture resolved: dpkg-dev
+autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: can use apt-get on testbed: True
+autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.IS7bjm'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: sending command to testbed: copydown test/1-autopkgtest-satdep.deb /tmp/autopkgtest.IS7bjm/1-autopkgtest-satdep.deb
+autopkgtest-virt-qemu: DBG: executing copydown test/1-autopkgtest-satdep.deb /tmp/autopkgtest.IS7bjm/1-autopkgtest-satdep.deb
+autopkgtest-virt-qemu: DBG: ['cmdls', "(['cat'], ['/tmp/autopkgtest-qemu.od3rmk2f/runcmd', 'sh', '-ec', 'cat >/tmp/autopkgtest.IS7bjm/1-autopkgtest-satdep.deb'])"]
+autopkgtest-virt-qemu: DBG: ['srcstdin', "<_io.BufferedReader name='test/1-autopkgtest-satdep.deb'>", 'deststdout', "<_io.BufferedReader name='/dev/null'>", 'devnull_read', <_io.BufferedReader name='/dev/null'>]
+autopkgtest-virt-qemu: DBG:  +< cat
+autopkgtest-virt-qemu: DBG:  +> /tmp/autopkgtest-qemu.od3rmk2f/runcmd sh -ec cat >/tmp/autopkgtest.IS7bjm/1-autopkgtest-satdep.deb
+autopkgtest-virt-qemu: DBG:  +>?
+autopkgtest-virt-qemu: DBG:  +<?
+autopkgtest: DBG: got reply from testbed: ok
+autopkgtest: DBG: testbed command ['chown', '-R', 'ubuntukylin', '--', '/tmp/autopkgtest.IS7bjm/1-autopkgtest-satdep.deb'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['dpkg', '--unpack', '/tmp/autopkgtest.IS7bjm/1-autopkgtest-satdep.deb'], kind short, sout pipe, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --fix-broken -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Correcting dependencies...Starting pkgProblemResolver with broken count: 0
+Starting 2 pkgProblemResolver with broken count: 0
+Done
+ Done
+Starting pkgProblemResolver with broken count: 0
+Starting 2 pkgProblemResolver with broken count: 0
+Done
+The following additional packages will be installed:
+  binutils binutils-common binutils-riscv64-linux-gnu dpkg-dev libbinutils
+  libctf-nobfd0 libctf0 libdpkg-perl make patch
+Suggested packages:
+  binutils-doc debian-keyring gcc | c-compiler git bzr make-doc ed
+  diffutils-doc
+Recommended packages:
+  build-essential gcc | c-compiler fakeroot libalgorithm-merge-perl
+  libfile-fcntllock-perl
+The following NEW packages will be installed:
+  binutils binutils-common binutils-riscv64-linux-gnu dpkg-dev libbinutils
+  libctf-nobfd0 libctf0 libdpkg-perl make patch
+0 upgraded, 10 newly installed, 0 to remove and 0 not upgraded.
+2 not fully installed or removed.
+Need to get 2,365 kB of archives.
+After this operation, 10.7 MB of additional disk space will be used.
+Get:1 http://ports.ubuntu.com/ubuntu-ports focal-updates/main riscv64 libdpkg-perl all 1.19.7ubuntu3.2 [231 kB]
+Get:2 http://ports.ubuntu.com/ubuntu-ports focal/main riscv64 patch riscv64 2.7.6-6 [94.9 kB]
+Get:3 http://ports.ubuntu.com/ubuntu-ports focal/main riscv64 make riscv64 4.2.1-1.2 [152 kB]
+Get:4 http://ports.ubuntu.com/ubuntu-ports focal-updates/main riscv64 binutils-common riscv64 2.34-6ubuntu1.4 [200 kB]
+Get:5 http://ports.ubuntu.com/ubuntu-ports focal-updates/main riscv64 libbinutils riscv64 2.34-6ubuntu1.4 [279 kB]
+Get:6 http://ports.ubuntu.com/ubuntu-ports focal-updates/main riscv64 libctf-nobfd0 riscv64 2.34-6ubuntu1.4 [40.8 kB]
+Get:7 http://ports.ubuntu.com/ubuntu-ports focal-updates/main riscv64 libctf0 riscv64 2.34-6ubuntu1.4 [40.0 kB]
+Get:8 http://ports.ubuntu.com/ubuntu-ports focal-updates/main riscv64 binutils-riscv64-linux-gnu riscv64 2.34-6ubuntu1.4 [645 kB]
+Get:9 http://ports.ubuntu.com/ubuntu-ports focal-updates/main riscv64 binutils riscv64 2.34-6ubuntu1.4 [3,292 B]
+Get:10 http://ports.ubuntu.com/ubuntu-ports focal-updates/main riscv64 dpkg-dev all 1.19.7ubuntu3.2 [679 kB]
+Fetched 2,365 kB in 15s (158 kB/s)
+Selecting previously unselected package libdpkg-perl.
+(Reading database ... dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+(Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 320105 files and directories currently installed.)
+Preparing to unpack .../0-libdpkg-perl_1.19.7ubuntu3.2_all.deb ...
+Unpacking libdpkg-perl (1.19.7ubuntu3.2) ...
+Selecting previously unselected package patch.
+Preparing to unpack .../1-patch_2.7.6-6_riscv64.deb ...
+Unpacking patch (2.7.6-6) ...
+Selecting previously unselected package make.
+Preparing to unpack .../2-make_4.2.1-1.2_riscv64.deb ...
+Unpacking make (4.2.1-1.2) ...
+Selecting previously unselected package binutils-common:riscv64.
+Preparing to unpack .../3-binutils-common_2.34-6ubuntu1.4_riscv64.deb ...
+Unpacking binutils-common:riscv64 (2.34-6ubuntu1.4) ...
+Selecting previously unselected package libbinutils:riscv64.
+Preparing to unpack .../4-libbinutils_2.34-6ubuntu1.4_riscv64.deb ...
+Unpacking libbinutils:riscv64 (2.34-6ubuntu1.4) ...
+Selecting previously unselected package libctf-nobfd0:riscv64.
+Preparing to unpack .../5-libctf-nobfd0_2.34-6ubuntu1.4_riscv64.deb ...
+Unpacking libctf-nobfd0:riscv64 (2.34-6ubuntu1.4) ...
+Selecting previously unselected package libctf0:riscv64.
+Preparing to unpack .../6-libctf0_2.34-6ubuntu1.4_riscv64.deb ...
+Unpacking libctf0:riscv64 (2.34-6ubuntu1.4) ...
+Selecting previously unselected package binutils-riscv64-linux-gnu.
+Preparing to unpack .../7-binutils-riscv64-linux-gnu_2.34-6ubuntu1.4_riscv64.deb ...
+Unpacking binutils-riscv64-linux-gnu (2.34-6ubuntu1.4) ...
+Selecting previously unselected package binutils.
+Preparing to unpack .../8-binutils_2.34-6ubuntu1.4_riscv64.deb ...
+Unpacking binutils (2.34-6ubuntu1.4) ...
+Selecting previously unselected package dpkg-dev.
+Preparing to unpack .../9-dpkg-dev_1.19.7ubuntu3.2_all.deb ...
+Unpacking dpkg-dev (1.19.7ubuntu3.2) ...
+Setting up binutils-common:riscv64 (2.34-6ubuntu1.4) ...
+Setting up libctf-nobfd0:riscv64 (2.34-6ubuntu1.4) ...
+Setting up linux-image-5.11.0-1030-generic (5.11.0-1030.34) ...
+/etc/kernel-img.conf: W: ignoring no_symlinks; only symlinks are supported
+Setting up make (4.2.1-1.2) ...
+Setting up patch (2.7.6-6) ...
+Setting up libdpkg-perl (1.19.7ubuntu3.2) ...
+Setting up libbinutils:riscv64 (2.34-6ubuntu1.4) ...
+Setting up libctf0:riscv64 (2.34-6ubuntu1.4) ...
+Setting up binutils-riscv64-linux-gnu (2.34-6ubuntu1.4) ...
+Setting up binutils (2.34-6ubuntu1.4) ...
+Setting up dpkg-dev (1.19.7ubuntu3.2) ...
+Setting up autopkgtest-satdep (0) ...
+Processing triggers for man-db (2.9.1-1) ...
+Processing triggers for libc-bin (2.31-0ubuntu9.9) ...
+Processing triggers for linux-image-5.11.0-1030-generic (5.11.0-1030.34) ...
+/etc/kernel/postinst.d/initramfs-tools:
+update-initramfs: Generating /boot/initrd.img-5.11.0-1030-generic
+touch: cannot touch '/boot/initrd.img-5.11.0-1030-generic.new': Read-only file system
+/usr/sbin/mkinitramfs: 422: cannot create /boot/initrd.img-5.11.0-1030-generic.new: Read-only file system
+/usr/sbin/mkinitramfs: 456: cannot create /boot/initrd.img-5.11.0-1030-generic.new: Read-only file system
+E: mkinitramfs failure cpio 141 lz4 -9 -l 2
+update-initramfs: failed for /boot/initrd.img-5.11.0-1030-generic with 1.
+run-parts: /etc/kernel/postinst.d/initramfs-tools exited with return code 1
+dpkg: error processing package linux-image-5.11.0-1030-generic (--configure):
+ installed linux-image-5.11.0-1030-generic package post-installation script subprocess returned error exit status 1
+Errors were encountered while processing:
+ linux-image-5.11.0-1030-generic
+E: Sub-process /usr/bin/dpkg returned an error code (1)
+autopkgtest: DBG: testbed command exited with code 100
+autopkgtest: DBG: apt-get install --fix-broken failed; status-fd:
+dlstatus:1:0.0000:Retrieving file 1 of 10
+dlstatus:1:0.0000:Retrieving file 1 of 10
+dlstatus:1:0.0000:Retrieving file 1 of 10
+dlstatus:1:0.0000:Retrieving file 1 of 10
+dlstatus:1:0.0000:Retrieving file 1 of 10
+dlstatus:1:0.0000:Retrieving file 1 of 10
+dlstatus:1:0.0000:Retrieving file 1 of 10
+dlstatus:1:0.4618:Retrieving file 1 of 10
+dlstatus:1:0.5712:Retrieving file 1 of 10
+dlstatus:1:2.8745:Retrieving file 1 of 10
+dlstatus:1:6.4649:Retrieving file 1 of 10
+dlstatus:2:9.8067:Retrieving file 2 of 10
+dlstatus:2:9.8067:Retrieving file 2 of 10
+dlstatus:2:9.8067:Retrieving file 2 of 10
+dlstatus:2:9.8067:Retrieving file 2 of 10
+dlstatus:2:9.8067:Retrieving file 2 of 10
+dlstatus:2:9.8067:Retrieving file 2 of 10
+dlstatus:2:9.8067:Retrieving file 2 of 10
+dlstatus:2:9.8067:Retrieving file 2 of 10
+dlstatus:2:9.8067:Retrieving file 2 of 10
+dlstatus:2:9.8067:Retrieving file 2 of 10
+dlstatus:2:11.4407:Retrieving file 2 of 10 (47s remaining)
+dlstatus:3:15.0170:Retrieving file 3 of 10 (46s remaining)
+dlstatus:3:15.0170:Retrieving file 3 of 10 (46s remaining)
+dlstatus:3:15.0170:Retrieving file 3 of 10 (46s remaining)
+dlstatus:3:15.1556:Retrieving file 3 of 10 (46s remaining)
+dlstatus:4:22.1669:Retrieving file 4 of 10 (43s remaining)
+dlstatus:4:22.1669:Retrieving file 4 of 10 (43s remaining)
+dlstatus:4:22.2550:Retrieving file 4 of 10 (43s remaining)
+dlstatus:4:23.2211:Retrieving file 4 of 10 (42s remaining)
+dlstatus:5:30.9173:Retrieving file 5 of 10 (38s remaining)
+dlstatus:5:30.9173:Retrieving file 5 of 10 (38s remaining)
+dlstatus:5:31.0054:Retrieving file 5 of 10 (38s remaining)
+dlstatus:5:33.2276:Retrieving file 5 of 10 (37s remaining)
+dlstatus:6:42.3660:Retrieving file 6 of 10 (32s remaining)
+dlstatus:6:42.3660:Retrieving file 6 of 10 (32s remaining)
+dlstatus:6:42.5508:Retrieving file 6 of 10 (32s remaining)
+dlstatus:7:45.7451:Retrieving file 7 of 10 (31s remaining)
+dlstatus:7:45.7451:Retrieving file 7 of 10 (31s remaining)
+dlstatus:7:45.8332:Retrieving file 7 of 10 (31s remaining)
+dlstatus:8:49.0966:Retrieving file 8 of 10 (30s remaining)
+dlstatus:8:49.0966:Retrieving file 8 of 10 (30s remaining)
+dlstatus:8:49.1847:Retrieving file 8 of 10 (30s remaining)
+dlstatus:8:50.0542:Retrieving file 8 of 10 (29s remaining)
+dlstatus:8:68.5162:Retrieving file 8 of 10 (3s remaining)
+dlstatus:9:72.9203:Retrieving file 9 of 10 (3s remaining)
+dlstatus:9:72.9203:Retrieving file 9 of 10 (3s remaining)
+dlstatus:9:73.0317:Retrieving file 9 of 10 (3s remaining)
+dlstatus:10:75.0317:Retrieving file 10 of 10 (3s remaining)
+dlstatus:10:75.0317:Retrieving file 10 of 10 (3s remaining)
+dlstatus:10:75.1197:Retrieving file 10 of 10 (3s remaining)
+dlstatus:10:89.0327:Retrieving file 10 of 10 (1s remaining)
+dlstatus:10:89.7574:Retrieving file 10 of 10 (1s remaining)
+dlstatus:10:100.0000:Retrieving file 10 of 10
+pmstatus:dpkg-exec:0.0000:Running dpkg
+pmstatus:libdpkg-perl:0.0000:Preparing libdpkg-perl (riscv64)
+pmstatus:libdpkg-perl:2.2222:Unpacking libdpkg-perl (riscv64)
+pmstatus:libdpkg-perl:4.4444:Installing libdpkg-perl (riscv64)
+pmstatus:patch:4.4444:Preparing patch (riscv64)
+pmstatus:patch:6.6667:Unpacking patch (riscv64)
+pmstatus:patch:8.8889:Installing patch (riscv64)
+pmstatus:make:8.8889:Preparing make (riscv64)
+pmstatus:make:11.1111:Unpacking make (riscv64)
+pmstatus:make:13.3333:Installing make (riscv64)
+pmstatus:binutils-common:13.3333:Preparing binutils-common (riscv64)
+pmstatus:binutils-common:15.5556:Unpacking binutils-common (riscv64)
+pmstatus:binutils-common:17.7778:Installing binutils-common (riscv64)
+pmstatus:libbinutils:17.7778:Preparing libbinutils (riscv64)
+pmstatus:libbinutils:20.0000:Unpacking libbinutils (riscv64)
+pmstatus:libbinutils:22.2222:Installing libbinutils (riscv64)
+pmstatus:libctf-nobfd0:22.2222:Preparing libctf-nobfd0 (riscv64)
+pmstatus:libctf-nobfd0:24.4444:Unpacking libctf-nobfd0 (riscv64)
+pmstatus:libctf-nobfd0:26.6667:Installing libctf-nobfd0 (riscv64)
+pmstatus:libctf0:26.6667:Preparing libctf0 (riscv64)
+pmstatus:libctf0:28.8889:Unpacking libctf0 (riscv64)
+pmstatus:libctf0:31.1111:Installing libctf0 (riscv64)
+pmstatus:binutils-riscv64-linux-gnu:31.1111:Preparing binutils-riscv64-linux-gnu (riscv64)
+pmstatus:binutils-riscv64-linux-gnu:33.3333:Unpacking binutils-riscv64-linux-gnu (riscv64)
+pmstatus:binutils-riscv64-linux-gnu:35.5556:Installing binutils-riscv64-linux-gnu (riscv64)
+pmstatus:binutils:35.5556:Preparing binutils (riscv64)
+pmstatus:binutils:37.7778:Unpacking binutils (riscv64)
+pmstatus:binutils:40.0000:Installing binutils (riscv64)
+pmstatus:dpkg-dev:40.0000:Preparing dpkg-dev (riscv64)
+pmstatus:dpkg-dev:42.2222:Unpacking dpkg-dev (riscv64)
+pmstatus:dpkg-dev:44.4444:Installing dpkg-dev (riscv64)
+pmstatus:dpkg-exec:44.4444:Running dpkg
+pmstatus:binutils-common:44.4444:Preparing to configure binutils-common (riscv64)
+pmstatus:binutils-common:46.6667:Configuring binutils-common (riscv64)
+pmstatus:binutils-common:48.8889:Installed binutils-common (riscv64)
+pmstatus:libctf-nobfd0:48.8889:Preparing to configure libctf-nobfd0 (riscv64)
+pmstatus:libctf-nobfd0:51.1111:Configuring libctf-nobfd0 (riscv64)
+pmstatus:libctf-nobfd0:53.3333:Installed libctf-nobfd0 (riscv64)
+pmstatus:linux-image-5.11.0-1030-generic:53.3333:Preparing to configure linux-image-5.11.0-1030-generic (riscv64)
+pmstatus:linux-image-5.11.0-1030-generic:55.5556:Configuring linux-image-5.11.0-1030-generic (riscv64)
+pmstatus:linux-image-5.11.0-1030-generic:57.7778:Installed linux-image-5.11.0-1030-generic (riscv64)
+pmstatus:make:55.3191:Preparing to configure make (riscv64)
+pmstatus:make:57.4468:Configuring make (riscv64)
+pmstatus:make:59.5745:Installed make (riscv64)
+pmstatus:patch:59.5745:Preparing to configure patch (riscv64)
+pmstatus:patch:61.7021:Configuring patch (riscv64)
+pmstatus:patch:63.8298:Installed patch (riscv64)
+pmstatus:libdpkg-perl:63.8298:Preparing to configure libdpkg-perl (riscv64)
+pmstatus:libdpkg-perl:65.9574:Configuring libdpkg-perl (riscv64)
+pmstatus:libdpkg-perl:68.0851:Installed libdpkg-perl (riscv64)
+pmstatus:libbinutils:68.0851:Preparing to configure libbinutils (riscv64)
+pmstatus:libbinutils:70.2128:Configuring libbinutils (riscv64)
+pmstatus:libbinutils:72.3404:Installed libbinutils (riscv64)
+pmstatus:libctf0:72.3404:Preparing to configure libctf0 (riscv64)
+pmstatus:libctf0:74.4681:Configuring libctf0 (riscv64)
+pmstatus:libctf0:76.5957:Installed libctf0 (riscv64)
+pmstatus:binutils-riscv64-linux-gnu:76.5957:Preparing to configure binutils-riscv64-linux-gnu (riscv64)
+pmstatus:binutils-riscv64-linux-gnu:78.7234:Configuring binutils-riscv64-linux-gnu (riscv64)
+pmstatus:binutils-riscv64-linux-gnu:80.8511:Installed binutils-riscv64-linux-gnu (riscv64)
+pmstatus:binutils:80.8511:Preparing to configure binutils (riscv64)
+pmstatus:binutils:82.9787:Configuring binutils (riscv64)
+pmstatus:binutils:85.1064:Installed binutils (riscv64)
+pmstatus:dpkg-dev:85.1064:Preparing to configure dpkg-dev (riscv64)
+pmstatus:dpkg-dev:87.2340:Configuring dpkg-dev (riscv64)
+pmstatus:dpkg-dev:89.3617:Installed dpkg-dev (riscv64)
+pmstatus:autopkgtest-satdep:89.3617:Preparing to configure autopkgtest-satdep (riscv64)
+pmstatus:autopkgtest-satdep:91.4894:Configuring autopkgtest-satdep (riscv64)
+pmstatus:autopkgtest-satdep:93.6170:Installed autopkgtest-satdep (riscv64)
+pmstatus:linux-image-5.11.0-1030-generic:93.6170:Running post-installation trigger linux-image-5.11.0-1030-generic (riscv64)
+pmstatus:linux-image-5.11.0-1030-generic:95.7447:Configuring linux-image-5.11.0-1030-generic (riscv64)
+pmerror:linux-image-5.11.0-1030-generic:95.7447:installed linux-image-5.11.0-1030-generic package post-installation script subprocess returned error exit status 1
+
+autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate dpkg-dev -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Starting pkgProblemResolver with broken count: 0
+Starting 2 pkgProblemResolver with broken count: 0
+Done
+dpkg-dev is already the newest version (1.19.7ubuntu3.2).
+dpkg-dev set to manually installed.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+1 not fully installed or removed.
+Conf linux-image-5.11.0-1030-generic (5.11.0-1030.34 Ubuntu:20.04/focal-updates, Ubuntu:20.04/focal-security [riscv64])
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+blame: systemd_245.4-4ubuntu3.19.dsc
+badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+autopkgtest [02:55:37]: ERROR: erroneous package: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+autopkgtest: DBG: testbed stop
+autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.IS7bjm
+autopkgtest: DBG: sending command to testbed: close
+autopkgtest-virt-qemu: DBG: executing close
+autopkgtest-virt-qemu: DBG: cleanup...
+qemu-system-riscv64: terminating on signal 15 from pid 385463 (/usr/bin/python3)
+autopkgtest: DBG: got reply from testbed: ok
+autopkgtest: DBG: sending command to testbed: quit
+autopkgtest-virt-qemu: DBG: executing quit
+autopkgtest-virt-qemu: DBG: cleanup...

@@ -1,0 +1,824 @@
+
+udev-test will run 159 tests:
+
+TEST 1: no rules
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda' expecting node/link 'sda'
+add:         ok
+remove:      ok
+
+TEST 2: label test of scsi disc
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda' expecting node/link 'boot_disk'
+add:         ok
+remove:      ok
+
+TEST 3: label test of scsi disc
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda' expecting node/link 'boot_disk'
+add:         ok
+remove:      ok
+
+TEST 4: label test of scsi disc
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda' expecting node/link 'boot_disk'
+add:         ok
+remove:      ok
+
+TEST 5: label test of scsi partition
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda/sda1' expecting node/link 'boot_disk1'
+add:         ok
+remove:      ok
+
+TEST 6: label test of pattern match
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda/sda1' expecting node/link 'boot_disk1'
+add:         ok
+remove:      ok
+
+TEST 7: label test of multiple sysfs files
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda/sda1' expecting node/link 'boot_disk1'
+add:         ok
+remove:      ok
+
+TEST 8: label test of max sysfs files (skip invalid rule)
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda/sda1' expecting node/link 'boot_disk1'
+add:         ok
+remove:      ok
+
+TEST 9: catch device by *
+device '/devices/pci0000:00/0000:00:1d.7/usb5/5-2/5-2:1.0/tty/ttyACM0' expecting node/link 'modem/0'
+add:         ok
+remove:      ok
+
+TEST 10: catch device by * - take 2
+device '/devices/pci0000:00/0000:00:1d.7/usb5/5-2/5-2:1.0/tty/ttyACM0' expecting node/link 'modem/0'
+add:         ok
+remove:      ok
+
+TEST 11: catch device by ?
+device '/devices/pci0000:00/0000:00:1d.7/usb5/5-2/5-2:1.0/tty/ttyACM0' expecting node/link 'modem/0'
+add:         ok
+remove:      ok
+
+TEST 12: catch device by character class
+device '/devices/pci0000:00/0000:00:1d.7/usb5/5-2/5-2:1.0/tty/ttyACM0' expecting node/link 'modem/0'
+add:         ok
+remove:      ok
+
+TEST 13: replace kernel name
+device '/devices/pci0000:00/0000:00:1d.7/usb5/5-2/5-2:1.0/tty/ttyACM0' expecting node/link 'modem'
+add:         ok
+remove:      ok
+
+TEST 14: Handle comment lines in config file (and replace kernel name)
+device '/devices/pci0000:00/0000:00:1d.7/usb5/5-2/5-2:1.0/tty/ttyACM0' expecting node/link 'modem'
+add:         ok
+remove:      ok
+
+TEST 15: Handle comment lines in config file with whitespace (and replace kernel name)
+device '/devices/pci0000:00/0000:00:1d.7/usb5/5-2/5-2:1.0/tty/ttyACM0' expecting node/link 'modem'
+add:         ok
+remove:      ok
+
+TEST 16: Handle whitespace only lines (and replace kernel name)
+device '/devices/pci0000:00/0000:00:1d.7/usb5/5-2/5-2:1.0/tty/ttyACM0' expecting node/link 'whitespace'
+add:         ok
+remove:      ok
+
+TEST 17: Handle empty lines in config file (and replace kernel name)
+device '/devices/pci0000:00/0000:00:1d.7/usb5/5-2/5-2:1.0/tty/ttyACM0' expecting node/link 'modem'
+add:         ok
+remove:      ok
+
+TEST 18: Handle backslashed multi lines in config file (and replace kernel name)
+device '/devices/pci0000:00/0000:00:1d.7/usb5/5-2/5-2:1.0/tty/ttyACM0' expecting node/link 'modem'
+add:         ok
+remove:      ok
+
+TEST 19: preserve backslashes, if they are not for a newline
+device '/devices/pci0000:00/0000:00:1d.7/usb5/5-2/5-2:1.0/tty/ttyACM0' expecting node/link 'aaa'
+add:         ok
+remove:      ok
+
+TEST 20: Handle stupid backslashed multi lines in config file (and replace kernel name)
+device '/devices/pci0000:00/0000:00:1d.7/usb5/5-2/5-2:1.0/tty/ttyACM0' expecting node/link 'modem'
+add:         ok
+remove:      ok
+
+TEST 21: subdirectory handling
+device '/devices/pci0000:00/0000:00:1d.7/usb5/5-2/5-2:1.0/tty/ttyACM0' expecting node/link 'sub/direct/ory/modem'
+add:         ok
+remove:      ok
+
+TEST 22: parent device name match of scsi partition
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda/sda5' expecting node/link 'first_disk5'
+add:         ok
+remove:      ok
+
+TEST 23: test substitution chars
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda/sda5' expecting node/link 'Major:8:minor:5:kernelnumber:5:id:0:0:0:0'
+add:         ok
+remove:      ok
+
+TEST 24: import of shell-value returned from program
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda' expecting node/link 'node12345678'
+add:         ok
+remove:      ok
+
+TEST 25: substitution of sysfs value (%s{file})
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda' expecting node/link 'disk-ATA-sda'
+add:         ok
+remove:      ok
+
+TEST 26: program result substitution
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda/sda5' expecting node/link 'special-device-5'
+add:         ok
+remove:      ok
+
+TEST 27: program result substitution (newline removal)
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda/sda5' expecting node/link 'newline_removed'
+add:         ok
+remove:      ok
+
+TEST 28: program result substitution
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda/sda5' expecting node/link 'test-0:0:0:0'
+add:         ok
+remove:      ok
+
+TEST 29: program with lots of arguments
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda/sda5' expecting node/link 'foo9'
+add:         ok
+remove:      ok
+
+TEST 30: program with subshell
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda/sda5' expecting node/link 'bar9'
+add:         ok
+remove:      ok
+
+TEST 31: program arguments combined with apostrophes
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda/sda5' expecting node/link 'foo7'
+add:         ok
+remove:      ok
+
+TEST 32: program arguments combined with escaped double quotes, part 1
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda/sda5' expecting node/link 'foo2'
+add:         ok
+remove:      ok
+
+TEST 33: program arguments combined with escaped double quotes, part 2
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda/sda5' expecting node/link 'foo2'
+add:         ok
+remove:      ok
+
+TEST 34: program arguments combined with escaped double quotes, part 3
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda/sda5' expecting node/link 'foo2'
+add:         ok
+remove:      ok
+
+TEST 35: characters before the %c{N} substitution
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda/sda5' expecting node/link 'my-foo9'
+add:         ok
+remove:      ok
+
+TEST 36: substitute the second to last argument
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda/sda5' expecting node/link 'my-foo8'
+add:         ok
+remove:      ok
+
+TEST 37: test substitution by variable name
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda/sda5' expecting node/link 'Major:8-minor:5-kernelnumber:5-id:0:0:0:0'
+add:         ok
+remove:      ok
+
+TEST 38: test substitution by variable name 2
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda/sda5' expecting node/link 'Major:8-minor:5-kernelnumber:5-id:0:0:0:0'
+add:         ok
+remove:      ok
+
+TEST 39: test substitution by variable name 3
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda/sda5' expecting node/link '850:0:0:05'
+add:         ok
+remove:      ok
+
+TEST 40: test substitution by variable name 4
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda/sda5' expecting node/link '855'
+add:         ok
+remove:      ok
+
+TEST 41: test substitution by variable name 5
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda/sda5' expecting node/link '8550:0:0:0'
+add:         ok
+remove:      ok
+
+TEST 42: non matching SUBSYSTEMS for device with no parent
+device '/devices/virtual/tty/console' expecting node/link 'TTY'
+add:         ok
+remove:      ok
+
+TEST 43: non matching SUBSYSTEMS
+device '/devices/virtual/tty/console' expecting node/link 'TTY'
+add:         ok
+remove:      ok
+
+TEST 44: ATTRS match
+device '/devices/virtual/tty/console' expecting node/link 'foo'
+add:         ok
+remove:      ok
+
+TEST 45: ATTR (empty file)
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda' expecting node/link 'empty'
+add:         ok
+remove:      ok
+
+TEST 46: ATTR (non-existent file)
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda' expecting node/link 'non-existent'
+add:         ok
+remove:      ok
+
+TEST 47: program and bus type match
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda' expecting node/link 'scsi-0:0:0:0'
+add:         ok
+remove:      ok
+
+TEST 48: sysfs parent hierarchy
+device '/devices/pci0000:00/0000:00:1d.7/usb5/5-2/5-2:1.0/tty/ttyACM0' expecting node/link 'modem'
+add:         ok
+remove:      ok
+
+TEST 49: name test with ! in the name
+device '/devices/virtual/block/fake!blockdev0' expecting node/link 'is/a/fake/blockdev0'
+add:         ok
+remove:      ok
+
+TEST 50: name test with ! in the name, but no matching rule
+device '/devices/virtual/block/fake!blockdev0' expecting node/link 'fake/blockdev0'
+add:         ok
+remove:      ok
+
+TEST 51: KERNELS rule
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda' expecting node/link 'scsi-0:0:0:0'
+add:         ok
+remove:      ok
+
+TEST 52: KERNELS wildcard all
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda' expecting node/link 'scsi-0:0:0:0'
+add:         ok
+remove:      ok
+
+TEST 53: KERNELS wildcard partial
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda' expecting node/link 'scsi-0:0:0:0'
+add:         ok
+remove:      ok
+
+TEST 54: KERNELS wildcard partial 2
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda' expecting node/link 'scsi-0:0:0:0'
+add:         ok
+remove:      ok
+
+TEST 55: substitute attr with link target value (first match)
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda' expecting node/link 'driver-is-sd'
+add:         ok
+remove:      ok
+
+TEST 56: substitute attr with link target value (currently selected device)
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda' expecting node/link 'driver-is-ahci'
+add:         ok
+remove:      ok
+
+TEST 57: ignore ATTRS attribute whitespace
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda' expecting node/link 'ignored'
+add:         ok
+remove:      ok
+
+TEST 58: do not ignore ATTRS attribute whitespace
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda' expecting node/link 'matched-with-space'
+add:         ok
+remove:      ok
+
+TEST 59: permissions USER=bad GROUP=name
+device '/devices/virtual/tty/tty33' expecting node/link 'tty33'
+permissions: ok
+add:         ok
+remove:      ok
+
+TEST 60: permissions OWNER=1
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda' expecting node/link 'node'
+permissions: ok
+add:         ok
+remove:      ok
+
+TEST 61: permissions GROUP=1
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda' expecting node/link 'node'
+permissions: ok
+add:         ok
+remove:      ok
+
+TEST 62: textual user id
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda' expecting node/link 'node'
+permissions: ok
+add:         ok
+remove:      ok
+
+TEST 63: textual group id
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda' expecting node/link 'node'
+permissions: ok
+add:         ok
+remove:      ok
+
+TEST 64: textual user/group id
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda' expecting node/link 'node'
+permissions: ok
+add:         ok
+remove:      ok
+
+TEST 65: permissions MODE=0777
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda' expecting node/link 'node'
+permissions: ok
+add:         ok
+remove:      ok
+
+TEST 66: permissions OWNER=1 GROUP=1 MODE=0777
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda' expecting node/link 'node'
+permissions: ok
+add:         ok
+remove:      ok
+
+TEST 67: permissions OWNER to 1
+device '/devices/pci0000:00/0000:00:1d.7/usb5/5-2/5-2:1.0/tty/ttyACM0' expecting node/link 'ttyACM0'
+permissions: ok
+add:         ok
+remove:      ok
+
+TEST 68: permissions GROUP to 1
+device '/devices/pci0000:00/0000:00:1d.7/usb5/5-2/5-2:1.0/tty/ttyACM0' expecting node/link 'ttyACM0'
+permissions: ok
+add:         ok
+remove:      ok
+
+TEST 69: permissions MODE to 0060
+device '/devices/pci0000:00/0000:00:1d.7/usb5/5-2/5-2:1.0/tty/ttyACM0' expecting node/link 'ttyACM0'
+permissions: ok
+add:         ok
+remove:      ok
+
+TEST 70: permissions OWNER, GROUP, MODE
+device '/devices/pci0000:00/0000:00:1d.7/usb5/5-2/5-2:1.0/tty/ttyACM0' expecting node/link 'ttyACM0'
+permissions: ok
+add:         ok
+remove:      ok
+
+TEST 71: permissions only rule
+device '/devices/pci0000:00/0000:00:1d.7/usb5/5-2/5-2:1.0/tty/ttyACM0' expecting node/link 'ttyACM0'
+permissions: ok
+add:         ok
+remove:      ok
+
+TEST 72: multiple permissions only rule
+device '/devices/pci0000:00/0000:00:1d.7/usb5/5-2/5-2:1.0/tty/ttyACM0' expecting node/link 'ttyACM0'
+permissions: ok
+add:         ok
+remove:      ok
+
+TEST 73: permissions only rule with override at SYMLINK+ rule
+device '/devices/pci0000:00/0000:00:1d.7/usb5/5-2/5-2:1.0/tty/ttyACM0' expecting node/link 'ttyACM0'
+permissions: ok
+add:         ok
+remove:      ok
+
+TEST 74: major/minor number test
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda' expecting node/link 'node'
+major:minor: ok
+add:         ok
+remove:      ok
+
+TEST 75: big major number test
+device '/devices/virtual/misc/misc-fake1' expecting node/link 'node'
+major:minor: ok
+add:         ok
+remove:      ok
+
+TEST 76: big major and big minor number test
+device '/devices/virtual/misc/misc-fake89999' expecting node/link 'node'
+major:minor: ok
+add:         ok
+remove:      ok
+
+TEST 77: multiple symlinks with format char
+device '/devices/pci0000:00/0000:00:1d.7/usb5/5-2/5-2:1.0/tty/ttyACM0' expecting node/link 'symlink2-ttyACM0'
+add:         ok
+remove:      ok
+
+TEST 78: multiple symlinks with a lot of s p a c e s
+device '/devices/pci0000:00/0000:00:1d.7/usb5/5-2/5-2:1.0/tty/ttyACM0' expecting node/link 'one'
+add:         ok
+remove:      ok
+
+TEST 79: symlink with spaces in substituted variable
+device '/devices/pci0000:00/0000:00:1d.7/usb5/5-2/5-2:1.0/tty/ttyACM0' expecting node/link 'name-one_two_three-end'
+add:         ok
+remove:      ok
+
+TEST 80: symlink with leading space in substituted variable
+device '/devices/pci0000:00/0000:00:1d.7/usb5/5-2/5-2:1.0/tty/ttyACM0' expecting node/link 'name-one_two_three-end'
+add:         ok
+remove:      ok
+
+TEST 81: symlink with trailing space in substituted variable
+device '/devices/pci0000:00/0000:00:1d.7/usb5/5-2/5-2:1.0/tty/ttyACM0' expecting node/link 'name-one_two_three-end'
+add:         ok
+remove:      ok
+
+TEST 82: symlink with lots of space in substituted variable
+device '/devices/pci0000:00/0000:00:1d.7/usb5/5-2/5-2:1.0/tty/ttyACM0' expecting node/link 'name-one_two_three-end'
+add:         ok
+remove:      ok
+
+TEST 83: symlink with multiple spaces in substituted variable
+device '/devices/pci0000:00/0000:00:1d.7/usb5/5-2/5-2:1.0/tty/ttyACM0' expecting node/link 'name-one_two_three-end'
+add:         ok
+remove:      ok
+
+TEST 84: symlink with space and var with space, part 1
+device '/devices/pci0000:00/0000:00:1d.7/usb5/5-2/5-2:1.0/tty/ttyACM0' expecting node/link 'first'
+add:         ok
+remove:      ok
+
+TEST 85: symlink with space and var with space, part 2
+device '/devices/pci0000:00/0000:00:1d.7/usb5/5-2/5-2:1.0/tty/ttyACM0' expecting node/link 'name-one_two_three-end'
+add:         ok
+remove:      ok
+
+TEST 86: symlink with space and var with space, part 3
+device '/devices/pci0000:00/0000:00:1d.7/usb5/5-2/5-2:1.0/tty/ttyACM0' expecting node/link 'another_symlink'
+add:         ok
+remove:      ok
+
+TEST 87: symlink creation (same directory)
+device '/devices/pci0000:00/0000:00:1d.7/usb5/5-2/5-2:1.0/tty/ttyACM0' expecting node/link 'modem0'
+add:         ok
+remove:      ok
+
+TEST 88: multiple symlinks
+device '/devices/pci0000:00/0000:00:1d.7/usb5/5-2/5-2:1.0/tty/ttyACM0' expecting node/link 'second-0'
+add:         ok
+remove:      ok
+
+TEST 89: symlink name '.'
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda' expecting node/link '.'
+add:         ok
+remove:      error as expected
+
+TEST 90: symlink node to itself
+device '/devices/virtual/tty/tty0' expecting node/link 'link'
+add:         error as expected
+remove:      ok
+
+TEST 91: symlink %n substitution
+device '/devices/pci0000:00/0000:00:1d.7/usb5/5-2/5-2:1.0/tty/ttyACM0' expecting node/link 'symlink0'
+add:         ok
+remove:      ok
+
+TEST 92: symlink %k substitution
+device '/devices/pci0000:00/0000:00:1d.7/usb5/5-2/5-2:1.0/tty/ttyACM0' expecting node/link 'symlink-ttyACM0'
+add:         ok
+remove:      ok
+
+TEST 93: symlink %M:%m substitution
+device '/devices/pci0000:00/0000:00:1d.7/usb5/5-2/5-2:1.0/tty/ttyACM0' expecting node/link 'major-166:0'
+add:         ok
+remove:      ok
+
+TEST 94: symlink %b substitution
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda' expecting node/link 'symlink-0:0:0:0'
+add:         ok
+remove:      ok
+
+TEST 95: symlink %c substitution
+device '/devices/pci0000:00/0000:00:1d.7/usb5/5-2/5-2:1.0/tty/ttyACM0' expecting node/link 'test'
+add:         ok
+remove:      ok
+
+TEST 96: symlink %c{N} substitution
+device '/devices/pci0000:00/0000:00:1d.7/usb5/5-2/5-2:1.0/tty/ttyACM0' expecting node/link 'test'
+add:         ok
+remove:      ok
+
+TEST 97: symlink %c{N+} substitution
+device '/devices/pci0000:00/0000:00:1d.7/usb5/5-2/5-2:1.0/tty/ttyACM0' expecting node/link 'this'
+add:         ok
+remove:      ok
+
+TEST 98: symlink only rule with %c{N+}
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda' expecting node/link 'test'
+add:         ok
+remove:      ok
+
+TEST 99: symlink %s{filename} substitution
+device '/devices/pci0000:00/0000:00:1d.7/usb5/5-2/5-2:1.0/tty/ttyACM0' expecting node/link '166:0'
+add:         ok
+remove:      ok
+
+TEST 100: program result substitution (numbered part of)
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda/sda5' expecting node/link 'link1'
+add:         ok
+remove:      ok
+
+TEST 101: program result substitution (numbered part of+)
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda/sda5' expecting node/link 'link4'
+add:         ok
+remove:      ok
+
+TEST 102: SUBSYSTEM match test
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda' expecting node/link 'node'
+add:         ok
+remove:      ok
+
+TEST 103: DRIVERS match test
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda' expecting node/link 'node'
+add:         ok
+remove:      ok
+
+TEST 104: devnode substitution test
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda' expecting node/link 'node'
+add:         ok
+remove:      ok
+
+TEST 105: parent node name substitution test
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda/sda1' expecting node/link 'sda-part-1'
+add:         ok
+remove:      ok
+
+TEST 106: udev_root substitution
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda/sda1' expecting node/link 'start-/dev-end'
+add:         ok
+remove:      ok
+
+TEST 107: last_rule option
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda/sda1' expecting node/link 'last'
+add:         ok
+remove:      ok
+
+TEST 108: negation KERNEL!=
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda/sda1' expecting node/link 'match'
+add:         ok
+remove:      ok
+
+TEST 109: negation SUBSYSTEM!=
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda/sda1' expecting node/link 'not-anything'
+add:         ok
+remove:      ok
+
+TEST 110: negation PROGRAM!= exit code
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda/sda1' expecting node/link 'nonzero-program'
+add:         ok
+remove:      ok
+
+TEST 111: ENV{} test
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda/sda1' expecting node/link 'true'
+add:         ok
+remove:      ok
+
+TEST 112: ENV{} test
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda/sda1' expecting node/link 'true'
+add:         ok
+remove:      ok
+
+TEST 113: ENV{} test (assign)
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda/sda1' expecting node/link 'true'
+add:         ok
+remove:      ok
+
+TEST 114: ENV{} test (assign 2 times)
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda/sda1' expecting node/link 'true'
+add:         ok
+remove:      ok
+
+TEST 115: ENV{} test (assign2)
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda/sda1' expecting node/link 'part'
+add:         ok
+remove:      ok
+
+TEST 116: untrusted string sanitize
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda/sda1' expecting node/link 'sane'
+add:         ok
+remove:      ok
+
+TEST 117: untrusted string sanitize (don't replace utf8)
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda/sda1' expecting node/link 'uber'
+add:         ok
+remove:      ok
+
+TEST 118: untrusted string sanitize (replace invalid utf8)
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda/sda1' expecting node/link 'replaced'
+add:         ok
+remove:      ok
+
+TEST 119: read sysfs value from parent device
+device '/devices/pci0000:00/0000:00:1d.7/usb5/5-2/5-2:1.0/tty/ttyACM0' expecting node/link 'serial-354172020305000'
+add:         ok
+remove:      ok
+
+TEST 120: match against empty key string
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda' expecting node/link 'ok'
+add:         ok
+remove:      ok
+
+TEST 121: check ACTION value
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda' expecting node/link 'ok'
+add:         ok
+remove:      ok
+
+TEST 122: final assignment
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda' expecting node/link 'ok'
+permissions: ok
+add:         ok
+remove:      ok
+
+TEST 123: final assignment 2
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda' expecting node/link 'ok'
+permissions: ok
+add:         ok
+remove:      ok
+
+TEST 124: env substitution
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda' expecting node/link 'node-add-me'
+add:         ok
+remove:      ok
+
+TEST 125: reset list to current value
+device '/devices/pci0000:00/0000:00:1d.7/usb5/5-2/5-2:1.0/tty/ttyACM0' expecting node/link 'three'
+add:         ok
+remove:      ok
+
+TEST 126: test empty SYMLINK+ (empty override)
+device '/devices/pci0000:00/0000:00:1d.7/usb5/5-2/5-2:1.0/tty/ttyACM0' expecting node/link 'right'
+add:         ok
+remove:      ok
+
+TEST 127: test multi matches
+device '/devices/pci0000:00/0000:00:1d.7/usb5/5-2/5-2:1.0/tty/ttyACM0' expecting node/link 'right'
+add:         ok
+remove:      ok
+
+TEST 128: test multi matches 2
+device '/devices/pci0000:00/0000:00:1d.7/usb5/5-2/5-2:1.0/tty/ttyACM0' expecting node/link 'right'
+add:         ok
+remove:      ok
+
+TEST 129: test multi matches 3
+device '/devices/pci0000:00/0000:00:1d.7/usb5/5-2/5-2:1.0/tty/ttyACM0' expecting node/link 'right'
+add:         ok
+remove:      ok
+
+TEST 130: test multi matches 4
+device '/devices/pci0000:00/0000:00:1d.7/usb5/5-2/5-2:1.0/tty/ttyACM0' expecting node/link 'right'
+add:         ok
+remove:      ok
+
+TEST 131: test multi matches 5
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda' expecting node/link 'found'
+add:         ok
+remove:      ok
+
+TEST 132: test multi matches 6
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda' expecting node/link 'found'
+add:         ok
+remove:      ok
+
+TEST 133: test multi matches 7
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda' expecting node/link 'found'
+add:         ok
+remove:      ok
+
+TEST 134: test multi matches 8
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda' expecting node/link 'found'
+add:         ok
+remove:      ok
+
+TEST 135: test multi matches 9
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda' expecting node/link 'found'
+add:         ok
+remove:      ok
+
+TEST 136: test multi matches 10
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda' expecting node/link 'found'
+add:         ok
+remove:      ok
+
+TEST 137: IMPORT parent test sequence 1/2 (keep)
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda' expecting node/link 'parent'
+add:         ok
+
+
+TEST 138: IMPORT parent test sequence 2/2 (keep)
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda/sda1' expecting node/link 'parentenv-parent_right'
+add:         ok
+remove:      ok
+
+TEST 139: GOTO test
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda/sda1' expecting node/link 'right'
+add:         ok
+remove:      ok
+
+TEST 140: GOTO label does not exist
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda/sda1' expecting node/link 'right'
+add:         ok
+remove:      ok
+
+TEST 141: SYMLINK+ compare test
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda/sda1' expecting node/link 'right'
+add:         ok
+remove:      ok
+
+TEST 142: invalid key operation
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda/sda1' expecting node/link 'yes'
+add:         ok
+remove:      ok
+
+TEST 143: operator chars in attribute
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda' expecting node/link 'yes'
+add:         ok
+remove:      ok
+
+TEST 144: overlong comment line
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda/sda1' expecting node/link 'yes'
+add:         ok
+remove:      ok
+
+TEST 145: magic subsys/kernel lookup
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda' expecting node/link '00:16:41:e2:8d:ff'
+add:         ok
+remove:      ok
+
+TEST 146: TEST absolute path
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda' expecting node/link 'there'
+add:         ok
+remove:      ok
+
+TEST 147: TEST subsys/kernel lookup
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda' expecting node/link 'yes'
+add:         ok
+remove:      ok
+
+TEST 148: TEST relative path
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda' expecting node/link 'relative'
+add:         ok
+remove:      ok
+
+TEST 149: TEST wildcard substitution (find queue/nr_requests)
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda' expecting node/link 'found-subdir'
+add:         ok
+remove:      ok
+
+TEST 150: TEST MODE=0000
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda' expecting node/link 'sda'
+permissions: ok
+add:         ok
+remove:      ok
+
+TEST 151: TEST PROGRAM feeds OWNER, GROUP, MODE
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda' expecting node/link 'sda'
+permissions: ok
+add:         ok
+remove:      ok
+
+TEST 152: TEST PROGRAM feeds MODE with overflow
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda' expecting node/link 'sda'
+permissions: ok
+add:         ok
+remove:      ok
+
+TEST 153: magic [subsys/sysname] attribute substitution
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda' expecting node/link 'sda-8741C4G-end'
+permissions: ok
+add:         ok
+remove:      ok
+
+TEST 154: builtin path_id
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda' expecting node/link 'disk/by-path/pci-0000:00:1f.2-scsi-0:0:0:0'
+add:         ok
+remove:      ok
+
+TEST 155: add and match tag
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda' expecting node/link 'found'
+add:         ok
+remove:      ok
+
+TEST 156: don't crash with lots of tags
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda' expecting node/link 'found'
+add:         ok
+remove:      ok
+
+TEST 157: continuations
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda' expecting node/link 'found'
+add:         ok
+remove:      ok
+
+TEST 158: continuations with empty line
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda' expecting node/link 'found'
+add:         ok
+remove:      ok
+
+TEST 159: continuations with white only line
+device '/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda' expecting node/link 'found'
+add:         ok
+remove:      ok
+
+0 errors occurred
+

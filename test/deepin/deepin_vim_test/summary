@@ -1,0 +1,4 @@
+command1             PASS (superficial)
+command2             FLAKY non-zero exit status 2
+command3             FLAKY non-zero exit status 1
+command4             FLAKY non-zero exit status 1

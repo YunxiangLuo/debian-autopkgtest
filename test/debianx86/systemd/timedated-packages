@@ -1,0 +1,8 @@
+acl	2.3.1-1
+evemu-tools	2.7.0-3
+libc-l10n	2.35-3
+libevdev2	1.13.0+dfsg-1
+libevemu3	2.7.0-3
+libnss-systemd	251.3-1~bpo11+1
+locales	2.35-3
+systemd-timesyncd	251.3-1~bpo11+1

@@ -1,0 +1,417 @@
+autopkgtest: DBG: testbed init
+autopkgtest [02:53:12]: starting date and time: 2023-02-04 02:53:12+0800
+autopkgtest [02:53:12]: version 5.28
+autopkgtest [02:53:12]: host debian; command line: /usr/bin/autopkgtest systemd_245.4-4ubuntu3.19.dsc -o test -d -- qemu -o ../img -u root -p ubuntukylin --qemu-architecture=riscv64 -c 4 --ram-size=4096 -d '--qemu-options=-machine virt -kernel /home/minami/Documents/ukylin/u-boot.bin' ../test.qcow2
+autopkgtest: DBG: got reply from testbed: ok
+autopkgtest: DBG: testbed open, scratch=None
+autopkgtest: DBG: sending command to testbed: open
+autopkgtest-virt-qemu: DBG: executing open
+autopkgtest-virt-qemu: DBG: find_free_port: trying 10022
+autopkgtest-virt-qemu: DBG: find_free_port: 10022 is free
+autopkgtest-virt-qemu: DBG: autopkgtest does not know how to boot this machine, hopefully nothing special needs to be done?
+autopkgtest-virt-qemu: DBG: qemu architecture: riscv64
+autopkgtest-virt-qemu: DBG: qemu command: qemu-system-riscv64
+autopkgtest-virt-qemu: DBG: execute-timeout: qemu-img info --output=json ../test.qcow2
+autopkgtest-virt-qemu: DBG: Creating temporary overlay image in ../img/test.qcow2.overlay-1675450392.6267247
+autopkgtest-virt-qemu: DBG: execute-timeout: qemu-img create -f qcow2 -F qcow2 -b /home/minami/Documents/ukylin/test.qcow2 ../img/test.qcow2.overlay-1675450392.6267247
+autopkgtest-virt-qemu: DBG: Forwarding local port 10022 to VM ssh port 22
+autopkgtest-virt-qemu: DBG: Assuming nothing special needs to be done to set up firmware to boot this machine (boot method: none)
+autopkgtest-virt-qemu: DBG: full qemu command-line: ['qemu-system-riscv64', '-m', '4096', '-smp', '4', '-nographic', '-device', 'virtio-net-device,netdev=usernet', '-netdev', 'user,id=usernet,hostfwd=tcp:127.0.0.1:10022-:22', '-object', 'rng-random,filename=/dev/urandom,id=rng0', '-device', 'virtio-rng-pci,rng=rng0,id=rng-device0', '-monitor', 'unix:/tmp/autopkgtest-qemu.lqz2a_sz/monitor,server=on,wait=off', '-virtfs', 'local,id=autopkgtest,path=/tmp/autopkgtest-qemu.lqz2a_sz/shared,security_model=none,mount_tag=autopkgtest', '-device', 'virtio-serial', '-chardev', 'socket,path=/tmp/autopkgtest-qemu.lqz2a_sz/hvc0,server=on,wait=off,id=hvc0', '-device', 'virtconsole,chardev=hvc0', '-chardev', 'socket,path=/tmp/autopkgtest-qemu.lqz2a_sz/hvc1,server=on,wait=off,id=hvc1', '-device', 'virtconsole,chardev=hvc1', '-serial', 'unix:/tmp/autopkgtest-qemu.lqz2a_sz/ttyS0,server=on,wait=off', '-drive', 'index=0,file=../img/test.qcow2.overlay-1675450392.6267247,format=qcow2,cache=unsafe,if=virtio,discard=unmap', '-machine', 'virt', '-kernel', '/home/minami/Documents/ukylin/u-boot.bin']
+autopkgtest-virt-qemu: DBG: expect: b' login: '
+autopkgtest-virt-qemu: DBG: expect: found "'login prompt on serial console'"
+autopkgtest-virt-qemu: DBG: expect: b'ok'
+autopkgtest-virt-qemu: DBG: expect: found "b'ok'"
+autopkgtest-virt-qemu: DBG: setup_shell(): there already is a shell on hvc1
+qemu-system-riscv64: warning: 9p: degraded performance: a reasonable high msize should be chosen on client/guest side (chosen msize is <= 8192). See https://wiki.qemu.org/Documentation/9psetup#msize for details.
+autopkgtest-virt-qemu: DBG: expect: b'03b9341e-6dec-4eb2-ade0-d5d6bcc3e516[1]'
+autopkgtest-virt-qemu: DBG: expect: found "b'03b9341e-6dec-4eb2-ade0-d5d6bcc3e516[1]'"
+autopkgtest-virt-qemu: DBG: expect: b'03b9341e-6dec-4eb2-ade0-d5d6bcc3e516[2]'
+autopkgtest-virt-qemu: DBG: expect: found "b'03b9341e-6dec-4eb2-ade0-d5d6bcc3e516[2]'"
+autopkgtest-virt-qemu: DBG: expect: b'03b9341e-6dec-4eb2-ade0-d5d6bcc3e516[3]'
+autopkgtest-virt-qemu: DBG: expect: found "b'03b9341e-6dec-4eb2-ade0-d5d6bcc3e516[3]'"
+autopkgtest-virt-qemu: DBG: Copying host timezone Asia/Shanghai to VM
+autopkgtest-virt-qemu: DBG: expect: b'03b9341e-6dec-4eb2-ade0-d5d6bcc3e516[4]'
+autopkgtest-virt-qemu: DBG: expect: found "b'03b9341e-6dec-4eb2-ade0-d5d6bcc3e516[4]'"
+autopkgtest-virt-qemu: DBG: expect: b'/python'
+autopkgtest-virt-qemu: DBG: expect: found "b'/python'"
+autopkgtest-virt-qemu: DBG: expect: b'# '
+autopkgtest-virt-qemu: DBG: expect: found "b'# '"
+autopkgtest-virt-qemu: DBG: expect: b'03b9341e-6dec-4eb2-ade0-d5d6bcc3e516[5]'
+autopkgtest-virt-qemu: DBG: expect: found "b'03b9341e-6dec-4eb2-ade0-d5d6bcc3e516[5]'"
+autopkgtest-virt-qemu: DBG: execute-timeout: /tmp/autopkgtest-qemu.lqz2a_sz/runcmd true
+autopkgtest-virt-qemu: DBG: can connect to autopkgtest sh in VM
+autopkgtest-virt-qemu: DBG: expect: b'03b9341e-6dec-4eb2-ade0-d5d6bcc3e516[6]'
+autopkgtest-virt-qemu: DBG: expect: found "b'03b9341e-6dec-4eb2-ade0-d5d6bcc3e516[6]'"
+autopkgtest-virt-qemu: DBG: determine_normal_user: got user "ubuntukylin"
+autopkgtest-virt-qemu: DBG: auxverb = ['/tmp/autopkgtest-qemu.lqz2a_sz/runcmd'], downtmp = None
+autopkgtest-virt-qemu: DBG: execute-timeout: /tmp/autopkgtest-qemu.lqz2a_sz/runcmd mktemp --directory --tmpdir autopkgtest.XXXXXX
+autopkgtest-virt-qemu: DBG: execute-timeout: /tmp/autopkgtest-qemu.lqz2a_sz/runcmd chmod 1777 /tmp/autopkgtest.kkxcSH
+autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.kkxcSH
+autopkgtest: DBG: sending command to testbed: print-execute-command
+autopkgtest-virt-qemu: DBG: executing print-execute-command
+autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest-qemu.lqz2a_sz/runcmd
+autopkgtest: DBG: sending command to testbed: capabilities
+autopkgtest-virt-qemu: DBG: executing capabilities
+autopkgtest: DBG: got reply from testbed: ok isolation-machine reboot revert revert-full-system root-on-testbed suggested-normal-user=ubuntukylin
+autopkgtest: DBG: testbed capabilities: ['isolation-machine', 'reboot', 'revert', 'revert-full-system', 'root-on-testbed', 'suggested-normal-user=ubuntukylin', 'has_internet']
+autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.kkxcSH'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.kkxcSH/wrapper.sh
+autopkgtest-virt-qemu: DBG: executing copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.kkxcSH/wrapper.sh
+autopkgtest-virt-qemu: DBG: ['cmdls', "(['cat'], ['/tmp/autopkgtest-qemu.lqz2a_sz/runcmd', 'sh', '-ec', 'cat >/tmp/autopkgtest.kkxcSH/wrapper.sh; chmod +x -- /tmp/autopkgtest.kkxcSH/wrapper.sh'])"]
+autopkgtest-virt-qemu: DBG: ['srcstdin', "<_io.BufferedReader name='/usr/share/autopkgtest/lib/in-testbed/wrapper.sh'>", 'deststdout', "<_io.BufferedReader name='/dev/null'>", 'devnull_read', <_io.BufferedReader name='/dev/null'>]
+autopkgtest-virt-qemu: DBG:  +< cat
+autopkgtest-virt-qemu: DBG:  +> /tmp/autopkgtest-qemu.lqz2a_sz/runcmd sh -ec cat >/tmp/autopkgtest.kkxcSH/wrapper.sh; chmod +x -- /tmp/autopkgtest.kkxcSH/wrapper.sh
+autopkgtest-virt-qemu: DBG:  +>?
+autopkgtest-virt-qemu: DBG:  +<?
+autopkgtest: DBG: got reply from testbed: ok
+autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.kkxcSH/wrapper.sh'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest [02:53:54]: testbed dpkg architecture: riscv64
+autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed has eatmydata
+autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.kkxcSH/testbed-packages"], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.kkxcSH/testbed-packages test/testbed-packages
+autopkgtest-virt-qemu: DBG: executing copyup /tmp/autopkgtest.kkxcSH/testbed-packages test/testbed-packages
+autopkgtest-virt-qemu: DBG: ['cmdls', "(['/tmp/autopkgtest-qemu.lqz2a_sz/runcmd', 'sh', '-ec', 'cat </tmp/autopkgtest.kkxcSH/testbed-packages'], ['cat'])"]
+autopkgtest-virt-qemu: DBG: ['srcstdin', "<_io.BufferedReader name='/dev/null'>", 'deststdout', "<_io.BufferedWriter name='test/testbed-packages'>", 'devnull_read', <_io.BufferedReader name='/dev/null'>]
+autopkgtest-virt-qemu: DBG:  +< /tmp/autopkgtest-qemu.lqz2a_sz/runcmd sh -ec cat </tmp/autopkgtest.kkxcSH/testbed-packages
+autopkgtest-virt-qemu: DBG:  +> cat
+autopkgtest-virt-qemu: DBG:  +>?
+autopkgtest-virt-qemu: DBG:  +<?
+autopkgtest: DBG: got reply from testbed: ok
+autopkgtest: DBG: testbed supports reboot, creating /tmp/autopkgtest-reboot
+autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.kkxcSH'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/reboot.sh /tmp/autopkgtest.kkxcSH/autopkgtest-reboot
+autopkgtest-virt-qemu: DBG: executing copydown /usr/share/autopkgtest/lib/in-testbed/reboot.sh /tmp/autopkgtest.kkxcSH/autopkgtest-reboot
+autopkgtest-virt-qemu: DBG: ['cmdls', "(['cat'], ['/tmp/autopkgtest-qemu.lqz2a_sz/runcmd', 'sh', '-ec', 'cat >/tmp/autopkgtest.kkxcSH/autopkgtest-reboot; chmod +x -- /tmp/autopkgtest.kkxcSH/autopkgtest-reboot'])"]
+autopkgtest-virt-qemu: DBG: ['srcstdin', "<_io.BufferedReader name='/usr/share/autopkgtest/lib/in-testbed/reboot.sh'>", 'deststdout', "<_io.BufferedReader name='/dev/null'>", 'devnull_read', <_io.BufferedReader name='/dev/null'>]
+autopkgtest-virt-qemu: DBG:  +< cat
+autopkgtest-virt-qemu: DBG:  +> /tmp/autopkgtest-qemu.lqz2a_sz/runcmd sh -ec cat >/tmp/autopkgtest.kkxcSH/autopkgtest-reboot; chmod +x -- /tmp/autopkgtest.kkxcSH/autopkgtest-reboot
+autopkgtest-virt-qemu: DBG:  +>?
+autopkgtest-virt-qemu: DBG:  +<?
+autopkgtest: DBG: got reply from testbed: ok
+autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.kkxcSH/autopkgtest-reboot'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['ln', '-fns', '/tmp/autopkgtest.kkxcSH/autopkgtest-reboot', '/tmp/autopkgtest-reboot'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['ln', '-fns', '/tmp/autopkgtest.kkxcSH/autopkgtest-reboot', '/sbin/autopkgtest-reboot'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.kkxcSH'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/reboot-prepare.sh /tmp/autopkgtest.kkxcSH/autopkgtest-reboot-prepare
+autopkgtest-virt-qemu: DBG: executing copydown /usr/share/autopkgtest/lib/in-testbed/reboot-prepare.sh /tmp/autopkgtest.kkxcSH/autopkgtest-reboot-prepare
+autopkgtest-virt-qemu: DBG: ['cmdls', "(['cat'], ['/tmp/autopkgtest-qemu.lqz2a_sz/runcmd', 'sh', '-ec', 'cat >/tmp/autopkgtest.kkxcSH/autopkgtest-reboot-prepare; chmod +x -- /tmp/autopkgtest.kkxcSH/autopkgtest-reboot-prepare'])"]
+autopkgtest-virt-qemu: DBG: ['srcstdin', "<_io.BufferedReader name='/usr/share/autopkgtest/lib/in-testbed/reboot-prepare.sh'>", 'deststdout', "<_io.BufferedReader name='/dev/null'>", 'devnull_read', <_io.BufferedReader name='/dev/null'>]
+autopkgtest-virt-qemu: DBG:  +< cat
+autopkgtest-virt-qemu: DBG:  +> /tmp/autopkgtest-qemu.lqz2a_sz/runcmd sh -ec cat >/tmp/autopkgtest.kkxcSH/autopkgtest-reboot-prepare; chmod +x -- /tmp/autopkgtest.kkxcSH/autopkgtest-reboot-prepare
+autopkgtest-virt-qemu: DBG:  +>?
+autopkgtest-virt-qemu: DBG:  +<?
+autopkgtest: DBG: got reply from testbed: ok
+autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.kkxcSH/autopkgtest-reboot-prepare'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['ln', '-fns', '/tmp/autopkgtest.kkxcSH/autopkgtest-reboot-prepare', '/tmp/autopkgtest-reboot-prepare'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest [02:54:01]: testbed running kernel: Linux 5.11.0-1030-generic #34 SMP Fri Mar 11 15:27:17 CST 2022
+autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: Binaries: initialising
+autopkgtest [02:54:01]: @@@@@@@@@@@@@@@@@@@@ source systemd_245.4-4ubuntu3.19.dsc
+autopkgtest: DBG: blame += systemd_245.4-4ubuntu3.19.dsc
+autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.kkxcSH'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: sending command to testbed: copydown systemd_245.4-4ubuntu3.19.dsc /tmp/autopkgtest.kkxcSH/systemd_245.4-4ubuntu3.19.dsc
+autopkgtest-virt-qemu: DBG: executing copydown systemd_245.4-4ubuntu3.19.dsc /tmp/autopkgtest.kkxcSH/systemd_245.4-4ubuntu3.19.dsc
+autopkgtest-virt-qemu: DBG: ['cmdls', "(['cat'], ['/tmp/autopkgtest-qemu.lqz2a_sz/runcmd', 'sh', '-ec', 'cat >/tmp/autopkgtest.kkxcSH/systemd_245.4-4ubuntu3.19.dsc'])"]
+autopkgtest-virt-qemu: DBG: ['srcstdin', "<_io.BufferedReader name='systemd_245.4-4ubuntu3.19.dsc'>", 'deststdout', "<_io.BufferedReader name='/dev/null'>", 'devnull_read', <_io.BufferedReader name='/dev/null'>]
+autopkgtest-virt-qemu: DBG:  +< cat
+autopkgtest-virt-qemu: DBG:  +> /tmp/autopkgtest-qemu.lqz2a_sz/runcmd sh -ec cat >/tmp/autopkgtest.kkxcSH/systemd_245.4-4ubuntu3.19.dsc
+autopkgtest-virt-qemu: DBG:  +>?
+autopkgtest-virt-qemu: DBG:  +<?
+autopkgtest: DBG: got reply from testbed: ok
+autopkgtest: DBG: testbed command ['chown', '-R', 'ubuntukylin', '--', '/tmp/autopkgtest.kkxcSH/systemd_245.4-4ubuntu3.19.dsc'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.kkxcSH'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: sending command to testbed: copydown systemd_245.4.orig.tar.gz /tmp/autopkgtest.kkxcSH/systemd_245.4.orig.tar.gz
+autopkgtest-virt-qemu: DBG: executing copydown systemd_245.4.orig.tar.gz /tmp/autopkgtest.kkxcSH/systemd_245.4.orig.tar.gz
+autopkgtest-virt-qemu: DBG: ['cmdls', "(['cat'], ['/tmp/autopkgtest-qemu.lqz2a_sz/runcmd', 'sh', '-ec', 'cat >/tmp/autopkgtest.kkxcSH/systemd_245.4.orig.tar.gz'])"]
+autopkgtest-virt-qemu: DBG: ['srcstdin', "<_io.BufferedReader name='systemd_245.4.orig.tar.gz'>", 'deststdout', "<_io.BufferedReader name='/dev/null'>", 'devnull_read', <_io.BufferedReader name='/dev/null'>]
+autopkgtest-virt-qemu: DBG:  +< cat
+autopkgtest-virt-qemu: DBG:  +> /tmp/autopkgtest-qemu.lqz2a_sz/runcmd sh -ec cat >/tmp/autopkgtest.kkxcSH/systemd_245.4.orig.tar.gz
+autopkgtest-virt-qemu: DBG:  +>?
+autopkgtest-virt-qemu: DBG:  +<?
+autopkgtest: DBG: got reply from testbed: ok
+autopkgtest: DBG: testbed command ['chown', '-R', 'ubuntukylin', '--', '/tmp/autopkgtest.kkxcSH/systemd_245.4.orig.tar.gz'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.kkxcSH'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: sending command to testbed: copydown systemd_245.4-4ubuntu3.19.debian.tar.xz /tmp/autopkgtest.kkxcSH/systemd_245.4-4ubuntu3.19.debian.tar.xz
+autopkgtest-virt-qemu: DBG: executing copydown systemd_245.4-4ubuntu3.19.debian.tar.xz /tmp/autopkgtest.kkxcSH/systemd_245.4-4ubuntu3.19.debian.tar.xz
+autopkgtest-virt-qemu: DBG: ['cmdls', "(['cat'], ['/tmp/autopkgtest-qemu.lqz2a_sz/runcmd', 'sh', '-ec', 'cat >/tmp/autopkgtest.kkxcSH/systemd_245.4-4ubuntu3.19.debian.tar.xz'])"]
+autopkgtest-virt-qemu: DBG: ['srcstdin', "<_io.BufferedReader name='systemd_245.4-4ubuntu3.19.debian.tar.xz'>", 'deststdout', "<_io.BufferedReader name='/dev/null'>", 'devnull_read', <_io.BufferedReader name='/dev/null'>]
+autopkgtest-virt-qemu: DBG:  +< cat
+autopkgtest-virt-qemu: DBG:  +> /tmp/autopkgtest-qemu.lqz2a_sz/runcmd sh -ec cat >/tmp/autopkgtest.kkxcSH/systemd_245.4-4ubuntu3.19.debian.tar.xz
+autopkgtest-virt-qemu: DBG:  +>?
+autopkgtest-virt-qemu: DBG:  +<?
+autopkgtest: DBG: got reply from testbed: ok
+autopkgtest: DBG: testbed command ['chown', '-R', 'ubuntukylin', '--', '/tmp/autopkgtest.kkxcSH/systemd_245.4-4ubuntu3.19.debian.tar.xz'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: install_deps: deps_new=[]
+autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['sh', '-ec', 'su --shell=/bin/sh ubuntukylin -c \'set -e; exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.kkxcSH/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.kkxcSH/systemd_245.4-4ubuntu3.19.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3\''], kind build, sout pipe, serr raw, env []
++ cd /
++ mktemp -d /tmp/autopkgtest.kkxcSH/build.XXX
++ builddir=/tmp/autopkgtest.kkxcSH/build.8ev
++ cd /tmp/autopkgtest.kkxcSH/build.8ev
++ dpkg-source -x /tmp/autopkgtest.kkxcSH/systemd_245.4-4ubuntu3.19.dsc src
+gpgv: Signature made Thu 08 Sep 2022 07:02:35 PM CST
+gpgv:                using RSA key EE240A052A231AD8925841D79B8EC849D5EF70ED
+gpgv: Can't check signature: No public key
+dpkg-source: warning: failed to verify signature on /tmp/autopkgtest.kkxcSH/systemd_245.4-4ubuntu3.19.dsc
+dpkg-source: info: extracting systemd in src
+dpkg-source: info: unpacking systemd_245.4.orig.tar.gz
+dpkg-source: info: unpacking systemd_245.4-4ubuntu3.19.debian.tar.xz
+dpkg-source: info: using patch list from debian/patches/series
+dpkg-source: info: applying pid1-by-default-make-user-units-inherit-their-umask-from-.patch
+dpkg-source: info: applying userdbctl-drop-redundant-user-name-validity-check.patch
+dpkg-source: info: applying user-util-rework-how-we-validate-user-names.patch
+dpkg-source: info: applying docs-add-a-longer-document-explaining-our-rules-on-user-g.patch
+dpkg-source: info: applying docs-hook-up-the-new-USER_NAMES-document-everywhere.patch
+dpkg-source: info: applying catalog-add-entry-for-SD_MESSAGE_UNSAFE_USER_NAME.patch
+dpkg-source: info: applying units-pull-in-systemd-pstore.service-from-sysinit.target.patch
+dpkg-source: info: applying core-automatically-add-dependency-on-systemd-remount-fs.s.patch
+dpkg-source: info: applying units-drop-dependency-on-systemd-remount-fs.service-from-.patch
+dpkg-source: info: applying units-drop-systemd-remount-fs.service-dependency-from-mor.patch
+dpkg-source: info: applying units-make-sure-systemd-pstore-stops-at-shutdown.patch
+dpkg-source: info: applying network-do-not-re-attach-sd-event-object.patch
+dpkg-source: info: applying network-attach-sd-event-in-link_load-when-creating-link-d.patch
+dpkg-source: info: applying shared-Don-t-try-calling-NULL-callback-in-bus_wait_for_un.patch
+dpkg-source: info: applying test-make-test-execute-pass-on-Linux-5.15.patch
+dpkg-source: info: applying debian/Use-Debian-specific-config-files.patch
+dpkg-source: info: applying debian/Bring-tmpfiles.d-tmp.conf-in-line-with-Debian-defaul.patch
+dpkg-source: info: applying debian/Make-run-lock-tmpfs-an-API-fs.patch
+dpkg-source: info: applying debian/Add-support-for-TuxOnIce-hibernation.patch
+dpkg-source: info: applying debian/Re-enable-journal-forwarding-to-syslog.patch
+dpkg-source: info: applying debian/Don-t-enable-audit-by-default.patch
+dpkg-source: info: applying debian/Only-start-logind-if-dbus-is-installed.patch
+dpkg-source: info: applying debian/fsckd-daemon-for-inter-fsckd-communication.patch
+dpkg-source: info: applying debian/Skip-filesystem-check-if-already-done-by-the-initram.patch
+dpkg-source: info: applying debian/Revert-core-one-step-back-again-for-nspawn-we-actual.patch
+dpkg-source: info: applying debian/Revert-core-set-RLIMIT_CORE-to-unlimited-by-default.patch
+dpkg-source: info: applying debian/Revert-core-enable-TasksMax-for-all-services-by-default-a.patch
+dpkg-source: info: applying debian/Let-graphical-session-pre.target-be-manually-started.patch
+dpkg-source: info: applying debian/Add-env-variable-for-machine-ID-path.patch
+dpkg-source: info: applying debian/Drop-seccomp-system-call-filter-for-udev.patch
+dpkg-source: info: applying debian/blacklist-upstream-test-25.patch
+dpkg-source: info: applying debian/blacklist-upstream-test-24-ppc64el.patch
+dpkg-source: info: applying debian/udev-drop-SystemCallArchitectures-native-from-systemd-ude.patch
+dpkg-source: info: applying debian/Revert-job-Don-t-mark-as-redundant-if-deps-are-relevant.patch
+dpkg-source: info: applying debian/Ubuntu-UseDomains-by-default.patch
+dpkg-source: info: applying debian/Ubuntu-core-in-execute-soft-fail-setting-Nice-priority-when.patch
+dpkg-source: info: applying debian/Ubuntu-units-set-ConditionVirtualization-private-users-on-j.patch
+dpkg-source: info: applying debian/UBUNTU-drop-kernel.-settings-from-sysctl-defaults-shipped.patch
+dpkg-source: info: applying debian/UBUNTU-resolved-disable-global-LLMNR-and-MulticastDNS.patch
+dpkg-source: info: applying debian/UBUNTU-Add-AssumedApparmorLabel-unconfined-to-timedate1-dbus.patch
+dpkg-source: info: applying debian/UBUNTU-test-test-functions-launch-qemu-with-vga-none.patch
+dpkg-source: info: applying debian/UBUNTU-wait-online-exit-if-no-links-are-managed.patch
+dpkg-source: info: applying debian/UBUNTU-journald.service-set-Nice-1-to-dodge-watchdog-on-soft-loc.patch
+dpkg-source: info: applying debian/UBUNTU-networkd-if-RA-was-implicit-do-not-await-ndisc_con.patch
+dpkg-source: info: applying debian/UBUNTU-units-block-CAP_SYS_MODULE-units-in-containers-too.patch
+dpkg-source: info: applying debian/UBUNTU-test-sleep-skip-test_fiemap-upon-inapproriate-ioctl-.patch
+dpkg-source: info: applying debian/UBUNTU-Support-system-image-read-only-etc.patch
+dpkg-source: info: applying debian/timedatectl-lp1650688.patch
+dpkg-source: info: applying debian/UBUNTU-Fix-timezone-setting-on-read-only-etc.patch
+dpkg-source: info: applying debian/UBUNTU-units-disable-journald-watchdog.patch
+dpkg-source: info: applying debian/UBUNTU-core-set-run-size-to-10-like-initramfs-tools-does.patch
+dpkg-source: info: applying Revert-namespace-be-more-careful-when-handling-namespacin.patch
+dpkg-source: info: applying Skip-falling-back-to-device-name-when-net_get_name-device.patch
+dpkg-source: info: applying Revert-cgroup-Continue-unit-reset-if-cgroup-is-busy.patch
+dpkg-source: info: applying Revert-network-fix-assertion-when-link-get-carrier.patch
+dpkg-source: info: applying Revert-network-prevent-interfaces-to-be-initialized-multi.patch
+dpkg-source: info: applying debian/UBUNTU-resolved-default-no-negative-caching.patch
+dpkg-source: info: applying Revert-network-do-not-drop-foreign-config-if-interface-is.patch
+dpkg-source: info: applying lp1845909/0002-network-add-link-setting_genmode-flag.patch
+dpkg-source: info: applying Revert-network-if-sys-is-rw-then-udev-should-be-around.patch
+dpkg-source: info: applying network-Set-link-state-to-LINK_STATE_PENDING-instead-of-t.patch
+dpkg-source: info: applying riscv64-seccomp.patch
+dpkg-source: info: applying dhcp-Allow-setting-request-options-again.patch
+dpkg-source: info: applying lp1867375/0001-network-add-a-flag-to-ignore-gateway-provided-by-DHC.patch
+dpkg-source: info: applying lp1867375/0002-test-network-add-a-test-case-for-DHCPv4.UseGateway-n.patch
+dpkg-source: info: applying lp1867375/0003-network-change-UseGateway-default-to-UseRoutes-setti.patch
+dpkg-source: info: applying lp1867375/0004-test-modify-add-tests-for-UseRoutes-and-UseGateway-c.patch
+dpkg-source: info: applying lp1867375/0005-network-honor-SetDNSRoutes-even-if-UseGateway-False.patch
+dpkg-source: info: applying lp1867375/0006-test-verify-RoutesToDNS-is-independent-of-UseGateway.patch
+dpkg-source: info: applying lp1860926-network-Change-IgnoreCarrierLoss-default-to-value-of.patch
+dpkg-source: info: applying lp1873607/0001-core-some-minor-clean-ups-modernizations.patch
+dpkg-source: info: applying lp1873607/0002-core-make-sure-to-restore-the-control-command-id-too.patch
+dpkg-source: info: applying hwdb-Mask-rfkill-event-from-intel-hid-on-HP-platforms.patch
+dpkg-source: info: applying lp1838329/0001-blockdev-propagate-one-more-unexpected-error.patch
+dpkg-source: info: applying lp1838329/0002-makefs-log-about-OOM-condition.patch
+dpkg-source: info: applying lp1838329/0003-dissect-use-log_debug_errno-where-appropriate.patch
+dpkg-source: info: applying lp1838329/0004-blockdev-add-helper-for-locking-whole-block-device.patch
+dpkg-source: info: applying lp1838329/0005-makefs-lock-device-while-we-operate.patch
+dpkg-source: info: applying lp1838329/0006-makefs-normalize-logging-a-bit.patch
+dpkg-source: info: applying lp1838329/0007-cryptsetup-generator-use-systemd-makefs-for-implemen.patch
+dpkg-source: info: applying lp1875708/socket-util-introduce-type-safe-dereferencing-wrapper-CMS.patch
+dpkg-source: info: applying lp1875708/journald-Increase-stdout-buffer-size-sooner-when-almost-f.patch
+dpkg-source: info: applying lp1875708/journald-use-log_warning_errno-where-appropriate.patch
+dpkg-source: info: applying lp1875708/journald-rework-end-of-line-marker-handling-to-use-a-fiel.patch
+dpkg-source: info: applying lp1875708/journald-use-the-fact-that-client_context_release-returns.patch
+dpkg-source: info: applying lp1875708/journald-rework-pid-change-handling.patch
+dpkg-source: info: applying lp1875708/test-Add-a-test-case-for-15654.patch
+dpkg-source: info: applying lp1875708/man-document-the-new-_LINE_BREAK-type.patch
+dpkg-source: info: applying lp1861941-dont-generate-disk-byuuid-for-bcache-uuid.patch
+dpkg-source: info: applying lp1882596-man-fix-some-manvolnum.patch
+dpkg-source: info: applying lp1895418-correct-resolved-conf-cache-default.patch
+dpkg-source: info: applying lp1897744-resolve-enable-RES_TRUSTAD-towards-the-127.0.0.53-st.patch
+dpkg-source: info: applying lp1905245/0001-basic-cap-list-parse-print-numerical-capabilities.patch
+dpkg-source: info: applying lp1905245/0002-basic-capability-util-let-cap_last_cap-return-unsign.patch
+dpkg-source: info: applying lp1905245/0003-basic-cap-list-reduce-scope-of-variables.patch
+dpkg-source: info: applying lp1890448-hwdb-Add-EliteBook-to-use-micmute-hotkey.patch
+dpkg-source: info: applying lp1905044-test-use-cap_last_cap-for-max-supported-cap-number-n.patch
+dpkg-source: info: applying lp1903300/0001-network-VXLan-fix-adding-Group-address.patch
+dpkg-source: info: applying lp1903300/0002-network-VXLan-Add-support-for-remote-address.patch
+dpkg-source: info: applying lp1903300/0003-networkctl-Add-support-to-display-VXLan-remote-addre.patch
+dpkg-source: info: applying lp1907306/0001-sd-dhcp-client-don-t-log-timeouts-if-already-expired.patch
+dpkg-source: info: applying lp1907306/0002-sd-dhcp-client-track-dhcp4-t1-t2-expire-times.patch
+dpkg-source: info: applying lp1907306/0003-sd-dhcp-client-add-RFC2131-retransmission-details.patch
+dpkg-source: info: applying lp1907306/0004-sd-dhcp-client-simplify-dhcp4-t1-t2-parsing.patch
+dpkg-source: info: applying lp1907306/0005-sd-dhcp-client-correct-dhcpv4-renew-rebind-retransmi.patch
+dpkg-source: info: applying lp1907306/0006-sd-dhcp-client-correct-retransmission-timeout-to-mat.patch
+dpkg-source: info: applying lp1907306/0007-test-network-increase-wait_online-timeout-to-handle-.patch
+dpkg-source: info: applying lp1907306/0008-sd-dhcp-client-fix-renew-rebind-timeout-calculation-.patch
+dpkg-source: info: applying lp1902960-udev-re-assign-ID_NET_DRIVER-ID_NET_LINK_FILE-ID_NET.patch
+dpkg-source: info: applying lp1913189-test-accept-that-char-device-0-0-can-now-be-created-.patch
+dpkg-source: info: applying lp1913423-hashmap-make-sure-to-initialize-shared-hash-key-atom.patch
+dpkg-source: info: applying lp1911187-systemctl-do-not-shutdown-immediately-on-scheduled-shutdo.patch
+dpkg-source: info: applying lp1902236-nss-systemd-don-t-synthesize-root-nobody-when-iterat.patch
+dpkg-source: info: applying lp1878969-meson-initialize-time-epoch-to-reproducible-builds-compat.patch
+dpkg-source: info: applying lp1913763-udev-rules-add-rule-to-create-dev-ptp_hyperv.patch
+dpkg-source: info: applying lp1916485-Newer-Glibc-use-faccessat2-to-implement-faccessat.patch
+dpkg-source: info: applying lp1918696-shared-seccomp-util-address-family-filtering-is-brok.patch
+dpkg-source: info: applying lp1891810-seccomp-util-add-new-syscalls-from-kernel-5.6-to-sys.patch
+dpkg-source: info: applying lp1915887-Downgrade-a-couple-of-warnings-to-debug.patch
+dpkg-source: info: applying lp1887744-basic-unit-file-when-loading-linked-unit-files-use-l.patch
+dpkg-source: info: applying lp1921696/0001-rfkill-improve-error-logging.patch
+dpkg-source: info: applying lp1921696/0002-rfkill-use-short-writes-and-accept-long-reads.patch
+dpkg-source: info: applying lp1926547-hwdb-60-keyboard-Update-Dell-Privacy-Micmute-Hotkey-.patch
+dpkg-source: info: applying lp1929122-network-check-that-received-ifindex-is-valid.patch
+dpkg-source: info: applying lp1664844/0001-network-add-ActivationPolicy-configuration-parameter.patch
+dpkg-source: info: applying lp1664844/0002-test-add-ActivationPolicy-unit-tests.patch
+dpkg-source: info: applying lp1664844/0003-save-link-activation-policy-to-state-file-and-displa.patch
+dpkg-source: info: applying lp1929560-network-move-set-MAC-and-set-nomaster-operations-out.patch
+dpkg-source: info: applying lp1902891-core-mount-mount-command-may-fail-after-adding-the-c.patch
+dpkg-source: info: applying lp1785383-resolved-address-DVE-2018-0001.patch
+dpkg-source: info: applying lp1933402-udev-Fix-SIGSEGV-in-AlternativeNamesPolicy-handling.patch
+dpkg-source: info: applying lp1930910-hwdb-Add-ProBook-to-use-micmute-hotkey.patch
+dpkg-source: info: applying lp1931578/0001-network-default-RequiredForOnline-false-if-Activacti.patch
+dpkg-source: info: applying lp1931578/0002-networkctl-add-field-Required-For-Online.patch
+dpkg-source: info: applying lp1931578/0003-test-add-test-to-verify-RequiredForOnline-setting-wi.patch
+dpkg-source: info: applying lp1932352-hwdb-Add-mic-mute-key-mapping-for-HP-Elite-Dragonfly.patch
+dpkg-source: info: applying lp1928200/0001-shared-add-common-helper-for-unregistering-all-binfm.patch
+dpkg-source: info: applying lp1928200/0002-shutdown-unregister-all-binfmt_misc-entries-before-e.patch
+dpkg-source: info: applying lp1928200/0003-binfmt-modernize-code-a-bit.patch
+dpkg-source: info: applying lp1928200/0004-binfmt-also-unregister-binfmt-entries-from-unit.patch
+dpkg-source: info: applying lp1928200/0005-man-document-binfmt-s-new-unregister-switch.patch
+dpkg-source: info: applying lp1894622-Add-systemd-resolve-backwards-compatibility-section-.patch
+dpkg-source: info: applying lp1858210/0001-time-simplify-get_timezones.patch
+dpkg-source: info: applying lp1858210/0002-time-split-get_timezone-into-main-function-and-zone1.patch
+dpkg-source: info: applying lp1858210/0003-time-get-timezones-from-tzdata.zi.patch
+dpkg-source: info: applying lp1891215/0001-fs-util-add-conservative_rename-that-suppresses-unne.patch
+dpkg-source: info: applying lp1891215/0002-resolved-don-t-update-resolv.conf-snippets-unnecessa.patch
+dpkg-source: info: applying lp1891215/0003-fs-util-rename-conservative_rename-conservative_rena.patch
+dpkg-source: info: applying lp1891215/0004-fs-util-make-sure-conservative_renameat-properly-det.patch
+dpkg-source: info: applying lp1914740-network-enable-DHCP-broadcast-flag-if-required-by-in.patch
+dpkg-source: info: applying lp1934981-correct-suspend-then-sleep-string.patch
+dpkg-source: info: applying lp1934221-resolved-disable-event-sources-before-unreffing-them.patch
+dpkg-source: info: applying CVE-2020-13529.patch
+dpkg-source: info: applying CVE-2021-33910.patch
+dpkg-source: info: applying lp1937117/0001-revert-lp1929560-network-move-set-MAC-and-set-nomaster-operations-out.patch
+dpkg-source: info: applying lp1937117/0002-avoid-changing-interface-master-if-interface-already-up.patch
+dpkg-source: info: applying lp1937238-util-return-the-correct-correct-wd-from-inotify-help.patch
+dpkg-source: info: applying lp1935051-shared-unit-file-make-sure-the-old-hashmaps-and-sets.patch
+dpkg-source: info: applying lp1934147/0001-cgroup-do-catchup-for-unit-cgroup-inotify-watch-file.patch
+dpkg-source: info: applying lp1934147/0002-core-Make-sure-cgroup_oom_queue-is-flushed-on-manage.patch
+dpkg-source: info: applying lp1948476-pid1-target-units-can-fail-through-dependencies.patch
+dpkg-source: info: applying lp1944711-login-filenames-in-run-systemd-users-are-uids.patch
+dpkg-source: info: applying lp1952599/0001-virt-Support-detection-for-ARM64-Hyper-V-guests.patch
+dpkg-source: info: applying lp1952599/0002-virt-Fix-the-detection-for-Hyper-V-VMs.patch
+dpkg-source: info: applying lp1952733-hwdb-60-keyboard-Update-Dell-Privacy-Micmute-Hotkey-Map.patch
+dpkg-source: info: applying lp1952735-keymap-Add-microphone-mute-keymap-for-Dell-Machine.patch
+dpkg-source: info: applying lp1943561-dell-clamshell-accel-location-base-with-sku.patch
+dpkg-source: info: applying rm-rf-refactor-rm-rf-children-split-out-body-of-directory.patch
+dpkg-source: info: applying rm-rf-optionally-fsync-after-removing-directory-tree.patch
+dpkg-source: info: applying CVE-2021-3997-1.patch
+dpkg-source: info: applying CVE-2021-3997-2.patch
+dpkg-source: info: applying CVE-2021-3997-3.patch
+dpkg-source: info: applying lp1946388-sd-journal-don-t-check-namespaces-if-we-have-no-name.patch
+dpkg-source: info: applying lp1955997-add-a-allowlist-to-unblock-intel-hid-on-HP-mach.patch
+dpkg-source: info: applying lp1958284-core-move-reset_arguments-to-the-end-of-main-s-finish.patch
+dpkg-source: info: applying pid1-set-SYSTEMD_NSS_DYNAMIC_BYPASS-1-env-var-for-dbus-da.patch
+dpkg-source: info: applying hwdb-Add-mic-mute-key-mapping-for-HP-Elite-x360.patch
+dpkg-source: info: applying lp1966179-add-more-hp-dmi-to-unblock-intel-hid-event.patch
+dpkg-source: info: applying lp1959475-core-make-sure-we-don-t-get-confused-when-setting-TERM-fo.patch
+dpkg-source: info: applying lp1966800-shared-calendarspec-when-mktime-moves-us-backwards-jump-f.patch
+dpkg-source: info: applying lp1978079-efi-pstore-not-cleared-on-boot.patch
+dpkg-source: info: applying lp1979951-network-do-not-remove-localhost-address.patch
+dpkg-source: info: applying lp1982462-units-remove-the-restart-limit-on-the-modprobe-.service.patch
+dpkg-source: info: applying lp1945225/0001-udev-net_id-parse-_SUN-ACPI-index-as-a-signed-intege.patch
+dpkg-source: info: applying lp1945225/0002-udev-net_id-don-t-generate-slot-based-names-if-multi.patch
+dpkg-source: info: applying lp1945225/0003-net_id-fix-newly-added-naming-scheme-name.patch
+dpkg-source: info: applying lp1945225/0004-Add-remaining-supported-schemes-as-options-for-defau.patch
++ chmod -R a+rX .
++ cd src/.
++ pwd
++ sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest [02:54:34]: testing package systemd version 245.4-4ubuntu3.19
+autopkgtest [02:54:34]: build needed for binaries
+autopkgtest: DBG: needs_reset, previously=False, requested by build_source() line 608
+autopkgtest: DBG: install_deps: deps_new=[]
+autopkgtest: DBG: systemd_245.4-4ubuntu3.19.dsc: satisfying debhelper (>= 10.4~), pkg-config, xsltproc, docbook-xsl, docbook-xml, m4, meson (>= 0.49), gettext, gperf, gnu-efi [amd64 i386 arm64 armhf], libcap-dev (>= 1:2.24-9~), libpam0g-dev, libapparmor-dev (>= 2.9.0-3+exp2) <!stage1>, libidn2-dev <!stage1>, libiptc-dev <!stage1>, libaudit-dev <!stage1>, libdbus-1-dev (>= 1.3.2) <!nocheck> <!noinsttest>, libcryptsetup-dev (>= 2:1.6.0) <!stage1>, libselinux1-dev (>= 2.1.9), libacl1-dev, liblzma-dev, liblz4-dev (>= 0.0~r125), liblz4-tool <!nocheck>, libbz2-dev <!stage1>, zlib1g-dev <!stage1> | libz-dev <!stage1>, libcurl4-gnutls-dev <!stage1> | libcurl-dev <!stage1>, libmicrohttpd-dev <!stage1>, libgnutls28-dev <!stage1>, libpcre2-dev <!stage1>, libgcrypt20-dev, libkmod-dev (>= 15), libblkid-dev (>= 2.24), libmount-dev (>= 2.30), libseccomp-dev (>= 2.3.1) [amd64 arm64 armel armhf i386 mips mipsel mips64 mips64el x32 powerpc ppc64 ppc64el riscv64 s390x], libdw-dev (>= 0.158) <!stage1>, libpolkit-gobject-1-dev <!stage1>, linux-base <!nocheck>, acl <!nocheck>, python3:native, python3-lxml:native, python3-pyparsing <!nocheck>, python3-evdev <!nocheck>, tzdata <!nocheck>, libcap2-bin <!nocheck>, iproute2 <!nocheck>, , , build-essential, fakeroot
+autopkgtest: DBG: systemd_245.4-4ubuntu3.19.dsc: architecture resolved: debhelper (>= 10.4~), pkg-config, xsltproc, docbook-xsl, docbook-xml, m4, meson (>= 0.49), gettext, gperf, libcap-dev (>= 1:2.24-9~), libpam0g-dev, libapparmor-dev (>= 2.9.0-3+exp2), libidn2-dev, libiptc-dev, libaudit-dev, libdbus-1-dev (>= 1.3.2), libcryptsetup-dev (>= 2:1.6.0), libselinux1-dev (>= 2.1.9), libacl1-dev, liblzma-dev, liblz4-dev (>= 0.0~r125), liblz4-tool, libbz2-dev, zlib1g-dev | libz-dev, libcurl4-gnutls-dev | libcurl-dev, libmicrohttpd-dev, libgnutls28-dev, libpcre2-dev, libgcrypt20-dev, libkmod-dev (>= 15), libblkid-dev (>= 2.24), libmount-dev (>= 2.30), libseccomp-dev (>= 2.3.1), libdw-dev (>= 0.158), libpolkit-gobject-1-dev, linux-base, acl, python3, python3-lxml, python3-pyparsing, python3-evdev, tzdata, libcap2-bin, iproute2, build-essential, fakeroot
+autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: can use apt-get on testbed: True
+autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.kkxcSH'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: sending command to testbed: copydown test/1-autopkgtest-satdep.deb /tmp/autopkgtest.kkxcSH/1-autopkgtest-satdep.deb
+autopkgtest-virt-qemu: DBG: executing copydown test/1-autopkgtest-satdep.deb /tmp/autopkgtest.kkxcSH/1-autopkgtest-satdep.deb
+autopkgtest-virt-qemu: DBG: ['cmdls', "(['cat'], ['/tmp/autopkgtest-qemu.lqz2a_sz/runcmd', 'sh', '-ec', 'cat >/tmp/autopkgtest.kkxcSH/1-autopkgtest-satdep.deb'])"]
+autopkgtest-virt-qemu: DBG: ['srcstdin', "<_io.BufferedReader name='test/1-autopkgtest-satdep.deb'>", 'deststdout', "<_io.BufferedReader name='/dev/null'>", 'devnull_read', <_io.BufferedReader name='/dev/null'>]
+autopkgtest-virt-qemu: DBG:  +< cat
+autopkgtest-virt-qemu: DBG:  +> /tmp/autopkgtest-qemu.lqz2a_sz/runcmd sh -ec cat >/tmp/autopkgtest.kkxcSH/1-autopkgtest-satdep.deb
+autopkgtest-virt-qemu: DBG:  +>?
+autopkgtest-virt-qemu: DBG:  +<?
+autopkgtest: DBG: got reply from testbed: ok
+autopkgtest: DBG: testbed command ['chown', '-R', 'ubuntukylin', '--', '/tmp/autopkgtest.kkxcSH/1-autopkgtest-satdep.deb'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['dpkg', '--unpack', '/tmp/autopkgtest.kkxcSH/1-autopkgtest-satdep.deb'], kind short, sout pipe, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: AutopkgtestError "dpkg --unpack /tmp/autopkgtest.kkxcSH/1-autopkgtest-satdep.deb" failed with stderr "dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+"
+autopkgtest: DBG: testbed stop
+autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.kkxcSH
+autopkgtest: DBG: sending command to testbed: close
+autopkgtest-virt-qemu: DBG: executing close
+autopkgtest-virt-qemu: DBG: cleanup...
+qemu-system-riscv64: terminating on signal 15 from pid 193078 (/usr/bin/python3)
+autopkgtest: DBG: got reply from testbed: ok
+autopkgtest: DBG: sending command to testbed: quit
+autopkgtest-virt-qemu: DBG: executing quit
+autopkgtest-virt-qemu: DBG: cleanup...
+autopkgtest [02:54:40]: ERROR: "dpkg --unpack /tmp/autopkgtest.kkxcSH/1-autopkgtest-satdep.deb" failed with stderr "dpkg: warning: files list file for package 'udisks2' missing; assuming package has no files currently installed
+"
+autopkgtest: DBG: testbed stop

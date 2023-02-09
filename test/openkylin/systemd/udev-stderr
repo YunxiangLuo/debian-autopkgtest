@@ -1,0 +1,41 @@
+umount: test/tmpfs: no mount point specified.
+/run/udev/rules.d/udev-test.rules:1 Unknown user 'bad', ignoring
+/run/udev/rules.d/udev-test.rules:1 Unknown group 'name', ignoring
+/run/udev/rules.d/udev-test.rules:1 Unknown user 'bad', ignoring
+/run/udev/rules.d/udev-test.rules:1 Unknown group 'name', ignoring
+ttyACM0: Conflicting device node '/dev/ttyACM0' found, link to '/dev/ttyACM0' will not be created.
+ttyACM0: Conflicting device node '/dev/ttyACM0' found, link to '/dev/ttyACM0' will not be created.
+ttyACM0: Conflicting device node '/dev/ttyACM0' found, link to '/dev/ttyACM0' will not be created.
+ttyACM0: Conflicting device node '/dev/ttyACM0' found, link to '/dev/ttyACM0' will not be created.
+ttyACM0: Conflicting device node '/dev/ttyACM0' found, link to '/dev/ttyACM0' will not be created.
+ttyACM0: Conflicting device node '/dev/ttyACM0' found, link to '/dev/ttyACM0' will not be created.
+ttyACM0: Conflicting device node '/dev/ttyACM0' found, link to '/dev/ttyACM0' will not be created.
+sda: Failed to rename '/dev/..tmp-b8:0' to '/dev/.': Device or resource busy
+tty0: Conflicting device node '/dev/tty0' found, link to '/dev/tty0' will not be created.
+ttyACM0: Conflicting device node '/dev/ttyACM0' found, link to '/dev/ttyACM0' will not be created.
+ttyACM0: Conflicting device node '/dev/ttyACM0' found, link to '/dev/ttyACM0' will not be created.
+ttyACM0: Conflicting device node '/dev/ttyACM0' found, link to '/dev/ttyACM0' will not be created.
+/run/udev/rules.d/udev-test.rules:1 Invalid value for OPTIONS key, ignoring: 'last_rule'
+/run/udev/rules.d/udev-test.rules:1 Invalid value for OPTIONS key, ignoring: 'last_rule'
+/run/udev/rules.d/udev-test.rules:2 Unknown group 'not-ok', ignoring
+/run/udev/rules.d/udev-test.rules:2 Unknown group 'not-ok', ignoring
+/run/udev/rules.d/udev-test.rules:3 Unknown group 'not-ok', ignoring
+/run/udev/rules.d/udev-test.rules:3 Unknown group 'not-ok', ignoring
+/run/udev/rules.d/udev-test.rules:1 Invalid value "" for TAG (char 0: empty value), ignoring, but please fix it.
+/run/udev/rules.d/udev-test.rules:1 Invalid value "" for TAG (char 0: empty value), ignoring, but please fix it.
+/run/udev/rules.d/udev-test.rules:1 Invalid value "" for TAG (char 0: empty value), ignoring, but please fix it.
+/run/udev/rules.d/udev-test.rules:1 Invalid value "" for TAG (char 0: empty value), ignoring, but please fix it.
+/run/udev/rules.d/udev-test.rules:1 Invalid value "" for TAG (char 0: empty value), ignoring, but please fix it.
+/run/udev/rules.d/udev-test.rules:1 Invalid value "" for TAG (char 0: empty value), ignoring, but please fix it.
+/run/udev/rules.d/udev-test.rules:1: GOTO="does-not-exist" has no matching label, ignoring
+/run/udev/rules.d/udev-test.rules:1: The line takes no effect any more, dropping
+/run/udev/rules.d/udev-test.rules:1: GOTO="does-not-exist" has no matching label, ignoring
+/run/udev/rules.d/udev-test.rules:1: The line takes no effect any more, dropping
+/run/udev/rules.d/udev-test.rules:1 Invalid operator for KERNEL.
+/run/udev/rules.d/udev-test.rules:1 Invalid operator for KERNEL.
+/run/udev/rules.d/udev-test.rules:3 Invalid key/value pair, ignoring.
+/run/udev/rules.d/udev-test.rules:3 Invalid key/value pair, ignoring.
+sda: /run/udev/rules.d/udev-test.rules:2 Failed to parse mode '0400letsdoabuffferoverflow0123456789012345789012345678901234567890', ignoring: Invalid argument
+sda: /run/udev/rules.d/udev-test.rules:2 Failed to parse mode '0400letsdoabuffferoverflow0123456789012345789012345678901234567890', ignoring: Invalid argument
+/run/udev/rules.d/udev-test.rules:10001: Line is too long, ignored
+/run/udev/rules.d/udev-test.rules:10001: Line is too long, ignored

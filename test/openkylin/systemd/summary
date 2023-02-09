@@ -1,0 +1,31 @@
+timedated            PASS
+hostnamed            PASS
+localed-locale       FAIL non-zero exit status 1
+localed-x11-keymap   PASS
+logind               FAIL badpkg
+blame: systemd_245.4-ok4~0716.dsc
+badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+unit-config          FAIL badpkg
+blame: systemd_245.4-ok4~0716.dsc
+badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+storage              FAIL badpkg
+blame: systemd_245.4-ok4~0716.dsc
+badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+networkd-test.py     FAIL badpkg
+blame: systemd_245.4-ok4~0716.dsc
+badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+build-login          FAIL badpkg
+blame: systemd_245.4-ok4~0716.dsc
+badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+boot-and-services    FAIL badpkg
+blame: systemd_245.4-ok4~0716.dsc
+badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+udev                 PASS
+root-unittests       FAIL non-zero exit status 134
+upstream             FAIL badpkg
+blame: systemd_245.4-ok4~0716.dsc
+badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+boot-smoke           FAIL badpkg
+blame: systemd_245.4-ok4~0716.dsc
+badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+systemd-fsckd        FAIL non-zero exit status 1

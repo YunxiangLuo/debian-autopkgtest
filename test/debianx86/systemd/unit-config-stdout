@@ -1,0 +1,29 @@
+test_sysv_disable (__main__.EnableTests)
+only sysv: disable ... ok
+test_sysv_enable (__main__.EnableTests)
+only sysv: enable ... ok
+test_unit_alias_disable (__main__.EnableTests)
+no sysv: disable unit with an alias ... ok
+test_unit_alias_enable (__main__.EnableTests)
+no sysv: enable unit with an alias ... ok
+test_unit_disable (__main__.EnableTests)
+no sysv: disable unit ... ok
+test_unit_enable (__main__.EnableTests)
+no sysv: enable unit ... ok
+test_unit_enable_full_path (__main__.EnableTests)
+systemctl enable a unit in a non-default path ... ok
+test_unit_link (__main__.EnableTests)
+systemctl link ... ok
+test_unit_sysv_alias_disable (__main__.EnableTests)
+with sysv: disable unit with an alias ... ok
+test_unit_sysv_alias_enable (__main__.EnableTests)
+with sysv: enable unit with an alias ... ok
+test_unit_sysv_disable (__main__.EnableTests)
+with sysv: disable unit ... ok
+test_unit_sysv_enable (__main__.EnableTests)
+with sysv: enable unit ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 6.638s
+
+OK

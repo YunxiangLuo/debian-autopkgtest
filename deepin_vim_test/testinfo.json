@@ -1,5 +1,0 @@
-{
-  "virt_server": "autopkgtest-virt-null",
-  "kernel_version": "Linux 5.10.0-7.oe2203.riscv64 #1 SMP Thu Aug 18 06:13:58 UTC 2022",
-  "nproc": "8"
-}

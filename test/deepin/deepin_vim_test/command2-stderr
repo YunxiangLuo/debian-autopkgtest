@@ -1,0 +1,54 @@
+
+[No write since last change]
+
+Press ENTER or type command to continue
+[No write since last change]
+
+Press ENTER or type command to continue
+
+E558: Terminal entry not found in terminfo
+'xxx' not known. Available builtin terminals are:
+    builtin_amiga
+    builtin_ansi
+    builtin_pcansi
+    builtin_win32
+    builtin_vt320
+    builtin_vt52
+    builtin_xterm
+    builtin_iris-ansi
+    builtin_debug
+    builtin_dumb
+
+
+
+Press ENTER or type command to continue
+
+Press ENTER or type command to continue
+
+Press ENTER or type command to continue
+
+Press ENTER or type command to continue
+XDG_RUNTIME_DIR (/run/user/0) is not owned by us (uid 1000), but by uid 0! (This could e.g. happen if you try to connect to a non-root PulseAudio as a root user, over the native protocol. Don't do that.)
+XDG_RUNTIME_DIR (/run/user/0) is not owned by us (uid 1000), but by uid 0! (This could e.g. happen if you try to connect to a non-root PulseAudio as a root user, over the native protocol. Don't do that.)
+XDG_RUNTIME_DIR (/run/user/0) is not owned by us (uid 1000), but by uid 0! (This could e.g. happen if you try to connect to a non-root PulseAudio as a root user, over the native protocol. Don't do that.)
+XDG_RUNTIME_DIR (/run/user/0) is not owned by us (uid 1000), but by uid 0! (This could e.g. happen if you try to connect to a non-root PulseAudio as a root user, over the native protocol. Don't do that.)
+XDG_RUNTIME_DIR (/run/user/0) is not owned by us (uid 1000), but by uid 0! (This could e.g. happen if you try to connect to a non-root PulseAudio as a root user, over the native protocol. Don't do that.)
+XDG_RUNTIME_DIR (/run/user/0) is not owned by us (uid 1000), but by uid 0! (This could e.g. happen if you try to connect to a non-root PulseAudio as a root user, over the native protocol. Don't do that.)
+XDG_RUNTIME_DIR (/run/user/0) is not owned by us (uid 1000), but by uid 0! (This could e.g. happen if you try to connect to a non-root PulseAudio as a root user, over the native protocol. Don't do that.)
+XDG_RUNTIME_DIR (/run/user/0) is not owned by us (uid 1000), but by uid 0! (This could e.g. happen if you try to connect to a non-root PulseAudio as a root user, over the native protocol. Don't do that.)
+XDG_RUNTIME_DIR (/run/user/0) is not owned by us (uid 1000), but by uid 0! (This could e.g. happen if you try to connect to a non-root PulseAudio as a root user, over the native protocol. Don't do that.)
+XDG_RUNTIME_DIR (/run/user/0) is not owned by us (uid 1000), but by uid 0! (This could e.g. happen if you try to connect to a non-root PulseAudio as a root user, over the native protocol. Don't do that.)
+XDG_RUNTIME_DIR (/run/user/0) is not owned by us (uid 1000), but by uid 0! (This could e.g. happen if you try to connect to a non-root PulseAudio as a root user, over the native protocol. Don't do that.)
+XDG_RUNTIME_DIR (/run/user/0) is not owned by us (uid 1000), but by uid 0! (This could e.g. happen if you try to connect to a non-root PulseAudio as a root user, over the native protocol. Don't do that.)
+XDG_RUNTIME_DIR (/run/user/0) is not owned by us (uid 1000), but by uid 0! (This could e.g. happen if you try to connect to a non-root PulseAudio as a root user, over the native protocol. Don't do that.)
+XDG_RUNTIME_DIR (/run/user/0) is not owned by us (uid 1000), but by uid 0! (This could e.g. happen if you try to connect to a non-root PulseAudio as a root user, over the native protocol. Don't do that.)
+v:true
+
+Segmentation fault
+
+
+
+Press ENTER or type command to continue
+
+Press ENTER or type command to continue
+make: *** [Makefile:49: report] Error 1

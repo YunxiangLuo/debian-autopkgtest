@@ -1,0 +1,54 @@
+systemd-network:x:998:998:systemd Network Management:/:/usr/sbin/nologin
+test_bridge_init (__main__.BridgeTest) ... ok
+test_bridge_port_priority (__main__.BridgeTest) ... ok
+test_bridge_port_priority_set_zero (__main__.BridgeTest)
+It should be possible to set the bridge port priority to 0 ... ok
+test_bridge_port_property (__main__.BridgeTest)
+Test the "[Bridge]" section keys ... ok
+test_coldplug_dhcp_ip4_only (__main__.DnsmasqClientTest) ... ok
+test_coldplug_dhcp_ip4_only_no_ra (__main__.DnsmasqClientTest) ... ok
+test_coldplug_dhcp_ip6 (__main__.DnsmasqClientTest) ... ok
+test_coldplug_dhcp_yes_ip4 (__main__.DnsmasqClientTest) ... ok
+test_coldplug_dhcp_yes_ip4_no_ra (__main__.DnsmasqClientTest) ... ok
+test_hotplug_dhcp_ip4 (__main__.DnsmasqClientTest) ... ok
+test_hotplug_dhcp_ip6 (__main__.DnsmasqClientTest) ... ok
+test_resolved_domain_restricted_dns (__main__.DnsmasqClientTest)
+resolved: domain-restricted DNS servers ... ok
+test_resolved_etc_hosts (__main__.DnsmasqClientTest)
+resolved queries to /etc/hosts ... ok
+test_route_only_dns (__main__.DnsmasqClientTest) ... ok
+test_route_only_dns_all_domains (__main__.DnsmasqClientTest) ... ok
+test_transient_hostname (__main__.DnsmasqClientTest)
+networkd sets transient hostname from DHCP ... ok
+test_transient_hostname_with_static (__main__.DnsmasqClientTest)
+transient hostname is not applied if static hostname exists ... ok
+test_basic_matching (__main__.MatchClientTest)
+Verify the Name= line works throughout this class. ... ok
+test_inverted_matching (__main__.MatchClientTest)
+Verify that a '!'-prefixed value inverts the match. ... ok
+test_coldplug_dhcp_ip4_only (__main__.NetworkdClientTest) ... ok
+test_coldplug_dhcp_ip4_only_no_ra (__main__.NetworkdClientTest) ... ok
+test_coldplug_dhcp_ip6 (__main__.NetworkdClientTest) ... skipped 'networkd does not have DHCPv6 server support'
+test_coldplug_dhcp_yes_ip4 (__main__.NetworkdClientTest) ... ok
+test_coldplug_dhcp_yes_ip4_no_ra (__main__.NetworkdClientTest) ... ok
+test_dhcp_timezone (__main__.NetworkdClientTest)
+networkd sets time zone from DHCP ... ok
+test_dropin (__main__.NetworkdClientTest) ... ok
+test_hotplug_dhcp_ip4 (__main__.NetworkdClientTest) ... ok
+test_hotplug_dhcp_ip6 (__main__.NetworkdClientTest) ... skipped 'networkd does not have DHCPv6 server support'
+test_route_only_dns (__main__.NetworkdClientTest) ... ok
+test_route_only_dns_all_domains (__main__.NetworkdClientTest) ... ok
+test_search_domains (__main__.NetworkdClientTest) ... ok
+test_catchall_config (__main__.UnmanagedClientTest)
+Verify link states with a catch-all config, hot-plug. ... ok
+test_catchall_config_coldplug (__main__.UnmanagedClientTest)
+Verify link states with a catch-all config, cold-plug. ... ok
+test_unmanaged_setting (__main__.UnmanagedClientTest)
+Verify link states with Unmanaged= settings, hot-plug. ... ok
+test_unmanaged_setting_coldplug (__main__.UnmanagedClientTest)
+Verify link states with Unmanaged= settings, cold-plug. ... ok
+
+----------------------------------------------------------------------
+Ran 35 tests in 142.848s
+
+OK (skipped=2)

@@ -1,0 +1,2149 @@
+autopkgtest: DBG: testbed init
+autopkgtest [17:32:24]: starting date and time: 2023-02-09 17:32:24+0800
+autopkgtest [17:32:24]: version 5.28
+autopkgtest [17:32:24]: host debian; command line: /usr/bin/autopkgtest vim_8.1.2269-ok4.dsc -o test/vim -d -U -B -- qemu -u root -p openkylin --qemu-architecture=riscv64 -c 4 --ram-size=4096 -d '--qemu-options=-machine virt -kernel /home/minami/Documents/ukylin/u-boot.bin' test.qcow2
+autopkgtest: DBG: got reply from testbed: ok
+autopkgtest: DBG: testbed open, scratch=None
+autopkgtest: DBG: sending command to testbed: open
+autopkgtest-virt-qemu: DBG: executing open
+autopkgtest-virt-qemu: DBG: find_free_port: trying 10022
+autopkgtest-virt-qemu: DBG: find_free_port: 10022 is free
+autopkgtest-virt-qemu: DBG: autopkgtest does not know how to boot this machine, hopefully nothing special needs to be done?
+autopkgtest-virt-qemu: DBG: qemu architecture: riscv64
+autopkgtest-virt-qemu: DBG: qemu command: qemu-system-riscv64
+autopkgtest-virt-qemu: DBG: execute-timeout: qemu-img info --output=json test.qcow2
+autopkgtest-virt-qemu: DBG: Creating temporary overlay image in /tmp/autopkgtest-qemu._b2nhzpp/overlay.img
+autopkgtest-virt-qemu: DBG: execute-timeout: qemu-img create -f qcow2 -F qcow2 -b /home/minami/Documents/openkylin-riscv/test.qcow2 /tmp/autopkgtest-qemu._b2nhzpp/overlay.img
+autopkgtest-virt-qemu: DBG: Forwarding local port 10022 to VM ssh port 22
+autopkgtest-virt-qemu: DBG: Assuming nothing special needs to be done to set up firmware to boot this machine (boot method: none)
+autopkgtest-virt-qemu: DBG: full qemu command-line: ['qemu-system-riscv64', '-m', '4096', '-smp', '4', '-nographic', '-device', 'virtio-net-device,netdev=usernet', '-netdev', 'user,id=usernet,hostfwd=tcp:127.0.0.1:10022-:22', '-object', 'rng-random,filename=/dev/urandom,id=rng0', '-device', 'virtio-rng-pci,rng=rng0,id=rng-device0', '-monitor', 'unix:/tmp/autopkgtest-qemu._b2nhzpp/monitor,server=on,wait=off', '-virtfs', 'local,id=autopkgtest,path=/tmp/autopkgtest-qemu._b2nhzpp/shared,security_model=none,mount_tag=autopkgtest', '-device', 'virtio-serial', '-chardev', 'socket,path=/tmp/autopkgtest-qemu._b2nhzpp/hvc0,server=on,wait=off,id=hvc0', '-device', 'virtconsole,chardev=hvc0', '-chardev', 'socket,path=/tmp/autopkgtest-qemu._b2nhzpp/hvc1,server=on,wait=off,id=hvc1', '-device', 'virtconsole,chardev=hvc1', '-serial', 'unix:/tmp/autopkgtest-qemu._b2nhzpp/ttyS0,server=on,wait=off', '-drive', 'index=0,file=/tmp/autopkgtest-qemu._b2nhzpp/overlay.img,format=qcow2,cache=unsafe,if=virtio,discard=unmap', '-machine', 'virt', '-kernel', '/home/minami/Documents/ukylin/u-boot.bin']
+autopkgtest-virt-qemu: DBG: expect: b' login: '
+autopkgtest-virt-qemu: DBG: expect: found "'login prompt on serial console'"
+autopkgtest-virt-qemu: DBG: expect: b'ok'
+autopkgtest-virt-qemu: DBG: expect: found "b'ok'"
+autopkgtest-virt-qemu: DBG: setup_shell(): there already is a shell on hvc1
+qemu-system-riscv64: warning: 9p: degraded performance: a reasonable high msize should be chosen on client/guest side (chosen msize is <= 8192). See https://wiki.qemu.org/Documentation/9psetup#msize for details.
+autopkgtest-virt-qemu: DBG: expect: b'ff471555-a833-4d8f-a8eb-e6b7fa74cac2[1]'
+autopkgtest-virt-qemu: DBG: expect: found "b'ff471555-a833-4d8f-a8eb-e6b7fa74cac2[1]'"
+autopkgtest-virt-qemu: DBG: expect: b'ff471555-a833-4d8f-a8eb-e6b7fa74cac2[2]'
+autopkgtest-virt-qemu: DBG: expect: found "b'ff471555-a833-4d8f-a8eb-e6b7fa74cac2[2]'"
+autopkgtest-virt-qemu: DBG: expect: b'ff471555-a833-4d8f-a8eb-e6b7fa74cac2[3]'
+autopkgtest-virt-qemu: DBG: expect: found "b'ff471555-a833-4d8f-a8eb-e6b7fa74cac2[3]'"
+autopkgtest-virt-qemu: DBG: Copying host timezone Asia/Shanghai to VM
+autopkgtest-virt-qemu: DBG: expect: b'ff471555-a833-4d8f-a8eb-e6b7fa74cac2[4]'
+autopkgtest-virt-qemu: DBG: expect: found "b'ff471555-a833-4d8f-a8eb-e6b7fa74cac2[4]'"
+autopkgtest-virt-qemu: DBG: expect: b'/python'
+autopkgtest-virt-qemu: DBG: expect: found "b'/python'"
+autopkgtest-virt-qemu: DBG: expect: b'# '
+autopkgtest-virt-qemu: DBG: expect: found "b'# '"
+autopkgtest-virt-qemu: DBG: expect: b'ff471555-a833-4d8f-a8eb-e6b7fa74cac2[5]'
+autopkgtest-virt-qemu: DBG: expect: found "b'ff471555-a833-4d8f-a8eb-e6b7fa74cac2[5]'"
+autopkgtest-virt-qemu: DBG: execute-timeout: /tmp/autopkgtest-qemu._b2nhzpp/runcmd true
+autopkgtest-virt-qemu: DBG: can connect to autopkgtest sh in VM
+autopkgtest-virt-qemu: DBG: expect: b'ff471555-a833-4d8f-a8eb-e6b7fa74cac2[6]'
+autopkgtest-virt-qemu: DBG: expect: found "b'ff471555-a833-4d8f-a8eb-e6b7fa74cac2[6]'"
+autopkgtest-virt-qemu: DBG: determine_normal_user: got user "openkylin"
+autopkgtest-virt-qemu: DBG: auxverb = ['/tmp/autopkgtest-qemu._b2nhzpp/runcmd'], downtmp = None
+autopkgtest-virt-qemu: DBG: execute-timeout: /tmp/autopkgtest-qemu._b2nhzpp/runcmd mktemp --directory --tmpdir autopkgtest.XXXXXX
+autopkgtest-virt-qemu: DBG: execute-timeout: /tmp/autopkgtest-qemu._b2nhzpp/runcmd chmod 1777 /tmp/autopkgtest.qDB79a
+autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.qDB79a
+autopkgtest: DBG: sending command to testbed: print-execute-command
+autopkgtest-virt-qemu: DBG: executing print-execute-command
+autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest-qemu._b2nhzpp/runcmd
+autopkgtest: DBG: sending command to testbed: capabilities
+autopkgtest-virt-qemu: DBG: executing capabilities
+autopkgtest: DBG: got reply from testbed: ok isolation-machine reboot revert revert-full-system root-on-testbed suggested-normal-user=openkylin
+autopkgtest: DBG: testbed capabilities: ['isolation-machine', 'reboot', 'revert', 'revert-full-system', 'root-on-testbed', 'suggested-normal-user=openkylin', 'has_internet']
+autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.qDB79a'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.qDB79a/wrapper.sh
+autopkgtest-virt-qemu: DBG: executing copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.qDB79a/wrapper.sh
+autopkgtest-virt-qemu: DBG: ['cmdls', "(['cat'], ['/tmp/autopkgtest-qemu._b2nhzpp/runcmd', 'sh', '-ec', 'cat >/tmp/autopkgtest.qDB79a/wrapper.sh; chmod +x -- /tmp/autopkgtest.qDB79a/wrapper.sh'])"]
+autopkgtest-virt-qemu: DBG: ['srcstdin', "<_io.BufferedReader name='/usr/share/autopkgtest/lib/in-testbed/wrapper.sh'>", 'deststdout', "<_io.BufferedReader name='/dev/null'>", 'devnull_read', <_io.BufferedReader name='/dev/null'>]
+autopkgtest-virt-qemu: DBG:  +< cat
+autopkgtest-virt-qemu: DBG:  +> /tmp/autopkgtest-qemu._b2nhzpp/runcmd sh -ec cat >/tmp/autopkgtest.qDB79a/wrapper.sh; chmod +x -- /tmp/autopkgtest.qDB79a/wrapper.sh
+autopkgtest-virt-qemu: DBG:  +>?
+autopkgtest-virt-qemu: DBG:  +<?
+autopkgtest: DBG: got reply from testbed: ok
+autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.qDB79a/wrapper.sh'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest [17:33:14]: @@@@@@@@@@@@@@@@@@@@ test bed setup
+autopkgtest: DBG: testbed command ['bash', '-ec', 'for d in /boot /etc/init /etc/init.d /etc/systemd/system /lib/systemd/system; do [ ! -d $d ] || touch -r $d /tmp/autopkgtest.qDB79a/${d//\\//_}.stamp; done'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['sh', '-ec', '(O=$(bash -o pipefail -ec \'apt-get update | tee /proc/self/fd/2\') ||{ [ "${O%404*Not Found*}" = "$O" ] || exit 100; sleep 15; apt-get update; } || { sleep 60; apt-get update; } || false) && $(command -v eatmydata || true) apt-get dist-upgrade -y -o Dpkg::Options::="--force-confnew" && $(command -v eatmydata || true) apt-get --purge autoremove -y'], kind install, sout raw, serr raw, env ['AUTOPKGTEST_IS_SETUP_COMMAND=1', 'AUTOPKGTEST_NORMAL_USER=openkylin', 'ADT_NORMAL_USER=openkylin', 'DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+Get:1 http://archive.build.openkylin.top/openkylin yangtze InRelease [22.4 kB]
+Hit:2 http://archive.build.openkylin.top/openkylin yangtze-security InRelease
+Hit:3 http://archive.build.openkylin.top/openkylin yangtze-updates InRelease
+Get:4 http://archive.build.openkylin.top/openkylin yangtze-proposed InRelease [63.1 kB]
+Get:5 http://archive.build.openkylin.top/openkylin yangtze/main Sources [1,172 kB]
+Get:6 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 Packages [1,916 kB]
+Get:7 http://archive.build.openkylin.top/openkylin yangtze-proposed/main Sources [700 kB]
+Get:8 http://archive.build.openkylin.top/openkylin yangtze-proposed/main riscv64 Packages [948 kB]
+Fetched 4,822 kB in 26s (188 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages were automatically installed and are no longer required:
+  libegl-dev libgl-dev libglu1-mesa-dev libglx-dev libmpdec2 libvulkan-dev
+  libx11-dev libxau-dev libxcb1-dev libxdmcp-dev libxext-dev qt5-qmake
+  qt5-qmake-bin x11proto-core-dev x11proto-dev xorg-sgml-doctools xtrans-dev
+Use 'apt autoremove' to remove them.
+The following NEW packages will be installed:
+  gir1.2-harfbuzz-0.0 kylin-font-viewer libffi8 openkylin-archive-anything
+The following packages will be upgraded:
+  accountsservice adduser cpp gir1.2-pango-1.0 kwin-common kwin-data
+  kwin-wayland kwin-wayland-backend-drm kwin-wayland-backend-wayland kwin-x11
+  kylin-app-cgroupd kylin-app-manager kylin-nm kylin-photo-viewer
+  kylin-process-manager kylin-recorder kylin-system-updater
+  kylin-tablet-desktop-general libaccountsservice0 libc-bin libc-dev-bin libc6
+  libc6-dev libchinese-segmentation1 libcpufreq0 libcryptsetup12 libexpat1
+  libffi-dev libkwineffects13 libkwinglutils13 libkwinxrenderutils13
+  libkysdk-alm libkysdk-appcommon libkysdk-kabase libkysdk-qtwidgets
+  libkysdk-ukenv libkysdk-waylandhelper libldap-common libnm0 liborc-0.4-0
+  libpango-1.0-0 libpangocairo-1.0-0 libpangoft2-1.0-0 libpangoxft-1.0-0
+  libpeony3 libpulse-mainloop-glib0 libpulse0 libpulsedsp libpython3.8
+  libpython3.8-minimal libpython3.8-stdlib libqt5-ukui-style1 libqt5opengl5
+  libqt5sql5-sqlite libsoup-gnome2.4-1 libsoup2.4-1 libukcc3 libukui-search2
+  libukui-shortcut0 libvolume-key1 libxml2 linux-firmware locales
+  lto-disabled-list network-manager openkylin-default-settings peony
+  peony-common pulseaudio pulseaudio-module-bluetooth pulseaudio-utils
+  python3-cairo python3.8 python3.8-minimal
+  qml-module-org-ukui-qqc2desktopstyle qml-module-org-ukui-sidebar-items
+  qml-module-org-ukui-stylehelper qt5-styles-ukui qt5-ukui-platformtheme
+  ukui-bluetooth ukui-clock ukui-control-center ukui-desktop-environment
+  ukui-desktop-environment-core ukui-greeter ukui-media ukui-media-common
+  ukui-panel ukui-search ukui-search-systemdbus ukui-settings-daemon
+  ukui-settings-daemon-common ukui-sidebar ukui-tablet-desktop
+  ukui-window-switch
+95 upgraded, 4 newly installed, 0 to remove and 0 not upgraded.
+Need to get 342 MB of archives.
+After this operation, 12.0 MB of additional disk space will be used.
+Get:1 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libc6-dev riscv64 2.36-ok2 [3,154 kB]
+Get:2 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libc-dev-bin riscv64 2.36-ok2 [18.7 kB]
+Get:3 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libc6 riscv64 2.36-ok2 [2,616 kB]
+Get:4 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libc-bin riscv64 2.36-ok2 [550 kB]
+Get:5 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libpulse-mainloop-glib0 riscv64 1:13.99.1-ok10 [11.3 kB]
+Get:6 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libpulsedsp riscv64 1:13.99.1-ok10 [20.6 kB]
+Get:7 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 pulseaudio-utils riscv64 1:13.99.1-ok10 [54.9 kB]
+Get:8 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 pulseaudio-module-bluetooth riscv64 1:13.99.1-ok10 [58.6 kB]
+Get:9 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 pulseaudio riscv64 1:13.99.1-ok10 [1,166 kB]
+Get:10 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libpulse0 riscv64 1:13.99.1-ok10 [253 kB]
+Get:11 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 liborc-0.4-0 riscv64 1:0.4.31-ok2 [183 kB]
+Get:12 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 adduser all 3.118-ok3 [224 kB]
+Get:13 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 python3.8 riscv64 3.8.2-ok4 [365 kB]
+Get:14 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 python3.8-minimal riscv64 3.8.2-ok4 [1,632 kB]
+Get:15 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libpython3.8 riscv64 3.8.2-ok4 [1,652 kB]
+Get:16 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libpython3.8-stdlib riscv64 3.8.2-ok4 [1,738 kB]
+Get:17 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libpython3.8-minimal riscv64 3.8.2-ok4 [720 kB]
+Get:18 http://archive.build.openkylin.top/openkylin yangtze-proposed/main riscv64 libexpat1 riscv64 2.2.9-ok3 [69.2 kB]
+Get:19 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libffi8 riscv64 3.4.4-ok3 [20.0 kB]
+Get:20 http://archive.build.openkylin.top/openkylin yangtze-proposed/main riscv64 openkylin-archive-anything all 2023.02.06-ok1 [2,646 B]
+Get:21 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 locales all 2.36-ok2 [4,242 kB]
+Get:22 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 accountsservice riscv64 0.6.55-ok2 [75.3 kB]
+Get:23 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libaccountsservice0 riscv64 0.6.55-ok2 [68.2 kB]
+Get:24 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 cpp riscv64 4:9.3.0-ok7 [5,772 B]
+Get:25 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 gir1.2-harfbuzz-0.0 riscv64 2.6.4-ok1 [26.4 kB]
+Get:26 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 gir1.2-pango-1.0 riscv64 1.46.2-ok2 [31.0 kB]
+Get:27 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libpangoxft-1.0-0 riscv64 1.46.2-ok2 [16.8 kB]
+Get:28 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libpangoft2-1.0-0 riscv64 1.46.2-ok2 [33.6 kB]
+Get:29 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libpango-1.0-0 riscv64 1.46.2-ok2 [165 kB]
+Get:30 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libpangocairo-1.0-0 riscv64 1.46.2-ok2 [23.1 kB]
+Get:31 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 kwin-x11 riscv64 4:5.24.4-ok7~0111 [425 kB]
+Get:32 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libkwinxrenderutils13 riscv64 4:5.24.4-ok7~0111 [15.8 kB]
+Get:33 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 kwin-wayland riscv64 4:5.24.4-ok7~0111 [546 kB]
+Get:34 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 kwin-wayland-backend-wayland riscv64 4:5.24.4-ok7~0111 [45.3 kB]
+Get:35 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 kwin-wayland-backend-drm riscv64 4:5.24.4-ok7~0111 [137 kB]
+Get:36 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 kwin-data all 4:5.24.4-ok7~0111 [3,992 kB]
+Get:37 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 kwin-common riscv64 4:5.24.4-ok7~0111 [1,899 kB]
+Get:38 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libkwineffects13 riscv64 4:5.24.4-ok7~0111 [90.0 kB]
+Get:39 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libkwinglutils13 riscv64 4:5.24.4-ok7~0111 [60.0 kB]
+Get:40 http://archive.build.openkylin.top/openkylin yangtze-proposed/main riscv64 kylin-process-manager riscv64 3.22.1.0-ok1.2 [214 kB]
+Get:41 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libkysdk-appcommon riscv64 2.0.0.0-1k3 [3,056 B]
+Get:42 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libkysdk-waylandhelper riscv64 2.0.0.0-1k3 [44.9 kB]
+Get:43 http://archive.build.openkylin.top/openkylin yangtze-proposed/main riscv64 kylin-app-manager riscv64 3.22.1.0-ok1.16 [197 kB]
+Get:44 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 kylin-font-viewer riscv64 1.1.0.13-ok2~0104 [694 kB]
+Get:45 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libkysdk-qtwidgets riscv64 2.0.0.0-1k3 [197 kB]
+Get:46 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 network-manager riscv64 1.36.4-ok3.2 [3,010 kB]
+Get:47 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libnm0 riscv64 1.36.4-ok3.2 [383 kB]
+Get:48 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libpeony3 riscv64 3.22.0.0-ok3~0106 [1,114 kB]
+Get:49 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 peony riscv64 3.22.0.0-ok3~0106 [512 kB]
+Get:50 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 peony-common all 3.22.0.0-ok3~0106 [2,690 kB]
+Get:51 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libukcc3 riscv64 3.22.1.25-ok10 [118 kB]
+Get:52 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 ukui-bluetooth riscv64 3.1.4+2022.0531-ok9 [474 kB]
+Get:53 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 ukui-search riscv64 3.22.4.1-ok0~0105 [190 kB]
+Get:54 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libukui-search2 riscv64 3.22.4.1-ok0~0105 [532 kB]
+Get:55 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libchinese-segmentation1 riscv64 3.22.4.1-ok0~0105 [7,855 kB]
+Get:56 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 ukui-search-systemdbus riscv64 3.22.4.1-ok0~0105 [11.5 kB]
+Get:57 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 ukui-media riscv64 3.1.0.2022+0310-ok7~0111 [469 kB]
+Get:58 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 ukui-media-common all 3.1.0.2022+0310-ok7~0111 [5,864 B]
+Get:59 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libxml2 riscv64 2.9.10+dfsg-ok2 [615 kB]
+Get:60 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 ukui-control-center riscv64 3.22.1.25-ok10 [20.2 MB]
+Get:61 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 kylin-nm riscv64 3.14.0.0+0512-3k15 [859 kB]
+Get:62 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libkysdk-kabase riscv64 2.0.0.0-1k3 [77.6 kB]
+Get:63 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 kylin-photo-viewer riscv64 1.3.0.3-ok9build2 [14.4 MB]
+Get:64 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 kylin-recorder riscv64 1.3.0.2.0k3.3-ok0.1 [797 kB]
+Get:65 http://archive.build.openkylin.top/openkylin yangtze/pty riscv64 kylin-system-updater all 2.0.5.15-ok3 [163 kB]
+Get:66 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libqt5sql5-sqlite riscv64 5.15.3+dfsg-ok1.1 [48.2 kB]
+Get:67 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 ukui-tablet-desktop riscv64 3.22.0.0-ok1.6 [729 kB]
+Get:68 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 kylin-tablet-desktop-general all 3.22.0.0-ok1.6 [1,880 B]
+Get:69 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libcpufreq0 riscv64 008-ok1 [8,950 B]
+Get:70 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libcryptsetup12 riscv64 2:2.2.2-ok5 [167 kB]
+Get:71 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libffi-dev riscv64 3.4.4-ok3 [83.9 kB]
+Get:72 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libkysdk-alm riscv64 2.0.0.0-1k3 [14.5 kB]
+Get:73 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libkysdk-ukenv riscv64 2.0.0.0-1k3 [14.2 kB]
+Get:74 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libldap-common all 2.6.3+dfsg-ok2 [18.6 kB]
+Get:75 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 qt5-ukui-platformtheme riscv64 3.20.1.1-0k8 [140 kB]
+Get:76 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 qml-module-org-ukui-stylehelper riscv64 3.20.1.1-0k8 [65.4 kB]
+Get:77 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 qml-module-org-ukui-qqc2desktopstyle riscv64 3.20.1.1-0k8 [7,820 B]
+Get:78 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 qt5-styles-ukui riscv64 3.20.1.1-0k8 [206 kB]
+Get:79 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libqt5-ukui-style1 riscv64 3.20.1.1-0k8 [44.9 kB]
+Get:80 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libqt5opengl5 riscv64 5.15.3+dfsg-ok1.1 [134 kB]
+Get:81 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libsoup2.4-1 riscv64 2.70.0-ok2 [243 kB]
+Get:82 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libsoup-gnome2.4-1 riscv64 2.70.0-ok2 [5,606 B]
+Get:83 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 ukui-sidebar riscv64 3.22.2.1-ok1 [196 kB]
+Get:84 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 qml-module-org-ukui-sidebar-items riscv64 3.22.2.1-ok1 [37.3 kB]
+Get:85 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libukui-shortcut0 riscv64 3.22.2.1-ok1 [112 kB]
+Get:86 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libvolume-key1 riscv64 0.3.12-ok2 [133 kB]
+Get:87 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 linux-firmware all 1.205ok6 [245 MB]
+Get:88 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 lto-disabled-list all 24-ok15 [11.9 kB]
+Get:89 http://archive.build.openkylin.top/openkylin yangtze-proposed/main riscv64 openkylin-default-settings all 20.07.5 [4,648 B]
+Get:90 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 python3-cairo riscv64 1.16.2-ok2 [54.3 kB]
+Get:91 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 ukui-clock riscv64 3.2.2.0.0k0-0k0.2 [9,049 kB]
+Get:92 http://archive.build.openkylin.top/openkylin yangtze-proposed/main riscv64 ukui-panel riscv64 3.14.0.1-ok3.4 [630 kB]
+Get:93 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 ukui-settings-daemon riscv64 3.14.0.0~0512-ok5 [1,020 kB]
+Get:94 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 ukui-settings-daemon-common all 3.14.0.0~0512-ok5 [30.2 kB]
+Get:95 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 ukui-desktop-environment-core all 2.0.2-ok8 [2,424 B]
+Get:96 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 ukui-desktop-environment all 2.0.2-ok8 [1,934 B]
+Get:97 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 ukui-greeter riscv64 3.22.1.1-ok10~0106 [1,074 kB]
+Get:98 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 ukui-window-switch riscv64 3.22.1.4-ok1.7build1 [115 kB]
+Get:99 http://archive.build.openkylin.top/openkylin yangtze-proposed/main riscv64 kylin-app-cgroupd all 3.22.1.0-ok1.2 [1,744 B]
+Preconfiguring packages ...
+Fetched 342 MB in 1min 7s (5,120 kB/s)
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 160725 files and directories currently installed.)
+Preparing to unpack .../libc6-dev_2.36-ok2_riscv64.deb ...
+Unpacking libc6-dev:riscv64 (2.36-ok2) over (2.36-ok1) ...
+Preparing to unpack .../libc-dev-bin_2.36-ok2_riscv64.deb ...
+Unpacking libc-dev-bin (2.36-ok2) over (2.36-ok1) ...
+Preparing to unpack .../libc6_2.36-ok2_riscv64.deb ...
+Unpacking libc6:riscv64 (2.36-ok2) over (2.36-ok1) ...
+Setting up libc6:riscv64 (2.36-ok2) ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 160725 files and directories currently installed.)
+Preparing to unpack .../libc-bin_2.36-ok2_riscv64.deb ...
+Unpacking libc-bin (2.36-ok2) over (2.36-ok1) ...
+Setting up libc-bin (2.36-ok2) ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 160725 files and directories currently installed.)
+Preparing to unpack .../0-libpulse-mainloop-glib0_1%3a13.99.1-ok10_riscv64.deb ...
+Unpacking libpulse-mainloop-glib0:riscv64 (1:13.99.1-ok10) over (1:13.99.1-ok8) ...
+Preparing to unpack .../1-libpulsedsp_1%3a13.99.1-ok10_riscv64.deb ...
+Unpacking libpulsedsp:riscv64 (1:13.99.1-ok10) over (1:13.99.1-ok8) ...
+Preparing to unpack .../2-pulseaudio-utils_1%3a13.99.1-ok10_riscv64.deb ...
+Unpacking pulseaudio-utils (1:13.99.1-ok10) over (1:13.99.1-ok8) ...
+Preparing to unpack .../3-pulseaudio-module-bluetooth_1%3a13.99.1-ok10_riscv64.deb ...
+Unpacking pulseaudio-module-bluetooth (1:13.99.1-ok10) over (1:13.99.1-ok8) ...
+Preparing to unpack .../4-pulseaudio_1%3a13.99.1-ok10_riscv64.deb ...
+Unpacking pulseaudio (1:13.99.1-ok10) over (1:13.99.1-ok8) ...
+Preparing to unpack .../5-libpulse0_1%3a13.99.1-ok10_riscv64.deb ...
+Unpacking libpulse0:riscv64 (1:13.99.1-ok10) over (1:13.99.1-ok8) ...
+Preparing to unpack .../6-liborc-0.4-0_1%3a0.4.31-ok2_riscv64.deb ...
+Unpacking liborc-0.4-0:riscv64 (1:0.4.31-ok2) over (1:0.4.31-ok1) ...
+Preparing to unpack .../7-adduser_3.118-ok3_all.deb ...
+Unpacking adduser (3.118-ok3) over (3.118-ok2) ...
+Setting up adduser (3.118-ok3) ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 160727 files and directories currently installed.)
+Preparing to unpack .../00-python3.8_3.8.2-ok4_riscv64.deb ...
+Unpacking python3.8 (3.8.2-ok4) over (3.8.2-ok2) ...
+Preparing to unpack .../01-python3.8-minimal_3.8.2-ok4_riscv64.deb ...
+Unpacking python3.8-minimal (3.8.2-ok4) over (3.8.2-ok2) ...
+Preparing to unpack .../02-libpython3.8_3.8.2-ok4_riscv64.deb ...
+Unpacking libpython3.8:riscv64 (3.8.2-ok4) over (3.8.2-ok2) ...
+Preparing to unpack .../03-libpython3.8-stdlib_3.8.2-ok4_riscv64.deb ...
+Unpacking libpython3.8-stdlib:riscv64 (3.8.2-ok4) over (3.8.2-ok2) ...
+Preparing to unpack .../04-libpython3.8-minimal_3.8.2-ok4_riscv64.deb ...
+Unpacking libpython3.8-minimal:riscv64 (3.8.2-ok4) over (3.8.2-ok2) ...
+Preparing to unpack .../05-libexpat1_2.2.9-ok3_riscv64.deb ...
+Unpacking libexpat1:riscv64 (2.2.9-ok3) over (2.2.9-ok1) ...
+Selecting previously unselected package libffi8:riscv64.
+Preparing to unpack .../06-libffi8_3.4.4-ok3_riscv64.deb ...
+Unpacking libffi8:riscv64 (3.4.4-ok3) ...
+Selecting previously unselected package openkylin-archive-anything.
+Preparing to unpack .../07-openkylin-archive-anything_2023.02.06-ok1_all.deb ...
+Unpacking openkylin-archive-anything (2023.02.06-ok1) ...
+Preparing to unpack .../08-locales_2.36-ok2_all.deb ...
+Unpacking locales (2.36-ok2) over (2.36-ok1) ...
+Preparing to unpack .../09-accountsservice_0.6.55-ok2_riscv64.deb ...
+Unpacking accountsservice (0.6.55-ok2) over (0.6.55-ok1) ...
+Preparing to unpack .../10-libaccountsservice0_0.6.55-ok2_riscv64.deb ...
+Unpacking libaccountsservice0:riscv64 (0.6.55-ok2) over (0.6.55-ok1) ...
+Preparing to unpack .../11-cpp_4%3a9.3.0-ok7_riscv64.deb ...
+Unpacking cpp (4:9.3.0-ok7) over (4:9.3.0-ok5) ...
+Selecting previously unselected package gir1.2-harfbuzz-0.0:riscv64.
+Preparing to unpack .../12-gir1.2-harfbuzz-0.0_2.6.4-ok1_riscv64.deb ...
+Unpacking gir1.2-harfbuzz-0.0:riscv64 (2.6.4-ok1) ...
+Preparing to unpack .../13-gir1.2-pango-1.0_1.46.2-ok2_riscv64.deb ...
+Unpacking gir1.2-pango-1.0:riscv64 (1.46.2-ok2) over (1.44.7-ok1) ...
+Preparing to unpack .../14-libpangoxft-1.0-0_1.46.2-ok2_riscv64.deb ...
+Unpacking libpangoxft-1.0-0:riscv64 (1.46.2-ok2) over (1.44.7-ok1) ...
+Preparing to unpack .../15-libpangoft2-1.0-0_1.46.2-ok2_riscv64.deb ...
+Unpacking libpangoft2-1.0-0:riscv64 (1.46.2-ok2) over (1.44.7-ok1) ...
+Preparing to unpack .../16-libpango-1.0-0_1.46.2-ok2_riscv64.deb ...
+Unpacking libpango-1.0-0:riscv64 (1.46.2-ok2) over (1.44.7-ok1) ...
+Preparing to unpack .../17-libpangocairo-1.0-0_1.46.2-ok2_riscv64.deb ...
+Unpacking libpangocairo-1.0-0:riscv64 (1.46.2-ok2) over (1.44.7-ok1) ...
+Preparing to unpack .../18-kwin-x11_4%3a5.24.4-ok7~0111_riscv64.deb ...
+Unpacking kwin-x11 (4:5.24.4-ok7~0111) over (4:5.24.4-ok6~1213) ...
+Preparing to unpack .../19-libkwinxrenderutils13_4%3a5.24.4-ok7~0111_riscv64.deb ...
+Unpacking libkwinxrenderutils13 (4:5.24.4-ok7~0111) over (4:5.24.4-ok6~1213) ...
+Preparing to unpack .../20-kwin-wayland_4%3a5.24.4-ok7~0111_riscv64.deb ...
+Unpacking kwin-wayland (4:5.24.4-ok7~0111) over (4:5.24.4-ok6~1213) ...
+Preparing to unpack .../21-kwin-wayland-backend-wayland_4%3a5.24.4-ok7~0111_riscv64.deb ...
+Unpacking kwin-wayland-backend-wayland (4:5.24.4-ok7~0111) over (4:5.24.4-ok6~1213) ...
+Preparing to unpack .../22-kwin-wayland-backend-drm_4%3a5.24.4-ok7~0111_riscv64.deb ...
+Unpacking kwin-wayland-backend-drm (4:5.24.4-ok7~0111) over (4:5.24.4-ok6~1213) ...
+Preparing to unpack .../23-kwin-data_4%3a5.24.4-ok7~0111_all.deb ...
+Unpacking kwin-data (4:5.24.4-ok7~0111) over (4:5.24.4-ok6~1213) ...
+Preparing to unpack .../24-kwin-common_4%3a5.24.4-ok7~0111_riscv64.deb ...
+Unpacking kwin-common (4:5.24.4-ok7~0111) over (4:5.24.4-ok6~1213) ...
+Preparing to unpack .../25-libkwineffects13_4%3a5.24.4-ok7~0111_riscv64.deb ...
+Unpacking libkwineffects13 (4:5.24.4-ok7~0111) over (4:5.24.4-ok6~1213) ...
+Preparing to unpack .../26-libkwinglutils13_4%3a5.24.4-ok7~0111_riscv64.deb ...
+Unpacking libkwinglutils13 (4:5.24.4-ok7~0111) over (4:5.24.4-ok6~1213) ...
+Preparing to unpack .../27-kylin-process-manager_3.22.1.0-ok1.2_riscv64.deb ...
+Unpacking kylin-process-manager (3.22.1.0-ok1.2) over (3.22.1.0-ok1.1) ...
+Preparing to unpack .../28-libkysdk-appcommon_2.0.0.0-1k3_riscv64.deb ...
+Unpacking libkysdk-appcommon:riscv64 (2.0.0.0-1k3) over (2.0.0.0-1k2) ...
+Preparing to unpack .../29-libkysdk-waylandhelper_2.0.0.0-1k3_riscv64.deb ...
+Unpacking libkysdk-waylandhelper:riscv64 (2.0.0.0-1k3) over (2.0.0.0-1k2) ...
+Preparing to unpack .../30-kylin-app-manager_3.22.1.0-ok1.16_riscv64.deb ...
+Unpacking kylin-app-manager (3.22.1.0-ok1.16) over (3.22.1.0-ok1.14) ...
+Selecting previously unselected package kylin-font-viewer.
+Preparing to unpack .../31-kylin-font-viewer_1.1.0.13-ok2~0104_riscv64.deb ...
+Unpacking kylin-font-viewer (1.1.0.13-ok2~0104) ...
+Preparing to unpack .../32-libkysdk-qtwidgets_2.0.0.0-1k3_riscv64.deb ...
+Unpacking libkysdk-qtwidgets:riscv64 (2.0.0.0-1k3) over (2.0.0.0-1k2) ...
+Preparing to unpack .../33-network-manager_1.36.4-ok3.2_riscv64.deb ...
+Unpacking network-manager (1.36.4-ok3.2) over (1.36.4-ok3.1) ...
+Preparing to unpack .../34-libnm0_1.36.4-ok3.2_riscv64.deb ...
+Unpacking libnm0:riscv64 (1.36.4-ok3.2) over (1.36.4-ok3.1) ...
+Preparing to unpack .../35-libpeony3_3.22.0.0-ok3~0106_riscv64.deb ...
+Unpacking libpeony3 (3.22.0.0-ok3~0106) over (3.22.0.0-ok2~1230) ...
+Preparing to unpack .../36-peony_3.22.0.0-ok3~0106_riscv64.deb ...
+Unpacking peony (3.22.0.0-ok3~0106) over (3.22.0.0-ok2~1230) ...
+Preparing to unpack .../37-peony-common_3.22.0.0-ok3~0106_all.deb ...
+Unpacking peony-common (3.22.0.0-ok3~0106) over (3.22.0.0-ok2~1230) ...
+Preparing to unpack .../38-libukcc3_3.22.1.25-ok10_riscv64.deb ...
+dpkg-architecture: warning: cannot determine CC system type, falling back to default (native compilation)
+dpkg-architecture: warning: cannot determine CC system type, falling back to default (native compilation)
+dpkg-architecture: warning: cannot determine CC system type, falling back to default (native compilation)
+Leaving 'diversion of /usr/lib/riscv64-linux-gnu/libukcc.so.1.0.0 to /usr/lib/riscv64-linux-gnu/libukcc.so.1.0.0.old by libukcc3'
+Leaving 'diversion of /usr/lib/riscv64-linux-gnu/libukcc.so.1 to /usr/lib/riscv64-linux-gnu/libukcc.so.1.old by libukcc3'
+Leaving 'diversion of /usr/lib/riscv64-linux-gnu/libukcc.so.1.0 to /usr/lib/riscv64-linux-gnu/libukcc.so.1.0.old by libukcc3'
+Unpacking libukcc3 (3.22.1.25-ok10) over (3.22.1.25-ok5) ...
+Preparing to unpack .../39-ukui-bluetooth_3.1.4+2022.0531-ok9_riscv64.deb ...
+Unpacking ukui-bluetooth (3.1.4+2022.0531-ok9) over (3.1.4+2022.0531-ok8~1102ubuntu1) ...
+Preparing to unpack .../40-ukui-search_3.22.4.1-ok0~0105_riscv64.deb ...
+Unpacking ukui-search (3.22.4.1-ok0~0105) over (3.22.3.1-ok0~1222) ...
+Preparing to unpack .../41-libukui-search2_3.22.4.1-ok0~0105_riscv64.deb ...
+Unpacking libukui-search2 (3.22.4.1-ok0~0105) over (3.22.3.1-ok0~1222) ...
+Preparing to unpack .../42-libchinese-segmentation1_3.22.4.1-ok0~0105_riscv64.deb ...
+Unpacking libchinese-segmentation1 (3.22.4.1-ok0~0105) over (3.22.3.1-ok0~1222) ...
+Preparing to unpack .../43-ukui-search-systemdbus_3.22.4.1-ok0~0105_riscv64.deb ...
+Unpacking ukui-search-systemdbus (3.22.4.1-ok0~0105) over (3.22.3.1-ok0~1222) ...
+Preparing to unpack .../44-ukui-media_3.1.0.2022+0310-ok7~0111_riscv64.deb ...
+dpkg-architecture: warning: cannot determine CC system type, falling back to default (native compilation)
+Leaving 'diversion of /usr/lib/riscv64-linux-gnu/ukui-control-center/libaudio.so to /usr/lib/riscv64-linux-gnu/ukui-control-center/libaudio.so.old by ukui-media'
+Unpacking ukui-media (3.1.0.2022+0310-ok7~0111) over (3.1.0.2022+0310-ok4~1214) ...
+Preparing to unpack .../45-ukui-media-common_3.1.0.2022+0310-ok7~0111_all.deb ...
+Unpacking ukui-media-common (3.1.0.2022+0310-ok7~0111) over (3.1.0.2022+0310-ok4~1214) ...
+Preparing to unpack .../46-libxml2_2.9.10+dfsg-ok2_riscv64.deb ...
+Unpacking libxml2:riscv64 (2.9.10+dfsg-ok2) over (2.9.10+dfsg-ok1) ...
+Preparing to unpack .../47-ukui-control-center_3.22.1.25-ok10_riscv64.deb ...
+dpkg-architecture: warning: cannot determine CC system type, falling back to default (native compilation)
+dpkg-architecture: warning: cannot determine CC system type, falling back to default (native compilation)
+dpkg-architecture: warning: cannot determine CC system type, falling back to default (native compilation)
+Leaving 'diversion of /usr/lib/riscv64-linux-gnu/libukcc.so.1.0.0 to /usr/lib/riscv64-linux-gnu/libukcc.so.1.0.0.old by libukcc3'
+Leaving 'diversion of /usr/lib/riscv64-linux-gnu/libukcc.so.1 to /usr/lib/riscv64-linux-gnu/libukcc.so.1.old by libukcc3'
+Leaving 'diversion of /usr/lib/riscv64-linux-gnu/libukcc.so.1.0 to /usr/lib/riscv64-linux-gnu/libukcc.so.1.0.old by libukcc3'
+Unpacking ukui-control-center (3.22.1.25-ok10) over (3.22.1.25-ok5) ...
+Preparing to unpack .../48-kylin-nm_3.14.0.0+0512-3k15_riscv64.deb ...
+dpkg-architecture: warning: cannot determine CC system type, falling back to default (native compilation)
+Leaving 'diversion of /usr/lib/riscv64-linux-gnu/ukui-control-center/libnetconnect.so to /usr/lib/riscv64-linux-gnu/ukui-control-center/libnetconnect.so.old by kylin-nm'
+dpkg-architecture: warning: cannot determine CC system type, falling back to default (native compilation)
+Adding 'diversion of /usr/lib/riscv64-linux-gnu/ukui-control-center/libproxy.so to /usr/lib/riscv64-linux-gnu/ukui-control-center/libproxy.so.old by kylin-nm'
+dpkg-architecture: warning: cannot determine CC system type, falling back to default (native compilation)
+Adding 'diversion of /usr/lib/riscv64-linux-gnu/ukui-control-center/libvpn.so to /usr/lib/riscv64-linux-gnu/ukui-control-center/libvpn.so.old by kylin-nm'
+Unpacking kylin-nm (3.14.0.0+0512-3k15) over (3.14.0.0+0512-2k11) ...
+Preparing to unpack .../49-libkysdk-kabase_2.0.0.0-1k3_riscv64.deb ...
+Unpacking libkysdk-kabase:riscv64 (2.0.0.0-1k3) over (2.0.0.0-1k2) ...
+Preparing to unpack .../50-kylin-photo-viewer_1.3.0.3-ok9build2_riscv64.deb ...
+Unpacking kylin-photo-viewer (1.3.0.3-ok9build2) over (1.3.0.3-ok5) ...
+Preparing to unpack .../51-kylin-recorder_1.3.0.2.0k3.3-ok0.1_riscv64.deb ...
+Unpacking kylin-recorder (1.3.0.2.0k3.3-ok0.1) over (1.3.0.1.0k3.3-ok2~718.1) ...
+Preparing to unpack .../52-kylin-system-updater_2.0.5.15-ok3_all.deb ...
+Unpacking kylin-system-updater (2.0.5.15-ok3) over (2.0.5.15-ok2) ...
+Preparing to unpack .../53-libqt5sql5-sqlite_5.15.3+dfsg-ok1.1_riscv64.deb ...
+Unpacking libqt5sql5-sqlite:riscv64 (5.15.3+dfsg-ok1.1) over (5.15.3+dfsg-ok1) ...
+Preparing to unpack .../54-ukui-tablet-desktop_3.22.0.0-ok1.6_riscv64.deb ...
+Unpacking ukui-tablet-desktop (3.22.0.0-ok1.6) over (3.22.0.0-ok1.5) ...
+Preparing to unpack .../55-kylin-tablet-desktop-general_3.22.0.0-ok1.6_all.deb ...
+Unpacking kylin-tablet-desktop-general (3.22.0.0-ok1.6) over (3.22.0.0-ok1.5) ...
+Preparing to unpack .../56-libcpufreq0_008-ok1_riscv64.deb ...
+Unpacking libcpufreq0 (008-ok1) over (008-1.1) ...
+Preparing to unpack .../57-libcryptsetup12_2%3a2.2.2-ok5_riscv64.deb ...
+Unpacking libcryptsetup12:riscv64 (2:2.2.2-ok5) over (2:2.2.2-ok3) ...
+Preparing to unpack .../58-libffi-dev_3.4.4-ok3_riscv64.deb ...
+Unpacking libffi-dev:riscv64 (3.4.4-ok3) over (3.3-ok1) ...
+Preparing to unpack .../59-libkysdk-alm_2.0.0.0-1k3_riscv64.deb ...
+Unpacking libkysdk-alm:riscv64 (2.0.0.0-1k3) over (2.0.0.0-1k2) ...
+Preparing to unpack .../60-libkysdk-ukenv_2.0.0.0-1k3_riscv64.deb ...
+Unpacking libkysdk-ukenv:riscv64 (2.0.0.0-1k3) over (2.0.0.0-1k2) ...
+Preparing to unpack .../61-libldap-common_2.6.3+dfsg-ok2_all.deb ...
+Unpacking libldap-common (2.6.3+dfsg-ok2) over (2.4.49+dfsg-ok1) ...
+Preparing to unpack .../62-qt5-ukui-platformtheme_3.20.1.1-0k8_riscv64.deb ...
+Unpacking qt5-ukui-platformtheme (3.20.1.1-0k8) over (3.20.1.1-0k6) ...
+Preparing to unpack .../63-qml-module-org-ukui-stylehelper_3.20.1.1-0k8_riscv64.deb ...
+Unpacking qml-module-org-ukui-stylehelper (3.20.1.1-0k8) over (3.20.1.1-0k6) ...
+Preparing to unpack .../64-qml-module-org-ukui-qqc2desktopstyle_3.20.1.1-0k8_riscv64.deb ...
+Unpacking qml-module-org-ukui-qqc2desktopstyle (3.20.1.1-0k8) over (3.20.1.1-0k6) ...
+Preparing to unpack .../65-qt5-styles-ukui_3.20.1.1-0k8_riscv64.deb ...
+Unpacking qt5-styles-ukui (3.20.1.1-0k8) over (3.20.1.1-0k6) ...
+Preparing to unpack .../66-libqt5-ukui-style1_3.20.1.1-0k8_riscv64.deb ...
+Unpacking libqt5-ukui-style1 (3.20.1.1-0k8) over (3.20.1.1-0k6) ...
+Preparing to unpack .../67-libqt5opengl5_5.15.3+dfsg-ok1.1_riscv64.deb ...
+Unpacking libqt5opengl5:riscv64 (5.15.3+dfsg-ok1.1) over (5.15.3+dfsg-ok1) ...
+Preparing to unpack .../68-libsoup2.4-1_2.70.0-ok2_riscv64.deb ...
+Unpacking libsoup2.4-1:riscv64 (2.70.0-ok2) over (2.70.0-ok1) ...
+Preparing to unpack .../69-libsoup-gnome2.4-1_2.70.0-ok2_riscv64.deb ...
+Unpacking libsoup-gnome2.4-1:riscv64 (2.70.0-ok2) over (2.70.0-ok1) ...
+Preparing to unpack .../70-ukui-sidebar_3.22.2.1-ok1_riscv64.deb ...
+Unpacking ukui-sidebar (3.22.2.1-ok1) over (3.22.1.15-ok0~1227) ...
+Preparing to unpack .../71-qml-module-org-ukui-sidebar-items_3.22.2.1-ok1_riscv64.deb ...
+Unpacking qml-module-org-ukui-sidebar-items (3.22.2.1-ok1) over (3.22.1.15-ok0~1227) ...
+Preparing to unpack .../72-libukui-shortcut0_3.22.2.1-ok1_riscv64.deb ...
+Unpacking libukui-shortcut0 (3.22.2.1-ok1) over (3.22.1.15-ok0~1227) ...
+Preparing to unpack .../73-libvolume-key1_0.3.12-ok2_riscv64.deb ...
+Unpacking libvolume-key1 (0.3.12-ok2) over (0.3.12-ok0) ...
+Preparing to unpack .../74-linux-firmware_1.205ok6_all.deb ...
+Unpacking linux-firmware (1.205ok6) over (1.205ok5) ...
+Preparing to unpack .../75-lto-disabled-list_24-ok15_all.deb ...
+Unpacking lto-disabled-list (24-ok15) over (24-ok14) ...
+Preparing to unpack .../76-openkylin-default-settings_20.07.5_all.deb ...
+Unpacking openkylin-default-settings (20.07.5) over (20.07.3) ...
+Preparing to unpack .../77-python3-cairo_1.16.2-ok2_riscv64.deb ...
+Unpacking python3-cairo:riscv64 (1.16.2-ok2) over (1.16.2-ok1) ...
+Preparing to unpack .../78-ukui-clock_3.2.2.0.0k0-0k0.2_riscv64.deb ...
+Unpacking ukui-clock (3.2.2.0.0k0-0k0.2) over (3.1.4.0.0k0-0k1.1) ...
+Preparing to unpack .../79-ukui-panel_3.14.0.1-ok3.4_riscv64.deb ...
+Unpacking ukui-panel (3.14.0.1-ok3.4) over (3.14.0.1-ok2~0822) ...
+Preparing to unpack .../80-ukui-settings-daemon_3.14.0.0~0512-ok5_riscv64.deb ...
+Unpacking ukui-settings-daemon (3.14.0.0~0512-ok5) over (3.14.0.0~0512-ok4) ...
+Preparing to unpack .../81-ukui-settings-daemon-common_3.14.0.0~0512-ok5_all.deb ...
+Unpacking ukui-settings-daemon-common (3.14.0.0~0512-ok5) over (3.14.0.0~0512-ok4) ...
+Preparing to unpack .../82-ukui-desktop-environment-core_2.0.2-ok8_all.deb ...
+Unpacking ukui-desktop-environment-core (2.0.2-ok8) over (2.0.2-ok7~1104) ...
+Preparing to unpack .../83-ukui-desktop-environment_2.0.2-ok8_all.deb ...
+Unpacking ukui-desktop-environment (2.0.2-ok8) over (2.0.2-ok7~1104) ...
+Preparing to unpack .../84-ukui-greeter_3.22.1.1-ok10~0106_riscv64.deb ...
+Unpacking ukui-greeter (3.22.1.1-ok10~0106) over (3.22.1.1-ok8~1209) ...
+Preparing to unpack .../85-ukui-window-switch_3.22.1.4-ok1.7build1_riscv64.deb ...
+Unpacking ukui-window-switch (3.22.1.4-ok1.7build1) over (3.22.1.4-ok1.7) ...
+Preparing to unpack .../86-kylin-app-cgroupd_3.22.1.0-ok1.2_all.deb ...
+Unpacking kylin-app-cgroupd (3.22.1.0-ok1.2) over (3.22.1.0-ok1.1) ...
+Setting up libexpat1:riscv64 (2.2.9-ok3) ...
+Setting up kwin-data (4:5.24.4-ok7~0111) ...
+Setting up kylin-font-viewer (1.1.0.13-ok2~0104) ...
+Setting up lto-disabled-list (24-ok15) ...
+Setting up libpython3.8-minimal:riscv64 (3.8.2-ok4) ...
+Setting up ukui-search-systemdbus (3.22.4.1-ok0~0105) ...
+Setting up python3-cairo:riscv64 (1.16.2-ok2) ...
+Setting up libqt5sql5-sqlite:riscv64 (5.15.3+dfsg-ok1.1) ...
+Setting up kylin-system-updater (2.0.5.15-ok3) ...
+field appname_cn is exist.
+field status_cn is exist.
+field changelog is exist.
+field init_version is exist.
+Setting up libpulse0:riscv64 (1:13.99.1-ok10) ...
+Setting up linux-firmware (1.205ok6) ...
+W: /boot is ro mounted.
+W: update-initramfs: Not updating /boot/initrd.img-5.11.0-1030-generic
+Setting up qml-module-org-ukui-sidebar-items (3.22.2.1-ok1) ...
+Setting up libpango-1.0-0:riscv64 (1.46.2-ok2) ...
+Setting up libpulsedsp:riscv64 (1:13.99.1-ok10) ...
+Setting up libukui-shortcut0 (3.22.2.1-ok1) ...
+Setting up openkylin-archive-anything (2023.02.06-ok1) ...
+Setting up peony-common (3.22.0.0-ok3~0106) ...
+Setting up locales (2.36-ok2) ...
+Generating locales (this might take a while)...
+  en_US.UTF-8... done
+  zh_CN.UTF-8... done
+  zh_SG.UTF-8... done
+Generation complete.
+Setting up libldap-common (2.6.3+dfsg-ok2) ...
+Installing new version of config file /etc/ldap/ldap.conf ...
+Setting up libkysdk-appcommon:riscv64 (2.0.0.0-1k3) ...
+Setting up gir1.2-harfbuzz-0.0:riscv64 (2.6.4-ok1) ...
+Setting up libqt5-ukui-style1 (3.20.1.1-0k8) ...
+Setting up libkwinxrenderutils13 (4:5.24.4-ok7~0111) ...
+Setting up libpulse-mainloop-glib0:riscv64 (1:13.99.1-ok10) ...
+Setting up pulseaudio-utils (1:13.99.1-ok10) ...
+Setting up kylin-process-manager (3.22.1.0-ok1.2) ...
+Job for kylin-process-manager-cleaner.service failed because the control process exited with error code.
+See "systemctl status kylin-process-manager-cleaner.service" and "journalctl -xe" for details.
+Setting up liborc-0.4-0:riscv64 (1:0.4.31-ok2) ...
+Setting up libnm0:riscv64 (1.36.4-ok3.2) ...
+Setting up qml-module-org-ukui-stylehelper (3.20.1.1-0k8) ...
+Setting up libkysdk-ukenv:riscv64 (2.0.0.0-1k3) ...
+Setting up libffi8:riscv64 (3.4.4-ok3) ...
+Setting up python3.8-minimal (3.8.2-ok4) ...
+Setting up ukui-greeter (3.22.1.1-ok10~0106) ...
+Setting up libcpufreq0 (008-ok1) ...
+Setting up libqt5opengl5:riscv64 (5.15.3+dfsg-ok1.1) ...
+Setting up ukui-settings-daemon-common (3.14.0.0~0512-ok5) ...
+Setting up cpp (4:9.3.0-ok7) ...
+Setting up libcryptsetup12:riscv64 (2:2.2.2-ok5) ...
+Setting up libvolume-key1 (0.3.12-ok2) ...
+Setting up ukui-media-common (3.1.0.2022+0310-ok7~0111) ...
+Setting up libkysdk-waylandhelper:riscv64 (2.0.0.0-1k3) ...
+Setting up libaccountsservice0:riscv64 (0.6.55-ok2) ...
+Setting up libpangoft2-1.0-0:riscv64 (1.46.2-ok2) ...
+Setting up libpython3.8-stdlib:riscv64 (3.8.2-ok4) ...
+Setting up libc-dev-bin (2.36-ok2) ...
+Setting up python3.8 (3.8.2-ok4) ...
+Setting up openkylin-default-settings (20.07.5) ...
+Setting up libchinese-segmentation1 (3.22.4.1-ok0~0105) ...
+Setting up kylin-app-manager (3.22.1.0-ok1.16) ...
+Setting up libxml2:riscv64 (2.9.10+dfsg-ok2) ...
+Setting up libkwinglutils13 (4:5.24.4-ok7~0111) ...
+Setting up ukui-window-switch (3.22.1.4-ok1.7build1) ...
+Setting up accountsservice (0.6.55-ok2) ...
+Setting up libkysdk-alm:riscv64 (2.0.0.0-1k3) ...
+Setting up libpangocairo-1.0-0:riscv64 (1.46.2-ok2) ...
+Setting up kylin-app-cgroupd (3.22.1.0-ok1.2) ...
+Setting up libsoup2.4-1:riscv64 (2.70.0-ok2) ...
+Setting up libpangoxft-1.0-0:riscv64 (1.46.2-ok2) ...
+Setting up libkysdk-kabase:riscv64 (2.0.0.0-1k3) ...
+Setting up network-manager (1.36.4-ok3.2) ...
+find: ‘/etc/netplan’: No such file or directory
+Setting up qml-module-org-ukui-qqc2desktopstyle (3.20.1.1-0k8) ...
+Setting up libffi-dev:riscv64 (3.4.4-ok3) ...
+Setting up pulseaudio (1:13.99.1-ok10) ...
+Setting up ukui-sidebar (3.22.2.1-ok1) ...
+Setting up gir1.2-pango-1.0:riscv64 (1.46.2-ok2) ...
+Setting up libkysdk-qtwidgets:riscv64 (2.0.0.0-1k3) ...
+Setting up libpython3.8:riscv64 (3.8.2-ok4) ...
+Setting up ukui-tablet-desktop (3.22.0.0-ok1.6) ...
+Setting up pulseaudio-module-bluetooth (1:13.99.1-ok10) ...
+Setting up kylin-recorder (1.3.0.2.0k3.3-ok0.1) ...
+Setting up libukcc3 (3.22.1.25-ok10) ...
+Setting up libkwineffects13 (4:5.24.4-ok7~0111) ...
+Setting up libc6-dev:riscv64 (2.36-ok2) ...
+Setting up ukui-panel (3.14.0.1-ok3.4) ...
+Setting up ukui-clock (3.2.2.0.0k0-0k0.2) ...
+Setting up libsoup-gnome2.4-1:riscv64 (2.70.0-ok2) ...
+Setting up libukui-search2 (3.22.4.1-ok0~0105) ...
+Setting up libpeony3 (3.22.0.0-ok3~0106) ...
+Setting up ukui-bluetooth (3.1.4+2022.0531-ok9) ...
+Installing new version of config file /etc/xdg/autostart/ukui-bluetooth.desktop ...
+touch /home/openkylin/.cache/ukuibt_upgrade.tmp
+Setting up kwin-common (4:5.24.4-ok7~0111) ...
+Setting up kylin-photo-viewer (1.3.0.3-ok9build2) ...
+Setting up kwin-wayland-backend-drm (4:5.24.4-ok7~0111) ...
+Setting up kwin-x11 (4:5.24.4-ok7~0111) ...
+Setting up kwin-wayland-backend-wayland (4:5.24.4-ok7~0111) ...
+Setting up kwin-wayland (4:5.24.4-ok7~0111) ...
+Sucessfully set capabilities for kwin_wayland
+Processing triggers for bamfdaemon (0.5.3+18.04.20180207.2-ok1) ...
+Rebuilding /usr/share/applications/bamf-2.index...
+Processing triggers for desktop-file-utils (0.24-ok2) ...
+Processing triggers for mime-support (3.64-ok1) ...
+Processing triggers for hicolor-icon-theme (0.17-ok1) ...
+Processing triggers for libglib2.0-0:riscv64 (2.64.2-ok2) ...
+Processing triggers for libc-bin (2.36-ok2) ...
+Processing triggers for systemd (245.4-ok4~0716) ...
+Processing triggers for man-db (2.9.1-ok3) ...
+Setting up peony (3.22.0.0-ok3~0106) ...
+Processing triggers for dbus (1.12.16-ok1) ...
+Setting up qt5-styles-ukui (3.20.1.1-0k8) ...
+Setting up kylin-tablet-desktop-general (3.22.0.0-ok1.6) ...
+Setting up ukui-settings-daemon (3.14.0.0~0512-ok5) ...
+Processing triggers for install-info (6.7.0.dfsg.2-ok1) ...
+Setting up qt5-ukui-platformtheme (3.20.1.1-0k8) ...
+Setting up ukui-search (3.22.4.1-ok0~0105) ...
+Setting up ukui-control-center (3.22.1.25-ok10) ...
+Setting up ukui-desktop-environment-core (2.0.2-ok8) ...
+Setting up kylin-nm (3.14.0.0+0512-3k15) ...
+kylin nm set cap success
+Setting up ukui-desktop-environment (2.0.2-ok8) ...
+Setting up ukui-media (3.1.0.2022+0310-ok7~0111) ...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages will be REMOVED:
+  libegl-dev* libgl-dev* libglu1-mesa-dev* libglx-dev* libmpdec2*
+  libvulkan-dev* libx11-dev* libxau-dev* libxcb1-dev* libxdmcp-dev*
+  libxext-dev* qt5-qmake* qt5-qmake-bin* x11proto-core-dev* x11proto-dev*
+  xorg-sgml-doctools* xtrans-dev*
+0 upgraded, 0 newly installed, 17 to remove and 19 not upgraded.
+After this operation, 28.9 MB disk space will be freed.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 161067 files and directories currently installed.)
+Removing libegl-dev:riscv64 (1.3.1-ok1) ...
+Removing libglu1-mesa-dev:riscv64 (9.0.1-ok1) ...
+Removing libgl-dev:riscv64 (1.3.1-ok1) ...
+Removing libglx-dev:riscv64 (1.3.1-ok1) ...
+Removing libmpdec2:riscv64 (2.4.2-ok1) ...
+Removing libvulkan-dev:riscv64 (1.2.131.2-ok1) ...
+Removing libxext-dev:riscv64 (2:1.3.4-ok2) ...
+Removing libx11-dev:riscv64 (2:1.6.9-ok1) ...
+Removing libxcb1-dev:riscv64 (1.14-ok1) ...
+Removing libxau-dev:riscv64 (1:1.0.9-ok1) ...
+Removing libxdmcp-dev:riscv64 (1:1.1.3-ok1) ...
+Removing qt5-qmake:riscv64 (5.15.3+dfsg-ok1.1) ...
+Removing qt5-qmake-bin (5.15.3+dfsg-ok1.1) ...
+Removing x11proto-core-dev (2022.2-ok3) ...
+Removing x11proto-dev (2022.2-ok3) ...
+Removing xorg-sgml-doctools (1:1.11-ok1) ...
+Removing xtrans-dev (1.4.0-ok1) ...
+Processing triggers for man-db (2.9.1-ok3) ...
+Processing triggers for libc-bin (2.36-ok2) ...
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['bash', '-ec', '[ ! -e /run/autopkgtest_no_reboot.stamp ] || exit 0;for d in /boot /etc/init /etc/init.d /etc/systemd/system /lib/systemd/system; do s=/tmp/autopkgtest.qDB79a/${d//\\//_}.stamp;  [ ! -d $d ] || [ `stat -c %Y $d` = `stat -c %Y $s` ]; done'], kind short, sout raw, serr raw, env []
+autopkgtest: DBG: testbed command exited with code 1
+autopkgtest [17:40:56]: rebooting testbed after setup commands that affected boot
+autopkgtest: DBG: sending command to testbed: reboot
+autopkgtest-virt-qemu: DBG: executing reboot
+autopkgtest-virt-qemu: DBG: execute-timeout: /tmp/autopkgtest-qemu._b2nhzpp/runcmd sh -ec for d in /var/cache /home; do if [ -w $d ]; then   tar --warning=none --create --absolute-names     -f $d/autopkgtest-tmpdir.tar '/tmp/autopkgtest.qDB79a';   rm -f /run/autopkgtest-reboot-prepare-mark;   exit 0; fi; done; exit 1
+autopkgtest-virt-qemu: DBG: cmd_reboot: saved current downtmp, rebooting
+autopkgtest-virt-qemu: DBG: execute-timeout: /tmp/autopkgtest-qemu._b2nhzpp/runcmd test -d /run/systemd/system
+autopkgtest-virt-qemu: DBG: rebooting with command: ['systemd-run', '--no-block', '--quiet', 'sh', '-c', 'sleep 3; reboot']
+autopkgtest-virt-qemu: DBG: execute-timeout: /tmp/autopkgtest-qemu._b2nhzpp/runcmd systemd-run --no-block --quiet sh -c sleep 3; reboot
+autopkgtest-virt-qemu: DBG: expect: b' login: '
+autopkgtest-virt-qemu: DBG: expect: found "'login prompt on serial console'"
+autopkgtest-virt-qemu: DBG: expect: b'ok'
+autopkgtest-virt-qemu: DBG: expect: found "b'ok'"
+autopkgtest-virt-qemu: DBG: setup_shell(): there already is a shell on hvc1
+autopkgtest-virt-qemu: DBG: expect: b'ebcfb755-d87a-4734-aa32-2a16f5f3bef6[1]'
+autopkgtest-virt-qemu: DBG: expect: found "b'ebcfb755-d87a-4734-aa32-2a16f5f3bef6[1]'"
+autopkgtest-virt-qemu: DBG: expect: b'ebcfb755-d87a-4734-aa32-2a16f5f3bef6[2]'
+autopkgtest-virt-qemu: DBG: expect: found "b'ebcfb755-d87a-4734-aa32-2a16f5f3bef6[2]'"
+autopkgtest-virt-qemu: DBG: expect: b'ebcfb755-d87a-4734-aa32-2a16f5f3bef6[3]'
+autopkgtest-virt-qemu: DBG: expect: found "b'ebcfb755-d87a-4734-aa32-2a16f5f3bef6[3]'"
+autopkgtest-virt-qemu: DBG: execute-timeout: /tmp/autopkgtest-qemu._b2nhzpp/runcmd sh -ec for d in /var/cache /home; do if [ -e $d/autopkgtest-tmpdir.tar ]; then  tar --warning=none --extract --absolute-names      -f $d/autopkgtest-tmpdir.tar; rm $d/autopkgtest-tmpdir.tar; exit 0; fi; done; exit 1
+autopkgtest-virt-qemu: DBG: cmd_reboot: restored downtmp after reboot
+autopkgtest: DBG: got reply from testbed: ok
+autopkgtest: DBG: testbed supports reboot, creating /tmp/autopkgtest-reboot
+autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.qDB79a'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/reboot.sh /tmp/autopkgtest.qDB79a/autopkgtest-reboot
+autopkgtest-virt-qemu: DBG: executing copydown /usr/share/autopkgtest/lib/in-testbed/reboot.sh /tmp/autopkgtest.qDB79a/autopkgtest-reboot
+autopkgtest-virt-qemu: DBG: ['cmdls', "(['cat'], ['/tmp/autopkgtest-qemu._b2nhzpp/runcmd', 'sh', '-ec', 'cat >/tmp/autopkgtest.qDB79a/autopkgtest-reboot; chmod +x -- /tmp/autopkgtest.qDB79a/autopkgtest-reboot'])"]
+autopkgtest-virt-qemu: DBG: ['srcstdin', "<_io.BufferedReader name='/usr/share/autopkgtest/lib/in-testbed/reboot.sh'>", 'deststdout', "<_io.BufferedReader name='/dev/null'>", 'devnull_read', <_io.BufferedReader name='/dev/null'>]
+autopkgtest-virt-qemu: DBG:  +< cat
+autopkgtest-virt-qemu: DBG:  +> /tmp/autopkgtest-qemu._b2nhzpp/runcmd sh -ec cat >/tmp/autopkgtest.qDB79a/autopkgtest-reboot; chmod +x -- /tmp/autopkgtest.qDB79a/autopkgtest-reboot
+autopkgtest-virt-qemu: DBG:  +>?
+autopkgtest-virt-qemu: DBG:  +<?
+autopkgtest: DBG: got reply from testbed: ok
+autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.qDB79a/autopkgtest-reboot'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['ln', '-fns', '/tmp/autopkgtest.qDB79a/autopkgtest-reboot', '/tmp/autopkgtest-reboot'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['ln', '-fns', '/tmp/autopkgtest.qDB79a/autopkgtest-reboot', '/sbin/autopkgtest-reboot'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.qDB79a'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/reboot-prepare.sh /tmp/autopkgtest.qDB79a/autopkgtest-reboot-prepare
+autopkgtest-virt-qemu: DBG: executing copydown /usr/share/autopkgtest/lib/in-testbed/reboot-prepare.sh /tmp/autopkgtest.qDB79a/autopkgtest-reboot-prepare
+autopkgtest-virt-qemu: DBG: ['cmdls', "(['cat'], ['/tmp/autopkgtest-qemu._b2nhzpp/runcmd', 'sh', '-ec', 'cat >/tmp/autopkgtest.qDB79a/autopkgtest-reboot-prepare; chmod +x -- /tmp/autopkgtest.qDB79a/autopkgtest-reboot-prepare'])"]
+autopkgtest-virt-qemu: DBG: ['srcstdin', "<_io.BufferedReader name='/usr/share/autopkgtest/lib/in-testbed/reboot-prepare.sh'>", 'deststdout', "<_io.BufferedReader name='/dev/null'>", 'devnull_read', <_io.BufferedReader name='/dev/null'>]
+autopkgtest-virt-qemu: DBG:  +< cat
+autopkgtest-virt-qemu: DBG:  +> /tmp/autopkgtest-qemu._b2nhzpp/runcmd sh -ec cat >/tmp/autopkgtest.qDB79a/autopkgtest-reboot-prepare; chmod +x -- /tmp/autopkgtest.qDB79a/autopkgtest-reboot-prepare
+autopkgtest-virt-qemu: DBG:  +>?
+autopkgtest-virt-qemu: DBG:  +<?
+autopkgtest: DBG: got reply from testbed: ok
+autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.qDB79a/autopkgtest-reboot-prepare'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['ln', '-fns', '/tmp/autopkgtest.qDB79a/autopkgtest-reboot-prepare', '/tmp/autopkgtest-reboot-prepare'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest [17:41:52]: testbed running kernel: Linux 5.11.0-1030-generic #34 SMP Fri Mar 11 15:27:17 CST 2022
+autopkgtest: DBG: testbed command ['sh', '-c', 'nproc; cat /proc/cpuinfo 2>/dev/null || true'], kind short, sout pipe, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest [17:41:54]: testbed dpkg architecture: riscv64
+autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 127
+autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.qDB79a/testbed-packages"], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.qDB79a/testbed-packages test/vim/testbed-packages
+autopkgtest-virt-qemu: DBG: executing copyup /tmp/autopkgtest.qDB79a/testbed-packages test/vim/testbed-packages
+autopkgtest-virt-qemu: DBG: ['cmdls', "(['/tmp/autopkgtest-qemu._b2nhzpp/runcmd', 'sh', '-ec', 'cat </tmp/autopkgtest.qDB79a/testbed-packages'], ['cat'])"]
+autopkgtest-virt-qemu: DBG: ['srcstdin', "<_io.BufferedReader name='/dev/null'>", 'deststdout', "<_io.BufferedWriter name='test/vim/testbed-packages'>", 'devnull_read', <_io.BufferedReader name='/dev/null'>]
+autopkgtest-virt-qemu: DBG:  +< /tmp/autopkgtest-qemu._b2nhzpp/runcmd sh -ec cat </tmp/autopkgtest.qDB79a/testbed-packages
+autopkgtest-virt-qemu: DBG:  +> cat
+autopkgtest-virt-qemu: DBG:  +>?
+autopkgtest-virt-qemu: DBG:  +<?
+autopkgtest: DBG: got reply from testbed: ok
+autopkgtest: DBG: testbed supports reboot, creating /tmp/autopkgtest-reboot
+autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.qDB79a'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/reboot.sh /tmp/autopkgtest.qDB79a/autopkgtest-reboot
+autopkgtest-virt-qemu: DBG: executing copydown /usr/share/autopkgtest/lib/in-testbed/reboot.sh /tmp/autopkgtest.qDB79a/autopkgtest-reboot
+autopkgtest-virt-qemu: DBG: ['cmdls', "(['cat'], ['/tmp/autopkgtest-qemu._b2nhzpp/runcmd', 'sh', '-ec', 'cat >/tmp/autopkgtest.qDB79a/autopkgtest-reboot; chmod +x -- /tmp/autopkgtest.qDB79a/autopkgtest-reboot'])"]
+autopkgtest-virt-qemu: DBG: ['srcstdin', "<_io.BufferedReader name='/usr/share/autopkgtest/lib/in-testbed/reboot.sh'>", 'deststdout', "<_io.BufferedReader name='/dev/null'>", 'devnull_read', <_io.BufferedReader name='/dev/null'>]
+autopkgtest-virt-qemu: DBG:  +< cat
+autopkgtest-virt-qemu: DBG:  +> /tmp/autopkgtest-qemu._b2nhzpp/runcmd sh -ec cat >/tmp/autopkgtest.qDB79a/autopkgtest-reboot; chmod +x -- /tmp/autopkgtest.qDB79a/autopkgtest-reboot
+autopkgtest-virt-qemu: DBG:  +>?
+autopkgtest-virt-qemu: DBG:  +<?
+autopkgtest: DBG: got reply from testbed: ok
+autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.qDB79a/autopkgtest-reboot'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['ln', '-fns', '/tmp/autopkgtest.qDB79a/autopkgtest-reboot', '/tmp/autopkgtest-reboot'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['ln', '-fns', '/tmp/autopkgtest.qDB79a/autopkgtest-reboot', '/sbin/autopkgtest-reboot'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.qDB79a'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/reboot-prepare.sh /tmp/autopkgtest.qDB79a/autopkgtest-reboot-prepare
+autopkgtest-virt-qemu: DBG: executing copydown /usr/share/autopkgtest/lib/in-testbed/reboot-prepare.sh /tmp/autopkgtest.qDB79a/autopkgtest-reboot-prepare
+autopkgtest-virt-qemu: DBG: ['cmdls', "(['cat'], ['/tmp/autopkgtest-qemu._b2nhzpp/runcmd', 'sh', '-ec', 'cat >/tmp/autopkgtest.qDB79a/autopkgtest-reboot-prepare; chmod +x -- /tmp/autopkgtest.qDB79a/autopkgtest-reboot-prepare'])"]
+autopkgtest-virt-qemu: DBG: ['srcstdin', "<_io.BufferedReader name='/usr/share/autopkgtest/lib/in-testbed/reboot-prepare.sh'>", 'deststdout', "<_io.BufferedReader name='/dev/null'>", 'devnull_read', <_io.BufferedReader name='/dev/null'>]
+autopkgtest-virt-qemu: DBG:  +< cat
+autopkgtest-virt-qemu: DBG:  +> /tmp/autopkgtest-qemu._b2nhzpp/runcmd sh -ec cat >/tmp/autopkgtest.qDB79a/autopkgtest-reboot-prepare; chmod +x -- /tmp/autopkgtest.qDB79a/autopkgtest-reboot-prepare
+autopkgtest-virt-qemu: DBG:  +>?
+autopkgtest-virt-qemu: DBG:  +<?
+autopkgtest: DBG: got reply from testbed: ok
+autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.qDB79a/autopkgtest-reboot-prepare'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['ln', '-fns', '/tmp/autopkgtest.qDB79a/autopkgtest-reboot-prepare', '/tmp/autopkgtest-reboot-prepare'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: Binaries: initialising
+autopkgtest [17:42:00]: @@@@@@@@@@@@@@@@@@@@ source vim_8.1.2269-ok4.dsc
+autopkgtest: DBG: blame += vim_8.1.2269-ok4.dsc
+autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=[]
+autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.qDB79a'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: sending command to testbed: copydown vim_8.1.2269-ok4.dsc /tmp/autopkgtest.qDB79a/vim_8.1.2269-ok4.dsc
+autopkgtest-virt-qemu: DBG: executing copydown vim_8.1.2269-ok4.dsc /tmp/autopkgtest.qDB79a/vim_8.1.2269-ok4.dsc
+autopkgtest-virt-qemu: DBG: ['cmdls', "(['cat'], ['/tmp/autopkgtest-qemu._b2nhzpp/runcmd', 'sh', '-ec', 'cat >/tmp/autopkgtest.qDB79a/vim_8.1.2269-ok4.dsc'])"]
+autopkgtest-virt-qemu: DBG: ['srcstdin', "<_io.BufferedReader name='vim_8.1.2269-ok4.dsc'>", 'deststdout', "<_io.BufferedReader name='/dev/null'>", 'devnull_read', <_io.BufferedReader name='/dev/null'>]
+autopkgtest-virt-qemu: DBG:  +< cat
+autopkgtest-virt-qemu: DBG:  +> /tmp/autopkgtest-qemu._b2nhzpp/runcmd sh -ec cat >/tmp/autopkgtest.qDB79a/vim_8.1.2269-ok4.dsc
+autopkgtest-virt-qemu: DBG:  +>?
+autopkgtest-virt-qemu: DBG:  +<?
+autopkgtest: DBG: got reply from testbed: ok
+autopkgtest: DBG: testbed command ['chown', '-R', 'openkylin', '--', '/tmp/autopkgtest.qDB79a/vim_8.1.2269-ok4.dsc'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.qDB79a'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: sending command to testbed: copydown vim_8.1.2269.orig.tar.gz /tmp/autopkgtest.qDB79a/vim_8.1.2269.orig.tar.gz
+autopkgtest-virt-qemu: DBG: executing copydown vim_8.1.2269.orig.tar.gz /tmp/autopkgtest.qDB79a/vim_8.1.2269.orig.tar.gz
+autopkgtest-virt-qemu: DBG: ['cmdls', "(['cat'], ['/tmp/autopkgtest-qemu._b2nhzpp/runcmd', 'sh', '-ec', 'cat >/tmp/autopkgtest.qDB79a/vim_8.1.2269.orig.tar.gz'])"]
+autopkgtest-virt-qemu: DBG: ['srcstdin', "<_io.BufferedReader name='vim_8.1.2269.orig.tar.gz'>", 'deststdout', "<_io.BufferedReader name='/dev/null'>", 'devnull_read', <_io.BufferedReader name='/dev/null'>]
+autopkgtest-virt-qemu: DBG:  +< cat
+autopkgtest-virt-qemu: DBG:  +> /tmp/autopkgtest-qemu._b2nhzpp/runcmd sh -ec cat >/tmp/autopkgtest.qDB79a/vim_8.1.2269.orig.tar.gz
+autopkgtest-virt-qemu: DBG:  +>?
+autopkgtest-virt-qemu: DBG:  +<?
+autopkgtest: DBG: got reply from testbed: ok
+autopkgtest: DBG: testbed command ['chown', '-R', 'openkylin', '--', '/tmp/autopkgtest.qDB79a/vim_8.1.2269.orig.tar.gz'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.qDB79a'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: sending command to testbed: copydown vim_8.1.2269-ok4.debian.tar.xz /tmp/autopkgtest.qDB79a/vim_8.1.2269-ok4.debian.tar.xz
+autopkgtest-virt-qemu: DBG: executing copydown vim_8.1.2269-ok4.debian.tar.xz /tmp/autopkgtest.qDB79a/vim_8.1.2269-ok4.debian.tar.xz
+autopkgtest-virt-qemu: DBG: ['cmdls', "(['cat'], ['/tmp/autopkgtest-qemu._b2nhzpp/runcmd', 'sh', '-ec', 'cat >/tmp/autopkgtest.qDB79a/vim_8.1.2269-ok4.debian.tar.xz'])"]
+autopkgtest-virt-qemu: DBG: ['srcstdin', "<_io.BufferedReader name='vim_8.1.2269-ok4.debian.tar.xz'>", 'deststdout', "<_io.BufferedReader name='/dev/null'>", 'devnull_read', <_io.BufferedReader name='/dev/null'>]
+autopkgtest-virt-qemu: DBG:  +< cat
+autopkgtest-virt-qemu: DBG:  +> /tmp/autopkgtest-qemu._b2nhzpp/runcmd sh -ec cat >/tmp/autopkgtest.qDB79a/vim_8.1.2269-ok4.debian.tar.xz
+autopkgtest-virt-qemu: DBG:  +>?
+autopkgtest-virt-qemu: DBG:  +<?
+autopkgtest: DBG: got reply from testbed: ok
+autopkgtest: DBG: testbed command ['chown', '-R', 'openkylin', '--', '/tmp/autopkgtest.qDB79a/vim_8.1.2269-ok4.debian.tar.xz'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: install_deps: deps_new=[]
+autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-source'], kind short, sout pipe, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['sh', '-ec', 'su --shell=/bin/sh openkylin -c \'set -e; exec 3>&1 >&2; set -x; cd /; builddir=$(mktemp -d /tmp/autopkgtest.qDB79a/build.XXX); cd $builddir; dpkg-source -x "/tmp/autopkgtest.qDB79a/vim_8.1.2269-ok4.dsc" src; chmod -R a+rX .; cd [a-z0-9]*/.; pwd >&3; sed -n "1 {s/).*//; s/ (/\\n/; p}" debian/changelog >&3\''], kind build, sout pipe, serr raw, env []
++ cd /
++ mktemp -d /tmp/autopkgtest.qDB79a/build.XXX
++ builddir=/tmp/autopkgtest.qDB79a/build.RqG
++ cd /tmp/autopkgtest.qDB79a/build.RqG
++ dpkg-source -x /tmp/autopkgtest.qDB79a/vim_8.1.2269-ok4.dsc src
+gpgv: unknown type of key resource 'trustedkeys.kbx'
+gpgv: keyblock resource '/tmp/dpkg-verify-sig.Z6fEGlHV/trustedkeys.kbx': General error
+gpgv: Signature made Mon 17 Oct 2022 06:55:23 AM UTC
+gpgv:                using RSA key 64FBB79F5EAE64D792E94CFE0716F00F842CD274
+gpgv: Can't check signature: No public key
+dpkg-source: warning: cannot verify signature /tmp/autopkgtest.qDB79a/vim_8.1.2269-ok4.dsc
+dpkg-source: info: extracting vim in src
+dpkg-source: info: unpacking vim_8.1.2269.orig.tar.gz
+dpkg-source: info: unpacking vim_8.1.2269-ok4.debian.tar.xz
+dpkg-source: info: using patch list from debian/patches/series
+dpkg-source: info: applying upstream/Support-defining-compilation-date-in-SOURCE_DATE_EPOCH.patch
+dpkg-source: info: applying debian/Support-sourcing-a-vimrc.tiny-when-Vim-is-invoked-as-vi.patch
+dpkg-source: info: applying debian/Detect-the-rst-filetype-using-the-contents-of-the-file.patch
+dpkg-source: info: applying debian/Add-recognition-of-more-LaTeX-commands-for-tex-filetype-d.patch
+dpkg-source: info: applying debian/Document-Debian-s-decision-to-disable-modelines-by-defaul.patch
+dpkg-source: info: applying ubuntu-grub-syntax.patch
+dpkg-source: info: applying update-upstart-syntax.patch
+dpkg-source: info: applying ubuntu-series-support.patch
+dpkg-source: info: applying ubuntu-mouse-off.patch
+dpkg-source: info: applying riscv64-test-timeout.patch
+dpkg-source: info: applying format-patches.patch
++ chmod -R a+rX .
++ cd src/.
++ pwd
++ sed -n 1 {s/).*//; s/ (/\n/; p} debian/changelog
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest [17:42:20]: testing package vim version 2:8.1.2269-ok4
+autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.qDB79a/build.RqG/src/debian/ test/vim/pkg/debian/
+autopkgtest-virt-qemu: DBG: executing copyup /tmp/autopkgtest.qDB79a/build.RqG/src/debian/ test/vim/pkg/debian/
+autopkgtest-virt-qemu: DBG: ['cmdls', "(['/tmp/autopkgtest-qemu._b2nhzpp/runcmd', 'sh', '-ec', 'cd /tmp/autopkgtest.qDB79a/build.RqG/src/debian/; tar --warning=none -c . -f -'], ['tar', '--directory', 'test/vim/pkg/debian/', '--warning=none', '--preserve-permissions', '--extract', '--no-same-owner', '-f', '-'])"]
+autopkgtest-virt-qemu: DBG: ['srcstdin', "<_io.BufferedReader name='/dev/null'>", 'deststdout', "<_io.BufferedReader name='/dev/null'>", 'devnull_read', <_io.BufferedReader name='/dev/null'>]
+autopkgtest-virt-qemu: DBG:  +< /tmp/autopkgtest-qemu._b2nhzpp/runcmd sh -ec cd /tmp/autopkgtest.qDB79a/build.RqG/src/debian/; tar --warning=none -c . -f -
+autopkgtest-virt-qemu: DBG:  +> tar --directory test/vim/pkg/debian/ --warning=none --preserve-permissions --extract --no-same-owner -f -
+autopkgtest-virt-qemu: DBG:  +>?
+autopkgtest-virt-qemu: DBG:  +<?
+autopkgtest: DBG: got reply from testbed: ok
+autopkgtest: DBG: processing dependency @
+autopkgtest: DBG: synthesised dependency vim-common
+autopkgtest: DBG: synthesised dependency vim-gui-common
+autopkgtest: DBG: synthesised dependency vim-runtime
+autopkgtest: DBG: synthesised dependency vim-doc
+autopkgtest: DBG: synthesised dependency vim-tiny
+autopkgtest: DBG: synthesised dependency vim
+autopkgtest: DBG: synthesised dependency vim-gtk
+autopkgtest: DBG: synthesised dependency vim-gtk3
+autopkgtest: DBG: synthesised dependency vim-nox
+autopkgtest: DBG: synthesised dependency vim-athena
+autopkgtest: DBG: synthesised dependency xxd
+autopkgtest: DBG: Test defined: name command1 path None command "./debian/tests/variants --version" restrictions ['superficial'] features [] depends ['vim-common', 'vim-gui-common', 'vim-runtime', 'vim-doc', 'vim-tiny', 'vim', 'vim-gtk', 'vim-gtk3', 'vim-nox', 'vim-athena', 'xxd'] 
+autopkgtest: DBG: processing dependency vim
+autopkgtest: DBG: marked alternatives ['vim'] as a synthesised dependency
+autopkgtest: DBG: Test defined: name command2 path None command "./debian/tests/upstreamtest /usr/bin/vim" restrictions ['allow-stderr', 'flaky', 'needs-root'] features [] depends ['vim'] 
+autopkgtest: DBG: processing dependency vim-nox
+autopkgtest: DBG: marked alternatives ['vim-nox'] as a synthesised dependency
+autopkgtest: DBG: Test defined: name command3 path None command "./debian/tests/upstreamtest /usr/bin/vim" restrictions ['allow-stderr', 'flaky', 'needs-root'] features [] depends ['vim-nox'] 
+autopkgtest: DBG: processing dependency vim-tiny
+autopkgtest: DBG: marked alternatives ['vim-tiny'] as a synthesised dependency
+autopkgtest: DBG: Test defined: name command4 path None command "./debian/tests/upstreamtest /usr/bin/vi" restrictions ['allow-stderr', 'flaky', 'needs-root'] features [] depends ['vim-tiny'] 
+autopkgtest [17:42:21]: build not needed
+autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.qDB79a/build.RqG/src/ test/vim/tests-tree/
+autopkgtest-virt-qemu: DBG: executing copyup /tmp/autopkgtest.qDB79a/build.RqG/src/ test/vim/tests-tree/
+autopkgtest-virt-qemu: DBG: ['cmdls', "(['/tmp/autopkgtest-qemu._b2nhzpp/runcmd', 'sh', '-ec', 'cd /tmp/autopkgtest.qDB79a/build.RqG/src/; tar --warning=none -c . -f -'], ['tar', '--directory', 'test/vim/tests-tree/', '--warning=none', '--preserve-permissions', '--extract', '--no-same-owner', '-f', '-'])"]
+autopkgtest-virt-qemu: DBG: ['srcstdin', "<_io.BufferedReader name='/dev/null'>", 'deststdout', "<_io.BufferedReader name='/dev/null'>", 'devnull_read', <_io.BufferedReader name='/dev/null'>]
+autopkgtest-virt-qemu: DBG:  +< /tmp/autopkgtest-qemu._b2nhzpp/runcmd sh -ec cd /tmp/autopkgtest.qDB79a/build.RqG/src/; tar --warning=none -c . -f -
+autopkgtest-virt-qemu: DBG:  +> tar --directory test/vim/tests-tree/ --warning=none --preserve-permissions --extract --no-same-owner -f -
+autopkgtest-virt-qemu: DBG:  +>?
+autopkgtest-virt-qemu: DBG:  +<?
+autopkgtest: DBG: got reply from testbed: ok
+autopkgtest: DBG: processing dependency @
+autopkgtest: DBG: synthesised dependency vim-common
+autopkgtest: DBG: synthesised dependency vim-gui-common
+autopkgtest: DBG: synthesised dependency vim-runtime
+autopkgtest: DBG: synthesised dependency vim-doc
+autopkgtest: DBG: synthesised dependency vim-tiny
+autopkgtest: DBG: synthesised dependency vim
+autopkgtest: DBG: synthesised dependency vim-gtk
+autopkgtest: DBG: synthesised dependency vim-gtk3
+autopkgtest: DBG: synthesised dependency vim-nox
+autopkgtest: DBG: synthesised dependency vim-athena
+autopkgtest: DBG: synthesised dependency xxd
+autopkgtest: DBG: Test defined: name command1 path None command "./debian/tests/variants --version" restrictions ['superficial'] features [] depends ['vim-common', 'vim-gui-common', 'vim-runtime', 'vim-doc', 'vim-tiny', 'vim', 'vim-gtk', 'vim-gtk3', 'vim-nox', 'vim-athena', 'xxd'] 
+autopkgtest: DBG: processing dependency vim
+autopkgtest: DBG: marked alternatives ['vim'] as a synthesised dependency
+autopkgtest: DBG: Test defined: name command2 path None command "./debian/tests/upstreamtest /usr/bin/vim" restrictions ['allow-stderr', 'flaky', 'needs-root'] features [] depends ['vim'] 
+autopkgtest: DBG: processing dependency vim-nox
+autopkgtest: DBG: marked alternatives ['vim-nox'] as a synthesised dependency
+autopkgtest: DBG: Test defined: name command3 path None command "./debian/tests/upstreamtest /usr/bin/vim" restrictions ['allow-stderr', 'flaky', 'needs-root'] features [] depends ['vim-nox'] 
+autopkgtest: DBG: processing dependency vim-tiny
+autopkgtest: DBG: marked alternatives ['vim-tiny'] as a synthesised dependency
+autopkgtest: DBG: Test defined: name command4 path None command "./debian/tests/upstreamtest /usr/bin/vi" restrictions ['allow-stderr', 'flaky', 'needs-root'] features [] depends ['vim-tiny'] 
+autopkgtest [17:42:25]: test command1: preparing testbed
+autopkgtest: DBG: testbed reset: modified=False, deps_installed=[], deps_new=['vim-common', 'vim-gui-common', 'vim-runtime', 'vim-doc', 'vim-tiny', 'vim', 'vim-gtk', 'vim-gtk3', 'vim-nox', 'vim-athena', 'xxd']
+autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+autopkgtest: DBG: install_deps: deps_new=['vim-common', 'vim-gui-common', 'vim-runtime', 'vim-doc', 'vim-tiny', 'vim', 'vim-gtk', 'vim-gtk3', 'vim-nox', 'vim-athena', 'xxd']
+autopkgtest: DBG: install-deps: satisfying vim-common, vim-gui-common, vim-runtime, vim-doc, vim-tiny, vim, vim-gtk, vim-gtk3, vim-nox, vim-athena, xxd
+autopkgtest: DBG: install-deps: architecture resolved: vim-common, vim-gui-common, vim-runtime, vim-doc, vim-tiny, vim, vim-gtk, vim-gtk3, vim-nox, vim-athena, xxd
+autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: can use apt-get on testbed: True
+autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.qDB79a'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: sending command to testbed: copydown test/vim/1-autopkgtest-satdep.deb /tmp/autopkgtest.qDB79a/1-autopkgtest-satdep.deb
+autopkgtest-virt-qemu: DBG: executing copydown test/vim/1-autopkgtest-satdep.deb /tmp/autopkgtest.qDB79a/1-autopkgtest-satdep.deb
+autopkgtest-virt-qemu: DBG: ['cmdls', "(['cat'], ['/tmp/autopkgtest-qemu._b2nhzpp/runcmd', 'sh', '-ec', 'cat >/tmp/autopkgtest.qDB79a/1-autopkgtest-satdep.deb'])"]
+autopkgtest-virt-qemu: DBG: ['srcstdin', "<_io.BufferedReader name='test/vim/1-autopkgtest-satdep.deb'>", 'deststdout', "<_io.BufferedReader name='/dev/null'>", 'devnull_read', <_io.BufferedReader name='/dev/null'>]
+autopkgtest-virt-qemu: DBG:  +< cat
+autopkgtest-virt-qemu: DBG:  +> /tmp/autopkgtest-qemu._b2nhzpp/runcmd sh -ec cat >/tmp/autopkgtest.qDB79a/1-autopkgtest-satdep.deb
+autopkgtest-virt-qemu: DBG:  +>?
+autopkgtest-virt-qemu: DBG:  +<?
+autopkgtest: DBG: got reply from testbed: ok
+autopkgtest: DBG: testbed command ['chown', '-R', 'openkylin', '--', '/tmp/autopkgtest.qDB79a/1-autopkgtest-satdep.deb'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['dpkg', '--unpack', '/tmp/autopkgtest.qDB79a/1-autopkgtest-satdep.deb'], kind short, sout pipe, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --fix-broken -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Correcting dependencies...Starting pkgProblemResolver with broken count: 2
+Starting 2 pkgProblemResolver with broken count: 2
+Investigating (0) vim-gtk:riscv64 < none -> 2:8.1.2269-ok4 @un uN Ib >
+Broken vim-gtk:riscv64 Depends on vim-gtk3:riscv64 < none | 2:8.1.2269-ok4 @un uH >
+  Considering vim-gtk3:riscv64 5 as a solution to vim-gtk:riscv64 0
+  Holding Back vim-gtk:riscv64 rather than change vim-gtk3:riscv64
+Investigating (0) autopkgtest-satdep:riscv64 < 0 @iU mK Nb Ib >
+Broken autopkgtest-satdep:riscv64 Depends on vim-gtk:riscv64 < none | 2:8.1.2269-ok4 @un uH >
+  Considering vim-gtk:riscv64 0 as a solution to autopkgtest-satdep:riscv64 -2
+  Removing autopkgtest-satdep:riscv64 rather than change vim-gtk:riscv64
+Done
+ Done
+Starting pkgProblemResolver with broken count: 0
+Starting 2 pkgProblemResolver with broken count: 0
+Done
+The following additional packages will be installed:
+  vim-doc vim-tiny
+Suggested packages:
+  indent
+The following packages will be REMOVED:
+  autopkgtest-satdep
+The following NEW packages will be installed:
+  vim-doc vim-tiny
+0 upgraded, 2 newly installed, 1 to remove and 19 not upgraded.
+1 not fully installed or removed.
+Need to get 2,669 kB of archives.
+After this operation, 13.7 MB of additional disk space will be used.
+Get:1 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 vim-tiny riscv64 2:8.1.2269-ok4 [563 kB]
+Get:2 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 vim-doc all 2:8.1.2269-ok4 [2,106 kB]
+Fetched 2,669 kB in 1s (2,311 kB/s)
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 159926 files and directories currently installed.)
+Removing autopkgtest-satdep (0) ...
+Selecting previously unselected package vim-tiny.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 159926 files and directories currently installed.)
+Preparing to unpack .../vim-tiny_2%3a8.1.2269-ok4_riscv64.deb ...
+Unpacking vim-tiny (2:8.1.2269-ok4) ...
+Selecting previously unselected package vim-doc.
+Preparing to unpack .../vim-doc_2%3a8.1.2269-ok4_all.deb ...
+Unpacking vim-doc (2:8.1.2269-ok4) ...
+Setting up vim-tiny (2:8.1.2269-ok4) ...
+Setting up vim-doc (2:8.1.2269-ok4) ...
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'vim-common'], kind short, sout pipe, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'vim-gui-common'], kind short, sout pipe, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 1
+autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status} ${Provides}\n', '*'], kind short, sout pipe, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: WARNING: package vim-gui-common is not installed though it should be
+autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'vim-runtime'], kind short, sout pipe, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'vim-doc'], kind short, sout pipe, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'vim-tiny'], kind short, sout pipe, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'vim'], kind short, sout pipe, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'vim-gtk'], kind short, sout pipe, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 1
+autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status} ${Provides}\n', '*'], kind short, sout pipe, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: WARNING: package vim-gtk is not installed though it should be
+autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'vim-gtk3'], kind short, sout pipe, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status} ${Provides}\n', '*'], kind short, sout pipe, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: WARNING: package vim-gtk3 is not installed though it should be
+autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'vim-nox'], kind short, sout pipe, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status} ${Provides}\n', '*'], kind short, sout pipe, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: WARNING: package vim-nox is not installed though it should be
+autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'vim-athena'], kind short, sout pipe, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status} ${Provides}\n', '*'], kind short, sout pipe, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: WARNING: package vim-athena is not installed though it should be
+autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'xxd'], kind short, sout pipe, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['dpkg', '--status', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 1
+autopkgtest: WARNING: Test dependencies are unsatisfiable - calling apt install on test deps directly for further data about failing dependencies in test logs
+autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --simulate vim-common vim-gui-common vim-runtime vim-doc vim-tiny vim vim-gtk vim-gtk3 vim-nox vim-athena xxd -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Starting pkgProblemResolver with broken count: 3
+Starting 2 pkgProblemResolver with broken count: 3
+Investigating (0) vim-gtk3:riscv64 < none -> 2:8.1.2269-ok4 @un puN Ib >
+Broken vim-gtk3:riscv64 Depends on libruby2.7:riscv64 < none @un H > (>= 2.7.0)
+Broken vim-gtk3:riscv64 Depends on libtcl8.6:riscv64 < none | 8.6.12-ok1 @un uH > (>= 8.6.0)
+  Considering libtcl8.6:riscv64 0 as a solution to vim-gtk3:riscv64 10028
+  Re-Instated libtcl8.6:riscv64
+Investigating (0) vim-athena:riscv64 < none -> 2:8.1.2269-ok4 @un puN Ib >
+Broken vim-athena:riscv64 Depends on libruby2.7:riscv64 < none @un H > (>= 2.7.0)
+Investigating (0) vim-nox:riscv64 < none -> 2:8.1.2269-ok4 @un puN Ib >
+Broken vim-nox:riscv64 Depends on libruby2.7:riscv64 < none @un H > (>= 2.7.0)
+Done
+vim is already the newest version (2:8.1.2269-ok4).
+vim-common is already the newest version (2:8.1.2269-ok4).
+vim-common set to manually installed.
+vim-doc is already the newest version (2:8.1.2269-ok4).
+vim-doc set to manually installed.
+vim-runtime is already the newest version (2:8.1.2269-ok4).
+vim-runtime set to manually installed.
+vim-tiny is already the newest version (2:8.1.2269-ok4).
+vim-tiny set to manually installed.
+xxd is already the newest version (2:8.1.2269-ok4).
+xxd set to manually installed.
+Some packages could not be installed. This may mean that you have
+requested an impossible situation or if you are using the unstable
+distribution that some required packages have not yet been created
+or been moved out of Incoming.
+The following information may help to resolve the situation:
+
+The following packages have unmet dependencies:
+ vim-athena : Depends: libruby2.7 (>= 2.7.0) but it is not installable
+ vim-gtk3 : Depends: libruby2.7 (>= 2.7.0) but it is not installable
+ vim-nox : Depends: libruby2.7 (>= 2.7.0) but it is not installable
+E: Unable to correct problems, you have held broken packages.
+autopkgtest: DBG: testbed command exited with code 100
+autopkgtest: DBG: BadPackageError Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+command1             FAIL badpkg
+blame: vim_8.1.2269-ok4.dsc
+badpkg: Test dependencies are unsatisfiable. A common reason is that your testbed is out of date with respect to the archive, and you need to use a current testbed or run apt-get update or use -U.
+autopkgtest [17:42:56]: test command2: preparing testbed
+autopkgtest: DBG: testbed reset: modified=False, deps_installed=['vim-common', 'vim-gui-common', 'vim-runtime', 'vim-doc', 'vim-tiny', 'vim', 'vim-gtk', 'vim-gtk3', 'vim-nox', 'vim-athena', 'xxd'], deps_new=['vim']
+autopkgtest: DBG: testbed reset
+autopkgtest: DBG: sending command to testbed: revert
+autopkgtest-virt-qemu: DBG: executing revert
+autopkgtest-virt-qemu: DBG: execute-timeout: /tmp/autopkgtest-qemu._b2nhzpp/runcmd rm -rf -- /tmp/autopkgtest.qDB79a
+qemu-system-riscv64: terminating on signal 15 from pid 25972 (/usr/bin/python3)
+autopkgtest-virt-qemu: DBG: find_free_port: trying 10022
+autopkgtest-virt-qemu: DBG: find_free_port: 10022 is free
+autopkgtest-virt-qemu: DBG: autopkgtest does not know how to boot this machine, hopefully nothing special needs to be done?
+autopkgtest-virt-qemu: DBG: qemu architecture: riscv64
+autopkgtest-virt-qemu: DBG: qemu command: qemu-system-riscv64
+autopkgtest-virt-qemu: DBG: execute-timeout: qemu-img info --output=json test.qcow2
+autopkgtest-virt-qemu: DBG: Creating temporary overlay image in /tmp/autopkgtest-qemu.gx5mfn_c/overlay.img
+autopkgtest-virt-qemu: DBG: execute-timeout: qemu-img create -f qcow2 -F qcow2 -b /home/minami/Documents/openkylin-riscv/test.qcow2 /tmp/autopkgtest-qemu.gx5mfn_c/overlay.img
+autopkgtest-virt-qemu: DBG: Forwarding local port 10022 to VM ssh port 22
+autopkgtest-virt-qemu: DBG: Assuming nothing special needs to be done to set up firmware to boot this machine (boot method: none)
+autopkgtest-virt-qemu: DBG: full qemu command-line: ['qemu-system-riscv64', '-m', '4096', '-smp', '4', '-nographic', '-device', 'virtio-net-device,netdev=usernet', '-netdev', 'user,id=usernet,hostfwd=tcp:127.0.0.1:10022-:22', '-object', 'rng-random,filename=/dev/urandom,id=rng0', '-device', 'virtio-rng-pci,rng=rng0,id=rng-device0', '-monitor', 'unix:/tmp/autopkgtest-qemu.gx5mfn_c/monitor,server=on,wait=off', '-virtfs', 'local,id=autopkgtest,path=/tmp/autopkgtest-qemu.gx5mfn_c/shared,security_model=none,mount_tag=autopkgtest', '-device', 'virtio-serial', '-chardev', 'socket,path=/tmp/autopkgtest-qemu.gx5mfn_c/hvc0,server=on,wait=off,id=hvc0', '-device', 'virtconsole,chardev=hvc0', '-chardev', 'socket,path=/tmp/autopkgtest-qemu.gx5mfn_c/hvc1,server=on,wait=off,id=hvc1', '-device', 'virtconsole,chardev=hvc1', '-serial', 'unix:/tmp/autopkgtest-qemu.gx5mfn_c/ttyS0,server=on,wait=off', '-drive', 'index=0,file=/tmp/autopkgtest-qemu.gx5mfn_c/overlay.img,format=qcow2,cache=unsafe,if=virtio,discard=unmap', '-machine', 'virt', '-kernel', '/home/minami/Documents/ukylin/u-boot.bin']
+autopkgtest-virt-qemu: DBG: expect: b' login: '
+autopkgtest-virt-qemu: DBG: expect: found "'login prompt on serial console'"
+autopkgtest-virt-qemu: DBG: expect: b'ok'
+autopkgtest-virt-qemu: DBG: expect: found "b'ok'"
+autopkgtest-virt-qemu: DBG: setup_shell(): there already is a shell on hvc1
+qemu-system-riscv64: warning: 9p: degraded performance: a reasonable high msize should be chosen on client/guest side (chosen msize is <= 8192). See https://wiki.qemu.org/Documentation/9psetup#msize for details.
+autopkgtest-virt-qemu: DBG: expect: b'c844ec44-932d-4be2-b07a-4f2f72025b12[1]'
+autopkgtest-virt-qemu: DBG: expect: found "b'c844ec44-932d-4be2-b07a-4f2f72025b12[1]'"
+autopkgtest-virt-qemu: DBG: expect: b'c844ec44-932d-4be2-b07a-4f2f72025b12[2]'
+autopkgtest-virt-qemu: DBG: expect: found "b'c844ec44-932d-4be2-b07a-4f2f72025b12[2]'"
+autopkgtest-virt-qemu: DBG: expect: b'c844ec44-932d-4be2-b07a-4f2f72025b12[3]'
+autopkgtest-virt-qemu: DBG: expect: found "b'c844ec44-932d-4be2-b07a-4f2f72025b12[3]'"
+autopkgtest-virt-qemu: DBG: Copying host timezone Asia/Shanghai to VM
+autopkgtest-virt-qemu: DBG: expect: b'c844ec44-932d-4be2-b07a-4f2f72025b12[4]'
+autopkgtest-virt-qemu: DBG: expect: found "b'c844ec44-932d-4be2-b07a-4f2f72025b12[4]'"
+autopkgtest-virt-qemu: DBG: expect: b'/python'
+autopkgtest-virt-qemu: DBG: expect: found "b'/python'"
+autopkgtest-virt-qemu: DBG: expect: b'# '
+autopkgtest-virt-qemu: DBG: expect: found "b'# '"
+autopkgtest-virt-qemu: DBG: expect: b'c844ec44-932d-4be2-b07a-4f2f72025b12[5]'
+autopkgtest-virt-qemu: DBG: expect: found "b'c844ec44-932d-4be2-b07a-4f2f72025b12[5]'"
+autopkgtest-virt-qemu: DBG: execute-timeout: /tmp/autopkgtest-qemu.gx5mfn_c/runcmd true
+autopkgtest-virt-qemu: DBG: can connect to autopkgtest sh in VM
+autopkgtest-virt-qemu: DBG: expect: b'c844ec44-932d-4be2-b07a-4f2f72025b12[6]'
+autopkgtest-virt-qemu: DBG: expect: found "b'c844ec44-932d-4be2-b07a-4f2f72025b12[6]'"
+autopkgtest-virt-qemu: DBG: determine_normal_user: got user "openkylin"
+autopkgtest-virt-qemu: DBG: execute-timeout: /tmp/autopkgtest-qemu.gx5mfn_c/runcmd mkdir --mode=1777 --parents /tmp/autopkgtest.qDB79a
+autopkgtest-virt-qemu: DBG: auxverb = ['/tmp/autopkgtest-qemu.gx5mfn_c/runcmd'], downtmp = /tmp/autopkgtest.qDB79a
+autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest.qDB79a
+autopkgtest: DBG: sending command to testbed: print-execute-command
+autopkgtest-virt-qemu: DBG: executing print-execute-command
+autopkgtest: DBG: got reply from testbed: ok /tmp/autopkgtest-qemu.gx5mfn_c/runcmd
+autopkgtest: DBG: sending command to testbed: capabilities
+autopkgtest-virt-qemu: DBG: executing capabilities
+autopkgtest: DBG: got reply from testbed: ok isolation-machine reboot revert revert-full-system root-on-testbed suggested-normal-user=openkylin
+autopkgtest: DBG: testbed capabilities: ['isolation-machine', 'reboot', 'revert', 'revert-full-system', 'root-on-testbed', 'suggested-normal-user=openkylin', 'has_internet']
+autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.qDB79a'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.qDB79a/wrapper.sh
+autopkgtest-virt-qemu: DBG: executing copydown /usr/share/autopkgtest/lib/in-testbed/wrapper.sh /tmp/autopkgtest.qDB79a/wrapper.sh
+autopkgtest-virt-qemu: DBG: ['cmdls', "(['cat'], ['/tmp/autopkgtest-qemu.gx5mfn_c/runcmd', 'sh', '-ec', 'cat >/tmp/autopkgtest.qDB79a/wrapper.sh; chmod +x -- /tmp/autopkgtest.qDB79a/wrapper.sh'])"]
+autopkgtest-virt-qemu: DBG: ['srcstdin', "<_io.BufferedReader name='/usr/share/autopkgtest/lib/in-testbed/wrapper.sh'>", 'deststdout', "<_io.BufferedReader name='/dev/null'>", 'devnull_read', <_io.BufferedReader name='/dev/null'>]
+autopkgtest-virt-qemu: DBG:  +< cat
+autopkgtest-virt-qemu: DBG:  +> /tmp/autopkgtest-qemu.gx5mfn_c/runcmd sh -ec cat >/tmp/autopkgtest.qDB79a/wrapper.sh; chmod +x -- /tmp/autopkgtest.qDB79a/wrapper.sh
+autopkgtest-virt-qemu: DBG:  +>?
+autopkgtest-virt-qemu: DBG:  +<?
+autopkgtest: DBG: got reply from testbed: ok
+autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.qDB79a/wrapper.sh'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest [17:43:48]: @@@@@@@@@@@@@@@@@@@@ test bed setup
+autopkgtest: DBG: testbed command ['bash', '-ec', 'for d in /boot /etc/init /etc/init.d /etc/systemd/system /lib/systemd/system; do [ ! -d $d ] || touch -r $d /tmp/autopkgtest.qDB79a/${d//\\//_}.stamp; done'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['sh', '-ec', '(O=$(bash -o pipefail -ec \'apt-get update | tee /proc/self/fd/2\') ||{ [ "${O%404*Not Found*}" = "$O" ] || exit 100; sleep 15; apt-get update; } || { sleep 60; apt-get update; } || false) && $(command -v eatmydata || true) apt-get dist-upgrade -y -o Dpkg::Options::="--force-confnew" && $(command -v eatmydata || true) apt-get --purge autoremove -y'], kind install, sout raw, serr raw, env ['AUTOPKGTEST_IS_SETUP_COMMAND=1', 'AUTOPKGTEST_NORMAL_USER=openkylin', 'ADT_NORMAL_USER=openkylin', 'DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+Get:1 http://archive.build.openkylin.top/openkylin yangtze InRelease [22.4 kB]
+Hit:2 http://archive.build.openkylin.top/openkylin yangtze-security InRelease
+Hit:3 http://archive.build.openkylin.top/openkylin yangtze-updates InRelease
+Get:4 http://archive.build.openkylin.top/openkylin yangtze-proposed InRelease [63.1 kB]
+Get:5 http://archive.build.openkylin.top/openkylin yangtze/main Sources [1,172 kB]
+Get:6 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 Packages [1,916 kB]
+Get:7 http://archive.build.openkylin.top/openkylin yangtze-proposed/main Sources [700 kB]
+Get:8 http://archive.build.openkylin.top/openkylin yangtze-proposed/main riscv64 Packages [948 kB]
+Fetched 4,822 kB in 25s (191 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages were automatically installed and are no longer required:
+  libegl-dev libgl-dev libglu1-mesa-dev libglx-dev libmpdec2 libvulkan-dev
+  libx11-dev libxau-dev libxcb1-dev libxdmcp-dev libxext-dev qt5-qmake
+  qt5-qmake-bin x11proto-core-dev x11proto-dev xorg-sgml-doctools xtrans-dev
+Use 'apt autoremove' to remove them.
+The following NEW packages will be installed:
+  gir1.2-harfbuzz-0.0 kylin-font-viewer libffi8 openkylin-archive-anything
+The following packages will be upgraded:
+  accountsservice adduser cpp gir1.2-pango-1.0 kwin-common kwin-data
+  kwin-wayland kwin-wayland-backend-drm kwin-wayland-backend-wayland kwin-x11
+  kylin-app-cgroupd kylin-app-manager kylin-nm kylin-photo-viewer
+  kylin-process-manager kylin-recorder kylin-system-updater
+  kylin-tablet-desktop-general libaccountsservice0 libc-bin libc-dev-bin libc6
+  libc6-dev libchinese-segmentation1 libcpufreq0 libcryptsetup12 libexpat1
+  libffi-dev libkwineffects13 libkwinglutils13 libkwinxrenderutils13
+  libkysdk-alm libkysdk-appcommon libkysdk-kabase libkysdk-qtwidgets
+  libkysdk-ukenv libkysdk-waylandhelper libldap-common libnm0 liborc-0.4-0
+  libpango-1.0-0 libpangocairo-1.0-0 libpangoft2-1.0-0 libpangoxft-1.0-0
+  libpeony3 libpulse-mainloop-glib0 libpulse0 libpulsedsp libpython3.8
+  libpython3.8-minimal libpython3.8-stdlib libqt5-ukui-style1 libqt5opengl5
+  libqt5sql5-sqlite libsoup-gnome2.4-1 libsoup2.4-1 libukcc3 libukui-search2
+  libukui-shortcut0 libvolume-key1 libxml2 linux-firmware locales
+  lto-disabled-list network-manager openkylin-default-settings peony
+  peony-common pulseaudio pulseaudio-module-bluetooth pulseaudio-utils
+  python3-cairo python3.8 python3.8-minimal
+  qml-module-org-ukui-qqc2desktopstyle qml-module-org-ukui-sidebar-items
+  qml-module-org-ukui-stylehelper qt5-styles-ukui qt5-ukui-platformtheme
+  ukui-bluetooth ukui-clock ukui-control-center ukui-desktop-environment
+  ukui-desktop-environment-core ukui-greeter ukui-media ukui-media-common
+  ukui-panel ukui-search ukui-search-systemdbus ukui-settings-daemon
+  ukui-settings-daemon-common ukui-sidebar ukui-tablet-desktop
+  ukui-window-switch
+95 upgraded, 4 newly installed, 0 to remove and 0 not upgraded.
+Need to get 342 MB of archives.
+After this operation, 12.0 MB of additional disk space will be used.
+Get:1 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libc6-dev riscv64 2.36-ok2 [3,154 kB]
+Get:2 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libc-dev-bin riscv64 2.36-ok2 [18.7 kB]
+Get:3 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libc6 riscv64 2.36-ok2 [2,616 kB]
+Get:4 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libc-bin riscv64 2.36-ok2 [550 kB]
+Get:5 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libpulse-mainloop-glib0 riscv64 1:13.99.1-ok10 [11.3 kB]
+Get:6 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libpulsedsp riscv64 1:13.99.1-ok10 [20.6 kB]
+Get:7 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 pulseaudio-utils riscv64 1:13.99.1-ok10 [54.9 kB]
+Get:8 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 pulseaudio-module-bluetooth riscv64 1:13.99.1-ok10 [58.6 kB]
+Get:9 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 pulseaudio riscv64 1:13.99.1-ok10 [1,166 kB]
+Get:10 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libpulse0 riscv64 1:13.99.1-ok10 [253 kB]
+Get:11 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 liborc-0.4-0 riscv64 1:0.4.31-ok2 [183 kB]
+Get:12 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 adduser all 3.118-ok3 [224 kB]
+Get:13 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 python3.8 riscv64 3.8.2-ok4 [365 kB]
+Get:14 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 python3.8-minimal riscv64 3.8.2-ok4 [1,632 kB]
+Get:15 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libpython3.8 riscv64 3.8.2-ok4 [1,652 kB]
+Get:16 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libpython3.8-stdlib riscv64 3.8.2-ok4 [1,738 kB]
+Get:17 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libpython3.8-minimal riscv64 3.8.2-ok4 [720 kB]
+Get:18 http://archive.build.openkylin.top/openkylin yangtze-proposed/main riscv64 libexpat1 riscv64 2.2.9-ok3 [69.2 kB]
+Get:19 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libffi8 riscv64 3.4.4-ok3 [20.0 kB]
+Get:20 http://archive.build.openkylin.top/openkylin yangtze-proposed/main riscv64 openkylin-archive-anything all 2023.02.06-ok1 [2,646 B]
+Get:21 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 locales all 2.36-ok2 [4,242 kB]
+Get:22 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 accountsservice riscv64 0.6.55-ok2 [75.3 kB]
+Get:23 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libaccountsservice0 riscv64 0.6.55-ok2 [68.2 kB]
+Get:24 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 cpp riscv64 4:9.3.0-ok7 [5,772 B]
+Get:25 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 gir1.2-harfbuzz-0.0 riscv64 2.6.4-ok1 [26.4 kB]
+Get:26 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 gir1.2-pango-1.0 riscv64 1.46.2-ok2 [31.0 kB]
+Get:27 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libpangoxft-1.0-0 riscv64 1.46.2-ok2 [16.8 kB]
+Get:28 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libpangoft2-1.0-0 riscv64 1.46.2-ok2 [33.6 kB]
+Get:29 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libpango-1.0-0 riscv64 1.46.2-ok2 [165 kB]
+Get:30 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libpangocairo-1.0-0 riscv64 1.46.2-ok2 [23.1 kB]
+Get:31 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 kwin-x11 riscv64 4:5.24.4-ok7~0111 [425 kB]
+Get:32 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libkwinxrenderutils13 riscv64 4:5.24.4-ok7~0111 [15.8 kB]
+Get:33 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 kwin-wayland riscv64 4:5.24.4-ok7~0111 [546 kB]
+Get:34 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 kwin-wayland-backend-wayland riscv64 4:5.24.4-ok7~0111 [45.3 kB]
+Get:35 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 kwin-wayland-backend-drm riscv64 4:5.24.4-ok7~0111 [137 kB]
+Get:36 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 kwin-data all 4:5.24.4-ok7~0111 [3,992 kB]
+Get:37 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 kwin-common riscv64 4:5.24.4-ok7~0111 [1,899 kB]
+Get:38 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libkwineffects13 riscv64 4:5.24.4-ok7~0111 [90.0 kB]
+Get:39 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libkwinglutils13 riscv64 4:5.24.4-ok7~0111 [60.0 kB]
+Get:40 http://archive.build.openkylin.top/openkylin yangtze-proposed/main riscv64 kylin-process-manager riscv64 3.22.1.0-ok1.2 [214 kB]
+Get:41 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libkysdk-appcommon riscv64 2.0.0.0-1k3 [3,056 B]
+Get:42 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libkysdk-waylandhelper riscv64 2.0.0.0-1k3 [44.9 kB]
+Get:43 http://archive.build.openkylin.top/openkylin yangtze-proposed/main riscv64 kylin-app-manager riscv64 3.22.1.0-ok1.16 [197 kB]
+Get:44 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 kylin-font-viewer riscv64 1.1.0.13-ok2~0104 [694 kB]
+Get:45 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libkysdk-qtwidgets riscv64 2.0.0.0-1k3 [197 kB]
+Get:46 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 network-manager riscv64 1.36.4-ok3.2 [3,010 kB]
+Get:47 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libnm0 riscv64 1.36.4-ok3.2 [383 kB]
+Get:48 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libpeony3 riscv64 3.22.0.0-ok3~0106 [1,114 kB]
+Get:49 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 peony riscv64 3.22.0.0-ok3~0106 [512 kB]
+Get:50 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 peony-common all 3.22.0.0-ok3~0106 [2,690 kB]
+Get:51 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libukcc3 riscv64 3.22.1.25-ok10 [118 kB]
+Get:52 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 ukui-bluetooth riscv64 3.1.4+2022.0531-ok9 [474 kB]
+Get:53 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 ukui-search riscv64 3.22.4.1-ok0~0105 [190 kB]
+Get:54 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libukui-search2 riscv64 3.22.4.1-ok0~0105 [532 kB]
+Get:55 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libchinese-segmentation1 riscv64 3.22.4.1-ok0~0105 [7,855 kB]
+Get:56 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 ukui-search-systemdbus riscv64 3.22.4.1-ok0~0105 [11.5 kB]
+Get:57 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 ukui-media riscv64 3.1.0.2022+0310-ok7~0111 [469 kB]
+Get:58 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 ukui-media-common all 3.1.0.2022+0310-ok7~0111 [5,864 B]
+Get:59 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libxml2 riscv64 2.9.10+dfsg-ok2 [615 kB]
+Get:60 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 ukui-control-center riscv64 3.22.1.25-ok10 [20.2 MB]
+Get:61 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 kylin-nm riscv64 3.14.0.0+0512-3k15 [859 kB]
+Get:62 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libkysdk-kabase riscv64 2.0.0.0-1k3 [77.6 kB]
+Get:63 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 kylin-photo-viewer riscv64 1.3.0.3-ok9build2 [14.4 MB]
+Get:64 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 kylin-recorder riscv64 1.3.0.2.0k3.3-ok0.1 [797 kB]
+Get:65 http://archive.build.openkylin.top/openkylin yangtze/pty riscv64 kylin-system-updater all 2.0.5.15-ok3 [163 kB]
+Get:66 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libqt5sql5-sqlite riscv64 5.15.3+dfsg-ok1.1 [48.2 kB]
+Get:67 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 ukui-tablet-desktop riscv64 3.22.0.0-ok1.6 [729 kB]
+Get:68 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 kylin-tablet-desktop-general all 3.22.0.0-ok1.6 [1,880 B]
+Get:69 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libcpufreq0 riscv64 008-ok1 [8,950 B]
+Get:70 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libcryptsetup12 riscv64 2:2.2.2-ok5 [167 kB]
+Get:71 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libffi-dev riscv64 3.4.4-ok3 [83.9 kB]
+Get:72 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libkysdk-alm riscv64 2.0.0.0-1k3 [14.5 kB]
+Get:73 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libkysdk-ukenv riscv64 2.0.0.0-1k3 [14.2 kB]
+Get:74 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libldap-common all 2.6.3+dfsg-ok2 [18.6 kB]
+Get:75 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 qt5-ukui-platformtheme riscv64 3.20.1.1-0k8 [140 kB]
+Get:76 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 qml-module-org-ukui-stylehelper riscv64 3.20.1.1-0k8 [65.4 kB]
+Get:77 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 qml-module-org-ukui-qqc2desktopstyle riscv64 3.20.1.1-0k8 [7,820 B]
+Get:78 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 qt5-styles-ukui riscv64 3.20.1.1-0k8 [206 kB]
+Get:79 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libqt5-ukui-style1 riscv64 3.20.1.1-0k8 [44.9 kB]
+Get:80 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libqt5opengl5 riscv64 5.15.3+dfsg-ok1.1 [134 kB]
+Get:81 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libsoup2.4-1 riscv64 2.70.0-ok2 [243 kB]
+Get:82 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libsoup-gnome2.4-1 riscv64 2.70.0-ok2 [5,606 B]
+Get:83 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 ukui-sidebar riscv64 3.22.2.1-ok1 [196 kB]
+Get:84 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 qml-module-org-ukui-sidebar-items riscv64 3.22.2.1-ok1 [37.3 kB]
+Get:85 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libukui-shortcut0 riscv64 3.22.2.1-ok1 [112 kB]
+Get:86 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 libvolume-key1 riscv64 0.3.12-ok2 [133 kB]
+Get:87 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 linux-firmware all 1.205ok6 [245 MB]
+Get:88 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 lto-disabled-list all 24-ok15 [11.9 kB]
+Get:89 http://archive.build.openkylin.top/openkylin yangtze-proposed/main riscv64 openkylin-default-settings all 20.07.5 [4,648 B]
+Get:90 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 python3-cairo riscv64 1.16.2-ok2 [54.3 kB]
+Get:91 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 ukui-clock riscv64 3.2.2.0.0k0-0k0.2 [9,049 kB]
+Get:92 http://archive.build.openkylin.top/openkylin yangtze-proposed/main riscv64 ukui-panel riscv64 3.14.0.1-ok3.4 [630 kB]
+Get:93 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 ukui-settings-daemon riscv64 3.14.0.0~0512-ok5 [1,020 kB]
+Get:94 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 ukui-settings-daemon-common all 3.14.0.0~0512-ok5 [30.2 kB]
+Get:95 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 ukui-desktop-environment-core all 2.0.2-ok8 [2,424 B]
+Get:96 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 ukui-desktop-environment all 2.0.2-ok8 [1,934 B]
+Get:97 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 ukui-greeter riscv64 3.22.1.1-ok10~0106 [1,074 kB]
+Get:98 http://archive.build.openkylin.top/openkylin yangtze/main riscv64 ukui-window-switch riscv64 3.22.1.4-ok1.7build1 [115 kB]
+Get:99 http://archive.build.openkylin.top/openkylin yangtze-proposed/main riscv64 kylin-app-cgroupd all 3.22.1.0-ok1.2 [1,744 B]
+Preconfiguring packages ...
+Fetched 342 MB in 1min 5s (5,238 kB/s)
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 160725 files and directories currently installed.)
+Preparing to unpack .../libc6-dev_2.36-ok2_riscv64.deb ...
+Unpacking libc6-dev:riscv64 (2.36-ok2) over (2.36-ok1) ...
+Preparing to unpack .../libc-dev-bin_2.36-ok2_riscv64.deb ...
+Unpacking libc-dev-bin (2.36-ok2) over (2.36-ok1) ...
+Preparing to unpack .../libc6_2.36-ok2_riscv64.deb ...
+Unpacking libc6:riscv64 (2.36-ok2) over (2.36-ok1) ...
+Setting up libc6:riscv64 (2.36-ok2) ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 160725 files and directories currently installed.)
+Preparing to unpack .../libc-bin_2.36-ok2_riscv64.deb ...
+Unpacking libc-bin (2.36-ok2) over (2.36-ok1) ...
+Setting up libc-bin (2.36-ok2) ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 160725 files and directories currently installed.)
+Preparing to unpack .../0-libpulse-mainloop-glib0_1%3a13.99.1-ok10_riscv64.deb ...
+Unpacking libpulse-mainloop-glib0:riscv64 (1:13.99.1-ok10) over (1:13.99.1-ok8) ...
+Preparing to unpack .../1-libpulsedsp_1%3a13.99.1-ok10_riscv64.deb ...
+Unpacking libpulsedsp:riscv64 (1:13.99.1-ok10) over (1:13.99.1-ok8) ...
+Preparing to unpack .../2-pulseaudio-utils_1%3a13.99.1-ok10_riscv64.deb ...
+Unpacking pulseaudio-utils (1:13.99.1-ok10) over (1:13.99.1-ok8) ...
+Preparing to unpack .../3-pulseaudio-module-bluetooth_1%3a13.99.1-ok10_riscv64.deb ...
+Unpacking pulseaudio-module-bluetooth (1:13.99.1-ok10) over (1:13.99.1-ok8) ...
+Preparing to unpack .../4-pulseaudio_1%3a13.99.1-ok10_riscv64.deb ...
+Unpacking pulseaudio (1:13.99.1-ok10) over (1:13.99.1-ok8) ...
+Preparing to unpack .../5-libpulse0_1%3a13.99.1-ok10_riscv64.deb ...
+Unpacking libpulse0:riscv64 (1:13.99.1-ok10) over (1:13.99.1-ok8) ...
+Preparing to unpack .../6-liborc-0.4-0_1%3a0.4.31-ok2_riscv64.deb ...
+Unpacking liborc-0.4-0:riscv64 (1:0.4.31-ok2) over (1:0.4.31-ok1) ...
+Preparing to unpack .../7-adduser_3.118-ok3_all.deb ...
+Unpacking adduser (3.118-ok3) over (3.118-ok2) ...
+Setting up adduser (3.118-ok3) ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 160727 files and directories currently installed.)
+Preparing to unpack .../00-python3.8_3.8.2-ok4_riscv64.deb ...
+Unpacking python3.8 (3.8.2-ok4) over (3.8.2-ok2) ...
+Preparing to unpack .../01-python3.8-minimal_3.8.2-ok4_riscv64.deb ...
+Unpacking python3.8-minimal (3.8.2-ok4) over (3.8.2-ok2) ...
+Preparing to unpack .../02-libpython3.8_3.8.2-ok4_riscv64.deb ...
+Unpacking libpython3.8:riscv64 (3.8.2-ok4) over (3.8.2-ok2) ...
+Preparing to unpack .../03-libpython3.8-stdlib_3.8.2-ok4_riscv64.deb ...
+Unpacking libpython3.8-stdlib:riscv64 (3.8.2-ok4) over (3.8.2-ok2) ...
+Preparing to unpack .../04-libpython3.8-minimal_3.8.2-ok4_riscv64.deb ...
+Unpacking libpython3.8-minimal:riscv64 (3.8.2-ok4) over (3.8.2-ok2) ...
+Preparing to unpack .../05-libexpat1_2.2.9-ok3_riscv64.deb ...
+Unpacking libexpat1:riscv64 (2.2.9-ok3) over (2.2.9-ok1) ...
+Selecting previously unselected package libffi8:riscv64.
+Preparing to unpack .../06-libffi8_3.4.4-ok3_riscv64.deb ...
+Unpacking libffi8:riscv64 (3.4.4-ok3) ...
+Selecting previously unselected package openkylin-archive-anything.
+Preparing to unpack .../07-openkylin-archive-anything_2023.02.06-ok1_all.deb ...
+Unpacking openkylin-archive-anything (2023.02.06-ok1) ...
+Preparing to unpack .../08-locales_2.36-ok2_all.deb ...
+Unpacking locales (2.36-ok2) over (2.36-ok1) ...
+Preparing to unpack .../09-accountsservice_0.6.55-ok2_riscv64.deb ...
+Unpacking accountsservice (0.6.55-ok2) over (0.6.55-ok1) ...
+Preparing to unpack .../10-libaccountsservice0_0.6.55-ok2_riscv64.deb ...
+Unpacking libaccountsservice0:riscv64 (0.6.55-ok2) over (0.6.55-ok1) ...
+Preparing to unpack .../11-cpp_4%3a9.3.0-ok7_riscv64.deb ...
+Unpacking cpp (4:9.3.0-ok7) over (4:9.3.0-ok5) ...
+Selecting previously unselected package gir1.2-harfbuzz-0.0:riscv64.
+Preparing to unpack .../12-gir1.2-harfbuzz-0.0_2.6.4-ok1_riscv64.deb ...
+Unpacking gir1.2-harfbuzz-0.0:riscv64 (2.6.4-ok1) ...
+Preparing to unpack .../13-gir1.2-pango-1.0_1.46.2-ok2_riscv64.deb ...
+Unpacking gir1.2-pango-1.0:riscv64 (1.46.2-ok2) over (1.44.7-ok1) ...
+Preparing to unpack .../14-libpangoxft-1.0-0_1.46.2-ok2_riscv64.deb ...
+Unpacking libpangoxft-1.0-0:riscv64 (1.46.2-ok2) over (1.44.7-ok1) ...
+Preparing to unpack .../15-libpangoft2-1.0-0_1.46.2-ok2_riscv64.deb ...
+Unpacking libpangoft2-1.0-0:riscv64 (1.46.2-ok2) over (1.44.7-ok1) ...
+Preparing to unpack .../16-libpango-1.0-0_1.46.2-ok2_riscv64.deb ...
+Unpacking libpango-1.0-0:riscv64 (1.46.2-ok2) over (1.44.7-ok1) ...
+Preparing to unpack .../17-libpangocairo-1.0-0_1.46.2-ok2_riscv64.deb ...
+Unpacking libpangocairo-1.0-0:riscv64 (1.46.2-ok2) over (1.44.7-ok1) ...
+Preparing to unpack .../18-kwin-x11_4%3a5.24.4-ok7~0111_riscv64.deb ...
+Unpacking kwin-x11 (4:5.24.4-ok7~0111) over (4:5.24.4-ok6~1213) ...
+Preparing to unpack .../19-libkwinxrenderutils13_4%3a5.24.4-ok7~0111_riscv64.deb ...
+Unpacking libkwinxrenderutils13 (4:5.24.4-ok7~0111) over (4:5.24.4-ok6~1213) ...
+Preparing to unpack .../20-kwin-wayland_4%3a5.24.4-ok7~0111_riscv64.deb ...
+Unpacking kwin-wayland (4:5.24.4-ok7~0111) over (4:5.24.4-ok6~1213) ...
+Preparing to unpack .../21-kwin-wayland-backend-wayland_4%3a5.24.4-ok7~0111_riscv64.deb ...
+Unpacking kwin-wayland-backend-wayland (4:5.24.4-ok7~0111) over (4:5.24.4-ok6~1213) ...
+Preparing to unpack .../22-kwin-wayland-backend-drm_4%3a5.24.4-ok7~0111_riscv64.deb ...
+Unpacking kwin-wayland-backend-drm (4:5.24.4-ok7~0111) over (4:5.24.4-ok6~1213) ...
+Preparing to unpack .../23-kwin-data_4%3a5.24.4-ok7~0111_all.deb ...
+Unpacking kwin-data (4:5.24.4-ok7~0111) over (4:5.24.4-ok6~1213) ...
+Preparing to unpack .../24-kwin-common_4%3a5.24.4-ok7~0111_riscv64.deb ...
+Unpacking kwin-common (4:5.24.4-ok7~0111) over (4:5.24.4-ok6~1213) ...
+Preparing to unpack .../25-libkwineffects13_4%3a5.24.4-ok7~0111_riscv64.deb ...
+Unpacking libkwineffects13 (4:5.24.4-ok7~0111) over (4:5.24.4-ok6~1213) ...
+Preparing to unpack .../26-libkwinglutils13_4%3a5.24.4-ok7~0111_riscv64.deb ...
+Unpacking libkwinglutils13 (4:5.24.4-ok7~0111) over (4:5.24.4-ok6~1213) ...
+Preparing to unpack .../27-kylin-process-manager_3.22.1.0-ok1.2_riscv64.deb ...
+Unpacking kylin-process-manager (3.22.1.0-ok1.2) over (3.22.1.0-ok1.1) ...
+Preparing to unpack .../28-libkysdk-appcommon_2.0.0.0-1k3_riscv64.deb ...
+Unpacking libkysdk-appcommon:riscv64 (2.0.0.0-1k3) over (2.0.0.0-1k2) ...
+Preparing to unpack .../29-libkysdk-waylandhelper_2.0.0.0-1k3_riscv64.deb ...
+Unpacking libkysdk-waylandhelper:riscv64 (2.0.0.0-1k3) over (2.0.0.0-1k2) ...
+Preparing to unpack .../30-kylin-app-manager_3.22.1.0-ok1.16_riscv64.deb ...
+Unpacking kylin-app-manager (3.22.1.0-ok1.16) over (3.22.1.0-ok1.14) ...
+Selecting previously unselected package kylin-font-viewer.
+Preparing to unpack .../31-kylin-font-viewer_1.1.0.13-ok2~0104_riscv64.deb ...
+Unpacking kylin-font-viewer (1.1.0.13-ok2~0104) ...
+Preparing to unpack .../32-libkysdk-qtwidgets_2.0.0.0-1k3_riscv64.deb ...
+Unpacking libkysdk-qtwidgets:riscv64 (2.0.0.0-1k3) over (2.0.0.0-1k2) ...
+Preparing to unpack .../33-network-manager_1.36.4-ok3.2_riscv64.deb ...
+Unpacking network-manager (1.36.4-ok3.2) over (1.36.4-ok3.1) ...
+Preparing to unpack .../34-libnm0_1.36.4-ok3.2_riscv64.deb ...
+Unpacking libnm0:riscv64 (1.36.4-ok3.2) over (1.36.4-ok3.1) ...
+Preparing to unpack .../35-libpeony3_3.22.0.0-ok3~0106_riscv64.deb ...
+Unpacking libpeony3 (3.22.0.0-ok3~0106) over (3.22.0.0-ok2~1230) ...
+Preparing to unpack .../36-peony_3.22.0.0-ok3~0106_riscv64.deb ...
+Unpacking peony (3.22.0.0-ok3~0106) over (3.22.0.0-ok2~1230) ...
+Preparing to unpack .../37-peony-common_3.22.0.0-ok3~0106_all.deb ...
+Unpacking peony-common (3.22.0.0-ok3~0106) over (3.22.0.0-ok2~1230) ...
+Preparing to unpack .../38-libukcc3_3.22.1.25-ok10_riscv64.deb ...
+dpkg-architecture: warning: cannot determine CC system type, falling back to default (native compilation)
+dpkg-architecture: warning: cannot determine CC system type, falling back to default (native compilation)
+dpkg-architecture: warning: cannot determine CC system type, falling back to default (native compilation)
+Leaving 'diversion of /usr/lib/riscv64-linux-gnu/libukcc.so.1.0.0 to /usr/lib/riscv64-linux-gnu/libukcc.so.1.0.0.old by libukcc3'
+Leaving 'diversion of /usr/lib/riscv64-linux-gnu/libukcc.so.1 to /usr/lib/riscv64-linux-gnu/libukcc.so.1.old by libukcc3'
+Leaving 'diversion of /usr/lib/riscv64-linux-gnu/libukcc.so.1.0 to /usr/lib/riscv64-linux-gnu/libukcc.so.1.0.old by libukcc3'
+Unpacking libukcc3 (3.22.1.25-ok10) over (3.22.1.25-ok5) ...
+Preparing to unpack .../39-ukui-bluetooth_3.1.4+2022.0531-ok9_riscv64.deb ...
+Unpacking ukui-bluetooth (3.1.4+2022.0531-ok9) over (3.1.4+2022.0531-ok8~1102ubuntu1) ...
+Preparing to unpack .../40-ukui-search_3.22.4.1-ok0~0105_riscv64.deb ...
+Unpacking ukui-search (3.22.4.1-ok0~0105) over (3.22.3.1-ok0~1222) ...
+Preparing to unpack .../41-libukui-search2_3.22.4.1-ok0~0105_riscv64.deb ...
+Unpacking libukui-search2 (3.22.4.1-ok0~0105) over (3.22.3.1-ok0~1222) ...
+Preparing to unpack .../42-libchinese-segmentation1_3.22.4.1-ok0~0105_riscv64.deb ...
+Unpacking libchinese-segmentation1 (3.22.4.1-ok0~0105) over (3.22.3.1-ok0~1222) ...
+Preparing to unpack .../43-ukui-search-systemdbus_3.22.4.1-ok0~0105_riscv64.deb ...
+Unpacking ukui-search-systemdbus (3.22.4.1-ok0~0105) over (3.22.3.1-ok0~1222) ...
+Preparing to unpack .../44-ukui-media_3.1.0.2022+0310-ok7~0111_riscv64.deb ...
+dpkg-architecture: warning: cannot determine CC system type, falling back to default (native compilation)
+Leaving 'diversion of /usr/lib/riscv64-linux-gnu/ukui-control-center/libaudio.so to /usr/lib/riscv64-linux-gnu/ukui-control-center/libaudio.so.old by ukui-media'
+Unpacking ukui-media (3.1.0.2022+0310-ok7~0111) over (3.1.0.2022+0310-ok4~1214) ...
+Preparing to unpack .../45-ukui-media-common_3.1.0.2022+0310-ok7~0111_all.deb ...
+Unpacking ukui-media-common (3.1.0.2022+0310-ok7~0111) over (3.1.0.2022+0310-ok4~1214) ...
+Preparing to unpack .../46-libxml2_2.9.10+dfsg-ok2_riscv64.deb ...
+Unpacking libxml2:riscv64 (2.9.10+dfsg-ok2) over (2.9.10+dfsg-ok1) ...
+Preparing to unpack .../47-ukui-control-center_3.22.1.25-ok10_riscv64.deb ...
+dpkg-architecture: warning: cannot determine CC system type, falling back to default (native compilation)
+dpkg-architecture: warning: cannot determine CC system type, falling back to default (native compilation)
+dpkg-architecture: warning: cannot determine CC system type, falling back to default (native compilation)
+Leaving 'diversion of /usr/lib/riscv64-linux-gnu/libukcc.so.1.0.0 to /usr/lib/riscv64-linux-gnu/libukcc.so.1.0.0.old by libukcc3'
+Leaving 'diversion of /usr/lib/riscv64-linux-gnu/libukcc.so.1 to /usr/lib/riscv64-linux-gnu/libukcc.so.1.old by libukcc3'
+Leaving 'diversion of /usr/lib/riscv64-linux-gnu/libukcc.so.1.0 to /usr/lib/riscv64-linux-gnu/libukcc.so.1.0.old by libukcc3'
+Unpacking ukui-control-center (3.22.1.25-ok10) over (3.22.1.25-ok5) ...
+Preparing to unpack .../48-kylin-nm_3.14.0.0+0512-3k15_riscv64.deb ...
+dpkg-architecture: warning: cannot determine CC system type, falling back to default (native compilation)
+Leaving 'diversion of /usr/lib/riscv64-linux-gnu/ukui-control-center/libnetconnect.so to /usr/lib/riscv64-linux-gnu/ukui-control-center/libnetconnect.so.old by kylin-nm'
+dpkg-architecture: warning: cannot determine CC system type, falling back to default (native compilation)
+Adding 'diversion of /usr/lib/riscv64-linux-gnu/ukui-control-center/libproxy.so to /usr/lib/riscv64-linux-gnu/ukui-control-center/libproxy.so.old by kylin-nm'
+dpkg-architecture: warning: cannot determine CC system type, falling back to default (native compilation)
+Adding 'diversion of /usr/lib/riscv64-linux-gnu/ukui-control-center/libvpn.so to /usr/lib/riscv64-linux-gnu/ukui-control-center/libvpn.so.old by kylin-nm'
+Unpacking kylin-nm (3.14.0.0+0512-3k15) over (3.14.0.0+0512-2k11) ...
+Preparing to unpack .../49-libkysdk-kabase_2.0.0.0-1k3_riscv64.deb ...
+Unpacking libkysdk-kabase:riscv64 (2.0.0.0-1k3) over (2.0.0.0-1k2) ...
+Preparing to unpack .../50-kylin-photo-viewer_1.3.0.3-ok9build2_riscv64.deb ...
+Unpacking kylin-photo-viewer (1.3.0.3-ok9build2) over (1.3.0.3-ok5) ...
+Preparing to unpack .../51-kylin-recorder_1.3.0.2.0k3.3-ok0.1_riscv64.deb ...
+Unpacking kylin-recorder (1.3.0.2.0k3.3-ok0.1) over (1.3.0.1.0k3.3-ok2~718.1) ...
+Preparing to unpack .../52-kylin-system-updater_2.0.5.15-ok3_all.deb ...
+Unpacking kylin-system-updater (2.0.5.15-ok3) over (2.0.5.15-ok2) ...
+Preparing to unpack .../53-libqt5sql5-sqlite_5.15.3+dfsg-ok1.1_riscv64.deb ...
+Unpacking libqt5sql5-sqlite:riscv64 (5.15.3+dfsg-ok1.1) over (5.15.3+dfsg-ok1) ...
+Preparing to unpack .../54-ukui-tablet-desktop_3.22.0.0-ok1.6_riscv64.deb ...
+Unpacking ukui-tablet-desktop (3.22.0.0-ok1.6) over (3.22.0.0-ok1.5) ...
+Preparing to unpack .../55-kylin-tablet-desktop-general_3.22.0.0-ok1.6_all.deb ...
+Unpacking kylin-tablet-desktop-general (3.22.0.0-ok1.6) over (3.22.0.0-ok1.5) ...
+Preparing to unpack .../56-libcpufreq0_008-ok1_riscv64.deb ...
+Unpacking libcpufreq0 (008-ok1) over (008-1.1) ...
+Preparing to unpack .../57-libcryptsetup12_2%3a2.2.2-ok5_riscv64.deb ...
+Unpacking libcryptsetup12:riscv64 (2:2.2.2-ok5) over (2:2.2.2-ok3) ...
+Preparing to unpack .../58-libffi-dev_3.4.4-ok3_riscv64.deb ...
+Unpacking libffi-dev:riscv64 (3.4.4-ok3) over (3.3-ok1) ...
+Preparing to unpack .../59-libkysdk-alm_2.0.0.0-1k3_riscv64.deb ...
+Unpacking libkysdk-alm:riscv64 (2.0.0.0-1k3) over (2.0.0.0-1k2) ...
+Preparing to unpack .../60-libkysdk-ukenv_2.0.0.0-1k3_riscv64.deb ...
+Unpacking libkysdk-ukenv:riscv64 (2.0.0.0-1k3) over (2.0.0.0-1k2) ...
+Preparing to unpack .../61-libldap-common_2.6.3+dfsg-ok2_all.deb ...
+Unpacking libldap-common (2.6.3+dfsg-ok2) over (2.4.49+dfsg-ok1) ...
+Preparing to unpack .../62-qt5-ukui-platformtheme_3.20.1.1-0k8_riscv64.deb ...
+Unpacking qt5-ukui-platformtheme (3.20.1.1-0k8) over (3.20.1.1-0k6) ...
+Preparing to unpack .../63-qml-module-org-ukui-stylehelper_3.20.1.1-0k8_riscv64.deb ...
+Unpacking qml-module-org-ukui-stylehelper (3.20.1.1-0k8) over (3.20.1.1-0k6) ...
+Preparing to unpack .../64-qml-module-org-ukui-qqc2desktopstyle_3.20.1.1-0k8_riscv64.deb ...
+Unpacking qml-module-org-ukui-qqc2desktopstyle (3.20.1.1-0k8) over (3.20.1.1-0k6) ...
+Preparing to unpack .../65-qt5-styles-ukui_3.20.1.1-0k8_riscv64.deb ...
+Unpacking qt5-styles-ukui (3.20.1.1-0k8) over (3.20.1.1-0k6) ...
+Preparing to unpack .../66-libqt5-ukui-style1_3.20.1.1-0k8_riscv64.deb ...
+Unpacking libqt5-ukui-style1 (3.20.1.1-0k8) over (3.20.1.1-0k6) ...
+Preparing to unpack .../67-libqt5opengl5_5.15.3+dfsg-ok1.1_riscv64.deb ...
+Unpacking libqt5opengl5:riscv64 (5.15.3+dfsg-ok1.1) over (5.15.3+dfsg-ok1) ...
+Preparing to unpack .../68-libsoup2.4-1_2.70.0-ok2_riscv64.deb ...
+Unpacking libsoup2.4-1:riscv64 (2.70.0-ok2) over (2.70.0-ok1) ...
+Preparing to unpack .../69-libsoup-gnome2.4-1_2.70.0-ok2_riscv64.deb ...
+Unpacking libsoup-gnome2.4-1:riscv64 (2.70.0-ok2) over (2.70.0-ok1) ...
+Preparing to unpack .../70-ukui-sidebar_3.22.2.1-ok1_riscv64.deb ...
+Unpacking ukui-sidebar (3.22.2.1-ok1) over (3.22.1.15-ok0~1227) ...
+Preparing to unpack .../71-qml-module-org-ukui-sidebar-items_3.22.2.1-ok1_riscv64.deb ...
+Unpacking qml-module-org-ukui-sidebar-items (3.22.2.1-ok1) over (3.22.1.15-ok0~1227) ...
+Preparing to unpack .../72-libukui-shortcut0_3.22.2.1-ok1_riscv64.deb ...
+Unpacking libukui-shortcut0 (3.22.2.1-ok1) over (3.22.1.15-ok0~1227) ...
+Preparing to unpack .../73-libvolume-key1_0.3.12-ok2_riscv64.deb ...
+Unpacking libvolume-key1 (0.3.12-ok2) over (0.3.12-ok0) ...
+Preparing to unpack .../74-linux-firmware_1.205ok6_all.deb ...
+Unpacking linux-firmware (1.205ok6) over (1.205ok5) ...
+Preparing to unpack .../75-lto-disabled-list_24-ok15_all.deb ...
+Unpacking lto-disabled-list (24-ok15) over (24-ok14) ...
+Preparing to unpack .../76-openkylin-default-settings_20.07.5_all.deb ...
+Unpacking openkylin-default-settings (20.07.5) over (20.07.3) ...
+Preparing to unpack .../77-python3-cairo_1.16.2-ok2_riscv64.deb ...
+Unpacking python3-cairo:riscv64 (1.16.2-ok2) over (1.16.2-ok1) ...
+Preparing to unpack .../78-ukui-clock_3.2.2.0.0k0-0k0.2_riscv64.deb ...
+Unpacking ukui-clock (3.2.2.0.0k0-0k0.2) over (3.1.4.0.0k0-0k1.1) ...
+Preparing to unpack .../79-ukui-panel_3.14.0.1-ok3.4_riscv64.deb ...
+Unpacking ukui-panel (3.14.0.1-ok3.4) over (3.14.0.1-ok2~0822) ...
+Preparing to unpack .../80-ukui-settings-daemon_3.14.0.0~0512-ok5_riscv64.deb ...
+Unpacking ukui-settings-daemon (3.14.0.0~0512-ok5) over (3.14.0.0~0512-ok4) ...
+Preparing to unpack .../81-ukui-settings-daemon-common_3.14.0.0~0512-ok5_all.deb ...
+Unpacking ukui-settings-daemon-common (3.14.0.0~0512-ok5) over (3.14.0.0~0512-ok4) ...
+Preparing to unpack .../82-ukui-desktop-environment-core_2.0.2-ok8_all.deb ...
+Unpacking ukui-desktop-environment-core (2.0.2-ok8) over (2.0.2-ok7~1104) ...
+Preparing to unpack .../83-ukui-desktop-environment_2.0.2-ok8_all.deb ...
+Unpacking ukui-desktop-environment (2.0.2-ok8) over (2.0.2-ok7~1104) ...
+Preparing to unpack .../84-ukui-greeter_3.22.1.1-ok10~0106_riscv64.deb ...
+Unpacking ukui-greeter (3.22.1.1-ok10~0106) over (3.22.1.1-ok8~1209) ...
+Preparing to unpack .../85-ukui-window-switch_3.22.1.4-ok1.7build1_riscv64.deb ...
+Unpacking ukui-window-switch (3.22.1.4-ok1.7build1) over (3.22.1.4-ok1.7) ...
+Preparing to unpack .../86-kylin-app-cgroupd_3.22.1.0-ok1.2_all.deb ...
+Unpacking kylin-app-cgroupd (3.22.1.0-ok1.2) over (3.22.1.0-ok1.1) ...
+Setting up libexpat1:riscv64 (2.2.9-ok3) ...
+Setting up kwin-data (4:5.24.4-ok7~0111) ...
+Setting up kylin-font-viewer (1.1.0.13-ok2~0104) ...
+Setting up lto-disabled-list (24-ok15) ...
+Setting up libpython3.8-minimal:riscv64 (3.8.2-ok4) ...
+Setting up ukui-search-systemdbus (3.22.4.1-ok0~0105) ...
+Setting up python3-cairo:riscv64 (1.16.2-ok2) ...
+Setting up libqt5sql5-sqlite:riscv64 (5.15.3+dfsg-ok1.1) ...
+Setting up kylin-system-updater (2.0.5.15-ok3) ...
+field appname_cn is exist.
+field status_cn is exist.
+field changelog is exist.
+field init_version is exist.
+Setting up libpulse0:riscv64 (1:13.99.1-ok10) ...
+Setting up linux-firmware (1.205ok6) ...
+W: /boot is ro mounted.
+W: update-initramfs: Not updating /boot/initrd.img-5.11.0-1030-generic
+Setting up qml-module-org-ukui-sidebar-items (3.22.2.1-ok1) ...
+Setting up libpango-1.0-0:riscv64 (1.46.2-ok2) ...
+Setting up libpulsedsp:riscv64 (1:13.99.1-ok10) ...
+Setting up libukui-shortcut0 (3.22.2.1-ok1) ...
+Setting up openkylin-archive-anything (2023.02.06-ok1) ...
+Setting up peony-common (3.22.0.0-ok3~0106) ...
+Setting up locales (2.36-ok2) ...
+Generating locales (this might take a while)...
+  en_US.UTF-8... done
+  zh_CN.UTF-8... done
+  zh_SG.UTF-8... done
+Generation complete.
+Setting up libldap-common (2.6.3+dfsg-ok2) ...
+Installing new version of config file /etc/ldap/ldap.conf ...
+Setting up libkysdk-appcommon:riscv64 (2.0.0.0-1k3) ...
+Setting up gir1.2-harfbuzz-0.0:riscv64 (2.6.4-ok1) ...
+Setting up libqt5-ukui-style1 (3.20.1.1-0k8) ...
+Setting up libkwinxrenderutils13 (4:5.24.4-ok7~0111) ...
+Setting up libpulse-mainloop-glib0:riscv64 (1:13.99.1-ok10) ...
+Setting up pulseaudio-utils (1:13.99.1-ok10) ...
+Setting up kylin-process-manager (3.22.1.0-ok1.2) ...
+Job for kylin-process-manager-cleaner.service failed because the control process exited with error code.
+See "systemctl status kylin-process-manager-cleaner.service" and "journalctl -xe" for details.
+Setting up liborc-0.4-0:riscv64 (1:0.4.31-ok2) ...
+Setting up libnm0:riscv64 (1.36.4-ok3.2) ...
+Setting up qml-module-org-ukui-stylehelper (3.20.1.1-0k8) ...
+Setting up libkysdk-ukenv:riscv64 (2.0.0.0-1k3) ...
+Setting up libffi8:riscv64 (3.4.4-ok3) ...
+Setting up python3.8-minimal (3.8.2-ok4) ...
+Setting up ukui-greeter (3.22.1.1-ok10~0106) ...
+Setting up libcpufreq0 (008-ok1) ...
+Setting up libqt5opengl5:riscv64 (5.15.3+dfsg-ok1.1) ...
+Setting up ukui-settings-daemon-common (3.14.0.0~0512-ok5) ...
+Setting up cpp (4:9.3.0-ok7) ...
+Setting up libcryptsetup12:riscv64 (2:2.2.2-ok5) ...
+Setting up libvolume-key1 (0.3.12-ok2) ...
+Setting up ukui-media-common (3.1.0.2022+0310-ok7~0111) ...
+Setting up libkysdk-waylandhelper:riscv64 (2.0.0.0-1k3) ...
+Setting up libaccountsservice0:riscv64 (0.6.55-ok2) ...
+Setting up libpangoft2-1.0-0:riscv64 (1.46.2-ok2) ...
+Setting up libpython3.8-stdlib:riscv64 (3.8.2-ok4) ...
+Setting up libc-dev-bin (2.36-ok2) ...
+Setting up python3.8 (3.8.2-ok4) ...
+Setting up openkylin-default-settings (20.07.5) ...
+Setting up libchinese-segmentation1 (3.22.4.1-ok0~0105) ...
+Setting up kylin-app-manager (3.22.1.0-ok1.16) ...
+Setting up libxml2:riscv64 (2.9.10+dfsg-ok2) ...
+Setting up libkwinglutils13 (4:5.24.4-ok7~0111) ...
+Setting up ukui-window-switch (3.22.1.4-ok1.7build1) ...
+Setting up accountsservice (0.6.55-ok2) ...
+Setting up libkysdk-alm:riscv64 (2.0.0.0-1k3) ...
+Setting up libpangocairo-1.0-0:riscv64 (1.46.2-ok2) ...
+Setting up kylin-app-cgroupd (3.22.1.0-ok1.2) ...
+Setting up libsoup2.4-1:riscv64 (2.70.0-ok2) ...
+Setting up libpangoxft-1.0-0:riscv64 (1.46.2-ok2) ...
+Setting up libkysdk-kabase:riscv64 (2.0.0.0-1k3) ...
+Setting up network-manager (1.36.4-ok3.2) ...
+find: ‘/etc/netplan’: No such file or directory
+Setting up qml-module-org-ukui-qqc2desktopstyle (3.20.1.1-0k8) ...
+Setting up libffi-dev:riscv64 (3.4.4-ok3) ...
+Setting up pulseaudio (1:13.99.1-ok10) ...
+Setting up ukui-sidebar (3.22.2.1-ok1) ...
+Setting up gir1.2-pango-1.0:riscv64 (1.46.2-ok2) ...
+Setting up libkysdk-qtwidgets:riscv64 (2.0.0.0-1k3) ...
+Setting up libpython3.8:riscv64 (3.8.2-ok4) ...
+Setting up ukui-tablet-desktop (3.22.0.0-ok1.6) ...
+Setting up pulseaudio-module-bluetooth (1:13.99.1-ok10) ...
+Setting up kylin-recorder (1.3.0.2.0k3.3-ok0.1) ...
+Setting up libukcc3 (3.22.1.25-ok10) ...
+Setting up libkwineffects13 (4:5.24.4-ok7~0111) ...
+Setting up libc6-dev:riscv64 (2.36-ok2) ...
+Setting up ukui-panel (3.14.0.1-ok3.4) ...
+Setting up ukui-clock (3.2.2.0.0k0-0k0.2) ...
+Setting up libsoup-gnome2.4-1:riscv64 (2.70.0-ok2) ...
+Setting up libukui-search2 (3.22.4.1-ok0~0105) ...
+Setting up libpeony3 (3.22.0.0-ok3~0106) ...
+Setting up ukui-bluetooth (3.1.4+2022.0531-ok9) ...
+Installing new version of config file /etc/xdg/autostart/ukui-bluetooth.desktop ...
+touch /home/openkylin/.cache/ukuibt_upgrade.tmp
+Setting up kwin-common (4:5.24.4-ok7~0111) ...
+Setting up kylin-photo-viewer (1.3.0.3-ok9build2) ...
+Setting up kwin-wayland-backend-drm (4:5.24.4-ok7~0111) ...
+Setting up kwin-x11 (4:5.24.4-ok7~0111) ...
+Setting up kwin-wayland-backend-wayland (4:5.24.4-ok7~0111) ...
+Setting up kwin-wayland (4:5.24.4-ok7~0111) ...
+Sucessfully set capabilities for kwin_wayland
+Processing triggers for bamfdaemon (0.5.3+18.04.20180207.2-ok1) ...
+Rebuilding /usr/share/applications/bamf-2.index...
+Processing triggers for desktop-file-utils (0.24-ok2) ...
+Processing triggers for mime-support (3.64-ok1) ...
+Processing triggers for hicolor-icon-theme (0.17-ok1) ...
+Processing triggers for libglib2.0-0:riscv64 (2.64.2-ok2) ...
+Processing triggers for libc-bin (2.36-ok2) ...
+Processing triggers for systemd (245.4-ok4~0716) ...
+Processing triggers for man-db (2.9.1-ok3) ...
+Setting up peony (3.22.0.0-ok3~0106) ...
+Processing triggers for dbus (1.12.16-ok1) ...
+Setting up qt5-styles-ukui (3.20.1.1-0k8) ...
+Setting up kylin-tablet-desktop-general (3.22.0.0-ok1.6) ...
+Setting up ukui-settings-daemon (3.14.0.0~0512-ok5) ...
+Processing triggers for install-info (6.7.0.dfsg.2-ok1) ...
+Setting up qt5-ukui-platformtheme (3.20.1.1-0k8) ...
+Setting up ukui-search (3.22.4.1-ok0~0105) ...
+Setting up ukui-control-center (3.22.1.25-ok10) ...
+Setting up ukui-desktop-environment-core (2.0.2-ok8) ...
+Setting up kylin-nm (3.14.0.0+0512-3k15) ...
+kylin nm set cap success
+Setting up ukui-desktop-environment (2.0.2-ok8) ...
+Setting up ukui-media (3.1.0.2022+0310-ok7~0111) ...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages will be REMOVED:
+  libegl-dev* libgl-dev* libglu1-mesa-dev* libglx-dev* libmpdec2*
+  libvulkan-dev* libx11-dev* libxau-dev* libxcb1-dev* libxdmcp-dev*
+  libxext-dev* qt5-qmake* qt5-qmake-bin* x11proto-core-dev* x11proto-dev*
+  xorg-sgml-doctools* xtrans-dev*
+0 upgraded, 0 newly installed, 17 to remove and 19 not upgraded.
+After this operation, 28.9 MB disk space will be freed.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 161067 files and directories currently installed.)
+Removing libegl-dev:riscv64 (1.3.1-ok1) ...
+Removing libglu1-mesa-dev:riscv64 (9.0.1-ok1) ...
+Removing libgl-dev:riscv64 (1.3.1-ok1) ...
+Removing libglx-dev:riscv64 (1.3.1-ok1) ...
+Removing libmpdec2:riscv64 (2.4.2-ok1) ...
+Removing libvulkan-dev:riscv64 (1.2.131.2-ok1) ...
+Removing libxext-dev:riscv64 (2:1.3.4-ok2) ...
+Removing libx11-dev:riscv64 (2:1.6.9-ok1) ...
+Removing libxcb1-dev:riscv64 (1.14-ok1) ...
+Removing libxau-dev:riscv64 (1:1.0.9-ok1) ...
+Removing libxdmcp-dev:riscv64 (1:1.1.3-ok1) ...
+Removing qt5-qmake:riscv64 (5.15.3+dfsg-ok1.1) ...
+Removing qt5-qmake-bin (5.15.3+dfsg-ok1.1) ...
+Removing x11proto-core-dev (2022.2-ok3) ...
+Removing x11proto-dev (2022.2-ok3) ...
+Removing xorg-sgml-doctools (1:1.11-ok1) ...
+Removing xtrans-dev (1.4.0-ok1) ...
+Processing triggers for man-db (2.9.1-ok3) ...
+Processing triggers for libc-bin (2.36-ok2) ...
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['bash', '-ec', '[ ! -e /run/autopkgtest_no_reboot.stamp ] || exit 0;for d in /boot /etc/init /etc/init.d /etc/systemd/system /lib/systemd/system; do s=/tmp/autopkgtest.qDB79a/${d//\\//_}.stamp;  [ ! -d $d ] || [ `stat -c %Y $d` = `stat -c %Y $s` ]; done'], kind short, sout raw, serr raw, env []
+autopkgtest: DBG: testbed command exited with code 1
+autopkgtest [17:51:26]: rebooting testbed after setup commands that affected boot
+autopkgtest: DBG: sending command to testbed: reboot
+autopkgtest-virt-qemu: DBG: executing reboot
+autopkgtest-virt-qemu: DBG: execute-timeout: /tmp/autopkgtest-qemu.gx5mfn_c/runcmd sh -ec for d in /var/cache /home; do if [ -w $d ]; then   tar --warning=none --create --absolute-names     -f $d/autopkgtest-tmpdir.tar '/tmp/autopkgtest.qDB79a';   rm -f /run/autopkgtest-reboot-prepare-mark;   exit 0; fi; done; exit 1
+autopkgtest-virt-qemu: DBG: cmd_reboot: saved current downtmp, rebooting
+autopkgtest-virt-qemu: DBG: execute-timeout: /tmp/autopkgtest-qemu.gx5mfn_c/runcmd test -d /run/systemd/system
+autopkgtest-virt-qemu: DBG: rebooting with command: ['systemd-run', '--no-block', '--quiet', 'sh', '-c', 'sleep 3; reboot']
+autopkgtest-virt-qemu: DBG: execute-timeout: /tmp/autopkgtest-qemu.gx5mfn_c/runcmd systemd-run --no-block --quiet sh -c sleep 3; reboot
+autopkgtest-virt-qemu: DBG: expect: b' login: '
+autopkgtest-virt-qemu: DBG: expect: found "'login prompt on serial console'"
+autopkgtest-virt-qemu: DBG: expect: b'ok'
+autopkgtest-virt-qemu: DBG: expect: found "b'ok'"
+autopkgtest-virt-qemu: DBG: setup_shell(): there already is a shell on hvc1
+autopkgtest-virt-qemu: DBG: expect: b'6bf8a730-886d-4991-9655-2bef368e02a6[1]'
+autopkgtest-virt-qemu: DBG: expect: found "b'6bf8a730-886d-4991-9655-2bef368e02a6[1]'"
+autopkgtest-virt-qemu: DBG: expect: b'6bf8a730-886d-4991-9655-2bef368e02a6[2]'
+autopkgtest-virt-qemu: DBG: expect: found "b'6bf8a730-886d-4991-9655-2bef368e02a6[2]'"
+autopkgtest-virt-qemu: DBG: expect: b'6bf8a730-886d-4991-9655-2bef368e02a6[3]'
+autopkgtest-virt-qemu: DBG: expect: found "b'6bf8a730-886d-4991-9655-2bef368e02a6[3]'"
+autopkgtest-virt-qemu: DBG: execute-timeout: /tmp/autopkgtest-qemu.gx5mfn_c/runcmd sh -ec for d in /var/cache /home; do if [ -e $d/autopkgtest-tmpdir.tar ]; then  tar --warning=none --extract --absolute-names      -f $d/autopkgtest-tmpdir.tar; rm $d/autopkgtest-tmpdir.tar; exit 0; fi; done; exit 1
+autopkgtest-virt-qemu: DBG: cmd_reboot: restored downtmp after reboot
+autopkgtest: DBG: got reply from testbed: ok
+autopkgtest: DBG: testbed supports reboot, creating /tmp/autopkgtest-reboot
+autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.qDB79a'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/reboot.sh /tmp/autopkgtest.qDB79a/autopkgtest-reboot
+autopkgtest-virt-qemu: DBG: executing copydown /usr/share/autopkgtest/lib/in-testbed/reboot.sh /tmp/autopkgtest.qDB79a/autopkgtest-reboot
+autopkgtest-virt-qemu: DBG: ['cmdls', "(['cat'], ['/tmp/autopkgtest-qemu.gx5mfn_c/runcmd', 'sh', '-ec', 'cat >/tmp/autopkgtest.qDB79a/autopkgtest-reboot; chmod +x -- /tmp/autopkgtest.qDB79a/autopkgtest-reboot'])"]
+autopkgtest-virt-qemu: DBG: ['srcstdin', "<_io.BufferedReader name='/usr/share/autopkgtest/lib/in-testbed/reboot.sh'>", 'deststdout', "<_io.BufferedReader name='/dev/null'>", 'devnull_read', <_io.BufferedReader name='/dev/null'>]
+autopkgtest-virt-qemu: DBG:  +< cat
+autopkgtest-virt-qemu: DBG:  +> /tmp/autopkgtest-qemu.gx5mfn_c/runcmd sh -ec cat >/tmp/autopkgtest.qDB79a/autopkgtest-reboot; chmod +x -- /tmp/autopkgtest.qDB79a/autopkgtest-reboot
+autopkgtest-virt-qemu: DBG:  +>?
+autopkgtest-virt-qemu: DBG:  +<?
+autopkgtest: DBG: got reply from testbed: ok
+autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.qDB79a/autopkgtest-reboot'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['ln', '-fns', '/tmp/autopkgtest.qDB79a/autopkgtest-reboot', '/tmp/autopkgtest-reboot'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['ln', '-fns', '/tmp/autopkgtest.qDB79a/autopkgtest-reboot', '/sbin/autopkgtest-reboot'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.qDB79a'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/reboot-prepare.sh /tmp/autopkgtest.qDB79a/autopkgtest-reboot-prepare
+autopkgtest-virt-qemu: DBG: executing copydown /usr/share/autopkgtest/lib/in-testbed/reboot-prepare.sh /tmp/autopkgtest.qDB79a/autopkgtest-reboot-prepare
+autopkgtest-virt-qemu: DBG: ['cmdls', "(['cat'], ['/tmp/autopkgtest-qemu.gx5mfn_c/runcmd', 'sh', '-ec', 'cat >/tmp/autopkgtest.qDB79a/autopkgtest-reboot-prepare; chmod +x -- /tmp/autopkgtest.qDB79a/autopkgtest-reboot-prepare'])"]
+autopkgtest-virt-qemu: DBG: ['srcstdin', "<_io.BufferedReader name='/usr/share/autopkgtest/lib/in-testbed/reboot-prepare.sh'>", 'deststdout', "<_io.BufferedReader name='/dev/null'>", 'devnull_read', <_io.BufferedReader name='/dev/null'>]
+autopkgtest-virt-qemu: DBG:  +< cat
+autopkgtest-virt-qemu: DBG:  +> /tmp/autopkgtest-qemu.gx5mfn_c/runcmd sh -ec cat >/tmp/autopkgtest.qDB79a/autopkgtest-reboot-prepare; chmod +x -- /tmp/autopkgtest.qDB79a/autopkgtest-reboot-prepare
+autopkgtest-virt-qemu: DBG:  +>?
+autopkgtest-virt-qemu: DBG:  +<?
+autopkgtest: DBG: got reply from testbed: ok
+autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.qDB79a/autopkgtest-reboot-prepare'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['ln', '-fns', '/tmp/autopkgtest.qDB79a/autopkgtest-reboot-prepare', '/tmp/autopkgtest-reboot-prepare'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['dpkg', '--print-architecture'], kind short, sout pipe, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest [17:52:22]: testbed dpkg architecture: riscv64
+autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v eatmydata'], kind short, sout pipe, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 127
+autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.qDB79a/testbed-packages"], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.qDB79a/testbed-packages test/vim/testbed-packages
+autopkgtest-virt-qemu: DBG: executing copyup /tmp/autopkgtest.qDB79a/testbed-packages test/vim/testbed-packages
+autopkgtest-virt-qemu: DBG: ['cmdls', "(['/tmp/autopkgtest-qemu.gx5mfn_c/runcmd', 'sh', '-ec', 'cat </tmp/autopkgtest.qDB79a/testbed-packages'], ['cat'])"]
+autopkgtest-virt-qemu: DBG: ['srcstdin', "<_io.BufferedReader name='/dev/null'>", 'deststdout', "<_io.BufferedWriter name='test/vim/testbed-packages'>", 'devnull_read', <_io.BufferedReader name='/dev/null'>]
+autopkgtest-virt-qemu: DBG:  +< /tmp/autopkgtest-qemu.gx5mfn_c/runcmd sh -ec cat </tmp/autopkgtest.qDB79a/testbed-packages
+autopkgtest-virt-qemu: DBG:  +> cat
+autopkgtest-virt-qemu: DBG:  +>?
+autopkgtest-virt-qemu: DBG:  +<?
+autopkgtest: DBG: got reply from testbed: ok
+autopkgtest: DBG: testbed supports reboot, creating /tmp/autopkgtest-reboot
+autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.qDB79a'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/reboot.sh /tmp/autopkgtest.qDB79a/autopkgtest-reboot
+autopkgtest-virt-qemu: DBG: executing copydown /usr/share/autopkgtest/lib/in-testbed/reboot.sh /tmp/autopkgtest.qDB79a/autopkgtest-reboot
+autopkgtest-virt-qemu: DBG: ['cmdls', "(['cat'], ['/tmp/autopkgtest-qemu.gx5mfn_c/runcmd', 'sh', '-ec', 'cat >/tmp/autopkgtest.qDB79a/autopkgtest-reboot; chmod +x -- /tmp/autopkgtest.qDB79a/autopkgtest-reboot'])"]
+autopkgtest-virt-qemu: DBG: ['srcstdin', "<_io.BufferedReader name='/usr/share/autopkgtest/lib/in-testbed/reboot.sh'>", 'deststdout', "<_io.BufferedReader name='/dev/null'>", 'devnull_read', <_io.BufferedReader name='/dev/null'>]
+autopkgtest-virt-qemu: DBG:  +< cat
+autopkgtest-virt-qemu: DBG:  +> /tmp/autopkgtest-qemu.gx5mfn_c/runcmd sh -ec cat >/tmp/autopkgtest.qDB79a/autopkgtest-reboot; chmod +x -- /tmp/autopkgtest.qDB79a/autopkgtest-reboot
+autopkgtest-virt-qemu: DBG:  +>?
+autopkgtest-virt-qemu: DBG:  +<?
+autopkgtest: DBG: got reply from testbed: ok
+autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.qDB79a/autopkgtest-reboot'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['ln', '-fns', '/tmp/autopkgtest.qDB79a/autopkgtest-reboot', '/tmp/autopkgtest-reboot'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['ln', '-fns', '/tmp/autopkgtest.qDB79a/autopkgtest-reboot', '/sbin/autopkgtest-reboot'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.qDB79a'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: sending command to testbed: copydown /usr/share/autopkgtest/lib/in-testbed/reboot-prepare.sh /tmp/autopkgtest.qDB79a/autopkgtest-reboot-prepare
+autopkgtest-virt-qemu: DBG: executing copydown /usr/share/autopkgtest/lib/in-testbed/reboot-prepare.sh /tmp/autopkgtest.qDB79a/autopkgtest-reboot-prepare
+autopkgtest-virt-qemu: DBG: ['cmdls', "(['cat'], ['/tmp/autopkgtest-qemu.gx5mfn_c/runcmd', 'sh', '-ec', 'cat >/tmp/autopkgtest.qDB79a/autopkgtest-reboot-prepare; chmod +x -- /tmp/autopkgtest.qDB79a/autopkgtest-reboot-prepare'])"]
+autopkgtest-virt-qemu: DBG: ['srcstdin', "<_io.BufferedReader name='/usr/share/autopkgtest/lib/in-testbed/reboot-prepare.sh'>", 'deststdout', "<_io.BufferedReader name='/dev/null'>", 'devnull_read', <_io.BufferedReader name='/dev/null'>]
+autopkgtest-virt-qemu: DBG:  +< cat
+autopkgtest-virt-qemu: DBG:  +> /tmp/autopkgtest-qemu.gx5mfn_c/runcmd sh -ec cat >/tmp/autopkgtest.qDB79a/autopkgtest-reboot-prepare; chmod +x -- /tmp/autopkgtest.qDB79a/autopkgtest-reboot-prepare
+autopkgtest-virt-qemu: DBG:  +>?
+autopkgtest-virt-qemu: DBG:  +<?
+autopkgtest: DBG: got reply from testbed: ok
+autopkgtest: DBG: testbed command ['chmod', '-R', '0755', '--', '/tmp/autopkgtest.qDB79a/autopkgtest-reboot-prepare'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['ln', '-fns', '/tmp/autopkgtest.qDB79a/autopkgtest-reboot-prepare', '/tmp/autopkgtest-reboot-prepare'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['uname', '-srv'], kind short, sout pipe, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: Binaries: no registered binaries, not publishing anything
+autopkgtest: DBG: install_deps: deps_new=['vim']
+autopkgtest: DBG: install-deps: satisfying vim
+autopkgtest: DBG: install-deps: architecture resolved: vim
+autopkgtest: DBG: testbed command ['test', '-w', '/var/lib/dpkg/status'], kind short, sout raw, serr raw, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: can use apt-get on testbed: True
+autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.qDB79a'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: sending command to testbed: copydown test/vim/2-autopkgtest-satdep.deb /tmp/autopkgtest.qDB79a/2-autopkgtest-satdep.deb
+autopkgtest-virt-qemu: DBG: executing copydown test/vim/2-autopkgtest-satdep.deb /tmp/autopkgtest.qDB79a/2-autopkgtest-satdep.deb
+autopkgtest-virt-qemu: DBG: ['cmdls', "(['cat'], ['/tmp/autopkgtest-qemu.gx5mfn_c/runcmd', 'sh', '-ec', 'cat >/tmp/autopkgtest.qDB79a/2-autopkgtest-satdep.deb'])"]
+autopkgtest-virt-qemu: DBG: ['srcstdin', "<_io.BufferedReader name='test/vim/2-autopkgtest-satdep.deb'>", 'deststdout', "<_io.BufferedReader name='/dev/null'>", 'devnull_read', <_io.BufferedReader name='/dev/null'>]
+autopkgtest-virt-qemu: DBG:  +< cat
+autopkgtest-virt-qemu: DBG:  +> /tmp/autopkgtest-qemu.gx5mfn_c/runcmd sh -ec cat >/tmp/autopkgtest.qDB79a/2-autopkgtest-satdep.deb
+autopkgtest-virt-qemu: DBG:  +>?
+autopkgtest-virt-qemu: DBG:  +<?
+autopkgtest: DBG: got reply from testbed: ok
+autopkgtest: DBG: testbed command ['chown', '-R', 'openkylin', '--', '/tmp/autopkgtest.qDB79a/2-autopkgtest-satdep.deb'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['dpkg', '--unpack', '/tmp/autopkgtest.qDB79a/2-autopkgtest-satdep.deb'], kind short, sout pipe, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['/bin/sh', '-ec', ' apt-get install --assume-yes --fix-broken -o APT::Status-Fd=3 -o APT::Install-Recommends=false -o Dpkg::Options::=--force-confnew -o Debug::pkgProblemResolver=true 3>&2 2>&1'], kind install, sout raw, serr pipe, env ['DEBIAN_FRONTEND=noninteractive', 'APT_LISTBUGS_FRONTEND=none', 'APT_LISTCHANGES_FRONTEND=none']
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Starting pkgProblemResolver with broken count: 0
+Starting 2 pkgProblemResolver with broken count: 0
+Done
+0 upgraded, 0 newly installed, 0 to remove and 19 not upgraded.
+1 not fully installed or removed.
+After this operation, 0 B of additional disk space will be used.
+Setting up autopkgtest-satdep (0) ...
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['dpkg-query', '--show', '-f', '${Status}', 'vim'], kind short, sout pipe, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['dpkg', '--status', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['apt-get', '--simulate', '--quiet', '-o', 'APT::Get::Show-User-Simulation-Note=False', '--auto-remove', 'purge', 'autopkgtest-satdep'], kind short, sout pipe, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['dpkg', '--purge', 'autopkgtest-satdep'], kind short, sout raw, serr raw, env []
+(Reading database ... 159926 files and directories currently installed.)
+Removing autopkgtest-satdep (0) ...
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['sh', '-ec', 'command -v dpkg-query'], kind short, sout pipe, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: testbed command ['sh', '-ec', "dpkg-query --show -f '${Package}\\t${Version}\\n' > /tmp/autopkgtest.qDB79a/command2-packages.all"], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.qDB79a/command2-packages.all test/vim/command2-packages.all
+autopkgtest-virt-qemu: DBG: executing copyup /tmp/autopkgtest.qDB79a/command2-packages.all test/vim/command2-packages.all
+autopkgtest-virt-qemu: DBG: ['cmdls', "(['/tmp/autopkgtest-qemu.gx5mfn_c/runcmd', 'sh', '-ec', 'cat </tmp/autopkgtest.qDB79a/command2-packages.all'], ['cat'])"]
+autopkgtest-virt-qemu: DBG: ['srcstdin', "<_io.BufferedReader name='/dev/null'>", 'deststdout', "<_io.BufferedWriter name='test/vim/command2-packages.all'>", 'devnull_read', <_io.BufferedReader name='/dev/null'>]
+autopkgtest-virt-qemu: DBG:  +< /tmp/autopkgtest-qemu.gx5mfn_c/runcmd sh -ec cat </tmp/autopkgtest.qDB79a/command2-packages.all
+autopkgtest-virt-qemu: DBG:  +> cat
+autopkgtest-virt-qemu: DBG:  +>?
+autopkgtest-virt-qemu: DBG:  +<?
+autopkgtest: DBG: got reply from testbed: ok
+autopkgtest: DBG: testbed command ['test', '-e', '/tmp/autopkgtest.qDB79a/build.RqG/src'], kind short, sout raw, serr raw, env []
+autopkgtest: DBG: testbed command exited with code 1
+autopkgtest: DBG: testbed command ['mkdir', '-p', '/tmp/autopkgtest.qDB79a/build.RqG'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest: DBG: sending command to testbed: copydown test/vim/tests-tree/ /tmp/autopkgtest.qDB79a/build.RqG/src/
+autopkgtest-virt-qemu: DBG: executing copydown test/vim/tests-tree/ /tmp/autopkgtest.qDB79a/build.RqG/src/
+autopkgtest-virt-qemu: DBG: ['cmdls', "(['tar', '--directory', 'test/vim/tests-tree/', '--warning=none', '-c', '.', '-f', '-'], ['/tmp/autopkgtest-qemu.gx5mfn_c/runcmd', 'sh', '-ec', 'if ! test -d /tmp/autopkgtest.qDB79a/build.RqG/src/; then mkdir -- /tmp/autopkgtest.qDB79a/build.RqG/src/; fi; cd /tmp/autopkgtest.qDB79a/build.RqG/src/; tar --warning=none --preserve-permissions --extract --no-same-owner -f -'])"]
+autopkgtest-virt-qemu: DBG: ['srcstdin', "<_io.BufferedReader name='/dev/null'>", 'deststdout', "<_io.BufferedReader name='/dev/null'>", 'devnull_read', <_io.BufferedReader name='/dev/null'>]
+autopkgtest-virt-qemu: DBG:  +< tar --directory test/vim/tests-tree/ --warning=none -c . -f -
+autopkgtest-virt-qemu: DBG:  +> /tmp/autopkgtest-qemu.gx5mfn_c/runcmd sh -ec if ! test -d /tmp/autopkgtest.qDB79a/build.RqG/src/; then mkdir -- /tmp/autopkgtest.qDB79a/build.RqG/src/; fi; cd /tmp/autopkgtest.qDB79a/build.RqG/src/; tar --warning=none --preserve-permissions --extract --no-same-owner -f -
+autopkgtest-virt-qemu: DBG:  +>?
+autopkgtest-virt-qemu: DBG:  +<?
+autopkgtest: DBG: got reply from testbed: ok
+autopkgtest: DBG: testbed command ['chown', '-R', 'openkylin', '--', '/tmp/autopkgtest.qDB79a/build.RqG/src'], kind short, sout raw, serr pipe, env []
+autopkgtest: DBG: testbed command exited with code 0
+autopkgtest [17:53:03]: test command2: ./debian/tests/upstreamtest /usr/bin/vim
+autopkgtest [17:53:03]: test command2: [-----------------------
+autopkgtest: DBG: testbed command ['su', '-s', '/bin/bash', 'root', '-c', 'set -e; export USER=`id -nu`; . /etc/profile >/dev/null 2>&1 || true;  . ~/.profile >/dev/null 2>&1 || true; buildtree="/tmp/autopkgtest.qDB79a/build.RqG/src"; mkdir -p -m 1777 -- "/tmp/autopkgtest.qDB79a/command2-artifacts"; export AUTOPKGTEST_ARTIFACTS="/tmp/autopkgtest.qDB79a/command2-artifacts"; export ADT_ARTIFACTS="$AUTOPKGTEST_ARTIFACTS"; mkdir -p -m 755 "/tmp/autopkgtest.qDB79a/autopkgtest_tmp"; export AUTOPKGTEST_TMP="/tmp/autopkgtest.qDB79a/autopkgtest_tmp"; export ADTTMP="$AUTOPKGTEST_TMP"; export DEBIAN_FRONTEND=noninteractive; export LANG=C.UTF-8; export DEB_BUILD_OPTIONS=parallel=4; unset LANGUAGE LC_CTYPE LC_NUMERIC LC_TIME LC_COLLATE   LC_MONETARY LC_MESSAGES LC_PAPER LC_NAME LC_ADDRESS   LC_TELEPHONE LC_MEASUREMENT LC_IDENTIFICATION LC_ALL;cd "$buildtree"; export AUTOPKGTEST_NORMAL_USER=openkylin; export ADT_NORMAL_USER=openkylin; exec /tmp/autopkgtest.qDB79a/wrapper.sh --script-pid-file=/tmp/autopkgtest_script_pid --stderr=/tmp/autopkgtest.qDB79a/command2-stderr --stdout=/tmp/autopkgtest.qDB79a/command2-stdout -- bash -ec \'./debian/tests/upstreamtest /usr/bin/vim\' ;'], kind test, sout raw, serr raw, env []
+make: Entering directory '/tmp/autopkgtest.qDB79a/autopkgtest_tmp/vim/src/testdir'
+rm -f test.log messages
+rm -rf test1.failed test.out X* viminfo tiny.vim small.vim mbyte.vim mzscheme.vim test.ok benchmark.out wrongtermsize
+VIMRUNTIME=/usr/share/vim/vim81  /usr/bin/vim -f  -u unix.vim -U NONE --noplugin --not-a-term -s dotest.in test1.in --cmd 'au SwapExists * let v:swapchoice = "e"' > /dev/null
+rm -rf X* viminfo
+rm -rf test39.failed test.ok test.out X* viminfo
+cp test39.ok test.ok
+# Sleep a moment to avoid that the xterm title is messed up.
+# 200 msec is sufficient, but only modern sleep supports a fraction of
+# a second, fall back to a second if it fails.
+VIMRUNTIME=/usr/share/vim/vim81  /usr/bin/vim -f  -u unix.vim -U NONE --noplugin --not-a-term -s dotest.in test39.in --cmd 'au SwapExists * let v:swapchoice = "e"' > /dev/null
+# For flaky tests retry one time.  No tests at the moment.
+#@/bin/sh -c "if test -f test.out -a test39 = test61; then \
+#	  if diff test.out test39.ok; \
+#	  then echo flaky test ok first time; \
+#	  else rm -rf test39.failed test.out X* viminfo; \
+#		VIMRUNTIME=/usr/share/vim/vim81  /usr/bin/vim -f  -u unix.vim -U NONE --noplugin --not-a-term -s dotest.in test39.in; \
+#	  fi \
+#	fi"
+# Check if the test.out file matches test.ok.
+rm -rf X* test.ok viminfo
+rm -rf test42.failed test.ok test.out X* viminfo
+cp test42.ok test.ok
+# Sleep a moment to avoid that the xterm title is messed up.
+# 200 msec is sufficient, but only modern sleep supports a fraction of
+# a second, fall back to a second if it fails.
+VIMRUNTIME=/usr/share/vim/vim81  /usr/bin/vim -f  -u unix.vim -U NONE --noplugin --not-a-term -s dotest.in test42.in --cmd 'au SwapExists * let v:swapchoice = "e"' > /dev/null
+# For flaky tests retry one time.  No tests at the moment.
+#@/bin/sh -c "if test -f test.out -a test42 = test61; then \
+#	  if diff test.out test42.ok; \
+#	  then echo flaky test ok first time; \
+#	  else rm -rf test42.failed test.out X* viminfo; \
+#		VIMRUNTIME=/usr/share/vim/vim81  /usr/bin/vim -f  -u unix.vim -U NONE --noplugin --not-a-term -s dotest.in test42.in; \
+#	  fi \
+#	fi"
+# Check if the test.out file matches test.ok.
+rm -rf X* test.ok viminfo
+rm -rf test44.failed test.ok test.out X* viminfo
+cp test44.ok test.ok
+# Sleep a moment to avoid that the xterm title is messed up.
+# 200 msec is sufficient, but only modern sleep supports a fraction of
+# a second, fall back to a second if it fails.
+VIMRUNTIME=/usr/share/vim/vim81  /usr/bin/vim -f  -u unix.vim -U NONE --noplugin --not-a-term -s dotest.in test44.in --cmd 'au SwapExists * let v:swapchoice = "e"' > /dev/null
+# For flaky tests retry one time.  No tests at the moment.
+#@/bin/sh -c "if test -f test.out -a test44 = test61; then \
+#	  if diff test.out test44.ok; \
+#	  then echo flaky test ok first time; \
+#	  else rm -rf test44.failed test.out X* viminfo; \
+#		VIMRUNTIME=/usr/share/vim/vim81  /usr/bin/vim -f  -u unix.vim -U NONE --noplugin --not-a-term -s dotest.in test44.in; \
+#	  fi \
+#	fi"
+# Check if the test.out file matches test.ok.
+rm -rf X* test.ok viminfo
+rm -rf test48.failed test.ok test.out X* viminfo
+cp test48.ok test.ok
+# Sleep a moment to avoid that the xterm title is messed up.
+# 200 msec is sufficient, but only modern sleep supports a fraction of
+# a second, fall back to a second if it fails.
+VIMRUNTIME=/usr/share/vim/vim81  /usr/bin/vim -f  -u unix.vim -U NONE --noplugin --not-a-term -s dotest.in test48.in --cmd 'au SwapExists * let v:swapchoice = "e"' > /dev/null
+# For flaky tests retry one time.  No tests at the moment.
+#@/bin/sh -c "if test -f test.out -a test48 = test61; then \
+#	  if diff test.out test48.ok; \
+#	  then echo flaky test ok first time; \
+#	  else rm -rf test48.failed test.out X* viminfo; \
+#		VIMRUNTIME=/usr/share/vim/vim81  /usr/bin/vim -f  -u unix.vim -U NONE --noplugin --not-a-term -s dotest.in test48.in; \
+#	  fi \
+#	fi"
+# Check if the test.out file matches test.ok.
+rm -rf X* test.ok viminfo
+rm -rf test64.failed test.ok test.out X* viminfo
+cp test64.ok test.ok
+# Sleep a moment to avoid that the xterm title is messed up.
+# 200 msec is sufficient, but only modern sleep supports a fraction of
+# a second, fall back to a second if it fails.
+VIMRUNTIME=/usr/share/vim/vim81  /usr/bin/vim -f  -u unix.vim -U NONE --noplugin --not-a-term -s dotest.in test64.in --cmd 'au SwapExists * let v:swapchoice = "e"' > /dev/null
+# For flaky tests retry one time.  No tests at the moment.
+#@/bin/sh -c "if test -f test.out -a test64 = test61; then \
+#	  if diff test.out test64.ok; \
+#	  then echo flaky test ok first time; \
+#	  else rm -rf test64.failed test.out X* viminfo; \
+#		VIMRUNTIME=/usr/share/vim/vim81  /usr/bin/vim -f  -u unix.vim -U NONE --noplugin --not-a-term -s dotest.in test64.in; \
+#	  fi \
+#	fi"
+# Check if the test.out file matches test.ok.
+rm -rf X* test.ok viminfo
+rm -rf test69.failed test.ok test.out X* viminfo
+cp test69.ok test.ok
+# Sleep a moment to avoid that the xterm title is messed up.
+# 200 msec is sufficient, but only modern sleep supports a fraction of
+# a second, fall back to a second if it fails.
+VIMRUNTIME=/usr/share/vim/vim81  /usr/bin/vim -f  -u unix.vim -U NONE --noplugin --not-a-term -s dotest.in test69.in --cmd 'au SwapExists * let v:swapchoice = "e"' > /dev/null
+# For flaky tests retry one time.  No tests at the moment.
+#@/bin/sh -c "if test -f test.out -a test69 = test61; then \
+#	  if diff test.out test69.ok; \
+#	  then echo flaky test ok first time; \
+#	  else rm -rf test69.failed test.out X* viminfo; \
+#		VIMRUNTIME=/usr/share/vim/vim81  /usr/bin/vim -f  -u unix.vim -U NONE --noplugin --not-a-term -s dotest.in test69.in; \
+#	  fi \
+#	fi"
+# Check if the test.out file matches test.ok.
+rm -rf X* test.ok viminfo
+rm -rf test70.failed test.ok test.out X* viminfo
+cp test70.ok test.ok
+# Sleep a moment to avoid that the xterm title is messed up.
+# 200 msec is sufficient, but only modern sleep supports a fraction of
+# a second, fall back to a second if it fails.
+VIMRUNTIME=/usr/share/vim/vim81  /usr/bin/vim -f  -u unix.vim -U NONE --noplugin --not-a-term -s dotest.in test70.in --cmd 'au SwapExists * let v:swapchoice = "e"' > /dev/null
+# For flaky tests retry one time.  No tests at the moment.
+#@/bin/sh -c "if test -f test.out -a test70 = test61; then \
+#	  if diff test.out test70.ok; \
+#	  then echo flaky test ok first time; \
+#	  else rm -rf test70.failed test.out X* viminfo; \
+#		VIMRUNTIME=/usr/share/vim/vim81  /usr/bin/vim -f  -u unix.vim -U NONE --noplugin --not-a-term -s dotest.in test70.in; \
+#	  fi \
+#	fi"
+# Check if the test.out file matches test.ok.
+rm -rf X* test.ok viminfo
+rm -rf test88.failed test.ok test.out X* viminfo
+cp test88.ok test.ok
+# Sleep a moment to avoid that the xterm title is messed up.
+# 200 msec is sufficient, but only modern sleep supports a fraction of
+# a second, fall back to a second if it fails.
+VIMRUNTIME=/usr/share/vim/vim81  /usr/bin/vim -f  -u unix.vim -U NONE --noplugin --not-a-term -s dotest.in test88.in --cmd 'au SwapExists * let v:swapchoice = "e"' > /dev/null
+# For flaky tests retry one time.  No tests at the moment.
+#@/bin/sh -c "if test -f test.out -a test88 = test61; then \
+#	  if diff test.out test88.ok; \
+#	  then echo flaky test ok first time; \
+#	  else rm -rf test88.failed test.out X* viminfo; \
+#		VIMRUNTIME=/usr/share/vim/vim81  /usr/bin/vim -f  -u unix.vim -U NONE --noplugin --not-a-term -s dotest.in test88.in; \
+#	  fi \
+#	fi"
+# Check if the test.out file matches test.ok.
+rm -rf X* test.ok viminfo
+rm -rf test94.failed test.ok test.out X* viminfo
+cp test94.ok test.ok
+# Sleep a moment to avoid that the xterm title is messed up.
+# 200 msec is sufficient, but only modern sleep supports a fraction of
+# a second, fall back to a second if it fails.
+VIMRUNTIME=/usr/share/vim/vim81  /usr/bin/vim -f  -u unix.vim -U NONE --noplugin --not-a-term -s dotest.in test94.in --cmd 'au SwapExists * let v:swapchoice = "e"' > /dev/null
+# For flaky tests retry one time.  No tests at the moment.
+#@/bin/sh -c "if test -f test.out -a test94 = test61; then \
+#	  if diff test.out test94.ok; \
+#	  then echo flaky test ok first time; \
+#	  else rm -rf test94.failed test.out X* viminfo; \
+#		VIMRUNTIME=/usr/share/vim/vim81  /usr/bin/vim -f  -u unix.vim -U NONE --noplugin --not-a-term -s dotest.in test94.in; \
+#	  fi \
+#	fi"
+# Check if the test.out file matches test.ok.
+rm -rf X* test.ok viminfo
+rm -rf test95.failed test.ok test.out X* viminfo
+cp test95.ok test.ok
+# Sleep a moment to avoid that the xterm title is messed up.
+# 200 msec is sufficient, but only modern sleep supports a fraction of
+# a second, fall back to a second if it fails.
+VIMRUNTIME=/usr/share/vim/vim81  /usr/bin/vim -f  -u unix.vim -U NONE --noplugin --not-a-term -s dotest.in test95.in --cmd 'au SwapExists * let v:swapchoice = "e"' > /dev/null
+# For flaky tests retry one time.  No tests at the moment.
+#@/bin/sh -c "if test -f test.out -a test95 = test61; then \
+#	  if diff test.out test95.ok; \
+#	  then echo flaky test ok first time; \
+#	  else rm -rf test95.failed test.out X* viminfo; \
+#		VIMRUNTIME=/usr/share/vim/vim81  /usr/bin/vim -f  -u unix.vim -U NONE --noplugin --not-a-term -s dotest.in test95.in; \
+#	  fi \
+#	fi"
+# Check if the test.out file matches test.ok.
+rm -rf X* test.ok viminfo
+rm -rf test99.failed test.ok test.out X* viminfo
+cp test99.ok test.ok
+# Sleep a moment to avoid that the xterm title is messed up.
+# 200 msec is sufficient, but only modern sleep supports a fraction of
+# a second, fall back to a second if it fails.
+VIMRUNTIME=/usr/share/vim/vim81  /usr/bin/vim -f  -u unix.vim -U NONE --noplugin --not-a-term -s dotest.in test99.in --cmd 'au SwapExists * let v:swapchoice = "e"' > /dev/null
+# For flaky tests retry one time.  No tests at the moment.
+#@/bin/sh -c "if test -f test.out -a test99 = test61; then \
+#	  if diff test.out test99.ok; \
+#	  then echo flaky test ok first time; \
+#	  else rm -rf test99.failed test.out X* viminfo; \
+#		VIMRUNTIME=/usr/share/vim/vim81  /usr/bin/vim -f  -u unix.vim -U NONE --noplugin --not-a-term -s dotest.in test99.in; \
+#	  fi \
+#	fi"
+# Check if the test.out file matches test.ok.
+rm -rf X* test.ok viminfo
+rm -rf test_eval.failed test.ok test.out X* viminfo
+cp test_eval.ok test.ok
+# Sleep a moment to avoid that the xterm title is messed up.
+# 200 msec is sufficient, but only modern sleep supports a fraction of
+# a second, fall back to a second if it fails.
+VIMRUNTIME=/usr/share/vim/vim81  /usr/bin/vim -f  -u unix.vim -U NONE --noplugin --not-a-term -s dotest.in test_eval.in --cmd 'au SwapExists * let v:swapchoice = "e"' > /dev/null
+# For flaky tests retry one time.  No tests at the moment.
+#@/bin/sh -c "if test -f test.out -a test_eval = test61; then \
+#	  if diff test.out test_eval.ok; \
+#	  then echo flaky test ok first time; \
+#	  else rm -rf test_eval.failed test.out X* viminfo; \
+#		VIMRUNTIME=/usr/share/vim/vim81  /usr/bin/vim -f  -u unix.vim -U NONE --noplugin --not-a-term -s dotest.in test_eval.in; \
+#	  fi \
+#	fi"
+# Check if the test.out file matches test.ok.
+rm -rf X* test.ok viminfo
+rm -rf test52.failed test.ok test.out X* viminfo
+cp test52.ok test.ok
+# Sleep a moment to avoid that the xterm title is messed up.
+# 200 msec is sufficient, but only modern sleep supports a fraction of
+# a second, fall back to a second if it fails.
+VIMRUNTIME=/usr/share/vim/vim81  /usr/bin/vim -f  -u unix.vim -U NONE --noplugin --not-a-term -s dotest.in test52.in --cmd 'au SwapExists * let v:swapchoice = "e"' > /dev/null
+# For flaky tests retry one time.  No tests at the moment.
+#@/bin/sh -c "if test -f test.out -a test52 = test61; then \
+#	  if diff test.out test52.ok; \
+#	  then echo flaky test ok first time; \
+#	  else rm -rf test52.failed test.out X* viminfo; \
+#		VIMRUNTIME=/usr/share/vim/vim81  /usr/bin/vim -f  -u unix.vim -U NONE --noplugin --not-a-term -s dotest.in test52.in; \
+#	  fi \
+#	fi"
+# Check if the test.out file matches test.ok.
+rm -rf X* test.ok viminfo
+rm -rf test86.failed test.ok test.out X* viminfo
+cp test86.ok test.ok
+# Sleep a moment to avoid that the xterm title is messed up.
+# 200 msec is sufficient, but only modern sleep supports a fraction of
+# a second, fall back to a second if it fails.
+VIMRUNTIME=/usr/share/vim/vim81  /usr/bin/vim -f  -u unix.vim -U NONE --noplugin --not-a-term -s dotest.in test86.in --cmd 'au SwapExists * let v:swapchoice = "e"' > /dev/null
+# For flaky tests retry one time.  No tests at the moment.
+#@/bin/sh -c "if test -f test.out -a test86 = test61; then \
+#	  if diff test.out test86.ok; \
+#	  then echo flaky test ok first time; \
+#	  else rm -rf test86.failed test.out X* viminfo; \
+#		VIMRUNTIME=/usr/share/vim/vim81  /usr/bin/vim -f  -u unix.vim -U NONE --noplugin --not-a-term -s dotest.in test86.in; \
+#	  fi \
+#	fi"
+# Check if the test.out file matches test.ok.
+rm -rf X* test.ok viminfo
+rm -rf test87.failed test.ok test.out X* viminfo
+cp test87.ok test.ok
+# Sleep a moment to avoid that the xterm title is messed up.
+# 200 msec is sufficient, but only modern sleep supports a fraction of
+# a second, fall back to a second if it fails.
+VIMRUNTIME=/usr/share/vim/vim81  /usr/bin/vim -f  -u unix.vim -U NONE --noplugin --not-a-term -s dotest.in test87.in --cmd 'au SwapExists * let v:swapchoice = "e"' > /dev/null
+# For flaky tests retry one time.  No tests at the moment.
+#@/bin/sh -c "if test -f test.out -a test87 = test61; then \
+#	  if diff test.out test87.ok; \
+#	  then echo flaky test ok first time; \
+#	  else rm -rf test87.failed test.out X* viminfo; \
+#		VIMRUNTIME=/usr/share/vim/vim81  /usr/bin/vim -f  -u unix.vim -U NONE --noplugin --not-a-term -s dotest.in test87.in; \
+#	  fi \
+#	fi"
+# Check if the test.out file matches test.ok.
+rm -rf X* test.ok viminfo
+rm -rf test49.failed test.ok test.out X* viminfo
+cp test49.ok test.ok
+# Sleep a moment to avoid that the xterm title is messed up.
+# 200 msec is sufficient, but only modern sleep supports a fraction of
+# a second, fall back to a second if it fails.
+VIMRUNTIME=/usr/share/vim/vim81  /usr/bin/vim -f  -u unix.vim -U NONE --noplugin --not-a-term -s dotest.in test49.in --cmd 'au SwapExists * let v:swapchoice = "e"' > /dev/null
+# For flaky tests retry one time.  No tests at the moment.
+#@/bin/sh -c "if test -f test.out -a test49 = test61; then \
+#	  if diff test.out test49.ok; \
+#	  then echo flaky test ok first time; \
+#	  else rm -rf test49.failed test.out X* viminfo; \
+#		VIMRUNTIME=/usr/share/vim/vim81  /usr/bin/vim -f  -u unix.vim -U NONE --noplugin --not-a-term -s dotest.in test49.in; \
+#	  fi \
+#	fi"
+# Check if the test.out file matches test.ok.
+rm -rf X* test.ok viminfo
+rm -rf test59.failed test.ok test.out X* viminfo
+cp test59.ok test.ok
+# Sleep a moment to avoid that the xterm title is messed up.
+# 200 msec is sufficient, but only modern sleep supports a fraction of
+# a second, fall back to a second if it fails.
+VIMRUNTIME=/usr/share/vim/vim81  /usr/bin/vim -f  -u unix.vim -U NONE --noplugin --not-a-term -s dotest.in test59.in --cmd 'au SwapExists * let v:swapchoice = "e"' > /dev/null
+# For flaky tests retry one time.  No tests at the moment.
+#@/bin/sh -c "if test -f test.out -a test59 = test61; then \
+#	  if diff test.out test59.ok; \
+#	  then echo flaky test ok first time; \
+#	  else rm -rf test59.failed test.out X* viminfo; \
+#		VIMRUNTIME=/usr/share/vim/vim81  /usr/bin/vim -f  -u unix.vim -U NONE --noplugin --not-a-term -s dotest.in test59.in; \
+#	  fi \
+#	fi"
+# Check if the test.out file matches test.ok.
+rm -rf X* test.ok viminfo
+rm -rf test72.failed test.ok test.out X* viminfo
+cp test72.ok test.ok
+# Sleep a moment to avoid that the xterm title is messed up.
+# 200 msec is sufficient, but only modern sleep supports a fraction of
+# a second, fall back to a second if it fails.
+VIMRUNTIME=/usr/share/vim/vim81  /usr/bin/vim -f  -u unix.vim -U NONE --noplugin --not-a-term -s dotest.in test72.in --cmd 'au SwapExists * let v:swapchoice = "e"' > /dev/null
+# For flaky tests retry one time.  No tests at the moment.
+#@/bin/sh -c "if test -f test.out -a test72 = test61; then \
+#	  if diff test.out test72.ok; \
+#	  then echo flaky test ok first time; \
+#	  else rm -rf test72.failed test.out X* viminfo; \
+#		VIMRUNTIME=/usr/share/vim/vim81  /usr/bin/vim -f  -u unix.vim -U NONE --noplugin --not-a-term -s dotest.in test72.in; \
+#	  fi \
+#	fi"
+# Check if the test.out file matches test.ok.
+rm -rf X* test.ok viminfo
+VIMRUNTIME=/usr/share/vim/vim81  /usr/bin/vim -f  -u unix.vim -U NONE --noplugin --not-a-term -S runtest.vim test_arabic.vim --cmd 'au SwapExists * let v:swapchoice = "e"' > /dev/null
+VIMRUNTIME=/usr/share/vim/vim81  /usr/bin/vim -f  -u unix.vim -U NONE --noplugin --not-a-term -S runtest.vim test_arglist.vim --cmd 'au SwapExists * let v:swapchoice = "e"' > /dev/null
+VIMRUNTIME=/usr/share/vim/vim81  /usr/bin/vim -f  -u unix.vim -U NONE --noplugin --not-a-term -S runtest.vim test_assert.vim --cmd 'au SwapExists * let v:swapchoice = "e"' > /dev/null
+VIMRUNTIME=/usr/share/vim/vim81  /usr/bin/vim -f  -u unix.vim -U NONE --noplugin --not-a-term -S runtest.vim test_autochdir.vim --cmd 'au SwapExists * let v:swapchoice = "e"' > /dev/null
+VIMRUNTIME=/usr/share/vim/vim81  /usr/bin/vim -f  -u unix.vim -U NONE --noplugin --not-a-term -S runtest.vim test_autocmd.vim --cmd 'au SwapExists * let v:swapchoice = "e"' > /dev/null
+autopkgtest: DBG: timed out on ['/tmp/autopkgtest-qemu.gx5mfn_c/runcmd'] ['su', '-s', '/bin/bash', 'root', '-c', 'set -e; export USER=`id -nu`; . /etc/profile >/dev/null 2>&1 || true;  . ~/.profile >/dev/null 2>&1 || true; buildtree="/tmp/autopkgtest.qDB79a/build.RqG/src"; mkdir -p -m 1777 -- "/tmp/autopkgtest.qDB79a/command2-artifacts"; export AUTOPKGTEST_ARTIFACTS="/tmp/autopkgtest.qDB79a/command2-artifacts"; export ADT_ARTIFACTS="$AUTOPKGTEST_ARTIFACTS"; mkdir -p -m 755 "/tmp/autopkgtest.qDB79a/autopkgtest_tmp"; export AUTOPKGTEST_TMP="/tmp/autopkgtest.qDB79a/autopkgtest_tmp"; export ADTTMP="$AUTOPKGTEST_TMP"; export DEBIAN_FRONTEND=noninteractive; export LANG=C.UTF-8; export DEB_BUILD_OPTIONS=parallel=4; unset LANGUAGE LC_CTYPE LC_NUMERIC LC_TIME LC_COLLATE   LC_MONETARY LC_MESSAGES LC_PAPER LC_NAME LC_ADDRESS   LC_TELEPHONE LC_MEASUREMENT LC_IDENTIFICATION LC_ALL;cd "$buildtree"; export AUTOPKGTEST_NORMAL_USER=openkylin; export ADT_NORMAL_USER=openkylin; exec /tmp/autopkgtest.qDB79a/wrapper.sh --script-pid-file=/tmp/autopkgtest_script_pid --stderr=/tmp/autopkgtest.qDB79a/command2-stderr --stdout=/tmp/autopkgtest.qDB79a/command2-stdout -- bash -ec \'./debian/tests/upstreamtest /usr/bin/vim\' ;'] (kind: test)
+autopkgtest [20:39:43]: ERROR: timed out on command "su -s /bin/bash root -c set -e; export USER=`id -nu`; . /etc/profile >/dev/null 2>&1 || true;  . ~/.profile >/dev/null 2>&1 || true; buildtree="/tmp/autopkgtest.qDB79a/build.RqG/src"; mkdir -p -m 1777 -- "/tmp/autopkgtest.qDB79a/command2-artifacts"; export AUTOPKGTEST_ARTIFACTS="/tmp/autopkgtest.qDB79a/command2-artifacts"; export ADT_ARTIFACTS="$AUTOPKGTEST_ARTIFACTS"; mkdir -p -m 755 "/tmp/autopkgtest.qDB79a/autopkgtest_tmp"; export AUTOPKGTEST_TMP="/tmp/autopkgtest.qDB79a/autopkgtest_tmp"; export ADTTMP="$AUTOPKGTEST_TMP"; export DEBIAN_FRONTEND=noninteractive; export LANG=C.UTF-8; export DEB_BUILD_OPTIONS=parallel=4; unset LANGUAGE LC_CTYPE LC_NUMERIC LC_TIME LC_COLLATE   LC_MONETARY LC_MESSAGES LC_PAPER LC_NAME LC_ADDRESS   LC_TELEPHONE LC_MEASUREMENT LC_IDENTIFICATION LC_ALL;cd "$buildtree"; export AUTOPKGTEST_NORMAL_USER=openkylin; export ADT_NORMAL_USER=openkylin; exec /tmp/autopkgtest.qDB79a/wrapper.sh --script-pid-file=/tmp/autopkgtest_script_pid --stderr=/tmp/autopkgtest.qDB79a/command2-stderr --stdout=/tmp/autopkgtest.qDB79a/command2-stdout -- bash -ec './debian/tests/upstreamtest /usr/bin/vim' ;" (kind: test)
+autopkgtest [20:39:43]: test command2: -----------------------]
+autopkgtest: DBG: testbed executing test finished with exit status 1
+autopkgtest: DBG: sending command to testbed: copyup /tmp/autopkgtest.qDB79a/command2-stdout test/vim/command2-stdout
+autopkgtest-virt-qemu: DBG: executing copyup /tmp/autopkgtest.qDB79a/command2-stdout test/vim/command2-stdout
+autopkgtest-virt-qemu: DBG: ['cmdls', "(['/tmp/autopkgtest-qemu.gx5mfn_c/runcmd', 'sh', '-ec', 'cat </tmp/autopkgtest.qDB79a/command2-stdout'], ['cat'])"]
+autopkgtest-virt-qemu: DBG: ['srcstdin', "<_io.BufferedReader name='/dev/null'>", 'deststdout', "<_io.BufferedWriter name='test/vim/command2-stdout'>", 'devnull_read', <_io.BufferedReader name='/dev/null'>]
+autopkgtest-virt-qemu: DBG:  +< /tmp/autopkgtest-qemu.gx5mfn_c/runcmd sh -ec cat </tmp/autopkgtest.qDB79a/command2-stdout
+autopkgtest-virt-qemu: DBG:  +> cat
+autopkgtest-virt-qemu: DBG:  +>?
+autopkgtest: DBG: got reply from testbed: timeout
+autopkgtest: DBG: sending command to testbed: auxverb_debug_fail
+autopkgtest-virt-qemu: DBG: executing auxverb_debug_fail
+autopkgtest: DBG: got reply from testbed: ok
+autopkgtest: DBG: TestbedFailure sent `auxverb_debug_fail', got `timeout', expected `ok...'
+autopkgtest: DBG: testbed stop
+autopkgtest: DBG: testbed close, scratch=/tmp/autopkgtest.qDB79a
+autopkgtest: DBG: sending command to testbed: close
+autopkgtest-virt-qemu: DBG: executing close
+autopkgtest-virt-qemu: DBG: cleanup...
+qemu-system-riscv64: terminating on signal 15 from pid 25972 (/usr/bin/python3)
+autopkgtest: DBG: got reply from testbed: ok
+autopkgtest: DBG: sending command to testbed: quit
+autopkgtest-virt-qemu: DBG: executing quit
+autopkgtest-virt-qemu: DBG: cleanup...
+autopkgtest: WARNING: Copying up test output timed out, ignoring
+autopkgtest [20:44:43]: test command2:  - - - - - - - - - - results - - - - - - - - - -
+command2             FLAKY timed out
+autopkgtest: DBG: Skipping remaining log processing and testbed restore after timeout
+autopkgtest [20:44:43]: test command3: preparing testbed
+autopkgtest: DBG: testbed reset: modified=False, deps_installed=['vim'], deps_new=['vim-nox']
+autopkgtest: DBG: testbed reset
+autopkgtest: DBG: sending command to testbed: revert
+autopkgtest: DBG: TestbedFailure cannot send to testbed: 'NoneType' object has no attribute 'stdin'
+autopkgtest: DBG: testbed stop
+autopkgtest [20:44:43]: ERROR: testbed failure: cannot send to testbed: 'NoneType' object has no attribute 'stdin'
+autopkgtest: DBG: testbed stop

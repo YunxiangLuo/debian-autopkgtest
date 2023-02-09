@@ -1,0 +1,5232 @@
+
+udev-test will run 162 tests:
+
+TEST 1: no rules
+add test/tmpfs/dev/sda:         ok
+add test/tmpfs/dev/sda1:         ok
+remove test/tmpfs/dev/sda:         ok
+remove test/tmpfs/dev/sda1:         ok
+TEST 1: errors: 0 good: 8/8
+
+TEST 2: label test of scsi disc
+add test/tmpfs/dev/sda:         ok
+symlink boot_disk:         ok
+remove test/tmpfs/dev/sda:         ok
+remove  boot_disk:      ok
+TEST 2: errors: 0 good: 6/6
+
+TEST 3: label test of scsi disc
+add test/tmpfs/dev/sda:         ok
+symlink boot_disk:         ok
+remove test/tmpfs/dev/sda:         ok
+remove  boot_disk:      ok
+TEST 3: errors: 0 good: 6/6
+
+TEST 4: label test of scsi disc
+add test/tmpfs/dev/sda:         ok
+symlink boot_disk:         ok
+remove test/tmpfs/dev/sda:         ok
+remove  boot_disk:      ok
+TEST 4: errors: 0 good: 6/6
+
+TEST 5: label test of scsi partition
+add test/tmpfs/dev/sda1:         ok
+symlink boot_disk1:         ok
+remove test/tmpfs/dev/sda1:         ok
+remove  boot_disk1:      ok
+TEST 5: errors: 0 good: 6/6
+
+TEST 6: label test of pattern match
+add test/tmpfs/dev/sda1:         ok
+symlink boot_disk1:         ok
+symlink boot_disk1-4:         ok
+symlink boot_disk1-5:         ok
+nonexistent boot_disk1-1:         ok
+nonexistent boot_disk1-2:         ok
+nonexistent boot_disk1-3:         ok
+nonexistent boot_disk1-6:         ok
+nonexistent boot_disk1-7:         ok
+remove test/tmpfs/dev/sda1:         ok
+remove  boot_disk1:      ok
+remove  boot_disk1-4:      ok
+remove  boot_disk1-5:      ok
+TEST 6: errors: 0 good: 15/15
+
+TEST 7: label test of multiple sysfs files
+add test/tmpfs/dev/sda1:         ok
+symlink boot_disk1:         ok
+nonexistent boot_diskX1:         ok
+remove test/tmpfs/dev/sda1:         ok
+remove  boot_disk1:      ok
+TEST 7: errors: 0 good: 7/7
+
+TEST 8: label test of max sysfs files (skip invalid rule)
+add test/tmpfs/dev/sda1:         ok
+symlink boot_disk1:         ok
+symlink boot_diskXY1:         ok
+nonexistent boot_diskXX1:         ok
+remove test/tmpfs/dev/sda1:         ok
+remove  boot_disk1:      ok
+remove  boot_diskXY1:      ok
+TEST 8: errors: 0 good: 9/9
+
+TEST 9: catch device by *
+add test/tmpfs/dev/ttyACM0:         ok
+symlink modem/0:         ok
+symlink catch-all:         ok
+remove test/tmpfs/dev/ttyACM0:         ok
+remove  modem/0:      ok
+remove  catch-all:      ok
+TEST 9: errors: 0 good: 8/8
+
+TEST 10: catch device by * - take 2
+add test/tmpfs/dev/ttyACM0:         ok
+symlink modem/0:         ok
+nonexistent bad:         ok
+remove test/tmpfs/dev/ttyACM0:         ok
+remove  modem/0:      ok
+TEST 10: errors: 0 good: 7/7
+
+TEST 11: catch device by ?
+add test/tmpfs/dev/ttyACM0:         ok
+symlink modem/0:         ok
+nonexistent modem/0-1:         ok
+nonexistent modem/0-2:         ok
+remove test/tmpfs/dev/ttyACM0:         ok
+remove  modem/0:      ok
+TEST 11: errors: 0 good: 8/8
+
+TEST 12: catch device by character class
+add test/tmpfs/dev/ttyACM0:         ok
+symlink modem/0:         ok
+nonexistent modem/0-1:         ok
+nonexistent modem/0-2:         ok
+remove test/tmpfs/dev/ttyACM0:         ok
+remove  modem/0:      ok
+TEST 12: errors: 0 good: 8/8
+
+TEST 13: don't replace kernel name
+add test/tmpfs/dev/ttyACM0:         ok
+symlink modem:         ok
+remove test/tmpfs/dev/ttyACM0:         ok
+remove  modem:      ok
+TEST 13: errors: 0 good: 6/6
+
+TEST 14: Handle comment lines in config file (and don't replace kernel name)
+add test/tmpfs/dev/ttyACM0:         ok
+symlink modem:         ok
+remove test/tmpfs/dev/ttyACM0:         ok
+remove  modem:      ok
+TEST 14: errors: 0 good: 6/6
+
+TEST 15: Handle comment lines in config file with whitespace (and don't replace kernel name)
+add test/tmpfs/dev/ttyACM0:         ok
+symlink modem:         ok
+remove test/tmpfs/dev/ttyACM0:         ok
+remove  modem:      ok
+TEST 15: errors: 0 good: 6/6
+
+TEST 16: Handle whitespace only lines (and don't replace kernel name)
+add test/tmpfs/dev/ttyACM0:         ok
+symlink whitespace:         ok
+remove test/tmpfs/dev/ttyACM0:         ok
+remove  whitespace:      ok
+TEST 16: errors: 0 good: 6/6
+
+TEST 17: Handle empty lines in config file (and don't replace kernel name)
+add test/tmpfs/dev/ttyACM0:         ok
+symlink modem:         ok
+remove test/tmpfs/dev/ttyACM0:         ok
+remove  modem:      ok
+TEST 17: errors: 0 good: 6/6
+
+TEST 18: Handle backslashed multi lines in config file (and don't replace kernel name)
+add test/tmpfs/dev/ttyACM0:         ok
+symlink modem:         ok
+remove test/tmpfs/dev/ttyACM0:         ok
+remove  modem:      ok
+TEST 18: errors: 0 good: 6/6
+
+TEST 19: preserve backslashes, if they are not for a newline
+add test/tmpfs/dev/ttyACM0:         ok
+symlink aaa:         ok
+remove test/tmpfs/dev/ttyACM0:         ok
+remove  aaa:      ok
+TEST 19: errors: 0 good: 6/6
+
+TEST 20: Handle stupid backslashed multi lines in config file (and don't replace kernel name)
+add test/tmpfs/dev/ttyACM0:         ok
+symlink modem:         ok
+remove test/tmpfs/dev/ttyACM0:         ok
+remove  modem:      ok
+TEST 20: errors: 0 good: 6/6
+
+TEST 21: subdirectory handling
+add test/tmpfs/dev/ttyACM0:         ok
+symlink sub/direct/ory/modem:         ok
+remove test/tmpfs/dev/ttyACM0:         ok
+remove  sub/direct/ory/modem:      ok
+TEST 21: errors: 0 good: 6/6
+
+TEST 22: parent device name match of scsi partition
+add test/tmpfs/dev/sda5:         ok
+symlink first_disk5:         ok
+remove test/tmpfs/dev/sda5:         ok
+remove  first_disk5:      ok
+TEST 22: errors: 0 good: 6/6
+
+TEST 23: test substitution chars
+add test/tmpfs/dev/sda5:         ok
+symlink Major:8:minor:5:kernelnumber:5:id:0:0:0:0:         ok
+remove test/tmpfs/dev/sda5:         ok
+remove  Major:8:minor:5:kernelnumber:5:id:0:0:0:0:      ok
+TEST 23: errors: 0 good: 6/6
+
+TEST 24: import of shell-value returned from program
+add test/tmpfs/dev/sda:         ok
+symlink node12345678:         ok
+remove test/tmpfs/dev/sda:         ok
+remove  node12345678:      ok
+TEST 24: errors: 0 good: 6/6
+
+TEST 25: substitution of sysfs value (%s{file})
+add test/tmpfs/dev/sda:         ok
+symlink disk-ATA-sda:         ok
+nonexistent modem:         ok
+remove test/tmpfs/dev/sda:         ok
+remove  disk-ATA-sda:      ok
+TEST 25: errors: 0 good: 7/7
+
+TEST 26: program result substitution
+add test/tmpfs/dev/sda5:         ok
+symlink special-device-5:         ok
+nonexistent not:         ok
+remove test/tmpfs/dev/sda5:         ok
+remove  special-device-5:      ok
+TEST 26: errors: 0 good: 7/7
+
+TEST 27: program result substitution (newline removal)
+add test/tmpfs/dev/sda5:         ok
+symlink newline_removed:         ok
+remove test/tmpfs/dev/sda5:         ok
+remove  newline_removed:      ok
+TEST 27: errors: 0 good: 6/6
+
+TEST 28: program result substitution
+add test/tmpfs/dev/sda5:         ok
+symlink test-0:0:0:0:         ok
+remove test/tmpfs/dev/sda5:         ok
+remove  test-0:0:0:0:      ok
+TEST 28: errors: 0 good: 6/6
+
+TEST 29: program with lots of arguments
+add test/tmpfs/dev/sda5:         ok
+symlink foo9:         ok
+nonexistent foo3:         ok
+nonexistent foo4:         ok
+nonexistent foo5:         ok
+nonexistent foo6:         ok
+nonexistent foo7:         ok
+nonexistent foo8:         ok
+remove test/tmpfs/dev/sda5:         ok
+remove  foo9:      ok
+TEST 29: errors: 0 good: 12/12
+
+TEST 30: program with subshell
+add test/tmpfs/dev/sda5:         ok
+symlink bar9:         ok
+nonexistent foo3:         ok
+nonexistent foo4:         ok
+nonexistent foo5:         ok
+nonexistent foo6:         ok
+nonexistent foo7:         ok
+nonexistent foo8:         ok
+remove test/tmpfs/dev/sda5:         ok
+remove  bar9:      ok
+TEST 30: errors: 0 good: 12/12
+
+TEST 31: program arguments combined with apostrophes
+add test/tmpfs/dev/sda5:         ok
+symlink foo7:         ok
+nonexistent foo3:         ok
+nonexistent foo4:         ok
+nonexistent foo5:         ok
+nonexistent foo6:         ok
+nonexistent foo8:         ok
+remove test/tmpfs/dev/sda5:         ok
+remove  foo7:      ok
+TEST 31: errors: 0 good: 11/11
+
+TEST 32: program arguments combined with escaped double quotes, part 1
+add test/tmpfs/dev/sda5:         ok
+symlink foo2:         ok
+nonexistent foo1:         ok
+remove test/tmpfs/dev/sda5:         ok
+remove  foo2:      ok
+TEST 32: errors: 0 good: 7/7
+
+TEST 33: program arguments combined with escaped double quotes, part 2
+add test/tmpfs/dev/sda5:         ok
+symlink foo2:         ok
+nonexistent foo1:         ok
+remove test/tmpfs/dev/sda5:         ok
+remove  foo2:      ok
+TEST 33: errors: 0 good: 7/7
+
+TEST 34: program arguments combined with escaped double quotes, part 3
+add test/tmpfs/dev/sda5:         ok
+symlink foo2:         ok
+nonexistent foo1:         ok
+nonexistent foo3:         ok
+remove test/tmpfs/dev/sda5:         ok
+remove  foo2:      ok
+TEST 34: errors: 0 good: 8/8
+
+TEST 35: characters before the %c{N} substitution
+add test/tmpfs/dev/sda5:         ok
+symlink my-foo9:         ok
+remove test/tmpfs/dev/sda5:         ok
+remove  my-foo9:      ok
+TEST 35: errors: 0 good: 6/6
+
+TEST 36: substitute the second to last argument
+add test/tmpfs/dev/sda5:         ok
+symlink my-foo8:         ok
+nonexistent my-foo3:         ok
+nonexistent my-foo4:         ok
+nonexistent my-foo5:         ok
+nonexistent my-foo6:         ok
+nonexistent my-foo7:         ok
+nonexistent my-foo9:         ok
+remove test/tmpfs/dev/sda5:         ok
+remove  my-foo8:      ok
+TEST 36: errors: 0 good: 12/12
+
+TEST 37: test substitution by variable name
+add test/tmpfs/dev/sda5:         ok
+symlink Major:8-minor:5-kernelnumber:5-id:0:0:0:0:         ok
+remove test/tmpfs/dev/sda5:         ok
+remove  Major:8-minor:5-kernelnumber:5-id:0:0:0:0:      ok
+TEST 37: errors: 0 good: 6/6
+
+TEST 38: test substitution by variable name 2
+add test/tmpfs/dev/sda5:         ok
+symlink Major:8-minor:5-kernelnumber:5-id:0:0:0:0:         ok
+remove test/tmpfs/dev/sda5:         ok
+remove  Major:8-minor:5-kernelnumber:5-id:0:0:0:0:      ok
+TEST 38: errors: 0 good: 6/6
+
+TEST 39: test substitution by variable name 3
+add test/tmpfs/dev/sda5:         ok
+symlink 850:0:0:05:         ok
+remove test/tmpfs/dev/sda5:         ok
+remove  850:0:0:05:      ok
+TEST 39: errors: 0 good: 6/6
+
+TEST 40: test substitution by variable name 4
+add test/tmpfs/dev/sda5:         ok
+symlink 855:         ok
+remove test/tmpfs/dev/sda5:         ok
+remove  855:      ok
+TEST 40: errors: 0 good: 6/6
+
+TEST 41: test substitution by variable name 5
+add test/tmpfs/dev/sda5:         ok
+symlink 8550:0:0:0:         ok
+remove test/tmpfs/dev/sda5:         ok
+remove  8550:0:0:0:      ok
+TEST 41: errors: 0 good: 6/6
+
+TEST 42: non matching SUBSYSTEMS for device with no parent
+add test/tmpfs/dev/console:         ok
+symlink TTY:         ok
+nonexistent foo:         ok
+remove test/tmpfs/dev/console:         ok
+remove  TTY:      ok
+TEST 42: errors: 0 good: 7/7
+
+TEST 43: non matching SUBSYSTEMS
+add test/tmpfs/dev/console:         ok
+symlink TTY:         ok
+nonexistent foo:         ok
+remove test/tmpfs/dev/console:         ok
+remove  TTY:      ok
+TEST 43: errors: 0 good: 7/7
+
+TEST 44: ATTRS match
+add test/tmpfs/dev/console:         ok
+symlink foo:         ok
+symlink TTY:         ok
+remove test/tmpfs/dev/console:         ok
+remove  foo:      ok
+remove  TTY:      ok
+TEST 44: errors: 0 good: 8/8
+
+TEST 45: ATTR (empty file)
+add test/tmpfs/dev/sda:         ok
+symlink empty:         ok
+symlink not-something:         ok
+nonexistent something:         ok
+nonexistent not-empty:         ok
+remove test/tmpfs/dev/sda:         ok
+remove  empty:      ok
+remove  not-something:      ok
+TEST 45: errors: 0 good: 10/10
+
+TEST 46: ATTR (non-existent file)
+add test/tmpfs/dev/sda:         ok
+symlink non-existent:         ok
+symlink wrong:         ok
+nonexistent something:         ok
+nonexistent empty:         ok
+nonexistent not-empty:         ok
+nonexistent not-something:         ok
+nonexistent something:         ok
+remove test/tmpfs/dev/sda:         ok
+remove  non-existent:      ok
+remove  wrong:      ok
+TEST 46: errors: 0 good: 13/13
+
+TEST 47: program and bus type match
+add test/tmpfs/dev/sda:         ok
+symlink scsi-0:0:0:0:         ok
+remove test/tmpfs/dev/sda:         ok
+remove  scsi-0:0:0:0:      ok
+TEST 47: errors: 0 good: 6/6
+
+TEST 48: sysfs parent hierarchy
+add test/tmpfs/dev/ttyACM0:         ok
+symlink modem:         ok
+remove test/tmpfs/dev/ttyACM0:         ok
+remove  modem:      ok
+TEST 48: errors: 0 good: 6/6
+
+TEST 49: name test with ! in the name
+add test/tmpfs/dev/fake/blockdev0:         ok
+symlink is/a/fake/blockdev0:         ok
+nonexistent is/not/a/fake/blockdev0:         ok
+nonexistent modem:         ok
+remove test/tmpfs/dev/fake/blockdev0:         ok
+remove  is/a/fake/blockdev0:      ok
+TEST 49: errors: 0 good: 8/8
+
+TEST 50: name test with ! in the name, but no matching rule
+add test/tmpfs/dev/fake/blockdev0:         ok
+nonexistent modem:         ok
+remove test/tmpfs/dev/fake/blockdev0:         ok
+TEST 50: errors: 0 good: 5/5
+
+TEST 51: KERNELS rule
+add test/tmpfs/dev/sda:         ok
+symlink scsi-0:0:0:0:         ok
+nonexistent no-match:         ok
+nonexistent short-id:         ok
+nonexistent not-scsi:         ok
+remove test/tmpfs/dev/sda:         ok
+remove  scsi-0:0:0:0:      ok
+TEST 51: errors: 0 good: 9/9
+
+TEST 52: KERNELS wildcard all
+add test/tmpfs/dev/sda:         ok
+symlink scsi-0:0:0:0:         ok
+nonexistent no-match:         ok
+nonexistent before:         ok
+remove test/tmpfs/dev/sda:         ok
+remove  scsi-0:0:0:0:      ok
+TEST 52: errors: 0 good: 8/8
+
+TEST 53: KERNELS wildcard partial
+add test/tmpfs/dev/sda:         ok
+symlink scsi-0:0:0:0:         ok
+symlink before:         ok
+remove test/tmpfs/dev/sda:         ok
+remove  scsi-0:0:0:0:      ok
+remove  before:      ok
+TEST 53: errors: 0 good: 8/8
+
+TEST 54: KERNELS wildcard partial 2
+add test/tmpfs/dev/sda:         ok
+symlink scsi-0:0:0:0:         ok
+symlink before:         ok
+remove test/tmpfs/dev/sda:         ok
+remove  scsi-0:0:0:0:      ok
+remove  before:      ok
+TEST 54: errors: 0 good: 8/8
+
+TEST 55: substitute attr with link target value (first match)
+add test/tmpfs/dev/sda:         ok
+symlink driver-is-sd:         ok
+remove test/tmpfs/dev/sda:         ok
+remove  driver-is-sd:      ok
+TEST 55: errors: 0 good: 6/6
+
+TEST 56: substitute attr with link target value (currently selected device)
+add test/tmpfs/dev/sda:         ok
+symlink driver-is-ahci:         ok
+remove test/tmpfs/dev/sda:         ok
+remove  driver-is-ahci:      ok
+TEST 56: errors: 0 good: 6/6
+
+TEST 57: ignore ATTRS attribute whitespace
+add test/tmpfs/dev/sda:         ok
+symlink ignored:         ok
+remove test/tmpfs/dev/sda:         ok
+remove  ignored:      ok
+TEST 57: errors: 0 good: 6/6
+
+TEST 58: do not ignore ATTRS attribute whitespace
+add test/tmpfs/dev/sda:         ok
+symlink matched-with-space:         ok
+nonexistent wrong-to-ignore:         ok
+remove test/tmpfs/dev/sda:         ok
+remove  matched-with-space:      ok
+TEST 58: errors: 0 good: 7/7
+
+TEST 59: permissions USER=bad GROUP=name
+permissions: ok
+add test/tmpfs/dev/tty33:         ok
+remove test/tmpfs/dev/tty33:         ok
+TEST 59: errors: 0 good: 5/5
+
+TEST 60: permissions OWNER=1
+permissions: ok
+add test/tmpfs/dev/sda:         ok
+symlink node:         ok
+remove test/tmpfs/dev/sda:         ok
+remove  node:      ok
+TEST 60: errors: 0 good: 7/7
+
+TEST 61: permissions GROUP=1
+permissions: ok
+add test/tmpfs/dev/sda:         ok
+symlink node:         ok
+remove test/tmpfs/dev/sda:         ok
+remove  node:      ok
+TEST 61: errors: 0 good: 7/7
+
+TEST 62: textual user id
+permissions: ok
+add test/tmpfs/dev/sda:         ok
+symlink node:         ok
+remove test/tmpfs/dev/sda:         ok
+remove  node:      ok
+TEST 62: errors: 0 good: 7/7
+
+TEST 63: textual group id
+permissions: ok
+add test/tmpfs/dev/sda:         ok
+symlink node:         ok
+remove test/tmpfs/dev/sda:         ok
+remove  node:      ok
+TEST 63: errors: 0 good: 7/7
+
+TEST 64: textual user/group id
+permissions: ok
+add test/tmpfs/dev/sda:         ok
+symlink node:         ok
+remove test/tmpfs/dev/sda:         ok
+remove  node:      ok
+TEST 64: errors: 0 good: 7/7
+
+TEST 65: permissions MODE=0777
+permissions: ok
+add test/tmpfs/dev/sda:         ok
+symlink node:         ok
+remove test/tmpfs/dev/sda:         ok
+remove  node:      ok
+TEST 65: errors: 0 good: 7/7
+
+TEST 66: permissions OWNER=1 GROUP=1 MODE=0777
+permissions: ok
+add test/tmpfs/dev/sda:         ok
+symlink node:         ok
+remove test/tmpfs/dev/sda:         ok
+remove  node:      ok
+TEST 66: errors: 0 good: 7/7
+
+TEST 67: permissions OWNER to 1
+permissions: ok
+add test/tmpfs/dev/ttyACM0:         ok
+remove test/tmpfs/dev/ttyACM0:         ok
+TEST 67: errors: 0 good: 5/5
+
+TEST 68: permissions GROUP to 1
+permissions: ok
+add test/tmpfs/dev/ttyACM0:         ok
+remove test/tmpfs/dev/ttyACM0:         ok
+TEST 68: errors: 0 good: 5/5
+
+TEST 69: permissions MODE to 0060
+permissions: ok
+add test/tmpfs/dev/ttyACM0:         ok
+remove test/tmpfs/dev/ttyACM0:         ok
+TEST 69: errors: 0 good: 5/5
+
+TEST 70: permissions OWNER, GROUP, MODE
+permissions: ok
+add test/tmpfs/dev/ttyACM0:         ok
+remove test/tmpfs/dev/ttyACM0:         ok
+TEST 70: errors: 0 good: 5/5
+
+TEST 71: permissions only rule
+permissions: ok
+add test/tmpfs/dev/ttyACM0:         ok
+remove test/tmpfs/dev/ttyACM0:         ok
+TEST 71: errors: 0 good: 5/5
+
+TEST 72: multiple permissions only rule
+permissions: ok
+add test/tmpfs/dev/ttyACM0:         ok
+remove test/tmpfs/dev/ttyACM0:         ok
+TEST 72: errors: 0 good: 5/5
+
+TEST 73: permissions only rule with override at SYMLINK+ rule
+permissions: ok
+add test/tmpfs/dev/ttyACM0:         ok
+remove test/tmpfs/dev/ttyACM0:         ok
+TEST 73: errors: 0 good: 5/5
+
+TEST 74: major/minor number test
+major:minor: ok
+add test/tmpfs/dev/sda:         ok
+symlink node:         ok
+remove test/tmpfs/dev/sda:         ok
+remove  node:      ok
+TEST 74: errors: 0 good: 7/7
+
+TEST 75: big major number test
+major:minor: ok
+add test/tmpfs/dev/misc-fake1:         ok
+symlink node:         ok
+remove test/tmpfs/dev/misc-fake1:         ok
+remove  node:      ok
+TEST 75: errors: 0 good: 7/7
+
+TEST 76: big major and big minor number test
+major:minor: ok
+add test/tmpfs/dev/misc-fake89999:         ok
+symlink node:         ok
+remove test/tmpfs/dev/misc-fake89999:         ok
+remove  node:      ok
+TEST 76: errors: 0 good: 7/7
+
+TEST 77: multiple symlinks with format char
+add test/tmpfs/dev/ttyACM0:         ok
+symlink symlink1-0:         ok
+symlink symlink2-ttyACM0:         ok
+symlink symlink3-:         ok
+remove test/tmpfs/dev/ttyACM0:         ok
+remove  symlink1-0:      ok
+remove  symlink2-ttyACM0:      ok
+remove  symlink3-:      ok
+TEST 77: errors: 0 good: 10/10
+
+TEST 78: multiple symlinks with a lot of s p a c e s
+add test/tmpfs/dev/ttyACM0:         ok
+symlink one:         ok
+symlink two:         ok
+nonexistent  :         ok
+remove test/tmpfs/dev/ttyACM0:         ok
+remove  one:      ok
+remove  two:      ok
+TEST 78: errors: 0 good: 9/9
+
+TEST 79: symlink with spaces in substituted variable
+add test/tmpfs/dev/ttyACM0:         ok
+symlink name-one_two_three-end:         ok
+nonexistent  :         ok
+remove test/tmpfs/dev/ttyACM0:         ok
+remove  name-one_two_three-end:      ok
+TEST 79: errors: 0 good: 7/7
+
+TEST 80: symlink with leading space in substituted variable
+add test/tmpfs/dev/ttyACM0:         ok
+symlink name-one_two_three-end:         ok
+nonexistent  :         ok
+remove test/tmpfs/dev/ttyACM0:         ok
+remove  name-one_two_three-end:      ok
+TEST 80: errors: 0 good: 7/7
+
+TEST 81: symlink with trailing space in substituted variable
+add test/tmpfs/dev/ttyACM0:         ok
+symlink name-one_two_three-end:         ok
+nonexistent  :         ok
+remove test/tmpfs/dev/ttyACM0:         ok
+remove  name-one_two_three-end:      ok
+TEST 81: errors: 0 good: 7/7
+
+TEST 82: symlink with lots of space in substituted variable
+add test/tmpfs/dev/ttyACM0:         ok
+symlink name-one_two_three-end:         ok
+nonexistent  :         ok
+remove test/tmpfs/dev/ttyACM0:         ok
+remove  name-one_two_three-end:      ok
+TEST 82: errors: 0 good: 7/7
+
+TEST 83: symlink with multiple spaces in substituted variable
+add test/tmpfs/dev/ttyACM0:         ok
+symlink name-one_two_three-end:         ok
+nonexistent  :         ok
+remove test/tmpfs/dev/ttyACM0:         ok
+remove  name-one_two_three-end:      ok
+TEST 83: errors: 0 good: 7/7
+
+TEST 84: symlink with space and var with space
+add test/tmpfs/dev/ttyACM0:         ok
+symlink first:         ok
+symlink name-one_two_three-end:         ok
+symlink another_symlink:         ok
+symlink a:         ok
+symlink b:         ok
+symlink c:         ok
+nonexistent  :         ok
+remove test/tmpfs/dev/ttyACM0:         ok
+remove  first:      ok
+remove  name-one_two_three-end:      ok
+remove  another_symlink:      ok
+remove  a:      ok
+remove  b:      ok
+remove  c:      ok
+TEST 84: errors: 0 good: 17/17
+
+TEST 85: symlink with env which contain slash (see #19309)
+add test/tmpfs/dev/ttyACM0:         ok
+symlink first:         ok
+symlink name-aaa_bbb_ccc-end:         ok
+symlink another_symlink:         ok
+symlink a:         ok
+symlink b:         ok
+symlink c:         ok
+nonexistent ame-aaa/bbb/ccc-end:         ok
+remove test/tmpfs/dev/ttyACM0:         ok
+remove  first:      ok
+remove  name-aaa_bbb_ccc-end:      ok
+remove  another_symlink:      ok
+remove  a:      ok
+remove  b:      ok
+remove  c:      ok
+TEST 85: errors: 0 good: 17/17
+
+TEST 86: symlink creation (same directory)
+add test/tmpfs/dev/ttyACM0:         ok
+symlink modem0:         ok
+remove test/tmpfs/dev/ttyACM0:         ok
+remove  modem0:      ok
+TEST 86: errors: 0 good: 6/6
+
+TEST 87: multiple symlinks
+add test/tmpfs/dev/ttyACM0:         ok
+symlink first-0:         ok
+symlink second-0:         ok
+symlink third-0:         ok
+remove test/tmpfs/dev/ttyACM0:         ok
+remove  first-0:      ok
+remove  second-0:      ok
+remove  third-0:      ok
+TEST 87: errors: 0 good: 10/10
+
+TEST 88: symlink name '.'
+add test/tmpfs/dev/sda:         ok
+symlink .:         error as expected
+remove test/tmpfs/dev/sda:         ok
+remove  .:      error as expected
+TEST 88: errors: 0 good: 6/6
+
+TEST 89: symlink node to itself
+add test/tmpfs/dev/tty0:         ok
+symlink link:         error as expected
+remove test/tmpfs/dev/tty0:         ok
+remove  link:      ok
+TEST 89: errors: 0 good: 6/6
+
+TEST 90: symlink %n substitution
+add test/tmpfs/dev/ttyACM0:         ok
+symlink symlink0:         ok
+remove test/tmpfs/dev/ttyACM0:         ok
+remove  symlink0:      ok
+TEST 90: errors: 0 good: 6/6
+
+TEST 91: symlink %k substitution
+add test/tmpfs/dev/ttyACM0:         ok
+symlink symlink-ttyACM0:         ok
+remove test/tmpfs/dev/ttyACM0:         ok
+remove  symlink-ttyACM0:      ok
+TEST 91: errors: 0 good: 6/6
+
+TEST 92: symlink %M:%m substitution
+add test/tmpfs/dev/ttyACM0:         ok
+symlink major-166:0:         ok
+remove test/tmpfs/dev/ttyACM0:         ok
+remove  major-166:0:      ok
+TEST 92: errors: 0 good: 6/6
+
+TEST 93: symlink %b substitution
+add test/tmpfs/dev/sda:         ok
+symlink symlink-0:0:0:0:         ok
+remove test/tmpfs/dev/sda:         ok
+remove  symlink-0:0:0:0:      ok
+TEST 93: errors: 0 good: 6/6
+
+TEST 94: symlink %c substitution
+add test/tmpfs/dev/ttyACM0:         ok
+symlink test:         ok
+remove test/tmpfs/dev/ttyACM0:         ok
+remove  test:      ok
+TEST 94: errors: 0 good: 6/6
+
+TEST 95: symlink %c{N} substitution
+add test/tmpfs/dev/ttyACM0:         ok
+symlink test:         ok
+nonexistent symlink:         ok
+nonexistent this:         ok
+remove test/tmpfs/dev/ttyACM0:         ok
+remove  test:      ok
+TEST 95: errors: 0 good: 8/8
+
+TEST 96: symlink %c{N+} substitution
+add test/tmpfs/dev/ttyACM0:         ok
+symlink test:         ok
+symlink this:         ok
+nonexistent symlink:         ok
+remove test/tmpfs/dev/ttyACM0:         ok
+remove  test:      ok
+remove  this:      ok
+TEST 96: errors: 0 good: 9/9
+
+TEST 97: symlink only rule with %c{N+}
+add test/tmpfs/dev/sda:         ok
+symlink test:         ok
+symlink this:         ok
+nonexistent symlink:         ok
+remove test/tmpfs/dev/sda:         ok
+remove  test:      ok
+remove  this:      ok
+TEST 97: errors: 0 good: 9/9
+
+TEST 98: symlink %s{filename} substitution
+add test/tmpfs/dev/ttyACM0:         ok
+symlink 166:0:         ok
+remove test/tmpfs/dev/ttyACM0:         ok
+remove  166:0:      ok
+TEST 98: errors: 0 good: 6/6
+
+TEST 99: program result substitution (numbered part of)
+add test/tmpfs/dev/sda5:         ok
+symlink link1:         ok
+symlink link2:         ok
+nonexistent node:         ok
+remove test/tmpfs/dev/sda5:         ok
+remove  link1:      ok
+remove  link2:      ok
+TEST 99: errors: 0 good: 9/9
+
+TEST 100: program result substitution (numbered part of+)
+add test/tmpfs/dev/sda5:         ok
+symlink link1:         ok
+symlink link2:         ok
+symlink link3:         ok
+symlink link4:         ok
+nonexistent node:         ok
+remove test/tmpfs/dev/sda5:         ok
+remove  link1:      ok
+remove  link2:      ok
+remove  link3:      ok
+remove  link4:      ok
+TEST 100: errors: 0 good: 13/13
+
+TEST 101: SUBSYSTEM match test
+add test/tmpfs/dev/sda:         ok
+symlink node:         ok
+nonexistent should_not_match:         ok
+nonexistent should_not_match2:         ok
+remove test/tmpfs/dev/sda:         ok
+remove  node:      ok
+TEST 101: errors: 0 good: 8/8
+
+TEST 102: DRIVERS match test
+add test/tmpfs/dev/sda:         ok
+symlink node:         ok
+nonexistent should_not_match:         ok
+remove test/tmpfs/dev/sda:         ok
+remove  node:      ok
+TEST 102: errors: 0 good: 7/7
+
+TEST 103: devnode substitution test
+add test/tmpfs/dev/sda:         ok
+symlink node:         ok
+remove test/tmpfs/dev/sda:         ok
+remove  node:      ok
+TEST 103: errors: 0 good: 6/6
+
+TEST 104: parent node name substitution test
+add test/tmpfs/dev/sda1:         ok
+symlink sda-part-1:         ok
+remove test/tmpfs/dev/sda1:         ok
+remove  sda-part-1:      ok
+TEST 104: errors: 0 good: 6/6
+
+TEST 105: udev_root substitution
+add test/tmpfs/dev/sda1:         ok
+symlink start-/dev-end:         ok
+remove test/tmpfs/dev/sda1:         ok
+remove  start-/dev-end:      ok
+TEST 105: errors: 0 good: 6/6
+
+TEST 106: last_rule option
+add test/tmpfs/dev/sda1:         ok
+symlink last:         ok
+nonexistent: error 'very-last' should not be there (as expected)
+remove test/tmpfs/dev/sda1:         ok
+remove  last:      ok
+TEST 106: errors: 0 good: 7/7
+
+TEST 107: negation KERNEL!=
+add test/tmpfs/dev/sda1:         ok
+symlink match:         ok
+symlink before:         ok
+nonexistent matches-but-is-negated:         ok
+remove test/tmpfs/dev/sda1:         ok
+remove  match:      ok
+remove  before:      ok
+TEST 107: errors: 0 good: 9/9
+
+TEST 108: negation SUBSYSTEM!=
+add test/tmpfs/dev/sda1:         ok
+symlink before:         ok
+symlink not-anything:         ok
+nonexistent matches-but-is-negated:         ok
+remove test/tmpfs/dev/sda1:         ok
+remove  before:      ok
+remove  not-anything:      ok
+TEST 108: errors: 0 good: 9/9
+
+TEST 109: negation PROGRAM!= exit code
+add test/tmpfs/dev/sda1:         ok
+symlink before:         ok
+symlink nonzero-program:         ok
+remove test/tmpfs/dev/sda1:         ok
+remove  before:      ok
+remove  nonzero-program:      ok
+TEST 109: errors: 0 good: 8/8
+
+TEST 110: ENV{} test
+add test/tmpfs/dev/sda1:         ok
+symlink true:         ok
+nonexistent bad:         ok
+nonexistent wrong:         ok
+remove test/tmpfs/dev/sda1:         ok
+remove  true:      ok
+TEST 110: errors: 0 good: 8/8
+
+TEST 111: ENV{} test
+add test/tmpfs/dev/sda1:         ok
+symlink true:         ok
+nonexistent bad:         ok
+nonexistent wrong:         ok
+nonexistent no:         ok
+remove test/tmpfs/dev/sda1:         ok
+remove  true:      ok
+TEST 111: errors: 0 good: 9/9
+
+TEST 112: ENV{} test (assign)
+add test/tmpfs/dev/sda1:         ok
+symlink true:         ok
+symlink before:         ok
+nonexistent no:         ok
+remove test/tmpfs/dev/sda1:         ok
+remove  true:      ok
+remove  before:      ok
+TEST 112: errors: 0 good: 9/9
+
+TEST 113: ENV{} test (assign 2 times)
+add test/tmpfs/dev/sda1:         ok
+symlink true:         ok
+symlink before:         ok
+nonexistent no:         ok
+nonexistent bad:         ok
+remove test/tmpfs/dev/sda1:         ok
+remove  true:      ok
+remove  before:      ok
+TEST 113: errors: 0 good: 10/10
+
+TEST 114: ENV{} test (assign2)
+add test/tmpfs/dev/sda1:         ok
+symlink part:         ok
+nonexistent: 'disk' points to other device (ok)
+add test/tmpfs/dev/sda:         ok
+symlink disk:         ok
+nonexistent: 'part' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part:      ok
+remove test/tmpfs/dev/sda:         ok
+remove  disk:      ok
+TEST 114: errors: 0 good: 14/14
+
+TEST 115: untrusted string sanitize
+add test/tmpfs/dev/sda1:         ok
+symlink sane:         ok
+remove test/tmpfs/dev/sda1:         ok
+remove  sane:      ok
+TEST 115: errors: 0 good: 6/6
+
+TEST 116: untrusted string sanitize (don't replace utf8)
+add test/tmpfs/dev/sda1:         ok
+symlink uber:         ok
+remove test/tmpfs/dev/sda1:         ok
+remove  uber:      ok
+TEST 116: errors: 0 good: 6/6
+
+TEST 117: untrusted string sanitize (replace invalid utf8)
+add test/tmpfs/dev/sda1:         ok
+symlink replaced:         ok
+remove test/tmpfs/dev/sda1:         ok
+remove  replaced:      ok
+TEST 117: errors: 0 good: 6/6
+
+TEST 118: read sysfs value from parent device
+add test/tmpfs/dev/ttyACM0:         ok
+symlink serial-354172020305000:         ok
+remove test/tmpfs/dev/ttyACM0:         ok
+remove  serial-354172020305000:      ok
+TEST 118: errors: 0 good: 6/6
+
+TEST 119: match against empty key string
+add test/tmpfs/dev/sda:         ok
+symlink ok:         ok
+nonexistent not-1-ok:         ok
+nonexistent not-2-ok:         ok
+nonexistent not-3-ok:         ok
+remove test/tmpfs/dev/sda:         ok
+remove  ok:      ok
+TEST 119: errors: 0 good: 9/9
+
+TEST 120: check ACTION value
+add test/tmpfs/dev/sda:         ok
+symlink ok:         ok
+nonexistent unknown-not-ok:         ok
+remove test/tmpfs/dev/sda:         ok
+remove  ok:      ok
+TEST 120: errors: 0 good: 7/7
+
+TEST 121: final assignment
+permissions: ok
+add test/tmpfs/dev/sda:         ok
+symlink ok:         ok
+remove test/tmpfs/dev/sda:         ok
+remove  ok:      ok
+TEST 121: errors: 0 good: 7/7
+
+TEST 122: final assignment 2
+permissions: ok
+add test/tmpfs/dev/sda:         ok
+symlink ok:         ok
+remove test/tmpfs/dev/sda:         ok
+remove  ok:      ok
+TEST 122: errors: 0 good: 7/7
+
+TEST 123: env substitution
+add test/tmpfs/dev/sda:         ok
+symlink node-add-me:         ok
+remove test/tmpfs/dev/sda:         ok
+remove  node-add-me:      ok
+TEST 123: errors: 0 good: 6/6
+
+TEST 124: reset list to current value
+add test/tmpfs/dev/ttyACM0:         ok
+symlink three:         ok
+nonexistent two:         ok
+nonexistent one:         ok
+remove test/tmpfs/dev/ttyACM0:         ok
+remove  three:      ok
+TEST 124: errors: 0 good: 8/8
+
+TEST 125: test empty SYMLINK+ (empty override)
+add test/tmpfs/dev/ttyACM0:         ok
+symlink right:         ok
+nonexistent wrong:         ok
+remove test/tmpfs/dev/ttyACM0:         ok
+remove  right:      ok
+TEST 125: errors: 0 good: 7/7
+
+TEST 126: test multi matches
+add test/tmpfs/dev/ttyACM0:         ok
+symlink right:         ok
+symlink before:         ok
+remove test/tmpfs/dev/ttyACM0:         ok
+remove  right:      ok
+remove  before:      ok
+TEST 126: errors: 0 good: 8/8
+
+TEST 127: test multi matches 2
+add test/tmpfs/dev/ttyACM0:         ok
+symlink right:         ok
+symlink before:         ok
+nonexistent nomatch:         ok
+remove test/tmpfs/dev/ttyACM0:         ok
+remove  right:      ok
+remove  before:      ok
+TEST 127: errors: 0 good: 9/9
+
+TEST 128: test multi matches 3
+add test/tmpfs/dev/ttyACM0:         ok
+symlink right:         ok
+nonexistent nomatch:         ok
+nonexistent wrong1:         ok
+nonexistent wrong2:         ok
+remove test/tmpfs/dev/ttyACM0:         ok
+remove  right:      ok
+TEST 128: errors: 0 good: 9/9
+
+TEST 129: test multi matches 4
+add test/tmpfs/dev/ttyACM0:         ok
+symlink right:         ok
+nonexistent nomatch:         ok
+nonexistent wrong1:         ok
+nonexistent wrong2:         ok
+nonexistent wrong3:         ok
+remove test/tmpfs/dev/ttyACM0:         ok
+remove  right:      ok
+TEST 129: errors: 0 good: 10/10
+
+TEST 130: test multi matches 5
+add test/tmpfs/dev/sda:         ok
+symlink found:         ok
+remove test/tmpfs/dev/sda:         ok
+remove  found:      ok
+TEST 130: errors: 0 good: 6/6
+
+TEST 131: test multi matches 6
+add test/tmpfs/dev/sda:         ok
+symlink found:         ok
+remove test/tmpfs/dev/sda:         ok
+remove  found:      ok
+TEST 131: errors: 0 good: 6/6
+
+TEST 132: test multi matches 7
+add test/tmpfs/dev/sda:         ok
+symlink found:         ok
+remove test/tmpfs/dev/sda:         ok
+remove  found:      ok
+TEST 132: errors: 0 good: 6/6
+
+TEST 133: test multi matches 8
+add test/tmpfs/dev/sda:         ok
+symlink found:         ok
+remove test/tmpfs/dev/sda:         ok
+remove  found:      ok
+TEST 133: errors: 0 good: 6/6
+
+TEST 134: test multi matches 9
+add test/tmpfs/dev/sda:         ok
+symlink found:         ok
+remove test/tmpfs/dev/sda:         ok
+remove  found:      ok
+TEST 134: errors: 0 good: 6/6
+
+TEST 135: test multi matches 10
+add test/tmpfs/dev/sda:         ok
+symlink found:         ok
+remove test/tmpfs/dev/sda:         ok
+remove  found:      ok
+TEST 135: errors: 0 good: 6/6
+
+TEST 136: test multi matches 11
+add test/tmpfs/dev/sda:         ok
+symlink found:         ok
+remove test/tmpfs/dev/sda:         ok
+remove  found:      ok
+TEST 136: errors: 0 good: 6/6
+
+TEST 137: IMPORT parent test
+add test/tmpfs/dev/sda:         ok
+symlink parent:         ok
+add test/tmpfs/dev/sda1:         ok
+symlink parentenv-parent_right:         ok
+remove test/tmpfs/dev/sda:         ok
+remove  parent:      ok
+remove test/tmpfs/dev/sda1:         ok
+remove  parentenv-parent_right:      ok
+TEST 137: errors: 0 good: 12/12
+
+TEST 138: GOTO test
+add test/tmpfs/dev/sda1:         ok
+symlink right:         ok
+remove test/tmpfs/dev/sda1:         ok
+remove  right:      ok
+TEST 138: errors: 0 good: 6/6
+
+TEST 139: GOTO label does not exist
+add test/tmpfs/dev/sda1:         ok
+symlink right:         ok
+remove test/tmpfs/dev/sda1:         ok
+remove  right:      ok
+TEST 139: errors: 0 good: 6/6
+
+TEST 140: SYMLINK+ compare test
+add test/tmpfs/dev/sda1:         ok
+symlink right:         ok
+symlink link:         ok
+nonexistent wrong:         ok
+remove test/tmpfs/dev/sda1:         ok
+remove  right:      ok
+remove  link:      ok
+TEST 140: errors: 0 good: 9/9
+
+TEST 141: invalid key operation
+add test/tmpfs/dev/sda1:         ok
+symlink yes:         ok
+nonexistent no:         ok
+remove test/tmpfs/dev/sda1:         ok
+remove  yes:      ok
+TEST 141: errors: 0 good: 7/7
+
+TEST 142: operator chars in attribute
+add test/tmpfs/dev/sda:         ok
+symlink yes:         ok
+remove test/tmpfs/dev/sda:         ok
+remove  yes:      ok
+TEST 142: errors: 0 good: 6/6
+
+TEST 143: overlong comment line
+add test/tmpfs/dev/sda1:         ok
+symlink yes:         ok
+nonexistent no:         ok
+remove test/tmpfs/dev/sda1:         ok
+remove  yes:      ok
+TEST 143: errors: 0 good: 7/7
+
+TEST 144: magic subsys/kernel lookup
+add test/tmpfs/dev/sda:         ok
+symlink 00:16:41:e2:8d:ff:         ok
+remove test/tmpfs/dev/sda:         ok
+remove  00:16:41:e2:8d:ff:      ok
+TEST 144: errors: 0 good: 6/6
+
+TEST 145: TEST absolute path
+add test/tmpfs/dev/sda:         ok
+symlink there:         ok
+nonexistent notthere:         ok
+remove test/tmpfs/dev/sda:         ok
+remove  there:      ok
+TEST 145: errors: 0 good: 7/7
+
+TEST 146: TEST subsys/kernel lookup
+add test/tmpfs/dev/sda:         ok
+symlink yes:         ok
+remove test/tmpfs/dev/sda:         ok
+remove  yes:      ok
+TEST 146: errors: 0 good: 6/6
+
+TEST 147: TEST relative path
+add test/tmpfs/dev/sda:         ok
+symlink relative:         ok
+remove test/tmpfs/dev/sda:         ok
+remove  relative:      ok
+TEST 147: errors: 0 good: 6/6
+
+TEST 148: TEST wildcard substitution (find queue/nr_requests)
+add test/tmpfs/dev/sda:         ok
+symlink found-subdir:         ok
+remove test/tmpfs/dev/sda:         ok
+remove  found-subdir:      ok
+TEST 148: errors: 0 good: 6/6
+
+TEST 149: TEST MODE=0000
+permissions: ok
+add test/tmpfs/dev/sda:         ok
+remove test/tmpfs/dev/sda:         ok
+TEST 149: errors: 0 good: 5/5
+
+TEST 150: TEST PROGRAM feeds OWNER, GROUP, MODE
+permissions: ok
+add test/tmpfs/dev/sda:         ok
+remove test/tmpfs/dev/sda:         ok
+TEST 150: errors: 0 good: 5/5
+
+TEST 151: TEST PROGRAM feeds MODE with overflow
+permissions: ok
+add test/tmpfs/dev/sda:         ok
+remove test/tmpfs/dev/sda:         ok
+TEST 151: errors: 0 good: 5/5
+
+TEST 152: magic [subsys/sysname] attribute substitution
+permissions: ok
+add test/tmpfs/dev/sda:         ok
+symlink sda-8741C4G-end:         ok
+remove test/tmpfs/dev/sda:         ok
+remove  sda-8741C4G-end:      ok
+TEST 152: errors: 0 good: 7/7
+
+TEST 153: builtin path_id
+add test/tmpfs/dev/sda:         ok
+symlink disk/by-path/pci-0000:00:1f.2-scsi-0:0:0:0:         ok
+remove test/tmpfs/dev/sda:         ok
+remove  disk/by-path/pci-0000:00:1f.2-scsi-0:0:0:0:      ok
+TEST 153: errors: 0 good: 6/6
+
+TEST 154: add and match tag
+add test/tmpfs/dev/sda:         ok
+symlink found:         ok
+nonexistent bad:         ok
+remove test/tmpfs/dev/sda:         ok
+remove  found:      ok
+TEST 154: errors: 0 good: 7/7
+
+TEST 155: don't crash with lots of tags
+add test/tmpfs/dev/sda:         ok
+symlink found:         ok
+remove test/tmpfs/dev/sda:         ok
+remove  found:      ok
+TEST 155: errors: 0 good: 6/6
+
+TEST 156: continuations
+add test/tmpfs/dev/sda:         ok
+symlink found:         ok
+remove test/tmpfs/dev/sda:         ok
+remove  found:      ok
+TEST 156: errors: 0 good: 6/6
+
+TEST 157: continuations with empty line
+add test/tmpfs/dev/sda:         ok
+symlink found:         ok
+remove test/tmpfs/dev/sda:         ok
+remove  found:      ok
+TEST 157: errors: 0 good: 6/6
+
+TEST 158: multiple devices
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+TEST 158: errors: 0 good: 42/42
+
+TEST 159: multiple devices, same link name, positive prio
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+TEST 159: errors: 0 good: 5000/5000
+
+TEST 160: multiple devices, same link name, negative prio
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+TEST 160: errors: 0 good: 50/50
+
+TEST 161: multiple devices, same link name, positive prio, sleep
+add test/tmpfs/dev/sda1:         ok
+symlink part-1:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda5:         ok
+symlink part-5:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda6:         ok
+symlink part-6:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda7:         ok
+symlink part-7:         ok
+symlink partition:         ok
+add test/tmpfs/dev/sda8:         ok
+symlink part-8:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda9:         ok
+symlink part-9:         ok
+nonexistent: 'partition' points to other device (ok)
+add test/tmpfs/dev/sda10:         ok
+symlink part-10:         ok
+nonexistent: 'partition' points to other device (ok)
+remove test/tmpfs/dev/sda1:         ok
+remove  part-1:      ok
+remove test/tmpfs/dev/sda5:         ok
+remove  part-5:      ok
+remove test/tmpfs/dev/sda6:         ok
+remove  part-6:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove  part-7:      ok
+remove  partition:      ok
+remove test/tmpfs/dev/sda8:         ok
+remove  part-8:      ok
+remove test/tmpfs/dev/sda9:         ok
+remove  part-9:      ok
+remove test/tmpfs/dev/sda10:         ok
+remove  part-10:      ok
+TEST 161: errors: 0 good: 50/50
+
+TEST 162: all_block_devs
+add test/tmpfs/dev/sda:         ok
+add test/tmpfs/dev/sda1:         ok
+add test/tmpfs/dev/sda10:         ok
+add test/tmpfs/dev/sdb:         ok
+add test/tmpfs/dev/sdb1:         ok
+add test/tmpfs/dev/sda5:         ok
+add test/tmpfs/dev/sda6:         ok
+symlink blockdev:         ok
+add test/tmpfs/dev/sda7:         ok
+add test/tmpfs/dev/sda8:         ok
+add test/tmpfs/dev/sda9:         ok
+remove test/tmpfs/dev/sda:         ok
+remove test/tmpfs/dev/sda1:         ok
+remove test/tmpfs/dev/sda10:         ok
+remove test/tmpfs/dev/sdb:         ok
+remove test/tmpfs/dev/sdb1:         ok
+remove test/tmpfs/dev/sda5:         ok
+remove test/tmpfs/dev/sda6:         ok
+remove  blockdev:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove test/tmpfs/dev/sda8:         ok
+remove test/tmpfs/dev/sda9:         ok
+add test/tmpfs/dev/sda:         ok
+add test/tmpfs/dev/sda1:         ok
+add test/tmpfs/dev/sda10:         ok
+add test/tmpfs/dev/sdb:         ok
+add test/tmpfs/dev/sdb1:         ok
+add test/tmpfs/dev/sda5:         ok
+add test/tmpfs/dev/sda6:         ok
+symlink blockdev:         ok
+add test/tmpfs/dev/sda7:         ok
+add test/tmpfs/dev/sda8:         ok
+add test/tmpfs/dev/sda9:         ok
+remove test/tmpfs/dev/sda:         ok
+remove test/tmpfs/dev/sda1:         ok
+remove test/tmpfs/dev/sda10:         ok
+remove test/tmpfs/dev/sdb:         ok
+remove test/tmpfs/dev/sdb1:         ok
+remove test/tmpfs/dev/sda5:         ok
+remove test/tmpfs/dev/sda6:         ok
+remove  blockdev:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove test/tmpfs/dev/sda8:         ok
+remove test/tmpfs/dev/sda9:         ok
+add test/tmpfs/dev/sda:         ok
+add test/tmpfs/dev/sda1:         ok
+add test/tmpfs/dev/sda10:         ok
+add test/tmpfs/dev/sdb:         ok
+add test/tmpfs/dev/sdb1:         ok
+add test/tmpfs/dev/sda5:         ok
+add test/tmpfs/dev/sda6:         ok
+symlink blockdev:         ok
+add test/tmpfs/dev/sda7:         ok
+add test/tmpfs/dev/sda8:         ok
+add test/tmpfs/dev/sda9:         ok
+remove test/tmpfs/dev/sda:         ok
+remove test/tmpfs/dev/sda1:         ok
+remove test/tmpfs/dev/sda10:         ok
+remove test/tmpfs/dev/sdb:         ok
+remove test/tmpfs/dev/sdb1:         ok
+remove test/tmpfs/dev/sda5:         ok
+remove test/tmpfs/dev/sda6:         ok
+remove  blockdev:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove test/tmpfs/dev/sda8:         ok
+remove test/tmpfs/dev/sda9:         ok
+add test/tmpfs/dev/sda:         ok
+add test/tmpfs/dev/sda1:         ok
+add test/tmpfs/dev/sda10:         ok
+add test/tmpfs/dev/sdb:         ok
+add test/tmpfs/dev/sdb1:         ok
+add test/tmpfs/dev/sda5:         ok
+add test/tmpfs/dev/sda6:         ok
+symlink blockdev:         ok
+add test/tmpfs/dev/sda7:         ok
+add test/tmpfs/dev/sda8:         ok
+add test/tmpfs/dev/sda9:         ok
+remove test/tmpfs/dev/sda:         ok
+remove test/tmpfs/dev/sda1:         ok
+remove test/tmpfs/dev/sda10:         ok
+remove test/tmpfs/dev/sdb:         ok
+remove test/tmpfs/dev/sdb1:         ok
+remove test/tmpfs/dev/sda5:         ok
+remove test/tmpfs/dev/sda6:         ok
+remove  blockdev:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove test/tmpfs/dev/sda8:         ok
+remove test/tmpfs/dev/sda9:         ok
+add test/tmpfs/dev/sda:         ok
+add test/tmpfs/dev/sda1:         ok
+add test/tmpfs/dev/sda10:         ok
+add test/tmpfs/dev/sdb:         ok
+add test/tmpfs/dev/sdb1:         ok
+add test/tmpfs/dev/sda5:         ok
+add test/tmpfs/dev/sda6:         ok
+symlink blockdev:         ok
+add test/tmpfs/dev/sda7:         ok
+add test/tmpfs/dev/sda8:         ok
+add test/tmpfs/dev/sda9:         ok
+remove test/tmpfs/dev/sda:         ok
+remove test/tmpfs/dev/sda1:         ok
+remove test/tmpfs/dev/sda10:         ok
+remove test/tmpfs/dev/sdb:         ok
+remove test/tmpfs/dev/sdb1:         ok
+remove test/tmpfs/dev/sda5:         ok
+remove test/tmpfs/dev/sda6:         ok
+remove  blockdev:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove test/tmpfs/dev/sda8:         ok
+remove test/tmpfs/dev/sda9:         ok
+add test/tmpfs/dev/sda:         ok
+add test/tmpfs/dev/sda1:         ok
+add test/tmpfs/dev/sda10:         ok
+add test/tmpfs/dev/sdb:         ok
+add test/tmpfs/dev/sdb1:         ok
+add test/tmpfs/dev/sda5:         ok
+add test/tmpfs/dev/sda6:         ok
+symlink blockdev:         ok
+add test/tmpfs/dev/sda7:         ok
+add test/tmpfs/dev/sda8:         ok
+add test/tmpfs/dev/sda9:         ok
+remove test/tmpfs/dev/sda:         ok
+remove test/tmpfs/dev/sda1:         ok
+remove test/tmpfs/dev/sda10:         ok
+remove test/tmpfs/dev/sdb:         ok
+remove test/tmpfs/dev/sdb1:         ok
+remove test/tmpfs/dev/sda5:         ok
+remove test/tmpfs/dev/sda6:         ok
+remove  blockdev:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove test/tmpfs/dev/sda8:         ok
+remove test/tmpfs/dev/sda9:         ok
+add test/tmpfs/dev/sda:         ok
+add test/tmpfs/dev/sda1:         ok
+add test/tmpfs/dev/sda10:         ok
+add test/tmpfs/dev/sdb:         ok
+add test/tmpfs/dev/sdb1:         ok
+add test/tmpfs/dev/sda5:         ok
+add test/tmpfs/dev/sda6:         ok
+symlink blockdev:         ok
+add test/tmpfs/dev/sda7:         ok
+add test/tmpfs/dev/sda8:         ok
+add test/tmpfs/dev/sda9:         ok
+remove test/tmpfs/dev/sda:         ok
+remove test/tmpfs/dev/sda1:         ok
+remove test/tmpfs/dev/sda10:         ok
+remove test/tmpfs/dev/sdb:         ok
+remove test/tmpfs/dev/sdb1:         ok
+remove test/tmpfs/dev/sda5:         ok
+remove test/tmpfs/dev/sda6:         ok
+remove  blockdev:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove test/tmpfs/dev/sda8:         ok
+remove test/tmpfs/dev/sda9:         ok
+add test/tmpfs/dev/sda:         ok
+add test/tmpfs/dev/sda1:         ok
+add test/tmpfs/dev/sda10:         ok
+add test/tmpfs/dev/sdb:         ok
+add test/tmpfs/dev/sdb1:         ok
+add test/tmpfs/dev/sda5:         ok
+add test/tmpfs/dev/sda6:         ok
+symlink blockdev:         ok
+add test/tmpfs/dev/sda7:         ok
+add test/tmpfs/dev/sda8:         ok
+add test/tmpfs/dev/sda9:         ok
+remove test/tmpfs/dev/sda:         ok
+remove test/tmpfs/dev/sda1:         ok
+remove test/tmpfs/dev/sda10:         ok
+remove test/tmpfs/dev/sdb:         ok
+remove test/tmpfs/dev/sdb1:         ok
+remove test/tmpfs/dev/sda5:         ok
+remove test/tmpfs/dev/sda6:         ok
+remove  blockdev:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove test/tmpfs/dev/sda8:         ok
+remove test/tmpfs/dev/sda9:         ok
+add test/tmpfs/dev/sda:         ok
+add test/tmpfs/dev/sda1:         ok
+add test/tmpfs/dev/sda10:         ok
+add test/tmpfs/dev/sdb:         ok
+add test/tmpfs/dev/sdb1:         ok
+add test/tmpfs/dev/sda5:         ok
+add test/tmpfs/dev/sda6:         ok
+symlink blockdev:         ok
+add test/tmpfs/dev/sda7:         ok
+add test/tmpfs/dev/sda8:         ok
+add test/tmpfs/dev/sda9:         ok
+remove test/tmpfs/dev/sda:         ok
+remove test/tmpfs/dev/sda1:         ok
+remove test/tmpfs/dev/sda10:         ok
+remove test/tmpfs/dev/sdb:         ok
+remove test/tmpfs/dev/sdb1:         ok
+remove test/tmpfs/dev/sda5:         ok
+remove test/tmpfs/dev/sda6:         ok
+remove  blockdev:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove test/tmpfs/dev/sda8:         ok
+remove test/tmpfs/dev/sda9:         ok
+add test/tmpfs/dev/sda:         ok
+add test/tmpfs/dev/sda1:         ok
+add test/tmpfs/dev/sda10:         ok
+add test/tmpfs/dev/sdb:         ok
+add test/tmpfs/dev/sdb1:         ok
+add test/tmpfs/dev/sda5:         ok
+add test/tmpfs/dev/sda6:         ok
+symlink blockdev:         ok
+add test/tmpfs/dev/sda7:         ok
+add test/tmpfs/dev/sda8:         ok
+add test/tmpfs/dev/sda9:         ok
+remove test/tmpfs/dev/sda:         ok
+remove test/tmpfs/dev/sda1:         ok
+remove test/tmpfs/dev/sda10:         ok
+remove test/tmpfs/dev/sdb:         ok
+remove test/tmpfs/dev/sdb1:         ok
+remove test/tmpfs/dev/sda5:         ok
+remove test/tmpfs/dev/sda6:         ok
+remove  blockdev:      ok
+remove test/tmpfs/dev/sda7:         ok
+remove test/tmpfs/dev/sda8:         ok
+remove test/tmpfs/dev/sda9:         ok
+TEST 162: errors: 0 good: 420/420
+
+0 errors occurred. 6703/6703 good results.
+

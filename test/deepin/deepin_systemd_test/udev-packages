@@ -1,0 +1,12 @@
+binutils	2.38-3
+binutils-common	2.38-3
+binutils-riscv64-linux-gnu	2.38-3
+dpkg-dev	1.21.1ubuntu2
+libbinutils	2.38-3
+libctf-nobfd0	2.38-3
+libctf0	2.38-3
+libnss-systemd	250.4-1
+lto-disabled-list	34
+make	4.3-4.1
+systemd-tests	250.4-1
+tree	1.8.0-1

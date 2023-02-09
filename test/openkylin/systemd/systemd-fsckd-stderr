@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/tmp/autopkgtest.2yqMLO/build.UaU/src/debian/tests/systemd-fsckd", line 293, in <module>
+    boot_with_systemd_distro()
+  File "/tmp/autopkgtest.2yqMLO/build.UaU/src/debian/tests/systemd-fsckd", line 265, in boot_with_systemd_distro
+    enable_plymouth()
+  File "/tmp/autopkgtest.2yqMLO/build.UaU/src/debian/tests/systemd-fsckd", line 260, in enable_plymouth
+    enable_plymouth_grub(enable)
+  File "/tmp/autopkgtest.2yqMLO/build.UaU/src/debian/tests/systemd-fsckd", line 229, in enable_plymouth_grub
+    plymouth_enabled = 'splash' in open('/boot/grub/grub.cfg').read()
+FileNotFoundError: [Errno 2] No such file or directory: '/boot/grub/grub.cfg'
