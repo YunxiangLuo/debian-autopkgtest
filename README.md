@@ -15,7 +15,7 @@
 
 而testbed由于实现方式不同，都有相应的构建方式，以下列出并分析常用的testbed实现方法：
 ### null
-    autopkgtest实际上支持直接在本地文件系统内无隔离的进行测试，虽然官方并不推荐，因为测试时可能损坏本地文件，但这种方式无需testbed的创建，只需直接运行即可，如：
+autopkgtest实际上支持直接在本地文件系统内无隔离的进行测试，虽然官方并不推荐，因为测试时可能损坏本地文件，但这种方式无需testbed的创建，只需直接运行即可，如：
 ```
 sudo autopkgtest --apt-upgrade tkcalendar_1.6.1-1.dsc -- null
 ```
