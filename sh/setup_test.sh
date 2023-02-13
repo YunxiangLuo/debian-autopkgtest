@@ -24,7 +24,7 @@ EOF
 
     chmod 755 "/etc/init.d/autopkgtest"
     update-rc.d autopkgtest defaults
-    cat <<EOF > "$root/etc/systemd/system/autopkgtest@.service"
+    cat <<EOF > "/etc/systemd/system/autopkgtest@.service"
 [Unit]
 Description=autopkgtest root shell on %I
 ConditionPathExists=/dev/%I
@@ -56,17 +56,23 @@ if [ -e "/etc/init/tty2.conf" ] && ! [ -e "/etc/init/ttyS0.conf" ]; then
         "/etc/init/tty2.conf" > "/etc/init/ttyS0.conf"
 fi
 
+grep -v '^\s*$' /etc/apt/sources.list > temp
 while read line
 do 
-    echo "$line" >> /etc/apt/source.list
-    echo "deb-src${line:3}" >> /etc/apt/source.list
-done < /etc/apt/sources.list
+    if [[ ${line:0:1} != "#" ]]; then
+        echo "$line" >> /etc/apt/source.list
+        echo "deb-src${line:3}" >> /etc/apt/source.list
+    fi
+done < temp
+rm -rf temp
 mv /etc/apt/source.list /etc/apt/sources.list
 
-echo "Acquire::Languages \"none\";" > "$root"/etc/apt/apt.conf.d/90nolanguages
-echo 'force-unsafe-io' > "$root"/etc/dpkg/dpkg.cfg.d/autopkgtest
+echo "Acquire::Languages \"none\";" > /etc/apt/apt.conf.d/90nolanguages
+echo 'force-unsafe-io' > /etc/dpkg/dpkg.cfg.d/autopkgtest
 
-echo 'Acquire::Retries "10";' > "$root"/etc/apt/apt.conf.d/90retry
+echo 'Acquire::Retries "10";' > /etc/apt/apt.conf.d/90retry
+
+apt-get update && apt-get upgrade
 
 if [ ! -e "/usr/bin/gpg" ]; then
     # first try gpg (newer package for just /usr/bin/gpg)
@@ -93,7 +99,7 @@ fi
 apt-get clean
 
 # avoid cron interference with apt-get update
-echo 'APT::Periodic::Enable "0";' > "$root/etc/apt/apt.conf.d/02periodic"
+echo 'APT::Periodic::Enable "0";' > /etc/apt/apt.conf.d/02periodic"
 
 # always include phased updates, so that the output is what we expect.
-echo 'APT::Get::Always-Include-Phased-Updates "true";' > "$root/etc/apt/apt.conf.d/90always-include-phased-updates"
+echo 'APT::Get::Always-Include-Phased-Updates "true";' > "/etc/apt/apt.conf.d/90always-include-phased-updates"
